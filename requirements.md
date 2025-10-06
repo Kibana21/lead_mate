@@ -857,6 +857,174 @@ This feedback loop fosters **transparency, trust, and continuous improvement**, 
 | Improvement in lead source quality score (6 months) | **+40%**      |
 | Agent satisfaction with lead quality                | **45% → 75%** |
 
+---
+Absolutely — here’s your new requirement beautifully formatted in **Markdown**, perfectly aligned with your existing PRD style 👇
+
+---
+
+## 📰 Feature 12: Market Intelligence & News Awareness Hub
+
+### 📝 **Description**
+
+A **trusted market intelligence layer** that continuously curates and analyzes **latest insurance news** from verified sources.
+It empowers agents to stay *market-aware* and enables **AI-driven call scripts and dossiers** to reference up-to-date, relevant developments — enhancing credibility and contextual engagement during customer interactions.
+
+The feature ensures every agent knows *what’s happening in the market today* and *how it impacts their sales conversations.*
+
+---
+
+### 🧩 **Key Capabilities**
+
+#### 🗞️ **Curated News Feed**
+
+* Aggregates news from **trusted sources**: MAS, Life Insurance Association (LIA), AIA HQ, CNA, Business Times, Straits Times, Reuters, Bloomberg, etc.
+* Applies **topic clustering** (via NLP) into key themes:
+
+  * Health & Protection
+  * Retirement & Savings
+  * ESG & Sustainability
+  * Regulatory & Compliance
+  * Competitor Intelligence
+* Highlights key competitor product launches, campaigns, and claim trends.
+* Displays headlines, short summaries, and source credibility badges.
+
+---
+
+#### 🧠 **AI-Generated Impact Insights**
+
+* Each article includes a **“What This Means for Agents”** section — concise guidance on how the news affects conversations.
+* Automatically tags content to **product categories, customer personas, and sales angles**.
+* Scores every news item for **relevance** to the agent’s product focus, region, and recent leads.
+* Example:
+
+  > “Recent CPF Life payout adjustments highlight rising interest in retirement income protection — ideal moment to position Smart Wealth Builder II.”
+
+---
+
+#### 🪄 **Integration with Call Scripts & Dossiers**
+
+* **Megatron-powered dossiers** embed recent market insights tied to each product.
+* AI **call scripts and real-time coaching** modules use news context dynamically:
+
+  * “Given NTUC’s new plan launch, emphasize AIA’s faster claims turnaround.”
+* Supports **temporal relevance** — only shows insights from the last 14 days.
+* Creates a **market-ready conversation layer** that evolves daily.
+
+---
+
+#### 📊 **Analytics & Alerts**
+
+* **Manager Dashboard:** Tracks which market themes correlate with higher conversions.
+* **Agent Performance Insights:**
+
+  > “You referenced market news in 8 calls this week — +12% conversion uplift.”
+* **Smart Notifications:** Push alerts for breaking regulatory updates or competitor launches.
+* **Theme Trends:** Visualize what topics are most discussed across the sales network.
+
+---
+
+#### 🕵️ **Compliance & Verification**
+
+* Only **whitelisted domains** and official APIs allowed.
+* Every item includes **source, publication time, and citation link**.
+* No AI-generated news — summaries only, always traceable.
+* Compliance filter flags promotional or unverified content automatically.
+
+---
+
+### 👥 **User Stories**
+
+| Role                   | User Story                                                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **Agent**              | As an agent, I want to see current insurance market news with clear summaries explaining how each affects my sales pitch. |
+| **Agent**              | As an agent, I want my call scripts and dossiers to reflect the latest market context.                                    |
+| **Manager**            | As a manager, I want insights into which news topics correlate with improved conversions.                                 |
+| **Compliance Officer** | As a compliance officer, I want assurance that all surfaced content is from verified, auditable sources.                  |
+
+---
+
+### 📈 **Success Criteria**
+
+| Metric                                  | Target                         |
+| --------------------------------------- | ------------------------------ |
+| Agent engagement with News Hub          | ≥ 70% daily active users       |
+| Conversion uplift on market-aware calls | +10–15%                        |
+| Accuracy of AI impact summaries         | ≥ 90% relevance (manual audit) |
+| Time-to-surface for breaking news       | < 30 minutes                   |
+| Share of verified sources               | 100% compliance                |
+
+---
+
+### 🧠 **Technical Overview**
+
+| Component                     | Description                                                                       |
+| ----------------------------- | --------------------------------------------------------------------------------- |
+| **News Collector**            | Aggregates feeds via APIs (NewsData.io, GDELT, MAS RSS, etc.) every 10 minutes.   |
+| **Topic Classifier**          | NLP/LLM service clusters news by insurance domain and product relevance.          |
+| **Impact Summarizer**         | LLM prompt chain generates “Agent Impact” paragraph and tags key entities.        |
+| **Vector Store (News Index)** | Stores embeddings for semantic retrieval by dossier and coaching modules.         |
+| **Megatron Integration**      | `/news/query` endpoint used by AI modules to fetch contextually relevant stories. |
+| **Frontend Widget**           | Displays news carousel in agent mobile app and dashboard feed in manager portal.  |
+
+---
+
+### 📱 **UI Concept**
+
+```
+┌──────────────────────────────────────────────┐
+│ 📰  Market Intelligence Hub                  │
+│──────────────────────────────────────────────│
+│ 🔥 Trending Theme: "Healthcare Reform 2025"  │
+│ MAS circular on outpatient coverage reforms. │
+│ 💡 Impact: Highlight AIA HealthShield as      │
+│ comprehensive beyond CPF-approved limits.    │
+│ [READ ARTICLE]  [USE IN SCRIPT]              │
+│──────────────────────────────────────────────│
+│ 🧩 Competitor Watch: NTUC launches “Life360” │
+│ 💡 Impact: Emphasize faster claims processing │
+│ and flexible riders in AIA Smart Protect.    │
+│ [READ]  [COMPARE IN DOSSIER]                 │
+└──────────────────────────────────────────────┘
+```
+
+---
+
+### ⚙️ **Integration Points**
+
+| Module                 | Integration Type                                                                  | Description |
+| ---------------------- | --------------------------------------------------------------------------------- | ----------- |
+| **Megatron Dossiers**  | Pulls top 3 relevant news snippets into dossier appendix.                         |             |
+| **AI Coaching Engine** | Suggests talking points referencing market headlines during calls.                |             |
+| **Gamification Layer** | Awards “Market Pro” badge for agents referencing verified news in ≥5 calls/month. |             |
+| **Manager Dashboard**  | Correlates news engagement with conversion outcomes.                              |             |
+
+---
+
+### 🗺️ **Future Enhancements**
+
+* Voice summaries: “Morning Market Minute” daily briefing.
+* Regional trend filters (e.g., “East Region Top Stories”).
+* Sentiment-scored market confidence index.
+* Integration with internal bulletins and AIA product launch updates.
+* Personalized “For You” feed powered by agent performance data.
+
+---
+
+### 📊 **Dependencies**
+
+* Approved external news APIs or internal MAS/LIA feeds.
+* LLM summarization service (GPT-4 / Gemini / Claude).
+* Shared **Vector Store** (same as Megatron) for unified retrieval.
+* Compliance rules database (source whitelisting, audit trails).
+* Notification and analytics modules (existing platform services).
+
+---
+
+### ✅ **Success Outcome**
+
+> Every AIA agent becomes a **market-aware advisor**, capable of referencing *real-time, verified insights* — building client trust, credibility, and closing rates.
+> Megatron and the coaching system use the same data foundation, making AI guidance **timely, trustworthy, and grounded in reality.**
+
 
 
 ---
