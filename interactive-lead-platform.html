@@ -1281,7 +1281,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-top: 8px;
+            margin-top: 10px;
         }
 
         .suggestion-chip {
@@ -1408,7 +1408,51 @@
             </div>
         </div>
     </div>
-    
+
+    <!-- Peek Confirmation Modal -->
+    <div class="megatron-chat-overlay" id="peek-confirm-overlay">
+        <div class="megatron-chat-container" style="max-width: 340px;">
+            <div style="padding: 24px;">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <div style="font-size: 48px; margin-bottom: 12px;">👁️</div>
+                    <div style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Peek at Lead?</div>
+                    <div style="font-size: 13px; color: #666;">View full dossier before deciding</div>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 16px; border-radius: 12px; margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #666;">Peek Cost:</span>
+                        <span style="font-weight: 700; font-size: 16px;" id="peek-cost">50 points</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #666;">Your Balance:</span>
+                        <span style="font-weight: 700;" id="peek-balance">1,240 points</span>
+                    </div>
+                    <div style="border-top: 1px solid #dee2e6; padding-top: 10px; margin-top: 10px;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #666;">After Peek:</span>
+                            <span style="font-weight: 700; color: #28a745;" id="peek-after">1,190 points</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: #fff3cd; padding: 12px; border-radius: 8px; margin-bottom: 20px; border-left: 3px solid #ffc107;">
+                    <div style="font-size: 12px; color: #856404; line-height: 1.5;">
+                        <strong>💡 Peek Benefits:</strong><br>
+                        • 60-second full dossier preview<br>
+                        • AI insights & conversation starters<br>
+                        • 50% refund if grabbed & converted
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 8px;">
+                    <button onclick="cancelPeek()" style="flex: 1; padding: 14px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; font-weight: 600; cursor: pointer;">Cancel</button>
+                    <button onclick="confirmPeek()" style="flex: 1; padding: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">👁️ Peek Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="phone-frame">
         <div class="status-bar">
             <span>9:41</span>
@@ -1489,7 +1533,130 @@
                 </div>
             </div>
         </div>
-        
+
+        <!-- PEEK PREVIEW SCREEN -->
+        <div class="screen" id="peek-preview-screen">
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; color: white;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <div style="font-size: 16px; font-weight: 700;">👁️ Lead Peek Preview</div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 8px 14px; border-radius: 20px; font-weight: 700; font-size: 14px;">
+                        ⏱️ <span id="peek-countdown">60</span>s
+                    </div>
+                </div>
+                <div style="font-size: 12px; opacity: 0.9;">Make your decision before time runs out!</div>
+            </div>
+
+            <div style="padding: 15px; overflow-y: auto; height: calc(100% - 220px); background: #f8f9fa;">
+                <!-- Lead Header -->
+                <div style="background: white; padding: 16px; border-radius: 12px; margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                        <div>
+                            <div style="font-size: 20px; font-weight: 700; margin-bottom: 4px;" id="peek-lead-name">Chen Wei</div>
+                            <div style="font-size: 13px; color: #666;">38 years • Investment Banking</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600;">
+                            💎 DIAMOND
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 8px; margin-top: 12px;">
+                        <div style="flex: 1; background: #f8f9fa; padding: 10px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 11px; color: #666;">Propensity</div>
+                            <div style="font-size: 18px; font-weight: 700; color: #28a745;">94%</div>
+                        </div>
+                        <div style="flex: 1; background: #f8f9fa; padding: 10px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 11px; color: #666;">Income</div>
+                            <div style="font-size: 16px; font-weight: 700;">$15K/mo</div>
+                        </div>
+                        <div style="flex: 1; background: #f8f9fa; padding: 10px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 11px; color: #666;">Distance</div>
+                            <div style="font-size: 16px; font-weight: 700;">2.1km</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Insights -->
+                <div style="background: #fff3cd; padding: 14px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid #ffc107;">
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #856404;">🤖 AI Strategic Insights</div>
+                    <div style="font-size: 12px; color: #856404; line-height: 1.6;">
+                        <strong>High conversion probability.</strong> Investment banker profile shows strong financial literacy. Prime candidate for ILP with tax optimization angle. Low objection risk due to income level and career stage.
+                    </div>
+                </div>
+
+                <!-- Conversation Starters -->
+                <div style="background: white; padding: 14px; border-radius: 12px; margin-bottom: 15px;">
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">💬 Suggested Openers</div>
+                    <div style="background: #e7f5ff; padding: 10px; border-radius: 8px; margin-bottom: 8px; font-size: 12px; line-height: 1.5;">
+                        "Hi Chen Wei! With your banking background, you'll appreciate our WealthBuilder ILP's tax-deferred growth + life coverage combo..."
+                    </div>
+                    <div style="background: #e7f5ff; padding: 10px; border-radius: 8px; font-size: 12px; line-height: 1.5;">
+                        "Investment + protection in one vehicle? Let me show you how $1,200/mo becomes $933 after tax relief..."
+                    </div>
+                </div>
+
+                <!-- Predicted Objections -->
+                <div style="background: white; padding: 14px; border-radius: 12px; margin-bottom: 15px;">
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">⚠️ Predicted Objections</div>
+                    <div style="font-size: 12px; margin-bottom: 8px;">
+                        <div style="font-weight: 600; color: #dc3545; margin-bottom: 4px;">1. "I can invest myself"</div>
+                        <div style="color: #666; padding-left: 12px;">→ Highlight tax efficiency + forced discipline + life coverage combo</div>
+                    </div>
+                    <div style="font-size: 12px;">
+                        <div style="font-weight: 600; color: #dc3545; margin-bottom: 4px;">2. "Let me think about it"</div>
+                        <div style="color: #666; padding-left: 12px;">→ Age factor: premiums increase 3-5% yearly. Lock rate now.</div>
+                    </div>
+                </div>
+
+                <!-- Time to Close -->
+                <div style="background: white; padding: 14px; border-radius: 12px; margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-size: 11px; color: #666; margin-bottom: 4px;">Est. Time to Close</div>
+                            <div style="font-size: 20px; font-weight: 700; color: #28a745;">7-10 days</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 11px; color: #666; margin-bottom: 4px;">Similar Leads</div>
+                            <div style="font-size: 16px; font-weight: 700;">85% closed</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Affinity -->
+                <div style="background: white; padding: 14px; border-radius: 12px;">
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">📊 Product Affinity</div>
+                    <div style="margin-bottom: 8px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span>WealthBuilder Plus ILP</span>
+                            <span style="font-weight: 600; color: #28a745;">92%</span>
+                        </div>
+                        <div style="background: #e9ecef; height: 8px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: linear-gradient(90deg, #28a745, #20c997); height: 100%; width: 92%;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 8px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span>Critical Illness</span>
+                            <span style="font-weight: 600;">78%</span>
+                        </div>
+                        <div style="background: #e9ecef; height: 8px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; width: 78%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision Buttons -->
+            <div style="position: absolute; bottom: 80px; left: 0; right: 0; background: white; padding: 15px; border-top: 2px solid #e9ecef; z-index: 100;">
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="passAfterPeek()" style="flex: 1; padding: 16px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 12px; font-weight: 600; font-size: 15px; cursor: pointer;">
+                        ← Pass
+                    </button>
+                    <button onclick="grabAfterPeek()" style="flex: 2; padding: 16px; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; box-shadow: 0 4px 12px rgba(40,167,69,0.3);">
+                        ⚡ GRAB LEAD!
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- DOSSIER SCREEN - CHEN WEI -->
         <div class="screen" id="dossier-chen-wei">
             <div class="dossier-header">
@@ -1727,13 +1894,13 @@
                         Get instant answers about products, pricing, or sales strategies for this lead.
                     </div>
                     <div style="display: flex; gap: 8px;">
-                        <input type="text" placeholder="e.g., Compare with WealthMax ILP..." style="flex: 1; padding: 10px; border: 1px solid #dee2e6; border-radius: 8px; font-size: 13px;">
-                        <button onclick="askMegatron()" style="padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Ask</button>
+                        <input type="text" id="megatron-chen" placeholder="e.g., Compare with WealthMax ILP..." style="flex: 1; padding: 10px; border: 1px solid #dee2e6; border-radius: 8px; font-size: 13px;" onkeypress="if(event.key==='Enter') askMegatronChen()">
+                        <button onclick="askMegatronChen()" style="padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Ask</button>
                     </div>
                     <div style="margin-top: 10px; display: flex; flex-wrap: gap: 6px;">
-                        <button onclick="quickAsk('compare')" style="padding: 6px 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Compare alternatives</button>
-                        <button onclick="quickAsk('riders')" style="padding: 6px 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Other rider options</button>
-                        <button onclick="quickAsk('objections')" style="padding: 6px 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Handle "too expensive"</button>
+                        <button onclick="quickAskChen('compare')" style="padding: 6px 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Compare alternatives</button>
+                        <button onclick="quickAskChen('riders')" style="padding: 6px 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Other rider options</button>
+                        <button onclick="quickAskChen('objections')" style="padding: 6px 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Handle "too expensive"</button>
                     </div>
                 </div>
             </div>
@@ -2004,7 +2171,7 @@
                 <div style="margin: 20px 0; padding: 16px; background: white; border: 2px solid #667eea; border-radius: 12px;">
                     <div style="font-weight: 600; margin-bottom: 10px; font-size: 15px; color: #667eea;">💬 Ask Megatron Anything</div>
                     <div style="display: flex; gap: 8px; margin-bottom: 10px;">
-                        <input type="text" id="megatron-sarah" placeholder="e.g., What if they can only afford $400/mo?" style="flex: 1; padding: 10px; border: 1px solid #dee2e6; border-radius: 8px; font-size: 13px;">
+                        <input type="text" id="megatron-sarah" placeholder="e.g., What if they can only afford $400/mo?" style="flex: 1; padding: 10px; border: 1px solid #dee2e6; border-radius: 8px; font-size: 13px;" onkeypress="if(event.key==='Enter') askMegatronSarah()">
                         <button onclick="askMegatronSarah()" style="padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Ask</button>
                     </div>
                     <div style="display: flex; flex-wrap: gap: 6px;">
@@ -2586,6 +2753,7 @@
                     <button onclick="sendChatMessage()" style="padding: 12px 20px; background: #17a2b8; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Send</button>
                 </div>
                 <div style="display: flex; gap: 6px;">
+                    <button onclick="askMegatronFromChat()" style="padding: 6px 10px; background: #667eea; color: white; border: none; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">🤖 Ask Megatron</button>
                     <button onclick="useChatTemplate('intro')" style="padding: 6px 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Quick intro</button>
                     <button onclick="useChatTemplate('quote')" style="padding: 6px 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Send quote</button>
                     <button onclick="convertToLead()" style="padding: 6px 10px; background: #28a745; color: white; border: none; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">Convert to Lead</button>
@@ -4346,6 +4514,9 @@
         function closeMegatronChat() {
             const overlay = document.getElementById('megatron-chat-overlay');
             overlay.classList.remove('active');
+
+            // Reset live chat mode flag
+            window.megatronLiveChatMode = false;
         }
 
         function addMegatronMessage(text, showSuggestions = false) {
@@ -4435,8 +4606,11 @@
             // Add user message
             addUserMessage(question);
 
-            // Clear input
-            document.getElementById('megatron-input').value = '';
+            // Clear input if it exists
+            const input = document.getElementById('megatron-input');
+            if (input) {
+                input.value = '';
+            }
 
             // Show typing indicator
             showTypingIndicator();
@@ -4484,7 +4658,36 @@
                 }
             };
 
-            const context = leadContext[currentLead] || leadContext['chen'];
+            // Handle when currentLead is not defined (live chat mode)
+            const context = (typeof currentLead !== 'undefined' && leadContext[currentLead]) ? leadContext[currentLead] : leadContext['chen'];
+
+            // Live chat specific responses
+            if (window.megatronLiveChatMode) {
+                // What to say next
+                if (lowerQuestion.includes('what') && (lowerQuestion.includes('say') || lowerQuestion.includes('next') || lowerQuestion.includes('respond'))) {
+                    return `Based on Melissa asking about family coverage for 4 people, here's what to say next:<br><br><strong>Suggested response:</strong><br>"Perfect! For a family of 4 (you 34, husband 36, kids 7 and 4), the <strong>HealthShield Gold Plus Family Plan</strong> is ideal at <strong>$450/month</strong>. This gives:<br><br>✓ Unlimited coverage at ANY private hospital<br>✓ A1 ward for parents, pediatric ward for kids<br>✓ ZERO co-payment or deductibles<br>✓ Pre/post hospitalization coverage<br>✓ Maternity rider available ($60/mo extra)<br><br>Would you like me to email you a detailed quote with coverage breakdown?"`;
+                }
+
+                // Calculate quote
+                if (lowerQuestion.includes('calculate') || lowerQuestion.includes('quote') || lowerQuestion.includes('pricing')) {
+                    return `<strong>Quick Quote for Melissa Wong:</strong><br><br><strong>HealthShield Gold Plus Family Plan</strong><br>• Adults (34F, 36M): $280/mo<br>• Children (7, 4): $170/mo<br>• <strong>Total: $450/month</strong><br><br><strong>Optional Add-ons:</strong><br>• Maternity Coverage: +$60/mo<br>• Dental & Optical: +$40/mo<br>• Critical Illness for Kids: +$35/mo<br><br><strong>Premium Package: $585/mo</strong><br>(Includes all add-ons)<br><br>Annual: $5,400 base / $7,020 premium`;
+                }
+
+                // Handle price objection
+                if (lowerQuestion.includes('handle') && lowerQuestion.includes('price')) {
+                    return `<strong>Handling "$450/mo is expensive" objection:</strong><br><br><strong>1. Break it down:</strong><br>"That's just $112.50 per family member. Think about it - unlimited private hospital coverage for less than what many families spend on dining out."<br><br><strong>2. Risk comparison:</strong><br>"One hospitalization for your child could cost $30,000-$50,000. This plan pays for itself with just ONE serious illness."<br><br><strong>3. Offer flexibility:</strong><br>"If budget is tight, we have a B2 ward plan at $300/mo. But honestly, with 2 young kids, the A1/pediatric coverage gives you peace of mind worth the extra $150."<br><br><strong>4. Future-proof:</strong><br>"At 34, you lock in this rate now. Wait 5 years and the same coverage could be $600+/mo."`;
+                }
+
+                // Best product recommendation
+                if (lowerQuestion.includes('product') || lowerQuestion.includes('recommend') || lowerQuestion.includes('best')) {
+                    return `<strong>Best Product for Melissa:</strong><br><br><strong>HealthShield Gold Plus Family Plan</strong> ($450/mo)<br><br><strong>Why this fits:</strong><br>• She has 2 young kids (7, 4) - pediatric coverage crucial<br>• Age 34 - still eligible for maternity rider<br>• Family of 4 - family plan saves $150+/mo vs individual plans<br>• Mentioned needing "coverage" not "cheapest" - quality matters<br><br><strong>Upsell opportunity:</strong><br>Add Critical Illness for Kids rider ($35/mo). Kids' cancer treatment can cost $200K+.`;
+                }
+
+                // Closing the chat
+                if (lowerQuestion.includes('close') || lowerQuestion.includes('convert')) {
+                    return `<strong>How to close this chat:</strong><br><br>1. <strong>Soft close:</strong> "I can email you a detailed proposal. What's the best email to send it to?"<br><br>2. <strong>Next step:</strong> "Would you like to schedule a quick 15-min call to go through the coverage details together?"<br><br>3. <strong>Convert to lead:</strong> Click the green "Convert to Lead" button and create a formal lead in the system with her details.<br><br>4. <strong>Create urgency:</strong> "I'm seeing high volume this week. I can hold this rate for you until Friday if you'd like to move forward."`;
+                }
+            }
 
             // Product comparison
             if (lowerQuestion.includes('compare') && lowerQuestion.includes('ilp')) {
@@ -4552,27 +4755,284 @@
                 return `Closing techniques:<br><br>1. <strong>Assumption close:</strong> "Let me get the paperwork started. Should we set premium payment on the 1st or 15th of the month?"<br><br>2. <strong>Limited choice:</strong> "Would you prefer 15-year or 20-year premium payment term?"<br><br>3. <strong>Urgency:</strong> "This propensity score (94%) means high likelihood. Other agents are seeing this lead too. Should we lock this in today?"`;
             }
 
+            // Budget reduction
+            if (lowerQuestion.includes('budget') || lowerQuestion.includes('reduce') || lowerQuestion.includes('afford')) {
+                if (currentLead.includes('sarah')) {
+                    return `Options to fit Sarah's budget:<br><br>1. <strong>B2 Ward Coverage</strong> ($300/mo) - Saves $150/mo but limits to B2/C ward hospitals<br>2. <strong>Higher Deductible</strong> ($380/mo) - $20K deductible instead of $0, saves $70/mo<br>3. <strong>Co-payment Option</strong> ($350/mo) - 10% co-pay up to $3K/year, saves $100/mo<br><br><strong>Recommendation:</strong> Keep current plan. One hospitalization costs $30K-$50K. The $450/mo is actually protecting her from financial ruin. Perhaps reduce elsewhere (dining out, subscriptions)?`;
+                } else {
+                    return `Ways to reduce Chen's premium:<br><br>1. <strong>Lower sum assured</strong> to $300K (save ~$150/mo) - But he can afford current plan<br>2. <strong>Fewer fund choices</strong> with WealthMax (save $50/mo) - But higher fees long-term<br>3. <strong>Pure term life</strong> ($80/mo) - Cheapest but no investment component<br><br><strong>Don't recommend reducing.</strong> At his income level ($15K/mo), $1,200/mo is only 8%. This is PERFECT allocation for wealth building + protection.`;
+                }
+            }
+
+            // Involving spouse/husband
+            if (lowerQuestion.includes('husband') || lowerQuestion.includes('spouse') || lowerQuestion.includes('involve')) {
+                return `Involving Sarah's husband strategy:<br><br>1. <strong>Schedule joint call:</strong> "I'd love to walk through this with both of you. When's good for a quick 15-min call together?"<br><br>2. <strong>Use their story:</strong> "Many couples discuss big financial decisions together. That's smart. Can we schedule a time when you're both available?"<br><br>3. <strong>Provide takeaway materials:</strong> "I'll send you a simple one-pager showing the coverage and costs. Share it with your husband and let me know what questions come up."<br><br>4. <strong>Reframe as family protection:</strong> "This is really about protecting your kids. I'm sure he'd want to be part of that conversation."`;
+            }
+
+            // Riders and additional coverage
+            if (lowerQuestion.includes('rider') || lowerQuestion.includes('additional')) {
+                if (currentLead.includes('chen')) {
+                    return `Additional riders for Chen Wei:<br><br>1. <strong>Critical Illness Multiplier</strong> ($80/mo) - Extra payout for cancer, heart attack, stroke<br>2. <strong>Total Permanent Disability</strong> ($45/mo) - Premium waiver if disabled<br>3. <strong>Hospital Income</strong> ($30/mo) - Daily cash while hospitalized<br>4. <strong>Accidental Death Benefit</strong> ($25/mo) - Double payout if accidental death<br><br><strong>Recommendation:</strong> Add CI Multiplier and TPD. Total package becomes $1,325/mo but gives comprehensive protection.`;
+                } else {
+                    return `Riders to enhance Sarah's plan:<br><br>1. <strong>Maternity Coverage</strong> ($60/mo) - If planning more kids<br>2. <strong>Dental & Optical</strong> ($40/mo) - Kids need frequent dental/eye care<br>3. <strong>Critical Illness for Kids</strong> ($35/mo) - Lump sum if child diagnosed with CI<br>4. <strong>Outpatient Coverage</strong> ($55/mo) - GP visits, specialist consults<br><br>With 2 young kids, Dental & CI riders are valuable. Total becomes $545/mo.`;
+                }
+            }
+
             // Default helpful response
-            return `I can help with:<br><br>• Product comparisons and alternatives<br>• Objection handling scripts<br>• Opening lines and pitch strategies<br>• Pricing justification<br>• Best timing to close<br>• Commission structure<br>• Competitor analysis<br><br>What specific aspect would you like to explore for ${context.name}?`;
+            const helpContext = window.megatronLiveChatMode ? 'this conversation' : context.name;
+            return `I can help with:<br><br>• Product comparisons and alternatives<br>• Objection handling scripts<br>• Opening lines and pitch strategies<br>• Pricing justification<br>• Best timing to close<br>• Commission structure<br>• Competitor analysis<br>• Budget reduction strategies<br>• Involving spouse in decision<br>• Additional riders and coverage<br><br>What specific aspect would you like to explore for ${helpContext}?`;
         }
         
-        function quickAsk(type) {
-            const responses = {
-                'compare': '🤖 Megatron: "Top alternatives: WealthMax ILP ($1,150/mo, 80 funds), FutureSecure ILP ($1,280/mo, 120 funds). WealthBuilder Plus remains optimal for cost-to-feature ratio."',
-                'riders': '🤖 Megatron: "Additional riders to consider: Hospital Income ($30/mo), Multiplier CI for specific illnesses ($55/mo), Payor Benefit if planning kids soon ($40/mo)."',
-                'objections': '🤖 Megatron: "Reframe cost: \'After $7K tax relief, it\'s $933/mo—just 6.2% of income. Singapore CPF is 20%, employer retirement plans 5-10%. This 6% secures protection AND grows wealth.\'"'
+        function askMegatronChen() {
+            const input = document.getElementById('megatron-chen');
+            const question = input.value.trim();
+
+            // Set current lead to Chen
+            currentLead = 'chen';
+
+            // Open chat
+            openMegatronChat();
+
+            // If there's a question, ask it
+            if (question) {
+                setTimeout(() => {
+                    askMegatronQuestion(question);
+                }, 500);
+            }
+        }
+
+        function askMegatronSarah() {
+            const input = document.getElementById('megatron-sarah');
+            const question = input.value.trim();
+
+            // Set current lead to Sarah
+            currentLead = 'sarah';
+
+            // Open chat
+            openMegatronChat();
+
+            // If there's a question, ask it
+            if (question) {
+                setTimeout(() => {
+                    askMegatronQuestion(question);
+                }, 500);
+            }
+        }
+
+        function quickAskChen(type) {
+            currentLead = 'chen';
+            const questions = {
+                'compare': 'Compare ILP products',
+                'riders': 'What additional riders should I recommend?',
+                'objections': 'How to handle "too expensive" objection'
             };
-            showToast(responses[type]);
+            openMegatronChat();
+            setTimeout(() => {
+                askMegatronQuestion(questions[type]);
+            }, 500);
         }
-        
+
+        function quickAskSarah(type) {
+            currentLead = 'sarah';
+            const questions = {
+                'budget': 'How to reduce cost to fit their budget?',
+                'husband': 'How to involve husband in decision?',
+                'timeline': 'Best time to close this deal'
+            };
+            openMegatronChat();
+            setTimeout(() => {
+                askMegatronQuestion(questions[type]);
+            }, 500);
+        }
+
+        function askMegatronFromChat() {
+            // Get customer name from the chat header
+            const customerName = document.getElementById('chat-customer-name')?.textContent || 'Melissa Wong';
+
+            // Set a flag that we're in live chat mode
+            window.megatronLiveChatMode = true;
+
+            // Open Megatron chat with live chat context
+            const overlay = document.getElementById('megatron-chat-overlay');
+            const chatBody = document.getElementById('megatron-chat-body');
+
+            // Clear previous messages
+            chatBody.innerHTML = '';
+
+            // Add welcome message with live chat context
+            const contextMessage = `Hi! I can see you're chatting with ${customerName.replace('Chat with ', '')}. I have the conversation context and can help you with:<br><br>
+• How to respond to their questions<br>
+• Product recommendations for their situation<br>
+• Pricing and quote calculations<br>
+• Objection handling scripts<br>
+• Next best actions<br><br>
+What do you need help with?`;
+
+            addMegatronMessage(contextMessage, false);
+
+            // Add custom suggestion chips for live chat
+            const chatBody2 = document.getElementById('megatron-chat-body');
+            const lastMessage = chatBody2.lastElementChild;
+
+            const suggestionsHtml = `
+                <div class="megatron-suggestions">
+                    <div class="suggestion-chip" onclick="askMegatronQuestion('What should I say next?')">What should I say next?</div>
+                    <div class="suggestion-chip" onclick="askMegatronQuestion('Calculate quote for family of 4')">Calculate quote</div>
+                    <div class="suggestion-chip" onclick="askMegatronQuestion('Handle price objection')">Handle price objection</div>
+                    <div class="suggestion-chip" onclick="askMegatronQuestion('Best product to recommend')">Best product</div>
+                </div>
+            `;
+
+            if (lastMessage) {
+                // Select the second div (the wrapper div, not the avatar)
+                const wrapperDiv = lastMessage.querySelectorAll('div')[1];
+                if (wrapperDiv) {
+                    wrapperDiv.insertAdjacentHTML('beforeend', suggestionsHtml);
+                }
+            }
+
+            // Show overlay
+            overlay.classList.add('active');
+        }
+
         function showToast(message) {
             const toast = document.getElementById('toast');
             toast.textContent = message;
             toast.classList.add('show');
-            
+
             setTimeout(() => {
                 toast.classList.remove('show');
             }, 3000);
+        }
+
+        // Peek Feature Functions
+        let peekTimer = null;
+        let peekTimeRemaining = 60;
+        let userPoints = 1240;
+        let currentPeekLead = null;
+        let agentTier = 'expert'; // 'expert', 'master', 'legend'
+
+        function getPeekCost() {
+            const tierCosts = {
+                'expert': 50,
+                'master': 25,
+                'legend': 10
+            };
+            return tierCosts[agentTier] || 50;
+        }
+
+        function peekLead() {
+            const cost = getPeekCost();
+
+            // Check if user has enough points
+            if (userPoints < cost) {
+                showToast('❌ Not enough points to peek!');
+                return;
+            }
+
+            // Show confirmation modal
+            document.getElementById('peek-cost').textContent = cost + ' points';
+            document.getElementById('peek-balance').textContent = userPoints.toLocaleString() + ' points';
+            document.getElementById('peek-after').textContent = (userPoints - cost).toLocaleString() + ' points';
+            document.getElementById('peek-confirm-overlay').classList.add('active');
+        }
+
+        function cancelPeek() {
+            document.getElementById('peek-confirm-overlay').classList.remove('active');
+        }
+
+        function confirmPeek() {
+            const cost = getPeekCost();
+
+            // Deduct points
+            userPoints -= cost;
+
+            // Close confirmation modal
+            document.getElementById('peek-confirm-overlay').classList.remove('active');
+
+            // Show peek preview screen
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById('peek-preview-screen').classList.add('active');
+
+            // Start 60-second countdown
+            peekTimeRemaining = 60;
+            updatePeekCountdown();
+            peekTimer = setInterval(() => {
+                peekTimeRemaining--;
+                updatePeekCountdown();
+
+                if (peekTimeRemaining <= 0) {
+                    clearInterval(peekTimer);
+                    // Auto-return to home if no decision made
+                    showToast('⏰ Peek time expired! Returning to queue...');
+                    setTimeout(() => {
+                        switchScreen('home');
+                    }, 2000);
+                }
+            }, 1000);
+
+            showToast(`👁️ Peeking at lead! -${cost} points`);
+        }
+
+        function updatePeekCountdown() {
+            const countdownEl = document.getElementById('peek-countdown');
+            if (countdownEl) {
+                countdownEl.textContent = peekTimeRemaining;
+
+                // Change color as time runs out
+                const parentEl = countdownEl.parentElement;
+                if (peekTimeRemaining <= 10) {
+                    parentEl.style.background = 'rgba(220, 53, 69, 0.3)';
+                } else if (peekTimeRemaining <= 30) {
+                    parentEl.style.background = 'rgba(255, 193, 7, 0.3)';
+                }
+            }
+        }
+
+        function passAfterPeek() {
+            // Clear timer
+            if (peekTimer) {
+                clearInterval(peekTimer);
+                peekTimer = null;
+            }
+
+            // Return to home
+            showToast('Lead passed. Points spent are not refunded.');
+            switchScreen('home');
+        }
+
+        function grabAfterPeek() {
+            // Clear timer
+            if (peekTimer) {
+                clearInterval(peekTimer);
+                peekTimer = null;
+            }
+
+            const cost = getPeekCost();
+            const refund = Math.floor(cost * 0.5); // 50% refund potential
+
+            // Add points for grabbing (150) but remember they can get 50% refund on conversion
+            userPoints += 150;
+
+            showToast(`✅ Lead grabbed! +150 points. Convert to earn ${refund} point refund!`);
+
+            // Track that this lead was peeked (for refund tracking)
+            window.peekedLeadGrabbed = true;
+            window.peekRefundAmount = refund;
+
+            setTimeout(() => {
+                switchScreen('home');
+            }, 2000);
+        }
+
+        // Function to call when lead is successfully converted
+        function convertPeekedLead() {
+            if (window.peekedLeadGrabbed && window.peekRefundAmount) {
+                userPoints += window.peekRefundAmount;
+                showToast(`🎉 Lead converted! +${window.peekRefundAmount} point refund (50% peek cost)`);
+                window.peekedLeadGrabbed = false;
+                window.peekRefundAmount = 0;
+            }
         }
     </script>
 </body>
