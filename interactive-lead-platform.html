@@ -2120,6 +2120,252 @@
             background: #5a6268;
         }
 
+        /* Notes & Call History Styles */
+        .add-note-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 12px rgba(40, 167, 69, 0.3);
+        }
+
+        .add-note-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 16px rgba(40, 167, 69, 0.4);
+        }
+
+        .notes-timeline {
+            margin-bottom: 20px;
+        }
+
+        .timeline-item {
+            border-left: 3px solid #e9ecef;
+            padding-left: 15px;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+            border-left-color: transparent;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #667eea;
+        }
+
+        .timeline-item.call::before {
+            border-color: #28a745;
+        }
+
+        .timeline-item.note::before {
+            border-color: #ffc107;
+        }
+
+        .timeline-item.reminder::before {
+            border-color: #dc3545;
+        }
+
+        .timeline-date {
+            font-size: 11px;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .timeline-type {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .timeline-type.call {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .timeline-type.note {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .timeline-type.email {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .follow-up-reminder {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+        }
+
+        .follow-up-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .follow-up-text {
+            font-size: 13px;
+            line-height: 1.5;
+            opacity: 0.95;
+        }
+
+        .follow-up-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .follow-up-btn {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid white;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .follow-up-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Add Note Modal */
+        .note-modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 4000;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .note-form {
+            background: white;
+            border-radius: 20px 20px 0 0;
+            width: 100%;
+            padding: 20px;
+            padding-bottom: 30px;
+        }
+
+        .note-form-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+
+        .note-type-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .note-type-chip {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .note-type-chip.selected {
+            border-color: #667eea;
+            background: #f0f3ff;
+            color: #667eea;
+        }
+
+        .note-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: vertical;
+            margin-bottom: 15px;
+        }
+
+        .note-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .note-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .note-action-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .note-save-btn {
+            background: #28a745;
+            color: white;
+        }
+
+        .note-save-btn:hover {
+            background: #218838;
+        }
+
+        .note-cancel-btn {
+            background: #6c757d;
+            color: white;
+        }
+
+        .note-cancel-btn:hover {
+            background: #5a6268;
+        }
+
         /* Daily Briefing Styles */
         .daily-briefing {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -3100,7 +3346,27 @@
                     </div>
                 </div>
             </div>
-            
+
+            <!-- Notes & Call History Section -->
+            <div class="section">
+                <div class="section-title">
+                    📝 Notes & Call History
+                    <span class="ai-badge">TRACK PROGRESS</span>
+                </div>
+
+                <button class="add-note-btn" onclick="openAddNote('chen-wei')">
+                    ➕ Add Quick Note
+                </button>
+
+                <div class="notes-timeline" id="notes-timeline-chen-wei">
+                    <!-- Timeline items will be rendered here -->
+                </div>
+
+                <div class="follow-up-section" id="follow-up-chen-wei">
+                    <!-- Follow-up reminder will be shown here -->
+                </div>
+            </div>
+
             <div style="padding: 15px;">
                 <button class="btn btn-primary" style="width: 100%; margin-bottom: 10px;" onclick="startCall('Chen Wei')">📞 CALL NOW</button>
                 <button class="btn btn-secondary" style="width: 100%;" onclick="openConversationPractice('chen')">🎬 Practice Pitch First</button>
@@ -3392,15 +3658,35 @@
                     </div>
                 </div>
             </div>
-            
+
+            <!-- Notes & Call History Section -->
+            <div class="section">
+                <div class="section-title">
+                    📝 Notes & Call History
+                    <span class="ai-badge">TRACK PROGRESS</span>
+                </div>
+
+                <button class="add-note-btn" onclick="openAddNote('sarah-tan')">
+                    ➕ Add Quick Note
+                </button>
+
+                <div class="notes-timeline" id="notes-timeline-sarah-tan">
+                    <!-- Timeline items will be rendered here -->
+                </div>
+
+                <div class="follow-up-section" id="follow-up-sarah-tan">
+                    <!-- Follow-up reminder will be shown here -->
+                </div>
+            </div>
+
             <div style="padding: 15px;">
                 <button class="btn btn-primary" style="width: 100%; margin-bottom: 10px;" onclick="startCall('Sarah Tan')">📞 CALL NOW</button>
                 <button class="btn btn-secondary" style="width: 100%;" onclick="openConversationPractice('sarah')">🎬 Practice Pitch First</button>
             </div>
-            
+
             <div style="height: 20px;"></div>
         </div>
-        
+
         <!-- PRODUCT SELECTOR SCREEN -->
         <div class="screen" id="product-selector-screen">
             <div class="header-with-back">
@@ -4656,6 +4942,40 @@
                     </button>
                     <button class="script-action-btn btn-close-script" onclick="closeScriptModal()">
                         ✕ Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADD NOTE MODAL -->
+        <div id="add-note-modal" class="note-modal" style="display: none;">
+            <div class="note-form">
+                <div class="note-form-title">📝 Add Quick Note</div>
+
+                <div class="note-type-selector">
+                    <div class="note-type-chip selected" data-type="note" onclick="selectNoteType('note')">
+                        📌 Note
+                    </div>
+                    <div class="note-type-chip" data-type="call" onclick="selectNoteType('call')">
+                        📞 Call Log
+                    </div>
+                    <div class="note-type-chip" data-type="email" onclick="selectNoteType('email')">
+                        ✉️ Email
+                    </div>
+                </div>
+
+                <textarea
+                    id="note-textarea"
+                    class="note-textarea"
+                    placeholder="e.g., Objection: Price too high. Mentioned competitor NTUC. Needs time to discuss with spouse. Follow up Friday 3pm."
+                ></textarea>
+
+                <div class="note-actions">
+                    <button class="note-action-btn note-save-btn" onclick="saveNote()">
+                        ✓ Save Note
+                    </button>
+                    <button class="note-action-btn note-cancel-btn" onclick="closeAddNote()">
+                        ✕ Cancel
                     </button>
                 </div>
             </div>
@@ -8106,6 +8426,212 @@ What do you need help with?`;
             if (hour < 17) return 'afternoon';
             return 'evening';
         }
+
+        // Notes & Call History System
+        let currentNoteLeadId = '';
+        let currentNoteType = 'note';
+
+        const notesData = {
+            'chen-wei': [
+                {
+                    id: 1,
+                    type: 'call',
+                    date: 'Oct 4, 2025 • 3:45 PM',
+                    content: 'Initial call - 12 minutes. Chen Wei was interested but wanted to research competitors (specifically mentioned NTUC Life360). Discussed premium vs basic coverage differences. He appreciated the data-driven approach. <strong>Next step:</strong> Send comparison sheet via email.'
+                },
+                {
+                    id: 2,
+                    type: 'email',
+                    date: 'Oct 4, 2025 • 4:12 PM',
+                    content: 'Sent detailed comparison: AIA vs NTUC Life360 vs Prudential. Highlighted fund options (100 vs 45 vs 60) and management fees (1.2% vs 1.8% vs 1.5%). Included 20-year projection showing $85K difference.'
+                },
+                {
+                    id: 3,
+                    type: 'note',
+                    date: 'Oct 5, 2025 • 10:30 AM',
+                    content: '<strong>Objection noted:</strong> "Premium seems high at $1,200/month." Response used: Broke down into daily cost ($40/day for complete protection). Explained tax relief brings it down to ~$950/month. Compared to one hospital stay cost ($15K-$25K). He seemed to understand but wants to discuss with wife.'
+                },
+                {
+                    id: 4,
+                    type: 'call',
+                    date: 'Oct 5, 2025 • 2:20 PM',
+                    content: 'Follow-up call - 8 minutes. Chen Wei read the comparison sheet. Main concern now: "What if I need to stop premium payments temporarily?" Explained premium holiday feature (up to 6 months after year 5). Also mentioned paid-up option. <strong>Key insight:</strong> He\'s concerned about job security in banking sector. This is actually a perfect selling point for income protection rider.'
+                }
+            ],
+            'sarah-tan': [
+                {
+                    id: 1,
+                    type: 'call',
+                    date: 'Oct 3, 2025 • 11:15 AM',
+                    content: 'First contact - 15 minutes. Sarah was very concerned about her children\'s health coverage. Discussed recent dengue cases in her area (Bedok). She mentioned her 7-year-old son has asthma. Strong emotional connection when discussing critical illness coverage for kids. <strong>Pain point:</strong> Currently no family coverage, relying on husband\'s basic company plan (A-class ward only).'
+                },
+                {
+                    id: 2,
+                    type: 'note',
+                    date: 'Oct 3, 2025 • 11:45 AM',
+                    content: '<strong>Objection:</strong> "$420/month is too expensive for our budget." Response: Broke it down to $14/day for entire family of 4. Asked: "If your son needed hospitalization for asthma complication, where would that $15K come from?" She went quiet. Good sign. Suggested starting with basic plan ($280/month) and upgrading later.'
+                },
+                {
+                    id: 3,
+                    type: 'call',
+                    date: 'Oct 4, 2025 • 7:30 PM',
+                    content: 'Evening call - 10 minutes. Sarah discussed with husband. He\'s supportive but wants to see policy details. <strong>Key concern:</strong> "What if we can\'t afford premiums after a few years?" Explained grace period, automatic premium loan, and premium waiver for CI/TPD. She\'s 80% convinced. <strong>Action:</strong> Meeting scheduled for Oct 7 (Saturday) at their home to go through documents together with husband.'
+                },
+                {
+                    id: 4,
+                    type: 'email',
+                    date: 'Oct 5, 2025 • 9:00 AM',
+                    content: 'Sent pre-meeting email with: 1) Policy summary for Family HealthShield Gold Plus. 2) Children\'s Critical Care Rider brochure. 3) Claim process guide (with real testimonials from other young families). 4) Premium payment options (annual, semi-annual, quarterly, monthly).'
+                }
+            ]
+        };
+
+        const followUpReminders = {
+            'chen-wei': {
+                date: 'Friday, Oct 6 • 3:00 PM',
+                task: 'Follow-up call to address income protection concerns. Prepare comparison of income protection riders. Mention job security angle tactfully.',
+                priority: 'high'
+            },
+            'sarah-tan': {
+                date: 'Saturday, Oct 7 • 2:00 PM',
+                task: 'Home visit with Sarah & husband. Bring: Policy documents, tablet for e-application, small gift for kids (coloring book). Focus on husband\'s concerns about premium affordability.',
+                priority: 'high'
+            }
+        };
+
+        function renderNotesTimeline(leadId) {
+            const container = document.getElementById(`notes-timeline-${leadId}`);
+            const notes = notesData[leadId] || [];
+
+            if (notes.length === 0) {
+                container.innerHTML = '<div style="text-align: center; color: #6c757d; padding: 20px; font-size: 13px;">No notes or call history yet. Add your first note above!</div>';
+                return;
+            }
+
+            let html = '';
+            notes.forEach(note => {
+                const typeLabel = note.type === 'call' ? '📞 Call' : note.type === 'email' ? '✉️ Email' : '📌 Note';
+
+                html += `
+                    <div class="timeline-item ${note.type}">
+                        <div class="timeline-date">${note.date}</div>
+                        <div class="timeline-type ${note.type}">${typeLabel}</div>
+                        <div class="timeline-content">${note.content}</div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function renderFollowUpReminder(leadId) {
+            const container = document.getElementById(`follow-up-${leadId}`);
+            const reminder = followUpReminders[leadId];
+
+            if (!reminder) {
+                container.innerHTML = '';
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="follow-up-reminder">
+                    <div class="follow-up-title">⏰ Follow-Up Reminder</div>
+                    <div class="follow-up-text">
+                        <strong>${reminder.date}</strong><br>
+                        ${reminder.task}
+                    </div>
+                    <div class="follow-up-actions">
+                        <button class="follow-up-btn" onclick="completeFollowUp('${leadId}')">
+                            ✓ Mark Done
+                        </button>
+                        <button class="follow-up-btn" onclick="snoozeFollowUp('${leadId}')">
+                            ⏰ Snooze
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function openAddNote(leadId) {
+            currentNoteLeadId = leadId;
+            currentNoteType = 'note';
+
+            // Reset form
+            document.getElementById('note-textarea').value = '';
+            document.querySelectorAll('.note-type-chip').forEach(chip => {
+                chip.classList.remove('selected');
+                if (chip.dataset.type === 'note') {
+                    chip.classList.add('selected');
+                }
+            });
+
+            document.getElementById('add-note-modal').style.display = 'flex';
+        }
+
+        function closeAddNote() {
+            document.getElementById('add-note-modal').style.display = 'none';
+        }
+
+        function selectNoteType(type) {
+            currentNoteType = type;
+            document.querySelectorAll('.note-type-chip').forEach(chip => {
+                chip.classList.remove('selected');
+                if (chip.dataset.type === type) {
+                    chip.classList.add('selected');
+                }
+            });
+        }
+
+        function saveNote() {
+            const textarea = document.getElementById('note-textarea');
+            const content = textarea.value.trim();
+
+            if (!content) {
+                showToast('⚠️ Please enter a note');
+                return;
+            }
+
+            // Get current time
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+
+            // Create new note
+            const newNote = {
+                id: notesData[currentNoteLeadId].length + 1,
+                type: currentNoteType,
+                date: `${dateStr} • ${timeStr}`,
+                content: content
+            };
+
+            // Add to beginning of array (most recent first)
+            notesData[currentNoteLeadId].unshift(newNote);
+
+            // Re-render timeline
+            renderNotesTimeline(currentNoteLeadId);
+
+            // Close modal and show toast
+            closeAddNote();
+            showToast(`✅ ${currentNoteType === 'call' ? 'Call log' : currentNoteType === 'email' ? 'Email' : 'Note'} added successfully!`);
+        }
+
+        function completeFollowUp(leadId) {
+            delete followUpReminders[leadId];
+            renderFollowUpReminder(leadId);
+            showToast('✅ Follow-up marked as complete!');
+        }
+
+        function snoozeFollowUp(leadId) {
+            showToast('⏰ Reminder snoozed for 1 hour');
+        }
+
+        // Initialize notes when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNotesTimeline('chen-wei');
+            renderNotesTimeline('sarah-tan');
+            renderFollowUpReminder('chen-wei');
+            renderFollowUpReminder('sarah-tan');
+        });
     </script>
 </body>
 </html>
