@@ -643,6 +643,10 @@
             transform: translate(-50%, -50%);
             animation: pulse-marker 2s infinite;
         }
+
+        .location-marker:hover .zone-hover-label {
+            opacity: 1 !important;
+        }
         
         .marker-dot {
             width: 100%;
@@ -1453,16 +1457,77 @@
         </div>
     </div>
 
+    <!-- Zone Detail Modal -->
+    <div class="megatron-chat-overlay" id="zone-detail-overlay">
+        <div class="megatron-chat-container" style="max-width: 360px; max-height: 600px;">
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; color: white; border-radius: 16px 16px 0 0;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                    <div>
+                        <div style="font-size: 20px; font-weight: 700; margin-bottom: 4px;" id="zone-name">Tampines</div>
+                        <div style="font-size: 13px; opacity: 0.9;" id="zone-distance">2.1km away</div>
+                    </div>
+                    <button onclick="closeZoneDetail()" style="background: rgba(255,255,255,0.2); border: none; color: white; font-size: 24px; width: 32px; height: 32px; border-radius: 50%; cursor: pointer;">×</button>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <div style="flex: 1; background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 11px; opacity: 0.9;">Surge</div>
+                        <div style="font-size: 18px; font-weight: 700;" id="zone-surge">2×</div>
+                    </div>
+                    <div style="flex: 1; background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 11px; opacity: 0.9;">Leads</div>
+                        <div style="font-size: 18px; font-weight: 700;" id="zone-leads">18</div>
+                    </div>
+                    <div style="flex: 1; background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 11px; opacity: 0.9;">Time Left</div>
+                        <div style="font-size: 16px; font-weight: 700;" id="zone-timer">45m</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding: 15px; max-height: 380px; overflow-y: auto; background: #f8f9fa;">
+                <div style="font-weight: 600; font-size: 14px; margin-bottom: 12px; color: #333;">Available Leads in Zone</div>
+
+                <div id="zone-leads-list">
+                    <!-- Leads will be inserted here -->
+                </div>
+
+                <div style="background: white; padding: 14px; border-radius: 12px; margin-top: 15px;">
+                    <div style="font-weight: 600; font-size: 13px; margin-bottom: 10px;">📊 Zone Stats</div>
+                    <div style="font-size: 12px; line-height: 1.8; color: #666;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <span>💎 Diamond Leads:</span>
+                            <span style="font-weight: 600; color: #667eea;">8 leads</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <span>🥇 Gold Leads:</span>
+                            <span style="font-weight: 600; color: #ffc107;">10 leads</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Avg. Propensity:</span>
+                            <span style="font-weight: 600; color: #28a745;">87%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding: 15px; background: white; border-top: 2px solid #e9ecef; border-radius: 0 0 16px 16px;">
+                <button onclick="grabAllInZone()" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; box-shadow: 0 4px 12px rgba(40,167,69,0.3);">
+                    ⚡ GRAB ALL LEADS IN ZONE
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="phone-frame">
         <div class="status-bar">
             <span>9:41</span>
             <span>⚡ 87%</span>
         </div>
-        
+
         <!-- HOME SCREEN -->
         <div class="screen active" id="home-screen">
             <div class="header">
-                <div class="greeting">Good Morning, Sarah! 👋</div>
+                <div class="greeting">Good Morning, Kartik! 👋</div>
                 <span class="agent-level">⭐ Expert Tier</span>
                 
                 <div class="stats-row">
@@ -3032,31 +3097,121 @@
         
         <!-- HEAT MAP SCREEN -->
         <div class="screen" id="heatmap-screen">
+            <!-- Filter Controls -->
+            <div style="background: white; padding: 12px 15px; border-bottom: 2px solid #e9ecef;">
+                <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                    <button onclick="toggleHeatmapFilter('all')" id="filter-all" class="heatmap-filter-btn active" style="flex: 1; padding: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
+                        All Zones
+                    </button>
+                    <button onclick="toggleHeatmapFilter('surge')" id="filter-surge" class="heatmap-filter-btn" style="flex: 1; padding: 8px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
+                        🔥 Surge Only
+                    </button>
+                    <button onclick="toggleHeatmapFilter('nearby')" id="filter-nearby" class="heatmap-filter-btn" style="flex: 1; padding: 8px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
+                        📍 Nearby
+                    </button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <span style="font-size: 11px; color: #666;">Radius:</span>
+                    <input type="range" id="proximity-range" min="1" max="10" value="3" oninput="updateProximityRadius(this.value)" style="flex: 1;">
+                    <span style="font-size: 11px; font-weight: 600;" id="radius-label">3km</span>
+                    <button id="route-mode-btn" onclick="toggleRouteMode()" style="padding: 8px 12px; background: #28a745; color: white; border: none; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
+                        🗺️ Plan Route
+                    </button>
+                </div>
+            </div>
+
+            <!-- Route Planning Panel -->
+            <div id="route-panel" style="display: none; background: white; padding: 12px 15px; border-bottom: 2px solid #e9ecef;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <div style="font-weight: 600; font-size: 13px; color: #667eea;">📍 Building Your Route</div>
+                    <button onclick="clearRoute()" style="padding: 4px 10px; background: #dc3545; color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer;">
+                        Clear
+                    </button>
+                </div>
+                <div style="font-size: 11px; color: #666; margin-bottom: 8px;">Click zones on map to add to route (min 2 zones)</div>
+                <div id="selected-zones" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px;">
+                    <!-- Selected zones will appear here -->
+                </div>
+                <div id="route-summary" style="display: none; background: #f8f9fa; padding: 10px; border-radius: 8px; margin-bottom: 8px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                        <span>Total Distance:</span>
+                        <span style="font-weight: 600;" id="route-distance">0km</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                        <span>Est. Travel Time:</span>
+                        <span style="font-weight: 600;" id="route-time">0 min</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 12px;">
+                        <span>Total Leads:</span>
+                        <span style="font-weight: 600; color: #28a745;" id="route-leads">0 leads</span>
+                    </div>
+                </div>
+                <button id="optimize-route-btn" onclick="optimizeRoute()" style="display: none; width: 100%; padding: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;">
+                    ⚡ Optimize & Start Route
+                </button>
+            </div>
+
             <div class="map-container">
                 <div class="map-bg"></div>
-                
-                <div class="location-marker" style="left: 35%; top: 45%;">
-                    <div class="marker-dot hot-marker">🔥</div>
+
+                <!-- Route Lines Container -->
+                <svg id="route-lines" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+                    <!-- Route lines will be drawn here -->
+                </svg>
+
+                <!-- Proximity Radius Circle -->
+                <div id="proximity-circle" style="position: absolute; left: 50%; top: 46%; width: 120px; height: 120px; border: 2px dashed #667eea; border-radius: 50%; transform: translate(-50%, -50%); opacity: 0.3; pointer-events: none; z-index: 2;"></div>
+
+                <!-- Clickable Zone Markers -->
+                <div class="location-marker zone-marker" data-zone="tampines" data-x="35" data-y="45" onclick="handleZoneClick('tampines')" title="Tampines - 18 leads, 2.1km away" style="left: 35%; top: 45%; cursor: pointer; z-index: 10;">
+                    <div class="marker-dot hot-marker" style="animation: pulse 2s infinite;">🔥</div>
+                    <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: rgba(220, 53, 69, 0.9); color: white; padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600; white-space: nowrap;">2× SURGE</div>
+                    <div class="zone-hover-label" style="position: absolute; top: 40px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); color: white; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 100;">
+                        <div style="margin-bottom: 4px;">📍 Tampines</div>
+                        <div style="font-size: 10px; opacity: 0.9;">18 leads • 2.1km away</div>
+                    </div>
                 </div>
-                
-                <div class="location-marker" style="left: 70%; top: 35%;">
-                    <div class="marker-dot hot-marker">🔥</div>
+
+                <div class="location-marker zone-marker" data-zone="cbd" data-x="70" data-y="35" onclick="handleZoneClick('cbd')" title="CBD / Marina - 12 leads, 8.5km away" style="left: 70%; top: 35%; cursor: pointer; z-index: 10;">
+                    <div class="marker-dot hot-marker" style="animation: pulse 2s infinite;">🔥</div>
+                    <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: rgba(255, 193, 7, 0.9); color: #333; padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600; white-space: nowrap;">1.5× SURGE</div>
+                    <div class="zone-hover-label" style="position: absolute; top: 40px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); color: white; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 100;">
+                        <div style="margin-bottom: 4px;">📍 CBD / Marina</div>
+                        <div style="font-size: 10px; opacity: 0.9;">12 leads • 8.5km away</div>
+                    </div>
                 </div>
-                
-                <div class="location-marker" style="left: 25%; top: 75%;">
+
+                <div class="location-marker zone-marker" data-zone="bedok" data-x="25" data-y="75" onclick="handleZoneClick('bedok')" title="Bedok - 5 leads, 3.5km away" style="left: 25%; top: 75%; cursor: pointer; z-index: 10;">
                     <div class="marker-dot warm-marker">💎</div>
+                    <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: rgba(102, 126, 234, 0.9); color: white; padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600; white-space: nowrap;">5 leads</div>
+                    <div class="zone-hover-label" style="position: absolute; top: 40px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); color: white; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 100;">
+                        <div style="margin-bottom: 4px;">📍 Bedok</div>
+                        <div style="font-size: 10px; opacity: 0.9;">5 leads • 3.5km away</div>
+                    </div>
                 </div>
-                
-                <div class="location-marker" style="left: 80%; top: 70%;">
+
+                <div class="location-marker zone-marker" data-zone="eastcoast" data-x="80" data-y="70" onclick="handleZoneClick('eastcoast')" title="East Coast - 3 leads, 6.2km away" style="left: 80%; top: 70%; cursor: pointer; z-index: 10;">
                     <div class="marker-dot warm-marker">💎</div>
+                    <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: rgba(102, 126, 234, 0.9); color: white; padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600; white-space: nowrap;">3 leads</div>
+                    <div class="zone-hover-label" style="position: absolute; top: 40px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); color: white; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 100;">
+                        <div style="margin-bottom: 4px;">📍 East Coast</div>
+                        <div style="font-size: 10px; opacity: 0.9;">3 leads • 6.2km away</div>
+                    </div>
                 </div>
-                
-                <div class="location-marker" style="left: 55%; top: 65%;">
+
+                <div class="location-marker zone-marker" data-zone="sembawang" data-x="55" data-y="65" onclick="handleZoneClick('sembawang')" title="Sembawang - 2 leads, 12.5km away" style="left: 55%; top: 65%; cursor: pointer; z-index: 10;">
                     <div class="marker-dot cool-marker">📍</div>
+                    <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: rgba(40, 167, 69, 0.9); color: white; padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600; white-space: nowrap;">2 leads</div>
+                    <div class="zone-hover-label" style="position: absolute; top: 40px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); color: white; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 100;">
+                        <div style="margin-bottom: 4px;">📍 Sembawang</div>
+                        <div style="font-size: 10px; opacity: 0.9;">2 leads • 12.5km away</div>
+                    </div>
                 </div>
-                
-                <div class="my-location" style="left: 52%; top: 48%;"></div>
-                
+
+                <div class="my-location" style="left: 52%; top: 48%;">
+                    <div style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: #667eea; color: white; padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600; white-space: nowrap;">You are here</div>
+                </div>
+
                 <div class="legend">
                     <div class="legend-item">
                         <div class="legend-dot" style="background: #ff6b6b;"></div>
@@ -5034,6 +5189,386 @@ What do you need help with?`;
                 window.peekRefundAmount = 0;
             }
         }
+
+        // Heatmap Interactive Functions
+        const zoneData = {
+            'tampines': {
+                name: 'Tampines',
+                distance: '2.1km',
+                surge: '2×',
+                leads: 18,
+                timeLeft: 45,
+                leads_list: [
+                    { name: 'Rachel Lim', tier: 'diamond', propensity: 96, product: 'ILP', premium: '$1,500/mo' },
+                    { name: 'Michael Tan', tier: 'diamond', propensity: 94, product: 'Whole Life', premium: '$2,000/mo' },
+                    { name: 'Stephanie Wong', tier: 'gold', propensity: 88, product: 'Health', premium: '$450/mo' },
+                    { name: 'David Chen', tier: 'gold', propensity: 85, product: 'ILP', premium: '$1,200/mo' },
+                    { name: 'Amanda Ng', tier: 'diamond', propensity: 92, product: 'CI', premium: '$800/mo' }
+                ]
+            },
+            'cbd': {
+                name: 'CBD / Marina',
+                distance: '8.5km',
+                surge: '1.5×',
+                leads: 12,
+                timeLeft: 75,
+                leads_list: [
+                    { name: 'James Koh', tier: 'diamond', propensity: 95, product: 'ILP', premium: '$2,500/mo' },
+                    { name: 'Linda Tan', tier: 'diamond', propensity: 91, product: 'Whole Life', premium: '$1,800/mo' },
+                    { name: 'Kevin Lim', tier: 'gold', propensity: 86, product: 'Health', premium: '$600/mo' }
+                ]
+            },
+            'bedok': {
+                name: 'Bedok',
+                distance: '3.5km',
+                surge: '1×',
+                leads: 5,
+                timeLeft: 0,
+                leads_list: [
+                    { name: 'Sarah Lee', tier: 'gold', propensity: 82, product: 'Health', premium: '$400/mo' },
+                    { name: 'Tommy Ng', tier: 'gold', propensity: 79, product: 'Term Life', premium: '$150/mo' }
+                ]
+            },
+            'eastcoast': {
+                name: 'East Coast',
+                distance: '6.2km',
+                surge: '1×',
+                leads: 3,
+                timeLeft: 0,
+                leads_list: [
+                    { name: 'Jessica Poh', tier: 'gold', propensity: 84, product: 'ILP', premium: '$1,000/mo' }
+                ]
+            },
+            'sembawang': {
+                name: 'Sembawang',
+                distance: '12.5km',
+                surge: '1×',
+                leads: 2,
+                timeLeft: 0,
+                leads_list: [
+                    { name: 'Patrick Ong', tier: 'silver', propensity: 75, product: 'Health', premium: '$300/mo' }
+                ]
+            }
+        };
+
+        function openZoneDetail(zoneId) {
+            const zone = zoneData[zoneId];
+            if (!zone) return;
+
+            // Update modal content
+            document.getElementById('zone-name').textContent = zone.name;
+            document.getElementById('zone-distance').textContent = zone.distance + ' away';
+            document.getElementById('zone-surge').textContent = zone.surge;
+            document.getElementById('zone-leads').textContent = zone.leads;
+            document.getElementById('zone-timer').textContent = zone.timeLeft > 0 ? zone.timeLeft + 'm' : 'Expired';
+
+            // Build leads list
+            const leadsList = document.getElementById('zone-leads-list');
+            leadsList.innerHTML = '';
+
+            zone.leads_list.forEach(lead => {
+                const tierColors = {
+                    'diamond': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    'gold': 'linear-gradient(135deg, #ffc107 0%, #ff9800 100%)',
+                    'silver': 'linear-gradient(135deg, #6c757d 0%, #495057 100%)'
+                };
+
+                const tierIcons = {
+                    'diamond': '💎',
+                    'gold': '🥇',
+                    'silver': '🥈'
+                };
+
+                const leadCard = `
+                    <div style="background: white; padding: 12px; border-radius: 12px; margin-bottom: 10px; cursor: pointer;" onclick="showToast('Lead grabbed: ${lead.name}')">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                            <div>
+                                <div style="font-weight: 600; font-size: 14px; margin-bottom: 2px;">${lead.name}</div>
+                                <div style="font-size: 11px; color: #666;">${lead.product} • ${lead.premium}</div>
+                            </div>
+                            <div style="background: ${tierColors[lead.tier]}; color: white; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600;">
+                                ${tierIcons[lead.tier]} ${lead.tier.toUpperCase()}
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-size: 11px; color: #666;">Propensity: <span style="font-weight: 600; color: #28a745;">${lead.propensity}%</span></div>
+                            <button style="padding: 6px 12px; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer;">
+                                ⚡ GRAB
+                            </button>
+                        </div>
+                    </div>
+                `;
+                leadsList.insertAdjacentHTML('beforeend', leadCard);
+            });
+
+            // Show modal
+            document.getElementById('zone-detail-overlay').classList.add('active');
+        }
+
+        function closeZoneDetail() {
+            document.getElementById('zone-detail-overlay').classList.remove('active');
+        }
+
+        function grabAllInZone() {
+            showToast('🎉 All leads in zone grabbed! +850 points');
+            closeZoneDetail();
+        }
+
+        function toggleHeatmapFilter(filter) {
+            // Update button states
+            document.querySelectorAll('.heatmap-filter-btn').forEach(btn => {
+                btn.style.background = '#f8f9fa';
+                btn.style.border = '1px solid #dee2e6';
+                btn.style.color = '#333';
+            });
+
+            const activeBtn = document.getElementById('filter-' + filter);
+            activeBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            activeBtn.style.border = 'none';
+            activeBtn.style.color = 'white';
+
+            // Filter markers
+            const markers = document.querySelectorAll('.zone-marker');
+            markers.forEach(marker => {
+                const zone = marker.getAttribute('data-zone');
+                const zoneInfo = zoneData[zone];
+
+                if (filter === 'all') {
+                    marker.style.display = 'block';
+                } else if (filter === 'surge') {
+                    marker.style.display = zoneInfo.timeLeft > 0 ? 'block' : 'none';
+                } else if (filter === 'nearby') {
+                    const distance = parseFloat(zoneInfo.distance);
+                    marker.style.display = distance <= 5 ? 'block' : 'none';
+                }
+            });
+        }
+
+        function updateProximityRadius(value) {
+            document.getElementById('radius-label').textContent = value + 'km';
+
+            // Update proximity circle size
+            const circle = document.getElementById('proximity-circle');
+            const size = 40 * parseInt(value); // 40px per km
+            circle.style.width = size + 'px';
+            circle.style.height = size + 'px';
+        }
+
+        // Route Planning Variables
+        let routeMode = false;
+        let selectedZones = [];
+        let routeOrder = [];
+
+        function toggleRouteMode() {
+            routeMode = !routeMode;
+            const btn = document.getElementById('route-mode-btn');
+            const panel = document.getElementById('route-panel');
+
+            if (routeMode) {
+                btn.style.background = '#dc3545';
+                btn.textContent = '❌ Cancel Route';
+                panel.style.display = 'block';
+                showToast('📍 Route mode ON - Click zones to add them to your route');
+            } else {
+                btn.style.background = '#28a745';
+                btn.textContent = '🗺️ Plan Route';
+                panel.style.display = 'none';
+                clearRoute();
+            }
+        }
+
+        function handleZoneClick(zoneId) {
+            if (routeMode) {
+                toggleZoneSelection(zoneId);
+            } else {
+                openZoneDetail(zoneId);
+            }
+        }
+
+        function toggleZoneSelection(zoneId) {
+            const zoneElement = document.querySelector(`[data-zone="${zoneId}"]`);
+            const zoneInfo = zoneData[zoneId];
+
+            if (selectedZones.includes(zoneId)) {
+                // Deselect
+                selectedZones = selectedZones.filter(z => z !== zoneId);
+                zoneElement.style.transform = 'scale(1)';
+                zoneElement.style.filter = 'none';
+            } else {
+                // Select
+                selectedZones.push(zoneId);
+                zoneElement.style.transform = 'scale(1.2)';
+                zoneElement.style.filter = 'drop-shadow(0 0 10px #667eea)';
+            }
+
+            updateRoutePanel();
+        }
+
+        function updateRoutePanel() {
+            const selectedZonesContainer = document.getElementById('selected-zones');
+            selectedZonesContainer.innerHTML = '';
+
+            selectedZones.forEach((zoneId, index) => {
+                const zone = zoneData[zoneId];
+                const chip = `
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 6px 12px; border-radius: 16px; font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+                        <span>${index + 1}. ${zone.name}</span>
+                        <span onclick="toggleZoneSelection('${zoneId}')" style="cursor: pointer; opacity: 0.8;">×</span>
+                    </div>
+                `;
+                selectedZonesContainer.insertAdjacentHTML('beforeend', chip);
+            });
+
+            // Show/hide optimize button and summary
+            if (selectedZones.length >= 2) {
+                document.getElementById('optimize-route-btn').style.display = 'block';
+                calculateAndDisplayRoute();
+            } else {
+                document.getElementById('optimize-route-btn').style.display = 'none';
+                document.getElementById('route-summary').style.display = 'none';
+                clearRouteLines();
+            }
+        }
+
+        function calculateAndDisplayRoute() {
+            // Calculate total distance and leads
+            let totalDistance = 0;
+            let totalLeads = 0;
+
+            // Start from user location (52%, 48%)
+            let prevX = 52, prevY = 48;
+
+            selectedZones.forEach(zoneId => {
+                const zone = zoneData[zoneId];
+                const marker = document.querySelector(`[data-zone="${zoneId}"]`);
+                const x = parseInt(marker.getAttribute('data-x'));
+                const y = parseInt(marker.getAttribute('data-y'));
+
+                // Simple distance calculation (Pythagorean)
+                const dist = Math.sqrt(Math.pow(x - prevX, 2) + Math.pow(y - prevY, 2)) / 10; // Scale down
+                totalDistance += parseFloat(zone.distance);
+                totalLeads += zone.leads;
+
+                prevX = x;
+                prevY = y;
+            });
+
+            // Display summary
+            const estimatedTime = Math.round(totalDistance * 3); // 3 min per km average
+            document.getElementById('route-distance').textContent = totalDistance.toFixed(1) + 'km';
+            document.getElementById('route-time').textContent = estimatedTime + ' min';
+            document.getElementById('route-leads').textContent = totalLeads + ' leads';
+            document.getElementById('route-summary').style.display = 'block';
+
+            // Draw route lines
+            drawRouteLines();
+        }
+
+        function drawRouteLines() {
+            const svg = document.getElementById('route-lines');
+            svg.innerHTML = '';
+
+            if (selectedZones.length < 2) return;
+
+            const mapContainer = document.querySelector('.map-container');
+            const width = mapContainer.offsetWidth;
+            const height = mapContainer.offsetHeight;
+
+            // Start from user location
+            let prevX = width * 0.52;
+            let prevY = height * 0.48;
+
+            selectedZones.forEach((zoneId, index) => {
+                const marker = document.querySelector(`[data-zone="${zoneId}"]`);
+                const x = (parseInt(marker.getAttribute('data-x')) / 100) * width;
+                const y = (parseInt(marker.getAttribute('data-y')) / 100) * height;
+
+                // Draw line
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', prevX);
+                line.setAttribute('y1', prevY);
+                line.setAttribute('x2', x);
+                line.setAttribute('y2', y);
+                line.setAttribute('stroke', '#667eea');
+                line.setAttribute('stroke-width', '3');
+                line.setAttribute('stroke-dasharray', '8,4');
+                line.setAttribute('opacity', '0.7');
+
+                svg.appendChild(line);
+
+                // Draw route number circle
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('cx', x);
+                circle.setAttribute('cy', y);
+                circle.setAttribute('r', '12');
+                circle.setAttribute('fill', '#667eea');
+                circle.setAttribute('stroke', 'white');
+                circle.setAttribute('stroke-width', '2');
+
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', x);
+                text.setAttribute('y', y + 4);
+                text.setAttribute('text-anchor', 'middle');
+                text.setAttribute('fill', 'white');
+                text.setAttribute('font-size', '11');
+                text.setAttribute('font-weight', 'bold');
+                text.textContent = index + 1;
+
+                svg.appendChild(circle);
+                svg.appendChild(text);
+
+                prevX = x;
+                prevY = y;
+            });
+        }
+
+        function clearRouteLines() {
+            document.getElementById('route-lines').innerHTML = '';
+        }
+
+        function clearRoute() {
+            selectedZones.forEach(zoneId => {
+                const zoneElement = document.querySelector(`[data-zone="${zoneId}"]`);
+                zoneElement.style.transform = 'scale(1)';
+                zoneElement.style.filter = 'none';
+            });
+
+            selectedZones = [];
+            document.getElementById('selected-zones').innerHTML = '';
+            document.getElementById('optimize-route-btn').style.display = 'none';
+            document.getElementById('route-summary').style.display = 'none';
+            clearRouteLines();
+        }
+
+        function optimizeRoute() {
+            // Optimize route using nearest neighbor algorithm
+            if (selectedZones.length < 2) return;
+
+            // Simple optimization: sort by distance from current location
+            const optimized = [...selectedZones].sort((a, b) => {
+                return parseFloat(zoneData[a].distance) - parseFloat(zoneData[b].distance);
+            });
+
+            selectedZones = optimized;
+            updateRoutePanel();
+
+            showToast(`✅ Route optimized! ${selectedZones.length} stops, ${document.getElementById('route-distance').textContent} total`);
+
+            // Optionally auto-start navigation
+            setTimeout(() => {
+                const firstZone = zoneData[selectedZones[0]];
+                showToast(`🚗 Starting navigation to ${firstZone.name} (${firstZone.distance})`);
+            }, 2000);
+        }
+
+        // Start surge timer countdown
+        setInterval(() => {
+            Object.keys(zoneData).forEach(zoneId => {
+                if (zoneData[zoneId].timeLeft > 0) {
+                    zoneData[zoneId].timeLeft--;
+                }
+            });
+        }, 60000); // Update every minute
     </script>
 </body>
 </html>
