@@ -1000,20 +1000,51 @@
             background: white;
             border-top: 1px solid #e9ecef;
             display: flex;
-            justify-content: space-around;
+            overflow-x: auto;
+            overflow-y: hidden;
             align-items: center;
-            padding: 10px 0;
+            padding: 10px 5px;
+            gap: 5px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
         }
-        
+
+        .bottom-nav::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .bottom-nav::after {
+            content: '→';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(90deg, transparent, white 30%);
+            padding: 0 15px;
+            font-size: 16px;
+            color: #667eea;
+            pointer-events: none;
+            animation: slideHint 2s infinite;
+        }
+
+        @keyframes slideHint {
+            0%, 100% { opacity: 0.5; transform: translateY(-50%) translateX(0); }
+            50% { opacity: 1; transform: translateY(-50%) translateX(3px); }
+        }
+
         .nav-item {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             gap: 4px;
             color: #6c757d;
             font-size: 11px;
             cursor: pointer;
             transition: all 0.2s;
+            min-width: 70px;
+            flex-shrink: 0;
+            padding: 5px;
         }
         
         .nav-item:hover {
@@ -1374,6 +1405,493 @@
                 opacity: 1;
                 transform: translateY(-8px);
             }
+        }
+
+        /* News Hub Styles */
+        .news-header {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+            color: white;
+            padding: 10px 20px 20px;
+        }
+
+        .news-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .news-subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .news-filters {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .filter-chip {
+            padding: 8px 16px;
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-chip.active {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+            color: white;
+            border-color: #17a2b8;
+        }
+
+        .news-content {
+            padding: 15px 20px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: transform 0.2s;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .news-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .news-card.trending {
+            border-left-color: #dc3545;
+            background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+        }
+
+        .news-card.competitor {
+            border-left-color: #ffc107;
+        }
+
+        .news-card.regulation {
+            border-left-color: #0066cc;
+        }
+
+        .news-source {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .source-badge {
+            background: #e9ecef;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .source-badge.verified {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .news-time {
+            font-size: 11px;
+            color: #999;
+        }
+
+        .news-headline {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .news-summary {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .news-impact {
+            background: #fff3cd;
+            border-left: 3px solid #ffc107;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .impact-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #856404;
+            margin-bottom: 4px;
+        }
+
+        .impact-text {
+            font-size: 12px;
+            color: #856404;
+            line-height: 1.5;
+        }
+
+        .news-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .news-tag {
+            background: #f8f9fa;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .news-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .news-action-btn {
+            flex: 1;
+            padding: 8px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .news-action-btn:hover {
+            background: #e9ecef;
+        }
+
+        .trending-badge {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            animation: blink 2s infinite;
+        }
+
+        /* Squad Chat Styles */
+        .chat-tab-container {
+            display: flex;
+            gap: 0;
+            background: #f8f9fa;
+            padding: 10px 20px 0;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .chat-tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #6c757d;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .chat-tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+            background: white;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: calc(100% - 160px);
+            background: #f8f9fa;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            display: flex;
+            gap: 10px;
+            animation: messageSlideIn 0.3s ease;
+        }
+
+        @keyframes messageSlideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.own {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .message-content {
+            max-width: 70%;
+        }
+
+        .message-header {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 4px;
+            font-size: 11px;
+        }
+
+        .message.own .message-header {
+            flex-direction: row-reverse;
+        }
+
+        .message-sender {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .message-time {
+            color: #999;
+        }
+
+        .message-bubble {
+            background: white;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.4;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .message.own .message-bubble {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .message-special {
+            background: #fff3cd;
+            border-left: 3px solid #ffc107;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 13px;
+        }
+
+        .message-special-title {
+            font-weight: 700;
+            color: #856404;
+            margin-bottom: 6px;
+            font-size: 12px;
+        }
+
+        .message-special-content {
+            color: #856404;
+        }
+
+        .message-action {
+            background: #d1ecf1;
+            border-left: 3px solid #17a2b8;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #0c5460;
+        }
+
+        .chat-input-container {
+            background: white;
+            border-top: 1px solid #dee2e6;
+            padding: 12px;
+        }
+
+        .chat-quick-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .quick-action-btn {
+            padding: 6px 12px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quick-action-btn:hover {
+            background: #e9ecef;
+            transform: scale(1.05);
+        }
+
+        .chat-input-box {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .chat-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .chat-send-btn {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-send-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 16px;
+            width: fit-content;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: #667eea;
+            border-radius: 50%;
+            animation: typingDot 1.4s infinite;
+        }
+
+        /* Squad News Feed Styles */
+        .squad-news-item {
+            background: white;
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid #17a2b8;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .squad-news-item:hover {
+            transform: translateX(4px);
+        }
+
+        .squad-news-item.new {
+            border-left-color: #dc3545;
+            background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+        }
+
+        .squad-news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .squad-news-sharer {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .squad-news-badge {
+            background: #dc3545;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .squad-news-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .squad-news-impact {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .squad-news-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 11px;
+            color: #999;
+        }
+
+        .squad-news-empty {
+            text-align: center;
+            padding: 30px 20px;
+            color: #999;
         }
     </style>
 </head>
@@ -3356,10 +3874,18 @@
                     <div>🏆 3 Wins</div>
                 </div>
             </div>
-            
-            <div class="squad-content">
+
+            <!-- 3-Tab Navigation -->
+            <div class="chat-tab-container">
+                <div class="chat-tab active" onclick="switchSquadTab('members')">👥 Members</div>
+                <div class="chat-tab" onclick="switchSquadTab('news')">📰 News</div>
+                <div class="chat-tab" onclick="switchSquadTab('chat')">💬 Chat</div>
+            </div>
+
+            <!-- Members Tab Content -->
+            <div class="squad-content" id="squad-members-tab">
                 <div class="panel-header">👥 Squad Members</div>
-                
+
                 <div class="member-card">
                     <div class="member-info">
                         <div class="member-name">Sarah Lim (You)</div>
@@ -3367,7 +3893,7 @@
                     </div>
                     <div class="agent-score">4.8★</div>
                 </div>
-                
+
                 <div class="member-card">
                     <div class="member-info">
                         <div class="member-name">Marcus Tan</div>
@@ -3375,7 +3901,7 @@
                     </div>
                     <div class="agent-score">4.9★</div>
                 </div>
-                
+
                 <div class="member-card">
                     <div class="member-info">
                         <div class="member-name">Rachel Ng</div>
@@ -3383,7 +3909,7 @@
                     </div>
                     <div class="agent-score">4.6★</div>
                 </div>
-                
+
                 <div class="member-card">
                     <div class="member-info">
                         <div class="member-name">Kevin Tan</div>
@@ -3391,9 +3917,9 @@
                     </div>
                     <div class="agent-score">4.7★</div>
                 </div>
-                
+
                 <div class="panel-header" style="margin-top: 20px;">🎯 Squad Challenges</div>
-                
+
                 <div class="region-card">
                     <div class="region-name">Team Goal: 100 Conversions</div>
                     <div class="progress-bar" style="margin-top: 10px;">
@@ -3402,8 +3928,61 @@
                     <div style="font-size: 12px; color: #666; margin-top: 8px;">87 / 100 • 13 more to win $5,000 bonus!</div>
                 </div>
             </div>
+
+            <!-- News Tab Content -->
+            <div class="squad-content" id="squad-news-tab" style="display: none;">
+                <div class="panel-header">📰 Squad News Feed</div>
+                <div style="font-size: 12px; color: #666; margin-bottom: 15px;">Market insights shared by squad members</div>
+
+                <div id="squad-news-feed">
+                    <!-- Shared news will appear here -->
+                </div>
+            </div>
+
+            <!-- Chat Tab Content -->
+            <div class="chat-container" id="squad-chat-tab" style="display: none;">
+                <div class="chat-messages" id="chat-messages-container">
+                    <!-- Messages will be rendered here -->
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="chat-quick-actions">
+                        <button class="quick-action-btn" onclick="sendQuickMessage('tips')">💡 Share Tip</button>
+                        <button class="quick-action-btn" onclick="sendQuickMessage('celebrate')">🎉 Celebrate</button>
+                        <button class="quick-action-btn" onclick="sendQuickMessage('help')">🆘 Need Help</button>
+                        <button class="quick-action-btn" onclick="sendQuickMessage('megatron')">🤖 Ask Megatron</button>
+                    </div>
+                    <div class="chat-input-box">
+                        <input type="text" class="chat-input" id="chat-input" placeholder="Type a message..." onkeypress="handleChatEnter(event)">
+                        <button class="chat-send-btn" onclick="sendChatMessage()">
+                            <span>➤</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        
+
+        <!-- NEWS HUB SCREEN -->
+        <div class="screen" id="news-screen">
+            <div class="news-header">
+                <div class="news-title">📰 Market Intelligence Hub</div>
+                <div class="news-subtitle">Stay informed with latest insurance market news & insights</div>
+            </div>
+
+            <div class="news-filters">
+                <div class="filter-chip active" onclick="filterNews('all')">🌐 All News</div>
+                <div class="filter-chip" onclick="filterNews('trending')">🔥 Trending</div>
+                <div class="filter-chip" onclick="filterNews('health')">🏥 Health</div>
+                <div class="filter-chip" onclick="filterNews('regulation')">⚖️ Regulation</div>
+                <div class="filter-chip" onclick="filterNews('competitor')">🎯 Competitors</div>
+                <div class="filter-chip" onclick="filterNews('esg')">🌱 ESG</div>
+            </div>
+
+            <div class="news-content" id="news-container">
+                <!-- News cards will be dynamically inserted here -->
+            </div>
+        </div>
+
         <!-- CHALLENGES SCREEN -->
         <div class="screen" id="challenges-screen">
             <div class="challenges-header">
@@ -3463,13 +4042,17 @@
                 <div class="nav-icon">🏠</div>
                 <div>Home</div>
             </div>
+            <div class="nav-item" onclick="switchScreen('news')">
+                <div class="nav-icon">📰</div>
+                <div>News</div>
+            </div>
             <div class="nav-item" onclick="switchScreen('heatmap')">
                 <div class="nav-icon">🗺️</div>
-                <div>Heat Map</div>
+                <div>Map</div>
             </div>
             <div class="nav-item" onclick="switchScreen('rankings')">
                 <div class="nav-icon">🏆</div>
-                <div>Rankings</div>
+                <div>Ranks</div>
             </div>
             <div class="nav-item" onclick="switchScreen('squad')">
                 <div class="nav-icon">👥</div>
@@ -3477,7 +4060,7 @@
             </div>
             <div class="nav-item" onclick="switchScreen('challenges')">
                 <div class="nav-icon">🎯</div>
-                <div>Challenges</div>
+                <div>Goals</div>
             </div>
         </div>
         
@@ -3502,6 +4085,7 @@
             // Show selected screen
             const screenMap = {
                 'home': 'home-screen',
+                'news': 'news-screen',
                 'heatmap': 'heatmap-screen',
                 'rankings': 'rankings-screen',
                 'squad': 'squad-screen',
@@ -3509,20 +4093,26 @@
                 'profile': 'profile-screen',
                 'achievements': 'achievements-screen'
             };
-            
+
             document.getElementById(screenMap[screen]).classList.add('active');
-            
+
             // Add active to nav item if it's a main nav screen
-            if (['home', 'heatmap', 'rankings', 'squad', 'challenges'].includes(screen)) {
+            if (['home', 'news', 'heatmap', 'rankings', 'squad', 'challenges'].includes(screen)) {
                 const navItems = document.querySelectorAll('.nav-item');
                 const navMap = {
                     'home': 0,
-                    'heatmap': 1,
-                    'rankings': 2,
-                    'squad': 3,
-                    'challenges': 4
+                    'news': 1,
+                    'heatmap': 2,
+                    'rankings': 3,
+                    'squad': 4,
+                    'challenges': 5
                 };
                 navItems[navMap[screen]].classList.add('active');
+            }
+
+            // If switching to news screen, render news
+            if (screen === 'news') {
+                renderNews('all');
             }
         }
         
@@ -5569,6 +6159,808 @@ What do you need help with?`;
                 }
             });
         }, 60000); // Update every minute
+
+        // ===== NEWS HUB FEATURE =====
+
+        // Hardcoded news data array
+        const newsData = [
+            {
+                id: 1,
+                category: 'trending',
+                type: 'trending',
+                source: 'MAS',
+                verified: true,
+                time: '2 hours ago',
+                headline: 'MAS Issues New Guidelines on Outpatient Coverage Reforms',
+                summary: 'Monetary Authority of Singapore announces expanded coverage requirements for outpatient treatments under integrated health plans, effective Q2 2025.',
+                impactTitle: '💡 What This Means for Agents',
+                impactText: 'Position AIA HealthShield as comprehensive beyond CPF-approved limits. Highlight our expanded outpatient benefits that exceed new MAS requirements. Use this regulatory change as urgency trigger for policy reviews.',
+                tags: ['Health Insurance', 'Regulation', 'MAS', 'Outpatient'],
+                link: '#'
+            },
+            {
+                id: 2,
+                category: 'competitor',
+                type: 'competitor',
+                source: 'Business Times',
+                verified: true,
+                time: '5 hours ago',
+                headline: 'NTUC Income Launches "Life360" Comprehensive Protection Plan',
+                summary: 'New product combines life, critical illness, and disability coverage with flexible premium options starting at $180/month for $300K coverage.',
+                impactTitle: '💡 Competitive Response Strategy',
+                impactText: 'Emphasize AIA\'s faster claims processing (5 days vs 7 days) and higher customer satisfaction scores. Our Smart Protect offers 15% more riders at similar premium points. Mention 100 fund options in ILP vs their 45.',
+                tags: ['Competition', 'NTUC', 'Life Insurance', 'Product Launch'],
+                link: '#'
+            },
+            {
+                id: 3,
+                category: 'health',
+                type: 'regulation',
+                source: 'CPF Board',
+                verified: true,
+                time: '8 hours ago',
+                headline: 'CPF Life Payout Adjustments Effective Jan 2025',
+                summary: 'Updated CPF Life payout rates announced with increases ranging from 2-4% across all plan types due to improved longevity projections.',
+                impactTitle: '💡 Sales Opportunity',
+                impactText: 'Perfect moment to position Smart Wealth Builder II for retirement income gaps. CPF increases signal longer lifespans = greater retirement funding needs. Use "CPF + Private Plan" combo pitch to show comprehensive retirement strategy.',
+                tags: ['CPF', 'Retirement', 'Annuity', 'Government Policy'],
+                link: '#'
+            },
+            {
+                id: 4,
+                category: 'health',
+                type: 'trending',
+                source: 'Straits Times',
+                verified: true,
+                time: '1 day ago',
+                headline: 'Private Hospital Costs Rise 12% Year-on-Year in Singapore',
+                summary: 'Average hospitalization costs at private hospitals increased significantly, with ICU stays averaging $3,800/day and specialist consultations up 15%.',
+                impactTitle: '💡 Urgency Messaging',
+                impactText: 'Use rising costs as urgency trigger for health insurance upgrades. Emphasize "lock in coverage now before premiums adjust." PrivateShield Premier with no co-payment becomes even more valuable. Share cost comparison examples.',
+                tags: ['Healthcare Costs', 'Private Hospitals', 'Market Trends'],
+                link: '#'
+            },
+            {
+                id: 5,
+                category: 'regulation',
+                type: 'regulation',
+                source: 'LIA Singapore',
+                verified: true,
+                time: '1 day ago',
+                headline: 'New Suitability Assessment Requirements for Investment Products',
+                summary: 'Life Insurance Association introduces enhanced customer profiling requirements for ILP sales, including mandatory risk tolerance questionnaires.',
+                impactTitle: '💡 Compliance Update',
+                impactText: 'Ensure all ILP sales include updated Financial Needs Analysis (FNA) with new risk profiling questions. AIA portal updated with automated assessment tool. Complete compliance training module before selling ILPs.',
+                tags: ['Compliance', 'ILP', 'Regulation', 'LIA'],
+                link: '#'
+            },
+            {
+                id: 6,
+                category: 'esg',
+                type: 'esg',
+                source: 'AIA Group',
+                verified: true,
+                time: '2 days ago',
+                headline: 'AIA Achieves Carbon Neutral Operations Across Asia-Pacific',
+                summary: 'AIA Group announces achievement of carbon neutrality across all regional operations, reinforcing commitment to ESG principles and sustainable investing.',
+                impactTitle: '💡 Brand Differentiation',
+                impactText: 'Leverage ESG credentials with younger, environmentally-conscious clients. Our WealthBuilder ESG Fund options align with sustainability values. Mention carbon-neutral operations as corporate responsibility proof point.',
+                tags: ['ESG', 'Sustainability', 'Corporate News', 'AIA'],
+                link: '#'
+            },
+            {
+                id: 7,
+                category: 'competitor',
+                type: 'competitor',
+                source: 'Reuters',
+                verified: true,
+                time: '2 days ago',
+                headline: 'Prudential Reports 23% Growth in Digital Policy Purchases',
+                summary: 'Competitor sees significant uptake in online policy purchases, with 45% of term life policies now sold via digital channels.',
+                impactTitle: '💡 Digital Engagement',
+                impactText: 'Highlight AIA\'s superior mobile app experience and AI-powered lead tools. While competitors push self-service, emphasize personalized advisory value. Use digital tools as enablers, not replacements for relationship.',
+                tags: ['Digital Transformation', 'Prudential', 'Market Trends'],
+                link: '#'
+            },
+            {
+                id: 8,
+                category: 'health',
+                type: 'health',
+                source: 'MOH Singapore',
+                verified: true,
+                time: '3 days ago',
+                headline: 'Ministry of Health Expands MediShield Life Coverage for Cancer Treatments',
+                summary: 'New immunotherapy and targeted therapy treatments added to MediShield Life coverage list, reducing out-of-pocket costs for cancer patients.',
+                impactTitle: '💡 Coverage Gap Analysis',
+                impactText: 'MediShield expansion is positive but still has coverage limits. Position AIA CriticalCare as essential supplement. Highlight 120 critical illness conditions vs MediShield\'s basic cancer coverage. Early-stage detection benefits crucial.',
+                tags: ['MediShield', 'Cancer', 'MOH', 'Healthcare'],
+                link: '#'
+            },
+            {
+                id: 9,
+                category: 'trending',
+                type: 'trending',
+                source: 'Bloomberg',
+                verified: true,
+                time: '3 days ago',
+                headline: 'Singapore Life Insurance Sector Records 18% Premium Growth in 2024',
+                summary: 'Industry-wide new business premiums reach $15.2B, driven by strong demand for health and investment-linked products amid economic recovery.',
+                impactTitle: '💡 Market Confidence',
+                impactText: 'Strong market growth validates insurance value proposition. Use industry momentum in conversations: "18% growth shows Singaporeans prioritizing protection." Position AIA as market leader in growth segment.',
+                tags: ['Market Data', 'Industry Growth', 'Singapore'],
+                link: '#'
+            },
+            {
+                id: 10,
+                category: 'esg',
+                type: 'esg',
+                source: 'CNA',
+                verified: true,
+                time: '4 days ago',
+                headline: 'Green Building Standards Impact Commercial Property Insurance',
+                summary: 'New sustainability requirements for commercial buildings create opportunities for specialized green property coverage products.',
+                impactTitle: '💡 Corporate Client Opportunity',
+                impactText: 'For corporate/SME clients, position AIA Business Protection Suite with ESG compliance benefits. Green building coverage becoming differentiator. Partner with corporate sales team for cross-sell opportunities.',
+                tags: ['ESG', 'Commercial', 'Property', 'Green Building'],
+                link: '#'
+            }
+        ];
+
+        let currentNewsFilter = 'all';
+
+        // Render news cards
+        function renderNews(filter = 'all') {
+            currentNewsFilter = filter;
+            const container = document.getElementById('news-container');
+
+            // Update filter chips
+            document.querySelectorAll('.filter-chip').forEach(chip => {
+                chip.classList.remove('active');
+            });
+            event?.target?.classList.add('active');
+
+            // Filter news
+            let filteredNews = newsData;
+            if (filter !== 'all') {
+                filteredNews = newsData.filter(news => news.category === filter);
+            }
+
+            // Render news cards
+            container.innerHTML = filteredNews.map(news => `
+                <div class="news-card ${news.type}" onclick="viewNewsDetail(${news.id})">
+                    <div class="news-source">
+                        <span class="source-badge ${news.verified ? 'verified' : ''}">
+                            ${news.verified ? '✓ ' : ''}${news.source}
+                        </span>
+                        ${news.type === 'trending' ? '<span class="trending-badge">🔥 TRENDING</span>' : ''}
+                        <span class="news-time">${news.time}</span>
+                    </div>
+
+                    <div class="news-headline">${news.headline}</div>
+                    <div class="news-summary">${news.summary}</div>
+
+                    <div class="news-impact">
+                        <div class="impact-title">${news.impactTitle}</div>
+                        <div class="impact-text">${news.impactText}</div>
+                    </div>
+
+                    <div class="news-tags">
+                        ${news.tags.map(tag => `<span class="news-tag">${tag}</span>`).join('')}
+                    </div>
+
+                    <div class="news-actions">
+                        <button class="news-action-btn" onclick="event.stopPropagation(); useInDossier(${news.id})">
+                            📋 Use in Dossier
+                        </button>
+                        <button class="news-action-btn" onclick="event.stopPropagation(); shareNews(${news.id})">
+                            📤 Share
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            // If no news found
+            if (filteredNews.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px; color: #999;">
+                        <div style="font-size: 48px; margin-bottom: 15px;">📭</div>
+                        <div style="font-size: 16px; font-weight: 600; margin-bottom: 8px;">No news in this category</div>
+                        <div style="font-size: 13px;">Try selecting a different filter</div>
+                    </div>
+                `;
+            }
+        }
+
+        // Filter news by category
+        function filterNews(category) {
+            renderNews(category);
+        }
+
+        // View news detail
+        function viewNewsDetail(newsId) {
+            const news = newsData.find(n => n.id === newsId);
+            if (!news) return;
+
+            showToast(`📰 Opening: ${news.headline.substring(0, 40)}...`);
+
+            // In a real app, this would open a detailed view
+            // For now, just show a toast
+            setTimeout(() => {
+                showToast(`💡 ${news.impactTitle}`);
+            }, 1500);
+        }
+
+        // Use news in dossier
+        function useInDossier(newsId) {
+            const news = newsData.find(n => n.id === newsId);
+            if (!news) return;
+
+            showToast(`✅ Added to talking points: "${news.headline.substring(0, 30)}..."`);
+        }
+
+        // Share news
+        function shareNews(newsId) {
+            const news = newsData.find(n => n.id === newsId);
+            if (!news) return;
+
+            showToast(`📤 Shared to squad: ${news.headline.substring(0, 35)}...`);
+        }
+
+        // Initialize news on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNews('all');
+            renderChatMessages();
+        });
+
+        // ===== SQUAD CHAT FEATURE =====
+
+        // Hardcoded chat messages
+        const chatMessages = [
+            {
+                id: 1,
+                sender: 'Marcus Tan',
+                avatar: 'MT',
+                time: '9:23 AM',
+                type: 'text',
+                content: 'Morning team! Just grabbed a Diamond lead in Tampines. Anyone have experience with high-net-worth health insurance clients?'
+            },
+            {
+                id: 2,
+                sender: 'Rachel Ng',
+                avatar: 'RN',
+                time: '9:25 AM',
+                type: 'text',
+                content: 'Yes! I closed 3 similar cases last month. Key is to focus on comprehensive coverage and international benefits.'
+            },
+            {
+                id: 3,
+                sender: 'Rachel Ng',
+                avatar: 'RN',
+                time: '9:25 AM',
+                type: 'tip',
+                title: '💡 Pro Tip: HNW Health Insurance',
+                content: 'Emphasize: (1) No claim limits, (2) Global coverage including US, (3) VIP hospital rooms, (4) Direct billing with top hospitals. Use HealthShield Premier comparison chart.'
+            },
+            {
+                id: 4,
+                sender: 'You',
+                avatar: 'SL',
+                time: '9:27 AM',
+                type: 'text',
+                content: 'Thanks Rachel! That\'s super helpful 🙏',
+                own: true
+            },
+            {
+                id: 5,
+                sender: 'Kevin Tan',
+                avatar: 'KT',
+                time: '10:15 AM',
+                type: 'celebration',
+                content: '🎉 Just closed a $500K life policy! 7th conversion this week!'
+            },
+            {
+                id: 6,
+                sender: 'Marcus Tan',
+                avatar: 'MT',
+                time: '10:16 AM',
+                type: 'text',
+                content: 'Beast mode Kevin! 🔥 What was your approach?'
+            },
+            {
+                id: 7,
+                sender: 'Kevin Tan',
+                avatar: 'KT',
+                time: '10:18 AM',
+                type: 'text',
+                content: 'Used the "CPF gap analysis" strategy we discussed last week. Client realized CPF only covers 30% of retirement needs. Smart Wealth Builder was a no-brainer.'
+            },
+            {
+                id: 8,
+                sender: 'You',
+                avatar: 'SL',
+                time: '11:42 AM',
+                type: 'news',
+                title: '📰 Shared from News Hub',
+                content: 'MAS Issues New Guidelines on Outpatient Coverage Reforms - Great talking point for policy reviews!',
+                newsId: 1
+            },
+            {
+                id: 9,
+                sender: 'Rachel Ng',
+                avatar: 'RN',
+                time: '11:45 AM',
+                type: 'text',
+                content: 'Perfect timing! I have 3 policy reviews scheduled this afternoon. Will definitely use this.'
+            },
+            {
+                id: 10,
+                sender: 'Lisa Wong',
+                avatar: 'LW',
+                time: '2:34 PM',
+                type: 'help',
+                content: '🆘 Quick help needed: Client asking about pre-existing conditions waiting period. Is it 12 or 24 months for HealthShield?'
+            },
+            {
+                id: 11,
+                sender: 'Marcus Tan',
+                avatar: 'MT',
+                time: '2:35 PM',
+                type: 'text',
+                content: '12 months for HealthShield Plus, 24 months for specific conditions like diabetes. Check Megatron for exact details.'
+            },
+            {
+                id: 12,
+                sender: 'Lisa Wong',
+                avatar: 'LW',
+                time: '2:36 PM',
+                type: 'text',
+                content: 'Thanks Marcus! Crisis averted 😅'
+            },
+            {
+                id: 13,
+                sender: 'You',
+                avatar: 'SL',
+                time: '3:15 PM',
+                type: 'text',
+                content: 'Anyone free for a quick strategy call? Have a complex ILP case - client wants ESG funds but worried about returns.',
+                own: true
+            },
+            {
+                id: 14,
+                sender: 'Rachel Ng',
+                avatar: 'RN',
+                time: '3:16 PM',
+                type: 'text',
+                content: 'I can hop on in 10 min! ESG funds have been outperforming lately. I\'ll share the performance data.'
+            }
+        ];
+
+        let currentChatMessages = [...chatMessages];
+        let sharedNewsItems = [
+            {
+                newsId: 2,
+                sharedBy: 'Marcus Tan',
+                sharedTime: '2:15 PM',
+                isNew: true
+            },
+            {
+                newsId: 4,
+                sharedBy: 'Rachel Ng',
+                sharedTime: '1:30 PM',
+                isNew: true
+            },
+            {
+                newsId: 1,
+                sharedBy: 'You',
+                sharedTime: '11:42 AM',
+                isNew: false
+            },
+            {
+                newsId: 9,
+                sharedBy: 'Kevin Tan',
+                sharedTime: '10:20 AM',
+                isNew: false
+            },
+            {
+                newsId: 3,
+                sharedBy: 'Lisa Wong',
+                sharedTime: 'Yesterday',
+                isNew: false
+            }
+        ];
+
+        // Switch between Members, News, and Chat tabs
+        function switchSquadTab(tab) {
+            // Update tab active states
+            document.querySelectorAll('.chat-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Hide all tabs
+            document.getElementById('squad-members-tab').style.display = 'none';
+            document.getElementById('squad-news-tab').style.display = 'none';
+            document.getElementById('squad-chat-tab').style.display = 'none';
+
+            // Show selected tab
+            if (tab === 'members') {
+                document.getElementById('squad-members-tab').style.display = 'block';
+            } else if (tab === 'news') {
+                document.getElementById('squad-news-tab').style.display = 'block';
+                renderSquadNewsFeed();
+            } else if (tab === 'chat') {
+                document.getElementById('squad-chat-tab').style.display = 'flex';
+                renderChatMessages();
+                scrollChatToBottom();
+            }
+        }
+
+        // Render squad news feed
+        function renderSquadNewsFeed() {
+            const container = document.getElementById('squad-news-feed');
+            if (!container) return;
+
+            if (sharedNewsItems.length === 0) {
+                container.innerHTML = `
+                    <div class="squad-news-empty">
+                        <div style="font-size: 36px; margin-bottom: 10px;">📭</div>
+                        <div style="font-size: 14px; font-weight: 600; margin-bottom: 5px;">No news shared yet</div>
+                        <div style="font-size: 12px;">Share insights from News Hub to keep squad informed</div>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = sharedNewsItems.map(item => {
+                const news = newsData.find(n => n.id === item.newsId);
+                if (!news) return '';
+
+                return `
+                    <div class="squad-news-item ${item.isNew ? 'new' : ''}" onclick="viewNewsFromSquad(${item.newsId})">
+                        <div class="squad-news-header">
+                            <div class="squad-news-sharer">
+                                📤 Shared by ${item.sharedBy} • ${item.sharedTime}
+                            </div>
+                            ${item.isNew ? '<span class="squad-news-badge">NEW</span>' : ''}
+                        </div>
+                        <div class="squad-news-title">${news.headline}</div>
+                        <div class="squad-news-impact">💡 ${news.impactText.substring(0, 120)}...</div>
+                        <div class="squad-news-meta">
+                            <span>📰 ${news.source}</span>
+                            <span>🏷️ ${news.tags[0]}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // View news from squad feed
+        function viewNewsFromSquad(newsId) {
+            // Mark as read
+            const item = sharedNewsItems.find(i => i.newsId === newsId);
+            if (item) item.isNew = false;
+
+            // Switch to news hub
+            switchScreen('news');
+
+            // Show news detail
+            setTimeout(() => {
+                viewNewsDetail(newsId);
+            }, 300);
+        }
+
+        // Render chat messages
+        function renderChatMessages() {
+            const container = document.getElementById('chat-messages-container');
+            if (!container) return;
+
+            container.innerHTML = currentChatMessages.map(msg => {
+                const ownClass = msg.own ? 'own' : '';
+
+                // Regular text message
+                if (msg.type === 'text') {
+                    return `
+                        <div class="message ${ownClass}">
+                            <div class="message-avatar">${msg.avatar}</div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <span class="message-sender">${msg.sender}</span>
+                                    <span class="message-time">${msg.time}</span>
+                                </div>
+                                <div class="message-bubble">${msg.content}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Tip message
+                if (msg.type === 'tip') {
+                    return `
+                        <div class="message ${ownClass}">
+                            <div class="message-avatar">${msg.avatar}</div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <span class="message-sender">${msg.sender}</span>
+                                    <span class="message-time">${msg.time}</span>
+                                </div>
+                                <div class="message-special">
+                                    <div class="message-special-title">${msg.title}</div>
+                                    <div class="message-special-content">${msg.content}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Celebration message
+                if (msg.type === 'celebration') {
+                    return `
+                        <div class="message ${ownClass}">
+                            <div class="message-avatar">${msg.avatar}</div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <span class="message-sender">${msg.sender}</span>
+                                    <span class="message-time">${msg.time}</span>
+                                </div>
+                                <div class="message-action">${msg.content}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // News share message
+                if (msg.type === 'news') {
+                    return `
+                        <div class="message ${ownClass}">
+                            <div class="message-avatar">${msg.avatar}</div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <span class="message-sender">${msg.sender}</span>
+                                    <span class="message-time">${msg.time}</span>
+                                </div>
+                                <div class="message-special">
+                                    <div class="message-special-title">${msg.title}</div>
+                                    <div class="message-special-content">${msg.content}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Help message
+                if (msg.type === 'help') {
+                    return `
+                        <div class="message ${ownClass}">
+                            <div class="message-avatar">${msg.avatar}</div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <span class="message-sender">${msg.sender}</span>
+                                    <span class="message-time">${msg.time}</span>
+                                </div>
+                                <div class="message-action">${msg.content}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }).join('');
+
+            scrollChatToBottom();
+        }
+
+        // Scroll chat to bottom
+        function scrollChatToBottom() {
+            setTimeout(() => {
+                const container = document.getElementById('chat-messages-container');
+                if (container) {
+                    container.scrollTop = container.scrollHeight;
+                }
+            }, 100);
+        }
+
+        // Send chat message
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+
+            if (!message) return;
+
+            // Add new message
+            const newMsg = {
+                id: currentChatMessages.length + 1,
+                sender: 'You',
+                avatar: 'SL',
+                time: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }),
+                type: 'text',
+                content: message,
+                own: true
+            };
+
+            currentChatMessages.push(newMsg);
+            renderChatMessages();
+
+            // Clear input
+            input.value = '';
+
+            // Show toast
+            showToast('💬 Message sent to squad');
+
+            // Simulate reply after 2 seconds
+            setTimeout(() => {
+                const replies = [
+                    'Great point! I agree 👍',
+                    'Thanks for sharing that!',
+                    'Let me check and get back to you',
+                    'That\'s really helpful, thanks!',
+                    'I\'ll try that approach!'
+                ];
+
+                const replyMsg = {
+                    id: currentChatMessages.length + 1,
+                    sender: 'Marcus Tan',
+                    avatar: 'MT',
+                    time: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }),
+                    type: 'text',
+                    content: replies[Math.floor(Math.random() * replies.length)]
+                };
+
+                currentChatMessages.push(replyMsg);
+                renderChatMessages();
+            }, 2000);
+        }
+
+        // Handle Enter key in chat
+        function handleChatEnter(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        // Send quick message
+        function sendQuickMessage(type) {
+            const messages = {
+                'tips': {
+                    type: 'tip',
+                    title: '💡 Pro Tip',
+                    content: 'Always use the "CPF gap analysis" to show retirement funding needs. Clients respond well to specific numbers!'
+                },
+                'celebrate': {
+                    type: 'celebration',
+                    content: '🎉 Just hit my weekly target! 15 conversions this week!'
+                },
+                'help': {
+                    type: 'help',
+                    content: '🆘 Need help with ILP product comparison - client comparing us with competitor X'
+                },
+                'megatron': {
+                    type: 'text',
+                    content: '🤖 Asking Megatron about latest product updates...'
+                }
+            };
+
+            const msg = messages[type];
+            if (!msg) return;
+
+            const newMsg = {
+                id: currentChatMessages.length + 1,
+                sender: 'You',
+                avatar: 'SL',
+                time: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }),
+                ...msg,
+                own: true
+            };
+
+            currentChatMessages.push(newMsg);
+            renderChatMessages();
+            showToast(`✅ ${type === 'tips' ? 'Tip' : type === 'celebrate' ? 'Celebration' : type === 'help' ? 'Help request' : 'Query'} shared with squad`);
+
+            // Simulate contextual replies for each type
+            setTimeout(() => {
+                let replyMsg;
+                const time = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+
+                if (type === 'tips') {
+                    replyMsg = {
+                        id: currentChatMessages.length + 1,
+                        sender: 'Marcus Tan',
+                        avatar: 'MT',
+                        time: time,
+                        type: 'text',
+                        content: 'Great tip! I\'ve been using this strategy too - works like a charm! 💯'
+                    };
+                } else if (type === 'celebrate') {
+                    replyMsg = {
+                        id: currentChatMessages.length + 1,
+                        sender: 'Rachel Ng',
+                        avatar: 'RN',
+                        time: time,
+                        type: 'text',
+                        content: 'Amazing work! 🔥 You\'re crushing it this week! Keep it up! 🚀'
+                    };
+                } else if (type === 'help') {
+                    replyMsg = {
+                        id: currentChatMessages.length + 1,
+                        sender: 'Kevin Tan',
+                        avatar: 'KT',
+                        time: time,
+                        type: 'text',
+                        content: 'I can help! Our ILP has 100 fund options vs their 45. Also emphasize our lower management fees (1.2% vs 1.8%). Want to hop on a call?'
+                    };
+                } else if (type === 'megatron') {
+                    replyMsg = {
+                        id: currentChatMessages.length + 1,
+                        sender: 'Megatron AI',
+                        avatar: '🤖',
+                        time: time,
+                        type: 'tip',
+                        title: '🤖 Megatron Response',
+                        content: 'Latest updates: (1) HealthShield Premier now includes dental coverage up to $3K/year, (2) Smart Wealth Builder interest rate increased to 3.5%, (3) New rider available for chronic disease management. Check portal for full details.'
+                    };
+                }
+
+                currentChatMessages.push(replyMsg);
+                renderChatMessages();
+            }, 2000);
+        }
+
+        // Update shareNews function to also post to squad chat
+        function shareNews(newsId) {
+            const news = newsData.find(n => n.id === newsId);
+            if (!news) return;
+
+            const currentTime = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+
+            // Add to shared news feed
+            const existingShare = sharedNewsItems.find(item => item.newsId === newsId);
+            if (!existingShare) {
+                sharedNewsItems.unshift({
+                    newsId: newsId,
+                    sharedBy: 'You',
+                    sharedTime: currentTime,
+                    isNew: true
+                });
+            }
+
+            // Add to chat
+            const newMsg = {
+                id: currentChatMessages.length + 1,
+                sender: 'You',
+                avatar: 'SL',
+                time: currentTime,
+                type: 'news',
+                title: '📰 Shared from News Hub',
+                content: news.headline + ' - ' + news.impactText.substring(0, 80) + '...',
+                newsId: newsId,
+                own: true
+            };
+
+            currentChatMessages.push(newMsg);
+
+            // Update squad news feed if visible
+            renderSquadNewsFeed();
+
+            showToast(`📤 News shared to squad: ${news.headline.substring(0, 35)}...`);
+
+            // Simulate squad member reaction
+            setTimeout(() => {
+                const reactions = [
+                    'This is super useful, thanks for sharing! 💯',
+                    'Perfect timing! I have a client meeting this afternoon.',
+                    'Great find! Adding this to my talk track.',
+                    'Thanks! This will help with my upcoming calls.',
+                    'Excellent insight! Sharing with my mentee too.'
+                ];
+
+                const replyMsg = {
+                    id: currentChatMessages.length + 1,
+                    sender: 'Rachel Ng',
+                    avatar: 'RN',
+                    time: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }),
+                    type: 'text',
+                    content: reactions[Math.floor(Math.random() * reactions.length)]
+                };
+
+                currentChatMessages.push(replyMsg);
+                renderChatMessages();
+            }, 2000);
+        }
     </script>
 </body>
 </html>
