@@ -1893,6 +1893,65 @@
             padding: 30px 20px;
             color: #999;
         }
+
+        /* Dossier News Selector Styles */
+        .dossier-news-item {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dossier-news-item:hover {
+            border-color: #17a2b8;
+            background: #f8f9fa;
+        }
+
+        .dossier-news-item.selected {
+            border-color: #17a2b8;
+            background: #d1ecf1;
+        }
+
+        .dossier-news-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #dee2e6;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .dossier-news-item.selected .dossier-news-checkbox {
+            background: #17a2b8;
+            border-color: #17a2b8;
+            color: white;
+        }
+
+        .dossier-news-info {
+            flex: 1;
+        }
+
+        .dossier-news-headline {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .dossier-news-source {
+            font-size: 11px;
+            color: #6c757d;
+        }
     </style>
 </head>
 <body>
@@ -2273,7 +2332,28 @@
                     <strong>Digital Behavior:</strong> Spent 18 minutes comparing investment-linked plans. Downloaded wealth accumulation guide. Researched premium hospital coverage.
                 </div>
             </div>
-            
+
+            <div class="section">
+                <div class="section-title">
+                    📰 Market Context & News
+                    <span class="ai-badge">REAL-TIME</span>
+                </div>
+                <div class="insight-text" style="margin-bottom: 12px;">
+                    Select relevant news to enhance this conversation with market insights
+                </div>
+                <div id="dossier-news-selector-chen-wei" style="margin-bottom: 15px;">
+                    <!-- News items will be inserted here -->
+                </div>
+                <div id="dossier-selected-news-chen-wei" style="display: none;">
+                    <div style="background: #d1ecf1; border-left: 3px solid #17a2b8; padding: 12px; border-radius: 8px; margin-top: 15px;">
+                        <div style="font-weight: 600; color: #0c5460; margin-bottom: 8px;">💡 How to Use This News:</div>
+                        <div id="dossier-news-context-chen-wei" style="font-size: 13px; color: #0c5460; line-height: 1.6;">
+                            <!-- Context will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="section">
                 <div class="section-title">
                     💡 Recommended Product Stack
@@ -2571,7 +2651,28 @@
                     <strong>Digital Behavior:</strong> Spent 22 minutes on family health insurance comparison page. Downloaded guides: "Protecting Your Young Family" and "Child Critical Illness Coverage". Searched for pediatric coverage and maternity benefits. Visited competitor sites 3 times in past week.
                 </div>
             </div>
-            
+
+            <div class="section">
+                <div class="section-title">
+                    📰 Market Context & News
+                    <span class="ai-badge">REAL-TIME</span>
+                </div>
+                <div class="insight-text" style="margin-bottom: 12px;">
+                    Select relevant news to enhance this conversation with market insights
+                </div>
+                <div id="dossier-news-selector-sarah-tan" style="margin-bottom: 15px;">
+                    <!-- News items will be inserted here -->
+                </div>
+                <div id="dossier-selected-news-sarah-tan" style="display: none;">
+                    <div style="background: #d1ecf1; border-left: 3px solid #17a2b8; padding: 12px; border-radius: 8px; margin-top: 15px;">
+                        <div style="font-weight: 600; color: #0c5460; margin-bottom: 8px;">💡 How to Use This News:</div>
+                        <div id="dossier-news-context-sarah-tan" style="font-size: 13px; color: #0c5460; line-height: 1.6;">
+                            <!-- Context will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="section">
                 <div class="section-title">
                     💡 Recommended Product Stack
@@ -4121,12 +4222,17 @@
                 'chen-wei': 'dossier-chen-wei',
                 'sarah-tan': 'dossier-sarah-tan'
             };
-            
+
             document.querySelectorAll('.screen').forEach(s => {
                 s.classList.remove('active');
             });
-            
+
             document.getElementById(dossierMap[leadId]).classList.add('active');
+
+            // Render news selector for this dossier
+            setTimeout(() => {
+                renderDossierNewsSelector(leadId);
+            }, 100);
         }
         
         function grabLead(leadName) {
@@ -6898,6 +7004,204 @@ What do you need help with?`;
                 currentChatMessages.push(replyMsg);
                 renderChatMessages();
             }, 2000);
+        }
+
+        // ===== DOSSIER NEWS INTEGRATION =====
+
+        let dossierSelectedNews = {
+            'chen-wei': [],
+            'sarah-tan': []
+        };
+
+        // Render news selector in dossier
+        function renderDossierNewsSelector(leadId) {
+            const container = document.getElementById(`dossier-news-selector-${leadId}`);
+            if (!container) {
+                console.log('Container not found for leadId:', leadId);
+                return;
+            }
+
+            // Check if newsData is available
+            if (typeof newsData === 'undefined' || !newsData || newsData.length === 0) {
+                container.innerHTML = '<div style="color: #999; font-size: 13px;">Loading news...</div>';
+                // Retry after a delay
+                setTimeout(() => renderDossierNewsSelector(leadId), 500);
+                return;
+            }
+
+            // Filter relevant news (top 5 most relevant)
+            const relevantNews = newsData.slice(0, 5);
+
+            container.innerHTML = relevantNews.map(news => {
+                const isSelected = dossierSelectedNews[leadId]?.includes(news.id);
+                return `
+                    <div class="dossier-news-item ${isSelected ? 'selected' : ''}" onclick="toggleDossierNews('${leadId}', ${news.id})">
+                        <div class="dossier-news-checkbox">
+                            ${isSelected ? '✓' : ''}
+                        </div>
+                        <div class="dossier-news-info">
+                            <div class="dossier-news-headline">${news.headline}</div>
+                            <div class="dossier-news-source">📰 ${news.source} • ${news.tags[0]}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Toggle news selection in dossier
+        function toggleDossierNews(leadId, newsId) {
+            if (!dossierSelectedNews[leadId]) {
+                dossierSelectedNews[leadId] = [];
+            }
+
+            const index = dossierSelectedNews[leadId].indexOf(newsId);
+            if (index > -1) {
+                dossierSelectedNews[leadId].splice(index, 1);
+            } else {
+                dossierSelectedNews[leadId].push(newsId);
+            }
+
+            renderDossierNewsSelector(leadId);
+            updateDossierNewsContext(leadId);
+        }
+
+        // Update dossier news context based on selections
+        function updateDossierNewsContext(leadId) {
+            const contextContainer = document.getElementById(`dossier-selected-news-${leadId}`);
+            const contextText = document.getElementById(`dossier-news-context-${leadId}`);
+
+            if (!contextContainer || !contextText) return;
+
+            const selectedIds = dossierSelectedNews[leadId] || [];
+
+            if (selectedIds.length === 0) {
+                contextContainer.style.display = 'none';
+                return;
+            }
+
+            contextContainer.style.display = 'block';
+
+            const selectedNewsItems = selectedIds.map(id => newsData.find(n => n.id === id)).filter(Boolean);
+
+            // Get lead-specific context
+            const leadContext = getLeadSpecificNewsContext(leadId, selectedNewsItems);
+
+            const contextHtml = `
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px; border-radius: 8px; margin-bottom: 15px;">
+                    <div style="font-weight: 700; margin-bottom: 8px; font-size: 14px;">🤖 AI-Generated Impact Analysis</div>
+                    <div style="font-size: 13px; line-height: 1.6;">${leadContext}</div>
+                </div>
+                ${selectedNewsItems.map(news => `
+                    <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #bee5eb;">
+                        <div style="font-weight: 600; margin-bottom: 8px; color: #0c5460;">📰 ${news.headline}</div>
+                        <div style="margin-bottom: 8px; font-size: 13px;"><strong>General Talk Track:</strong> ${news.impactText}</div>
+                        <div style="font-size: 11px; color: #0c5460;">
+                            <strong>Source:</strong> ${news.source} | <strong>Category:</strong> ${news.tags.join(', ')}
+                        </div>
+                    </div>
+                `).join('')}
+            `;
+
+            contextText.innerHTML = contextHtml;
+        }
+
+        // Generate lead-specific news context
+        function getLeadSpecificNewsContext(leadId, newsItems) {
+            // Lead profiles
+            const leadProfiles = {
+                'chen-wei': {
+                    name: 'Chen Wei',
+                    profile: '38-year-old investment banker, $15K/month income, recently married, high financial literacy',
+                    interests: 'wealth accumulation, investment-linked policies, premium health coverage'
+                },
+                'sarah-tan': {
+                    name: 'Sarah Tan',
+                    profile: '34-year-old mother of 2, $8K/month income, family protection focused',
+                    interests: 'family health coverage, life insurance, critical illness protection'
+                }
+            };
+
+            const lead = leadProfiles[leadId];
+            if (!lead) return 'Use these news insights to enhance your conversation.';
+
+            // Generate contextual insights based on news
+            if (newsItems.length === 0) return '';
+
+            const newsTopics = newsItems.map(n => n.tags[0]).join(', ');
+
+            let context = `<strong>For ${lead.name} specifically:</strong><br><br>`;
+
+            newsItems.forEach((news, index) => {
+                if (leadId === 'chen-wei') {
+                    // Chen Wei specific contexts
+                    if (news.id === 1) { // MAS Outpatient Coverage
+                        context += `${index + 1}. <strong>MAS Outpatient Reform:</strong> Chen Wei's high income and preference for premium coverage make this regulatory change a perfect opener. "The new MAS guidelines mean basic plans no longer cut it for comprehensive outpatient care—exactly why HealthShield Premium's enhanced coverage is critical for someone at your income level."<br><br>`;
+                    } else if (news.id === 2) { // NTUC Life360
+                        context += `${index + 1}. <strong>NTUC Life360 Launch:</strong> Use this competitively: "While NTUC's new plan offers basic coverage, our WealthBuilder ILP gives you 100 fund options vs their 45, plus better management fees (1.2% vs 1.8%). For a finance professional like you, that compounds significantly over 20 years."<br><br>`;
+                    } else if (news.id === 3) { // CPF Life Adjustments
+                        context += `${index + 1}. <strong>CPF Life Changes:</strong> Perfect for Chen Wei's wealth mindset: "CPF Life increases show longer lifespans—great news, but it also means your retirement gap is wider. Your $15K income today needs $8-10K replacement monthly. CPF covers maybe 30%—our Smart Wealth Builder fills that gap with tax-efficient growth."<br><br>`;
+                    } else if (news.id === 4) { // Hospital Costs Rise
+                        context += `${index + 1}. <strong>Rising Hospital Costs:</strong> Chen Wei researched premium hospital coverage—this validates his concern: "Private hospital ICU now costs $3,800/day—12% up YoY. Your research showed you value premium care. Our PrivateShield Premier with no co-payment protects against this inflation without surprise bills."<br><br>`;
+                    } else if (news.id === 9) { // Industry Growth
+                        context += `${index + 1}. <strong>Insurance Sector Growth:</strong> Social proof for Chen Wei: "Industry-wide 18% premium growth shows savvy Singaporeans prioritizing protection. As a finance professional, you recognize this trend—smart money is locking in coverage now before premiums adjust for the next actuarial cycle."<br><br>`;
+                    } else {
+                        context += `${index + 1}. ${news.impactText}<br><br>`;
+                    }
+                } else if (leadId === 'sarah-tan') {
+                    // Sarah Tan specific contexts
+                    if (news.id === 1) { // MAS Outpatient Coverage
+                        context += `${index + 1}. <strong>MAS Outpatient Reform:</strong> Perfect for Sarah's family concerns: "The new MAS outpatient guidelines expand coverage—critical for a family with young kids. Children need frequent doctor visits for colds, fevers, specialists. Our HealthShield Gold Plus already exceeds these new requirements with unlimited outpatient coverage for your entire family."<br><br>`;
+                    } else if (news.id === 4) { // Hospital Costs Rise
+                        context += `${index + 1}. <strong>Rising Hospital Costs:</strong> Address Sarah's biggest fear: "Hospital costs are up 12% this year—one pediatric ICU stay for dengue or pneumonia can cost $20K-$30K. With two young children, you can't afford to gamble. Our family plan covers all 4 of you with ZERO co-payment, so you never choose between your child's health and your savings."<br><br>`;
+                    } else if (news.id === 8) { // MediShield Cancer Coverage
+                        context += `${index + 1}. <strong>MediShield Cancer Expansion:</strong> Reassure while upselling: "Good news—MediShield now covers more cancer treatments. But here's what they don't tell you: MediShield limits mean 70% of costs still come from your pocket. Our CriticalCare covers 120 critical illnesses including childhood cancers, pays lump sum on diagnosis—you use it however you need. One parent can even stop working to care for the child."<br><br>`;
+                    } else if (news.id === 3) { // CPF Life
+                        context += `${index + 1}. <strong>CPF Life Updates:</strong> Frame for family planning: "CPF Life increases are great, but they highlight longevity—your kids might support you for 30+ years. That's why protecting your income NOW is critical. If something happens to you or your husband, this life insurance ensures your kids' education and family lifestyle continue uninterrupted."<br><br>`;
+                    } else if (news.id === 9) { // Industry Growth
+                        context += `${index + 1}. <strong>Insurance Sector Growth:</strong> Social proof for Sarah: "More Singapore families are buying protection—18% growth shows parents prioritizing their children's security. You're not alone in this concern. Smart parents like you are acting now because premiums only go up as kids grow and you get older."<br><br>`;
+                    } else {
+                        context += `${index + 1}. ${news.impactText}<br><br>`;
+                    }
+                } else {
+                    context += `${index + 1}. ${news.impactText}<br><br>`;
+                }
+            });
+
+            return context;
+        }
+
+        // Initialize news selector when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if we're on a dossier screen
+            const dossierScreens = ['chen-wei', 'sarah-tan'];
+            dossierScreens.forEach(leadId => {
+                const container = document.getElementById(`dossier-news-selector-${leadId}`);
+                if (container) {
+                    renderDossierNewsSelector(leadId);
+                }
+            });
+        });
+
+        // Update useInDossier function
+        function useInDossier(newsId) {
+            const news = newsData.find(n => n.id === newsId);
+            if (!news) return;
+
+            // For now, add to Chen Wei's dossier as default
+            const leadId = 'chen-wei';
+
+            if (!dossierSelectedNews[leadId]) {
+                dossierSelectedNews[leadId] = [];
+            }
+
+            if (!dossierSelectedNews[leadId].includes(newsId)) {
+                dossierSelectedNews[leadId].push(newsId);
+            }
+
+            // Switch to dossier view
+            viewDossier(leadId);
+
+            showToast(`✅ Added to dossier: "${news.headline.substring(0, 30)}..."`);
         }
 
         // Update shareNews function to also post to squad chat
