@@ -1952,6 +1952,225 @@
             font-size: 11px;
             color: #6c757d;
         }
+
+        /* Daily Briefing Styles */
+        .daily-briefing {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 15px 20px 20px;
+            padding: 18px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .briefing-header {
+            margin-bottom: 15px;
+        }
+
+        .briefing-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .briefing-date {
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .briefing-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .briefing-stat-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 12px 8px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .briefing-stat-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .briefing-stat-number {
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2px;
+        }
+
+        .briefing-stat-label {
+            font-size: 10px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.2;
+        }
+
+        .briefing-section {
+            background: white;
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        .briefing-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .priority-action {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .priority-action:last-child {
+            margin-bottom: 0;
+        }
+
+        .priority-action:hover {
+            background: #e9ecef;
+            transform: translateX(4px);
+        }
+
+        .priority-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .priority-content {
+            flex: 1;
+        }
+
+        .priority-text {
+            font-size: 13px;
+            color: #1a1a2e;
+            margin-bottom: 3px;
+            line-height: 1.3;
+        }
+
+        .priority-time {
+            font-size: 11px;
+            color: #6c757d;
+        }
+
+        .priority-arrow {
+            font-size: 18px;
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .briefing-news-item {
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .briefing-news-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .briefing-news-item:hover {
+            background: #e9ecef;
+        }
+
+        .briefing-news-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .briefing-news-relevance {
+            font-size: 11px;
+            color: #6c757d;
+        }
+
+        .challenge-mini {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+
+        .challenge-mini.expiring {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+        }
+
+        .challenge-mini:last-child {
+            margin-bottom: 0;
+        }
+
+        .challenge-mini-content {
+            flex: 1;
+        }
+
+        .challenge-mini-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 3px;
+        }
+
+        .challenge-mini-progress {
+            font-size: 11px;
+            color: #6c757d;
+        }
+
+        .challenge-mini-reward {
+            background: #28a745;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .briefing-quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .briefing-action-btn {
+            background: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #667eea;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .briefing-action-btn:hover {
+            background: rgba(255,255,255,0.9);
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -2120,12 +2339,116 @@
                     <div class="progress-fill"></div>
                 </div>
             </div>
-            
+
+            <!-- DAILY BRIEFING -->
+            <div class="daily-briefing">
+                <div class="briefing-header">
+                    <div class="briefing-title">📊 Your Daily Briefing</div>
+                    <div class="briefing-date">Monday, October 6, 2025</div>
+                </div>
+
+                <!-- Quick Stats Grid -->
+                <div class="briefing-stats-grid">
+                    <div class="briefing-stat-card hot-leads">
+                        <div class="briefing-stat-icon">🔥</div>
+                        <div class="briefing-stat-number">3</div>
+                        <div class="briefing-stat-label">Hot Leads Today</div>
+                    </div>
+                    <div class="briefing-stat-card pending">
+                        <div class="briefing-stat-icon">⏰</div>
+                        <div class="briefing-stat-number">2</div>
+                        <div class="briefing-stat-label">Follow-ups Due</div>
+                    </div>
+                    <div class="briefing-stat-card squad">
+                        <div class="briefing-stat-icon">🏆</div>
+                        <div class="briefing-stat-number">#1</div>
+                        <div class="briefing-stat-label">Squad Rank</div>
+                    </div>
+                </div>
+
+                <!-- Priority Actions -->
+                <div class="briefing-section">
+                    <div class="briefing-section-title">⚡ Priority Actions</div>
+                    <div class="priority-action" onclick="viewDossier('chen-wei')">
+                        <div class="priority-icon">💎</div>
+                        <div class="priority-content">
+                            <div class="priority-text"><strong>Chen Wei</strong> - Diamond lead expires in 4 hours</div>
+                            <div class="priority-time">94% propensity • $15K/mo income</div>
+                        </div>
+                        <div class="priority-arrow">→</div>
+                    </div>
+                    <div class="priority-action" onclick="showToast('📞 Calling Sarah Tan...')">
+                        <div class="priority-icon">📞</div>
+                        <div class="priority-content">
+                            <div class="priority-text"><strong>Follow-up:</strong> Sarah Tan requested callback today 2pm</div>
+                            <div class="priority-time">Interested in family health plan</div>
+                        </div>
+                        <div class="priority-arrow">→</div>
+                    </div>
+                </div>
+
+                <!-- Top News for Your Leads -->
+                <div class="briefing-section">
+                    <div class="briefing-section-title">📰 Top News for Your Leads</div>
+                    <div id="briefing-news-container">
+                        <div class="briefing-news-item" onclick="switchScreen('news')">
+                            <div class="briefing-news-title">Private Hospital Costs Rise 12% Year-on-Year</div>
+                            <div class="briefing-news-relevance">💡 Relevant for Sarah Tan (family protection)</div>
+                        </div>
+                        <div class="briefing-news-item" onclick="switchScreen('news')">
+                            <div class="briefing-news-title">MAS Issues New Guidelines on Outpatient Coverage</div>
+                            <div class="briefing-news-relevance">💡 Relevant for Chen Wei (premium coverage)</div>
+                        </div>
+                        <div class="briefing-news-item" onclick="switchScreen('news')">
+                            <div class="briefing-news-title">Singapore Life Insurance Sector Records 18% Growth</div>
+                            <div class="briefing-news-relevance">💡 Social proof for all leads</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Streak & Challenges -->
+                <div class="briefing-section">
+                    <div class="briefing-section-title">🎯 Active Challenges</div>
+                    <div class="challenge-mini">
+                        <div class="challenge-mini-content">
+                            <div class="challenge-mini-title">🔥 Daily Active Streak</div>
+                            <div class="challenge-mini-progress">Day 12 of 30 • Keep going!</div>
+                        </div>
+                        <div class="challenge-mini-reward">+500 pts</div>
+                    </div>
+                    <div class="challenge-mini expiring">
+                        <div class="challenge-mini-content">
+                            <div class="challenge-mini-title">⚡ Morning Rush Master</div>
+                            <div class="challenge-mini-progress">3/5 leads • Expires tonight!</div>
+                        </div>
+                        <div class="challenge-mini-reward">+300 pts</div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="briefing-quick-actions">
+                    <button class="briefing-action-btn" onclick="switchScreen('leads')">
+                        ⚡ View Leads
+                    </button>
+                    <button class="briefing-action-btn" onclick="switchScreen('news')">
+                        📰 All News
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEADS MARKETPLACE SCREEN -->
+        <div class="screen" id="leads-screen">
+            <div class="header">
+                <div class="greeting">⚡ Live Lead Marketplace</div>
+                <span class="agent-level">3 Hot Leads Available</span>
+            </div>
+
             <div class="section-header">
-                ⚡ LIVE LEAD MARKETPLACE
+                GRAB LEADS NOW
             </div>
             <div class="section-divider"></div>
-            
+
             <!-- Live Chat Alert -->
             <div onclick="openLiveChat()" style="background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); margin: 0 20px 15px; padding: 16px; border-radius: 16px; cursor: pointer; color: white; box-shadow: 0 4px 12px rgba(23,162,184,0.3); animation: pulse 2s infinite;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -2136,39 +2459,39 @@
                     <div style="background: #dc3545; padding: 8px 14px; border-radius: 50%; font-weight: 700; font-size: 16px;">3</div>
                 </div>
             </div>
-            
+
             <div class="lead-card diamond" onclick="viewDossier('chen-wei')">
                 <div class="tier-badge diamond-badge">💎 DIAMOND - 3X</div>
                 <div class="lead-name">Chen Wei</div>
                 <div class="lead-info">38 years • Health + Investment</div>
-                
+
                 <div class="lead-meta">
                     <div class="meta-item">📍 2.1km • Tampines</div>
                 </div>
-                
+
                 <div class="hot-indicator">
                     🔥 HOT: 94% • ⏱️ <span class="timer">28s</span> remaining
                 </div>
-                
+
                 <div class="action-buttons">
                     <button class="btn btn-peek" onclick="event.stopPropagation(); peekLead()">👁️ PEEK 50pts</button>
                     <button class="btn btn-grab" onclick="event.stopPropagation(); grabLead('Chen Wei')">⚡ GRAB NOW!</button>
                 </div>
             </div>
-            
+
             <div class="lead-card gold" onclick="viewDossier('sarah-tan')">
                 <div class="tier-badge gold-badge">🥇 GOLD - 2X</div>
                 <div class="lead-name">Sarah Tan</div>
                 <div class="lead-info">34 years • Family Protection</div>
-                
+
                 <div class="lead-meta">
                     <div class="meta-item">📍 4.2km • Bedok</div>
                 </div>
-                
+
                 <div class="hot-indicator">
-                    🔥 WARM: 82% • ⏱️ <span class="timer">45s</span> remaining
+                    ⏱️ <span class="timer">58s</span> remaining
                 </div>
-                
+
                 <div class="action-buttons">
                     <button class="btn btn-peek" onclick="event.stopPropagation(); peekLead()">👁️ PEEK 50pts</button>
                     <button class="btn btn-grab" onclick="event.stopPropagation(); grabLead('Sarah Tan')">⚡ GRAB NOW!</button>
@@ -4143,6 +4466,10 @@
                 <div class="nav-icon">🏠</div>
                 <div>Home</div>
             </div>
+            <div class="nav-item" onclick="switchScreen('leads')">
+                <div class="nav-icon">⚡</div>
+                <div>Leads</div>
+            </div>
             <div class="nav-item" onclick="switchScreen('news')">
                 <div class="nav-icon">📰</div>
                 <div>News</div>
@@ -4151,17 +4478,13 @@
                 <div class="nav-icon">🗺️</div>
                 <div>Map</div>
             </div>
-            <div class="nav-item" onclick="switchScreen('rankings')">
-                <div class="nav-icon">🏆</div>
-                <div>Ranks</div>
-            </div>
             <div class="nav-item" onclick="switchScreen('squad')">
                 <div class="nav-icon">👥</div>
                 <div>Squad</div>
             </div>
-            <div class="nav-item" onclick="switchScreen('challenges')">
-                <div class="nav-icon">🎯</div>
-                <div>Goals</div>
+            <div class="nav-item" onclick="switchScreen('rankings')">
+                <div class="nav-icon">🏆</div>
+                <div>Ranks</div>
             </div>
         </div>
         
@@ -4186,6 +4509,7 @@
             // Show selected screen
             const screenMap = {
                 'home': 'home-screen',
+                'leads': 'leads-screen',
                 'news': 'news-screen',
                 'heatmap': 'heatmap-screen',
                 'rankings': 'rankings-screen',
@@ -4198,15 +4522,15 @@
             document.getElementById(screenMap[screen]).classList.add('active');
 
             // Add active to nav item if it's a main nav screen
-            if (['home', 'news', 'heatmap', 'rankings', 'squad', 'challenges'].includes(screen)) {
+            if (['home', 'leads', 'news', 'heatmap', 'rankings', 'squad'].includes(screen)) {
                 const navItems = document.querySelectorAll('.nav-item');
                 const navMap = {
                     'home': 0,
-                    'news': 1,
-                    'heatmap': 2,
-                    'rankings': 3,
+                    'leads': 1,
+                    'news': 2,
+                    'heatmap': 3,
                     'squad': 4,
-                    'challenges': 5
+                    'rankings': 5
                 };
                 navItems[navMap[screen]].classList.add('active');
             }
@@ -6514,9 +6838,64 @@ What do you need help with?`;
 
         // Initialize news on page load
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM Content Loaded');
             renderNews('all');
             renderChatMessages();
+
+            // Delay briefing news rendering to ensure newsData is available
+            setTimeout(() => {
+                console.log('Attempting to render briefing news');
+                console.log('newsData available:', typeof newsData !== 'undefined', newsData?.length);
+                renderDailyBriefingNews();
+            }, 1000);
         });
+
+        // ===== DAILY BRIEFING FEATURE =====
+
+        // Render top news for daily briefing
+        function renderDailyBriefingNews() {
+            const container = document.getElementById('briefing-news-container');
+            if (!container) {
+                console.log('Briefing news container not found');
+                return;
+            }
+
+            // Check if newsData is available
+            if (typeof newsData === 'undefined' || !newsData || newsData.length === 0) {
+                container.innerHTML = '<div style="color: #999; font-size: 12px; padding: 10px;">Loading news...</div>';
+                // Retry after a delay
+                setTimeout(() => renderDailyBriefingNews(), 500);
+                return;
+            }
+
+            // Get top 3 most relevant news for agent's leads
+            const topNews = [
+                { newsId: 4, relevance: 'Relevant for Sarah Tan (family protection)' },
+                { newsId: 1, relevance: 'Relevant for Chen Wei (premium coverage)' },
+                { newsId: 9, relevance: 'Social proof for all leads' }
+            ];
+
+            const newsHtml = topNews.map(item => {
+                const news = newsData.find(n => n.id === item.newsId);
+                if (!news) {
+                    console.log('News not found for id:', item.newsId);
+                    return '';
+                }
+
+                return `
+                    <div class="briefing-news-item" onclick="switchScreen('news'); setTimeout(() => viewNewsDetail(${news.id}), 300);">
+                        <div class="briefing-news-title">${news.headline}</div>
+                        <div class="briefing-news-relevance">💡 ${item.relevance}</div>
+                    </div>
+                `;
+            }).join('');
+
+            if (newsHtml.trim() === '') {
+                container.innerHTML = '<div style="color: #999; font-size: 12px; padding: 10px;">No news available</div>';
+            } else {
+                container.innerHTML = newsHtml;
+            }
+        }
 
         // ===== SQUAD CHAT FEATURE =====
 
