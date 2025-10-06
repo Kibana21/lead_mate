@@ -29,6 +29,8 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         
         .status-bar {
@@ -62,6 +64,8 @@
             cursor: pointer;
             background: transparent;
             border: none;
+            position: relative;
+            z-index: 100;
         }
         
         /* Home Screen Styles */
@@ -1953,6 +1957,169 @@
             color: #6c757d;
         }
 
+        /* Generate Script Button */
+        .generate-script-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .generate-script-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .generate-script-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Script Generator Modal */
+        #script-modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 3000;
+            background: white;
+            height: 100% !important;
+            overflow: hidden;
+        }
+
+        .script-modal {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            overflow: hidden;
+        }
+
+        .script-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            padding-top: 50px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .script-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .script-subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .script-content {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .script-section {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .script-section-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: #495057;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .script-text {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #212529;
+            border: 1px solid #e9ecef;
+        }
+
+        .script-highlight {
+            background: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .script-tip {
+            background: #d1ecf1;
+            border-left: 3px solid #17a2b8;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #0c5460;
+            margin-top: 10px;
+        }
+
+        .script-actions {
+            display: flex;
+            gap: 10px;
+            padding: 15px 20px;
+            padding-bottom: 30px;
+            background: white;
+            border-top: 1px solid #e9ecef;
+            flex-shrink: 0;
+        }
+
+        .script-action-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-copy {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-copy:hover {
+            background: #218838;
+        }
+
+        .btn-edit {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background: #0056b3;
+        }
+
+        .btn-close-script {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-close-script:hover {
+            background: #5a6268;
+        }
+
         /* Daily Briefing Styles */
         .daily-briefing {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -2638,6 +2805,11 @@
                     <div class="stat-pill">📍 2.1km</div>
                     <div class="stat-pill">$15K/mo</div>
                 </div>
+
+                <!-- Generate Script Button -->
+                <button class="generate-script-btn" onclick="generateCallScript('chen-wei')">
+                    🎭 Generate Call Script
+                </button>
             </div>
             
             <div class="section">
@@ -2954,6 +3126,11 @@
                     <div class="stat-pill">$8K/mo</div>
                     <div class="stat-pill">2 Children</div>
                 </div>
+
+                <!-- Generate Script Button -->
+                <button class="generate-script-btn" onclick="generateCallScript('sarah-tan')">
+                    🎭 Generate Call Script
+                </button>
             </div>
             
             <div class="section">
@@ -4459,7 +4636,31 @@
                 </div>
             </div>
         </div>
-        
+
+        <!-- CALL SCRIPT GENERATOR MODAL -->
+        <div class="screen" id="script-modal" style="display: none;">
+            <div class="script-modal">
+                <div class="script-header">
+                    <button class="back-button" onclick="closeScriptModal()">← Back</button>
+                    <div class="script-title">🎭 AI-Generated Call Script</div>
+                    <div class="script-subtitle" id="script-lead-name">Personalized for this lead</div>
+                </div>
+
+                <div class="script-content" id="script-content-container">
+                    <!-- Script sections will be inserted here -->
+                </div>
+
+                <div class="script-actions">
+                    <button class="script-action-btn btn-copy" onclick="copyScript()">
+                        📋 Copy Script
+                    </button>
+                    <button class="script-action-btn btn-close-script" onclick="closeScriptModal()">
+                        ✕ Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- BOTTOM NAVIGATION -->
         <div class="bottom-nav">
             <div class="nav-item active" onclick="switchScreen('home')">
@@ -7643,6 +7844,267 @@ What do you need help with?`;
                 currentChatMessages.push(replyMsg);
                 renderChatMessages();
             }, 2000);
+        }
+
+        // Call Script Generator Functions
+        let currentScriptText = '';
+        let currentScriptLeadId = '';
+
+        function generateCallScript(leadId) {
+            currentScriptLeadId = leadId;
+            // Hide all screens using class system
+            document.querySelectorAll('.screen').forEach(s => {
+                s.classList.remove('active');
+            });
+            // Show script modal using inline style (since it's not using the .active class system)
+            document.getElementById('script-modal').style.display = 'block';
+
+            const leadData = {
+                'chen-wei': {
+                    name: 'Chen Wei',
+                    title: '42-year-old Banking Professional',
+                    income: '$15,000/month',
+                    focus: 'wealth accumulation and premium coverage',
+                    personality: 'analytical, research-oriented, values data and specifics',
+                    opening: `Good ${getTimeOfDay()}, Mr. Chen! This is [Your Name] from AIA Singapore. I saw you recently explored our premium health coverage options—specifically the HealthShield Premier plan with the enhanced outpatient benefits. Is now still a good time for a quick 10-minute chat about your health protection needs?`,
+                    rapport: `I noticed you spent quite a bit of time reviewing our investment-linked plans and the fund performance data. That tells me you're someone who values solid research and long-term planning—exactly the kind of client we love working with. Before I dive into specifics, can I ask: what prompted you to start looking into health coverage right now?`,
+                    needsDiscovery: [
+                        {
+                            question: `You mentioned your income is around $15K monthly. That's excellent—it means you have good options for comprehensive coverage. Are you currently covered under an employer plan, or are you looking for personal coverage to supplement?`,
+                            tip: `Listen for gaps in employer coverage—many high-income professionals have basic plans that don't cover specialists, outpatient, or private hospitals.`
+                        },
+                        {
+                            question: `I see you viewed our Private Hospital coverage. Do you have a preference for private healthcare, or have you had experiences where you needed faster access or more personalized care?`,
+                            tip: `If yes, validate: "That's smart. Wait times at restructured hospitals can be 3-6 months for specialists. Private access means you're seen within days."`
+                        },
+                        {
+                            question: `Beyond health, I noticed you also looked at our WealthBuilder ILP. Is wealth accumulation and retirement planning something you're actively working on, or is health protection the priority right now?`,
+                            tip: `Multi-need discovery—Chen Wei is high-value. Don't leave money on the table by only selling health.`
+                        }
+                    ],
+                    solution: `Based on what you've shared, Chen Wei, I'd recommend our <span class="script-highlight">HealthShield Premier Plus</span> with the <span class="script-highlight">Private Hospital Rider</span>. Here's why this fits you perfectly:\n\n• <strong>Zero co-payment</strong> for private hospital stays—no surprise bills\n• <strong>Unlimited annual limit</strong> for specialist outpatient care (GP, TCM, physio)\n• Coverage up to <strong>$450/day for private ICU</strong>—you mentioned wanting the best care\n• Includes <strong>overseas emergency coverage</strong> up to $150K if you travel\n\nAt your income level, the premium is about <strong>$280/month</strong>—less than your daily coffee budget, but protects your entire lifestyle if something happens.\n\nFor wealth building, pair this with our <span class="script-highlight">Smart Wealth Builder ILP</span>:\n• <strong>100 fund options</strong> (vs NTUC's 45)—you can actively manage like your own portfolio\n• <strong>1.2% management fees</strong> (industry average is 1.8%)—every basis point compounds over 20 years\n• <strong>Guaranteed acceptance</strong> if applied with HealthShield today—no separate medical underwriting`,
+                    objectionHandling: [
+                        {
+                            objection: `"I need to think about it."`,
+                            response: `Absolutely, Chen Wei—I respect that you're analytical. Let me ask: is there something specific you'd like more information on, or is it more about comparing this to other options you're considering? I'm happy to send you a detailed breakdown or even schedule a follow-up after you've had time to review.`
+                        },
+                        {
+                            objection: `"The premium seems high."`,
+                            response: `I hear you—$280/month feels significant. But let me put it in perspective: one private hospital admission for something like dengue or pneumonia costs $15K-$25K out of pocket without this coverage. This plan pays for itself if you're hospitalized just ONCE in 5 years. Plus, at 42, your premium is locked in now—if you wait until 45, the same coverage jumps to $380/month. You're essentially saving $100/month for the next 20 years by acting today.`
+                        }
+                    ],
+                    close: `Chen Wei, based on everything we've discussed, it sounds like you're looking for comprehensive protection without the headache of co-payments and claim limits—and this plan delivers exactly that. The application takes about 15 minutes, and I can walk you through it right now over the phone. Shall we lock this in today so you're protected by next week?`,
+                    nextSteps: `Perfect! Here's what happens next:\n\n1. I'll send you the application link via SMS in the next 2 minutes\n2. Fill in your medical history (takes 10-15 minutes)\n3. I'll review and submit to underwriting—you'll get approval within 3-5 business days\n4. Coverage starts immediately upon approval\n\nI'll also include the detailed policy document and fund performance sheets for the ILP so you can review at your own pace. Sound good?`
+                },
+                'sarah-tan': {
+                    name: 'Sarah Tan',
+                    title: '34-year-old Mother of Two',
+                    income: '$8,000/month (combined $14K with spouse)',
+                    focus: 'family protection and children\'s healthcare',
+                    personality: 'caring, practical, motivated by children\'s wellbeing',
+                    opening: `Hi Sarah! This is [Your Name] from AIA Singapore. I saw you recently looked into family health plans—specifically coverage for your two little ones (ages 4 and 7, right?). I'm a parent too, so I know how important it is to make sure the kids are protected. Do you have 10 minutes to chat about your family's health coverage?`,
+                    rapport: `I noticed you spent time looking at our pediatric coverage and critical illness options. That tells me you're really thoughtful about making sure your children are covered if anything happens. Before we dive in, can I ask—what's your biggest concern when it comes to your family's health protection right now?`,
+                    needsDiscovery: [
+                        {
+                            question: `Are you and your husband currently covered under any employer health plans, or are you looking to get family coverage from scratch?`,
+                            tip: `Most employer plans don't cover dependents well—this is your opening to show comprehensive family coverage.`
+                        },
+                        {
+                            question: `With two young kids, I imagine you've had your share of clinic visits—fevers, colds, maybe a few emergency room trips? How has that been financially? Do you find yourself worrying about medical bills?`,
+                            tip: `Parents relate to this immediately. Validate their concerns: "You're not alone—pediatric visits add up fast, especially with specialists."`
+                        },
+                        {
+                            question: `Have you thought about critical illness coverage for the kids? I know it's not something any parent wants to think about, but conditions like leukemia or dengue complications can happen, and treatment costs can be devastating. Is that something on your radar?`,
+                            tip: `Be gentle but direct. Parents who love their kids will always say yes to protecting them.`
+                        }
+                    ],
+                    solution: `Sarah, based on everything you've shared, I'd recommend our <span class="script-highlight">Family HealthShield Gold Plus</span> plan. Here's why this is perfect for your family:\n\n• Covers <strong>all 4 of you</strong>—you, your husband, and both children\n• <strong>Zero co-payment</strong> for hospitalization—no surprise bills when your child is sick\n• <strong>Unlimited outpatient coverage</strong>—pediatrician, GP, specialist visits all covered\n• Includes <strong>dental and TCM</strong> for the whole family\n• Coverage up to <strong>age 100</strong>—your kids are protected their entire lives\n\nThe premium for your whole family is about <strong>$420/month</strong>. I know that sounds like a lot, but think about it this way: just ONE hospitalization for your child—dengue, pneumonia, even a bad flu—can cost $10K-$20K out of pocket. This plan pays for itself if just ONE person is hospitalized once a year.\n\nI also recommend adding our <span class="script-highlight">Children's Critical Care Rider</span>:\n• Covers <strong>120 critical illnesses</strong> including childhood cancers, leukemia, severe dengue\n• Pays <strong>lump sum on diagnosis</strong>—$50K or $100K, you choose\n• You can use the money however you need—treatment, bills, or even for one parent to stop working to care for the child\n• Only <strong>$45/month per child</strong>—less than a family dinner out`,
+                    objectionHandling: [
+                        {
+                            objection: `"That's too expensive, we're on a tight budget."`,
+                            response: `I totally understand, Sarah—managing a household with two kids and a mortgage isn't easy. Let me ask you this: if one of your children got really sick and needed hospitalization, where would that money come from? Most parents I talk to say they'd have to dip into savings, or worse, take on debt. This plan ensures that never happens. Plus, I can break down the premium—$420/month is about $14/day for your ENTIRE family's health protection. That's less than a meal at a hawker center. Can you afford NOT to have this?`
+                        },
+                        {
+                            objection: `"I need to discuss with my husband first."`,
+                            response: `Absolutely—I'd never expect you to make this decision without him. Let me ask: is he home now? I'm happy to wait a few minutes while you chat, or even do a quick 3-way call if that's easier. The reason I ask is that I have a special family enrollment promotion ending this week—if you apply today, your first 2 months are 50% off. That's a savings of over $400. I'd hate for you to miss that because of timing.`
+                        }
+                    ],
+                    close: `Sarah, I can tell you're a caring mom who just wants the best for your kids. This plan gives you that peace of mind—knowing that no matter what happens, your family's health is covered without destroying your finances. The application takes about 20 minutes, and I can help you through it right now. Shall we get your family protected today?`,
+                    nextSteps: `Perfect! Here's what happens next:\n\n1. I'll send you the application link via WhatsApp in the next 5 minutes\n2. You and your husband fill in the medical history for all 4 family members (takes about 20 minutes)\n3. I'll review and submit to underwriting—approval usually comes within 3-5 business days\n4. Coverage starts immediately once approved\n\nI'll also send you a detailed policy summary and a quick guide on how to make claims—it's super simple, everything is done via the AIA app. Sound good?`
+                }
+            };
+
+            const lead = leadData[leadId];
+            if (!lead) return;
+
+            document.getElementById('script-lead-name').textContent = `Personalized for ${lead.name} - ${lead.title}`;
+
+            // Check if this lead has selected news in their dossier
+            const selectedNews = dossierSelectedNews[leadId] || [];
+            let newsContext = '';
+
+            if (selectedNews.length > 0) {
+                newsContext = '<div class="script-section">';
+                newsContext += '<div class="script-section-title">📰 Market Context Integration</div>';
+                newsContext += '<div class="script-text">';
+                newsContext += '<strong>Relevant News to Weave In:</strong><br><br>';
+
+                selectedNews.forEach((newsId, index) => {
+                    const news = newsData.find(n => n.id === newsId);
+                    if (news) {
+                        newsContext += `<strong>${index + 1}. ${news.headline}</strong><br>`;
+
+                        // Add lead-specific context
+                        if (leadId === 'chen-wei') {
+                            if (newsId === 1) {
+                                newsContext += `💡 <em>Use this in opening:</em> "I wanted to reach out today especially because of the new MAS outpatient guidelines announced this morning. For someone at your income level with a preference for premium care, these regulatory changes make comprehensive coverage even more critical."<br><br>`;
+                            } else if (newsId === 2) {
+                                newsContext += `💡 <em>Use this in objection handling:</em> "I know NTUC just launched Life360, and you might be comparing. Here's the difference: they offer 45 fund options, we offer 100. Their fees are 1.8%, ours are 1.2%. Over 20 years, that's about $85,000 more in your pocket with AIA."<br><br>`;
+                            } else if (newsId === 4) {
+                                newsContext += `💡 <em>Use this in solution pitch:</em> "Hospital costs just jumped 12% this year—private ICU now costs $3,800/day. Your research showed you value premium care, and these rising costs make zero co-payment coverage essential."<br><br>`;
+                            }
+                        } else if (leadId === 'sarah-tan') {
+                            if (newsId === 1) {
+                                newsContext += `💡 <em>Use this in opening:</em> "I wanted to reach out especially because of the new MAS outpatient guidelines announced today. These changes expand coverage for families like yours—especially important with two young children who need frequent doctor visits."<br><br>`;
+                            } else if (newsId === 4) {
+                                newsContext += `💡 <em>Use this in needs discovery:</em> "I don't want to scare you, but hospital costs just rose 12% this year. One pediatric ICU stay for dengue or pneumonia can cost $20K-$30K now. With two kids, that's a real risk. Have you thought about what would happen if one of them needed hospitalization?"<br><br>`;
+                            } else if (newsId === 8) {
+                                newsContext += `💡 <em>Use this in solution pitch:</em> "MediShield just expanded cancer coverage, which sounds great—but here's what they don't tell you: MediShield only covers about 30% of actual costs. Our CriticalCare Rider pays a lump sum if your child is diagnosed with any of 120 critical illnesses, including childhood cancers. You can use that money however you need."<br><br>`;
+                            }
+                        }
+                    }
+                });
+
+                newsContext += '</div></div>';
+            }
+
+            const scriptHTML = `
+                ${newsContext}
+
+                <div class="script-section">
+                    <div class="script-section-title">📞 Opening (First 30 Seconds)</div>
+                    <div class="script-text">
+                        ${lead.opening}
+                    </div>
+                    <div class="script-tip">
+                        <strong>💡 Tip:</strong> Smile while talking—your tone comes through. If they say "not a good time," immediately offer: "No problem! When would be better—this evening around 7pm, or tomorrow morning?"
+                    </div>
+                </div>
+
+                <div class="script-section">
+                    <div class="script-section-title">🤝 Building Rapport (Minutes 1-2)</div>
+                    <div class="script-text">
+                        ${lead.rapport}
+                    </div>
+                    <div class="script-tip">
+                        <strong>💡 Tip:</strong> Pause after asking. Let them talk. People love talking about themselves—this builds trust.
+                    </div>
+                </div>
+
+                <div class="script-section">
+                    <div class="script-section-title">🎯 Needs Discovery (Minutes 3-5)</div>
+                    ${lead.needsDiscovery.map((item, index) => `
+                        <div class="script-text" style="margin-bottom: 10px;">
+                            <strong>Question ${index + 1}:</strong><br>
+                            ${item.question}
+                        </div>
+                        <div class="script-tip" style="margin-bottom: 15px;">
+                            <strong>💡 Tip:</strong> ${item.tip}
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="script-section">
+                    <div class="script-section-title">💎 Solution Pitch (Minutes 6-8)</div>
+                    <div class="script-text">
+                        ${lead.solution.replace(/\n/g, '<br>')}
+                    </div>
+                    <div class="script-tip">
+                        <strong>💡 Tip:</strong> Pause after presenting the premium. Don't justify it immediately—let them process. If they're silent, they're considering. If they object, you have your rebuttals ready.
+                    </div>
+                </div>
+
+                <div class="script-section">
+                    <div class="script-section-title">🛡️ Objection Handling</div>
+                    ${lead.objectionHandling.map(item => `
+                        <div class="script-text" style="margin-bottom: 10px;">
+                            <strong>Objection:</strong> ${item.objection}<br><br>
+                            <strong>Response:</strong><br>
+                            ${item.response}
+                        </div>
+                    `).join('<div style="margin: 15px 0; border-top: 1px solid #dee2e6;"></div>')}
+                </div>
+
+                <div class="script-section">
+                    <div class="script-section-title">✅ Close (Minutes 9-10)</div>
+                    <div class="script-text">
+                        ${lead.close}
+                    </div>
+                    <div class="script-tip">
+                        <strong>💡 Tip:</strong> Assumptive close—act like they've already said yes. "Shall we lock this in today?" is more powerful than "Would you like to proceed?"
+                    </div>
+                </div>
+
+                <div class="script-section">
+                    <div class="script-section-title">📋 Next Steps (Post-Close)</div>
+                    <div class="script-text">
+                        ${lead.nextSteps.replace(/\n/g, '<br>')}
+                    </div>
+                </div>
+
+                <div class="script-section">
+                    <div class="script-section-title">⚡ Quick Reminders</div>
+                    <div class="script-text">
+                        • <strong>Energy matters:</strong> Stand up while calling—your voice has more energy<br>
+                        • <strong>Mirror their pace:</strong> If ${lead.name.split(' ')[0]} speaks fast, speed up. If slow, slow down.<br>
+                        • <strong>Use their name 3-4 times:</strong> People love hearing their own name<br>
+                        • <strong>End with confidence:</strong> "You're making a smart decision protecting your ${leadId === 'chen-wei' ? 'financial future' : 'family'} today."
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('script-content-container').innerHTML = scriptHTML;
+
+            // Save script text for copying
+            currentScriptText = document.getElementById('script-content-container').innerText;
+        }
+
+        function closeScriptModal() {
+            // Hide the script modal
+            document.getElementById('script-modal').style.display = 'none';
+
+            // Return to the dossier that opened this script using the class system
+            const dossierScreen = 'dossier-' + currentScriptLeadId;
+            document.querySelectorAll('.screen').forEach(s => {
+                s.classList.remove('active');
+            });
+            document.getElementById(dossierScreen).classList.add('active');
+        }
+
+        function copyScript() {
+            // Create a temporary textarea to copy text
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = currentScriptText;
+            tempTextArea.style.position = 'fixed';
+            tempTextArea.style.opacity = '0';
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+
+            try {
+                document.execCommand('copy');
+                showToast('✅ Script copied to clipboard!');
+            } catch (err) {
+                showToast('❌ Failed to copy. Please try again.');
+            }
+
+            document.body.removeChild(tempTextArea);
+        }
+
+        function getTimeOfDay() {
+            const hour = new Date().getHours();
+            if (hour < 12) return 'morning';
+            if (hour < 17) return 'afternoon';
+            return 'evening';
         }
     </script>
 </body>
