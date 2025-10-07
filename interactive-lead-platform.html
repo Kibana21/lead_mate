@@ -13,7 +13,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #F5F5F5 0%, #E8E8E8 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -24,9 +24,9 @@
         .phone-frame {
             width: 375px;
             height: 812px;
-            background: #f8f9fa;
+            background: #FFFFFF;
             border-radius: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
             overflow: hidden;
             position: relative;
             display: flex;
@@ -35,7 +35,7 @@
         
         .status-bar {
             height: 44px;
-            background: #1a1a2e;
+            background: #1A1A1A;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -50,7 +50,7 @@
             display: none;
             height: calc(100% - 44px - 80px);
             overflow-y: auto;
-            background: #f8f9fa;
+            background: #FFFFFF;
         }
         
         .screen.active {
@@ -70,19 +70,20 @@
         
         /* Home Screen Styles */
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #FFFFFF;
+            color: #1A1A1A;
             padding: 20px;
-            border-radius: 0 0 30px 30px;
+            border-bottom: 1px solid #F0F0F0;
         }
-        
+
         .header-with-back {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #FFFFFF;
+            color: #1A1A1A;
             padding: 10px 20px 20px;
             position: sticky;
             top: 0;
             z-index: 10;
+            border-bottom: 1px solid #F0F0F0;
         }
         
         .greeting {
@@ -93,11 +94,13 @@
         
         .agent-level {
             display: inline-block;
-            background: rgba(255,255,255,0.2);
+            background: #FFF0F0;
+            color: #E2192D;
             padding: 4px 12px;
             border-radius: 12px;
             font-size: 12px;
             margin-top: 5px;
+            font-weight: 600;
         }
         
         .stats-row {
@@ -114,11 +117,11 @@
         }
         
         .progress-section {
-            background: white;
+            background: #FAFAFA;
             margin: 15px 20px;
             padding: 15px;
             border-radius: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #F0F0F0;
         }
         
         .progress-label {
@@ -136,7 +139,7 @@
         
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(90deg, #E2192D 0%, #C41230 100%);
             width: 78%;
             transition: width 0.3s ease;
         }
@@ -145,38 +148,38 @@
             padding: 20px 20px 10px;
             font-size: 18px;
             font-weight: 600;
-            color: #1a1a2e;
+            color: #333333;
             display: flex;
             align-items: center;
             gap: 8px;
         }
         
         .section-divider {
-            height: 2px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 1px;
+            background: #F0F0F0;
             margin: 0 20px 15px;
         }
         
         .lead-card {
-            background: white;
+            background: #FFFFFF;
             margin: 0 20px 15px;
             padding: 16px;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            border: 1px solid #F0F0F0;
             border-left: 4px solid #ffd700;
             position: relative;
             animation: slideIn 0.3s ease;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: all 0.2s;
         }
         
         .lead-card:hover {
-            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
-        
+
         .lead-card.diamond {
-            border-left-color: #b24bf3;
-            background: linear-gradient(135deg, #faf5ff 0%, #fff 100%);
+            border-left-color: #E2192D;
+            background: #FFFFFF;
         }
         
         .lead-card.gold {
@@ -197,7 +200,7 @@
         }
         
         .diamond-badge {
-            background: linear-gradient(135deg, #b24bf3 0%, #9333ea 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             color: white;
         }
         
@@ -277,7 +280,7 @@
         }
         
         .btn-grab {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             color: white;
             animation: pulse 2s infinite;
         }
@@ -298,12 +301,13 @@
         
         /* Dossier Screen */
         .dossier-header {
-            background: linear-gradient(135deg, #b24bf3 0%, #9333ea 100%);
-            color: white;
+            background: #FFFFFF;
+            color: #333333;
             padding: 10px 20px 20px;
             position: sticky;
             top: 0;
             z-index: 10;
+            border-bottom: 1px solid #F0F0F0;
         }
         
         .lead-header {
@@ -323,7 +327,8 @@
         }
         
         .propensity-badge {
-            background: rgba(255,255,255,0.2);
+            background: #FFF0F0;
+            color: #E2192D;
             padding: 8px 12px;
             border-radius: 12px;
             font-size: 18px;
@@ -339,13 +344,15 @@
         }
         
         .stat-pill {
-            background: rgba(255,255,255,0.2);
+            background: #F5F5F5;
+            color: #333333;
             padding: 6px 12px;
             border-radius: 16px;
+            border: 1px solid #E0E0E0;
         }
         
         .section {
-            background: white;
+            background: #FFFFFF;
             margin: 15px;
             padding: 16px;
             border-radius: 16px;
@@ -363,7 +370,7 @@
         }
         
         .ai-badge {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             color: white;
             padding: 2px 8px;
             border-radius: 8px;
@@ -380,7 +387,7 @@
         
         .product-card {
             background: linear-gradient(135deg, #faf5ff 0%, #fff 100%);
-            border: 2px solid #b24bf3;
+            border: 2px solid #E2192D;
             border-radius: 12px;
             padding: 14px;
             margin-bottom: 10px;
@@ -400,7 +407,7 @@
         }
         
         .product-premium {
-            background: #b24bf3;
+            background: #E2192D;
             color: white;
             padding: 4px 10px;
             border-radius: 8px;
@@ -472,9 +479,10 @@
         
         /* Achievements Screen */
         .achievements-header {
-            background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
-            color: #664d00;
+            background: #FFFFFF;
+            color: #333333;
             padding: 10px 20px 20px;
+            border-bottom: 1px solid #F0F0F0;
         }
         
         .achievements-title {
@@ -495,7 +503,7 @@
         }
         
         .badge-card {
-            background: white;
+            background: #FFFFFF;
             padding: 16px;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -531,7 +539,7 @@
         
         /* Profile Screen */
         .profile-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             color: white;
             padding: 10px 20px 30px;
         }
@@ -593,7 +601,7 @@
         }
         
         .menu-item {
-            background: white;
+            background: #FFFFFF;
             padding: 16px;
             border-radius: 12px;
             margin-bottom: 10px;
@@ -682,7 +690,7 @@
             position: absolute;
             width: 16px;
             height: 16px;
-            background: #667eea;
+            background: #E2192D;
             border: 3px solid white;
             border-radius: 50%;
             box-shadow: 0 0 15px rgba(102,126,234,0.8);
@@ -727,7 +735,7 @@
         }
         
         .region-card {
-            background: white;
+            background: #FFFFFF;
             padding: 16px;
             border-radius: 12px;
             margin-bottom: 12px;
@@ -793,9 +801,10 @@
         
         /* Rankings Screen */
         .rankings-header {
-            background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
-            color: #664d00;
+            background: #FFFFFF;
+            color: #333333;
             padding: 10px 20px 20px;
+            border-bottom: 1px solid #F0F0F0;
         }
         
         .rankings-title {
@@ -806,12 +815,13 @@
         }
         
         .your-rank {
-            background: rgba(255,255,255,0.3);
+            background: #FAFAFA;
             padding: 12px;
             border-radius: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border: 1px solid #F0F0F0;
         }
         
         .rank-number {
@@ -827,7 +837,7 @@
             display: flex;
             align-items: center;
             padding: 12px;
-            background: white;
+            background: #FFFFFF;
             border-radius: 12px;
             margin-bottom: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -836,7 +846,7 @@
         .agent-rank {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -880,14 +890,15 @@
         .agent-score {
             font-size: 18px;
             font-weight: 700;
-            color: #667eea;
+            color: #E2192D;
         }
         
         /* Squad Screen */
         .squad-header {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
+            background: #FFFFFF;
+            color: #333333;
             padding: 10px 20px 20px;
+            border-bottom: 1px solid #F0F0F0;
         }
         
         .squad-name {
@@ -909,7 +920,7 @@
         }
         
         .member-card {
-            background: white;
+            background: #FFFFFF;
             padding: 14px;
             border-radius: 12px;
             margin-bottom: 10px;
@@ -936,9 +947,10 @@
         
         /* Challenges Screen */
         .challenges-header {
-            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
-            color: white;
+            background: #FFFFFF;
+            color: #333333;
             padding: 10px 20px 20px;
+            border-bottom: 1px solid #F0F0F0;
         }
         
         .challenges-title {
@@ -953,7 +965,7 @@
         }
         
         .challenge-card {
-            background: white;
+            background: #FFFFFF;
             padding: 16px;
             border-radius: 12px;
             margin-bottom: 12px;
@@ -1001,8 +1013,8 @@
             left: 0;
             right: 0;
             height: 80px;
-            background: white;
-            border-top: 1px solid #e9ecef;
+            background: #FFFFFF;
+            border-top: 1px solid #F0F0F0;
             display: flex;
             overflow-x: auto;
             overflow-y: hidden;
@@ -1026,7 +1038,7 @@
             background: linear-gradient(90deg, transparent, white 30%);
             padding: 0 15px;
             font-size: 16px;
-            color: #667eea;
+            color: #E2192D;
             pointer-events: none;
             animation: slideHint 2s infinite;
         }
@@ -1056,7 +1068,7 @@
         }
         
         .nav-item.active {
-            color: #667eea;
+            color: #E2192D;
         }
         
         .nav-icon {
@@ -1154,20 +1166,22 @@
         .fab {
             width: 56px;
             height: 56px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #FFFFFF;
+            border: 2px solid #E2192D;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            color: white;
+            color: #E2192D;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-            transition: transform 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s;
         }
         
         .fab:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
+            background: #FFF5F5;
         }
 
         /* Megatron Chat Modal */
@@ -1192,7 +1206,7 @@
             width: 90%;
             max-width: 350px;
             height: 600px;
-            background: white;
+            background: #FFFFFF;
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
             display: flex;
@@ -1212,13 +1226,14 @@
         }
 
         .megatron-chat-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #FFFFFF;
+            color: #333333;
             padding: 20px;
             border-radius: 20px 20px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid #F0F0F0;
         }
 
         .megatron-chat-title {
@@ -1230,7 +1245,7 @@
         .megatron-avatar {
             width: 40px;
             height: 40px;
-            background: white;
+            background: #FFF5F5;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1241,7 +1256,7 @@
         .megatron-chat-close {
             background: transparent;
             border: none;
-            color: white;
+            color: #757575;
             font-size: 28px;
             cursor: pointer;
             padding: 0;
@@ -1281,7 +1296,7 @@
         .megatron-message.bot .message-avatar {
             width: 30px;
             height: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1291,7 +1306,7 @@
         }
 
         .megatron-message.bot .message-bubble {
-            background: white;
+            background: #FFFFFF;
             padding: 12px;
             border-radius: 12px;
             max-width: 80%;
@@ -1304,7 +1319,7 @@
         }
 
         .megatron-message.user .message-bubble {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             color: white;
             padding: 12px;
             border-radius: 12px;
@@ -1334,14 +1349,14 @@
         }
 
         .suggestion-chip:hover {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
+            background: #FFF5F5;
+            color: #E2192D;
+            border-color: #E2192D;
         }
 
         .megatron-chat-footer {
             padding: 15px;
-            background: white;
+            background: #FFFFFF;
             border-radius: 0 0 20px 20px;
             border-top: 1px solid #e9ecef;
         }
@@ -1361,13 +1376,13 @@
         }
 
         .megatron-input:focus {
-            border-color: #667eea;
+            border-color: #E2192D;
         }
 
         .megatron-send-btn {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #E2192D;
             color: white;
             border: none;
             border-radius: 50%;
@@ -1376,6 +1391,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .megatron-send-btn:hover {
+            background: #C41230;
         }
 
         .typing-indicator {
@@ -1413,9 +1433,10 @@
 
         /* News Hub Styles */
         .news-header {
-            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
-            color: white;
+            background: #FFFFFF;
+            color: #333333;
             padding: 10px 20px 20px;
+            border-bottom: 1px solid #F0F0F0;
         }
 
         .news-title {
@@ -1441,7 +1462,7 @@
 
         .filter-chip {
             padding: 8px 16px;
-            background: white;
+            background: #FFFFFF;
             border: 2px solid #dee2e6;
             border-radius: 20px;
             font-size: 12px;
@@ -1462,7 +1483,7 @@
         }
 
         .news-card {
-            background: white;
+            background: #FFFFFF;
             border-radius: 16px;
             padding: 16px;
             margin-bottom: 15px;
@@ -1619,9 +1640,9 @@
         }
 
         .chat-tab.active {
-            color: #667eea;
-            border-bottom-color: #667eea;
-            background: white;
+            color: #E2192D;
+            border-bottom-color: #E2192D;
+            background: #FFFFFF;
         }
 
         .chat-container {
@@ -1659,7 +1680,7 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #E2192D, #C41230);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1695,7 +1716,7 @@
         }
 
         .message-bubble {
-            background: white;
+            background: #FFFFFF;
             padding: 10px 14px;
             border-radius: 16px;
             font-size: 14px;
@@ -1704,7 +1725,7 @@
         }
 
         .message.own .message-bubble {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #E2192D, #C41230);
             color: white;
         }
 
@@ -1737,7 +1758,7 @@
         }
 
         .chat-input-container {
-            background: white;
+            background: #FFFFFF;
             border-top: 1px solid #dee2e6;
             padding: 12px;
         }
@@ -1784,14 +1805,14 @@
         }
 
         .chat-input:focus {
-            border-color: #667eea;
+            border-color: #E2192D;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
         .chat-send-btn {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #E2192D, #C41230);
             border: none;
             border-radius: 50%;
             color: white;
@@ -1812,7 +1833,7 @@
             gap: 4px;
             align-items: center;
             padding: 8px 12px;
-            background: white;
+            background: #FFFFFF;
             border-radius: 16px;
             width: fit-content;
         }
@@ -1820,14 +1841,14 @@
         .typing-dot {
             width: 6px;
             height: 6px;
-            background: #667eea;
+            background: #E2192D;
             border-radius: 50%;
             animation: typingDot 1.4s infinite;
         }
 
         /* Squad News Feed Styles */
         .squad-news-item {
-            background: white;
+            background: #FFFFFF;
             border-radius: 12px;
             padding: 12px;
             margin-bottom: 12px;
@@ -1900,7 +1921,7 @@
 
         /* Dossier News Selector Styles */
         .dossier-news-item {
-            background: white;
+            background: #FFFFFF;
             border: 2px solid #e9ecef;
             border-radius: 10px;
             padding: 10px;
@@ -1960,7 +1981,7 @@
         /* Generate Script Button */
         .generate-script-btn {
             width: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #E2192D;
             color: white;
             border: none;
             padding: 14px 20px;
@@ -1969,17 +1990,15 @@
             font-weight: 600;
             margin-top: 15px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.2s ease;
         }
 
         .generate-script-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            background: #C41230;
         }
 
         .generate-script-btn:active {
-            transform: translateY(0);
+            transform: scale(0.98);
         }
 
         /* Script Generator Modal */
@@ -1990,7 +2009,7 @@
             right: 0;
             bottom: 0;
             z-index: 3000;
-            background: white;
+            background: #FFFFFF;
             height: 100% !important;
             overflow: hidden;
         }
@@ -1999,12 +2018,12 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            background: white;
+            background: #FFFFFF;
             overflow: hidden;
         }
 
         .script-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             padding: 20px;
             padding-top: 50px;
             color: white;
@@ -2046,7 +2065,7 @@
         }
 
         .script-text {
-            background: white;
+            background: #FFFFFF;
             border-radius: 8px;
             padding: 12px;
             font-size: 14px;
@@ -2077,7 +2096,7 @@
             gap: 10px;
             padding: 15px 20px;
             padding-bottom: 30px;
-            background: white;
+            background: #FFFFFF;
             border-top: 1px solid #e9ecef;
             flex-shrink: 0;
         }
@@ -2165,8 +2184,8 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: white;
-            border: 3px solid #667eea;
+            background: #FFFFFF;
+            border: 3px solid #E2192D;
         }
 
         .timeline-item.call::before {
@@ -2277,7 +2296,7 @@
         }
 
         .note-form {
-            background: white;
+            background: #FFFFFF;
             border-radius: 20px 20px 0 0;
             width: 100%;
             padding: 20px;
@@ -2310,9 +2329,9 @@
         }
 
         .note-type-chip.selected {
-            border-color: #667eea;
+            border-color: #E2192D;
             background: #f0f3ff;
-            color: #667eea;
+            color: #E2192D;
         }
 
         .note-textarea {
@@ -2329,7 +2348,7 @@
 
         .note-textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #E2192D;
         }
 
         .note-actions {
@@ -2397,7 +2416,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: white;
+            background: #FFFFFF;
             z-index: 5000;
             overflow-y: auto;
         }
@@ -2528,7 +2547,7 @@
         .compare-actions {
             position: sticky;
             bottom: 0;
-            background: white;
+            background: #FFFFFF;
             padding: 15px 20px;
             padding-bottom: 30px;
             border-top: 1px solid #e9ecef;
@@ -2553,11 +2572,11 @@
 
         /* Tools Screen Styles */
         .tools-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #FFFFFF;
+            color: #333333;
             padding: 20px;
-            padding-top: 60px;
-            border-radius: 0 0 30px 30px;
+            padding-top: 20px;
+            border-bottom: 1px solid #F0F0F0;
         }
 
         .tools-title {
@@ -2579,7 +2598,7 @@
         }
 
         .tool-card {
-            background: white;
+            background: #FFFFFF;
             border-radius: 16px;
             padding: 20px;
             text-align: center;
@@ -2592,7 +2611,7 @@
         .tool-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border-color: #667eea;
+            border-color: #E2192D;
         }
 
         .tool-card:active {
@@ -2619,7 +2638,7 @@
 
         .tool-badge {
             display: inline-block;
-            background: #667eea;
+            background: #E2192D;
             color: white;
             font-size: 9px;
             padding: 2px 6px;
@@ -2661,7 +2680,7 @@
         }
 
         .dossier-selector-content {
-            background: white;
+            background: #FFFFFF;
             border-radius: 20px 20px 0 0;
             width: 100%;
             padding: 20px;
@@ -2697,7 +2716,7 @@
         }
 
         .dossier-option:hover {
-            border-color: #667eea;
+            border-color: #E2192D;
             background: #f0f3ff;
             transform: translateX(4px);
         }
@@ -2710,7 +2729,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -2737,7 +2756,7 @@
         }
 
         .dossier-badge {
-            background: #667eea;
+            background: #E2192D;
             color: white;
             font-size: 10px;
             padding: 4px 8px;
@@ -2769,7 +2788,7 @@
 
         /* Smart Bundles Screen Styles */
         .bundles-header {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #FF8BA0 0%, #E2192D 100%);
             color: white;
             padding: 20px;
             padding-top: 60px;
@@ -2789,7 +2808,7 @@
         }
 
         .bundle-card {
-            background: white;
+            background: #FFFFFF;
             border-radius: 20px;
             margin: 0 20px 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -2797,14 +2816,14 @@
         }
 
         .bundle-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             color: white;
             padding: 20px;
             position: relative;
         }
 
         .bundle-header.persona-parent {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #FF8BA0 0%, #E2192D 100%);
         }
 
         .bundle-header.persona-business {
@@ -2909,7 +2928,7 @@
         .bundle-product-price {
             font-size: 15px;
             font-weight: 700;
-            color: #667eea;
+            color: #E2192D;
         }
 
         .bundle-features {
@@ -2946,7 +2965,7 @@
 
         .bundle-btn-primary {
             flex: 1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             color: white;
             border: none;
             padding: 14px;
@@ -2963,9 +2982,9 @@
 
         .bundle-btn-secondary {
             flex: 1;
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
+            background: #FFFFFF;
+            color: #E2192D;
+            border: 2px solid #E2192D;
             padding: 14px;
             border-radius: 12px;
             font-weight: 700;
@@ -3048,7 +3067,7 @@
         }
 
         .objection-search-input:focus {
-            border-color: #667eea;
+            border-color: #E2192D;
             box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
         }
 
@@ -3066,7 +3085,7 @@
             right: 10px;
             top: 50%;
             transform: translateY(-50%);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             color: white;
             border: none;
             width: 36px;
@@ -3105,9 +3124,9 @@
         }
 
         .category-pill.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             color: white;
-            border-color: #667eea;
+            border-color: #E2192D;
         }
 
         .category-pill:active {
@@ -3119,7 +3138,7 @@
         }
 
         .objection-item {
-            background: white;
+            background: #FFFFFF;
             border-radius: 16px;
             padding: 18px;
             margin-bottom: 15px;
@@ -3134,7 +3153,7 @@
         }
 
         .objection-item.expanded {
-            border-color: #667eea;
+            border-color: #E2192D;
             box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
         }
 
@@ -3215,7 +3234,7 @@
 
         .framework-label {
             display: inline-block;
-            background: #667eea;
+            background: #E2192D;
             color: white;
             font-size: 11px;
             padding: 4px 10px;
@@ -3225,7 +3244,7 @@
         }
 
         .framework-label.step2 {
-            background: #f093fb;
+            background: #FF8BA0;
         }
 
         .framework-label.step3 {
@@ -3277,14 +3296,14 @@
         }
 
         .objection-action-btn.primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             color: white;
         }
 
         .objection-action-btn.secondary {
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
+            background: #FFFFFF;
+            color: #E2192D;
+            border: 2px solid #E2192D;
         }
 
         .objection-action-btn:active {
@@ -3339,11 +3358,11 @@
 
         /* Lead Warm-Up Sequence Styles */
         .warmup-header {
-            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
-            color: white;
+            background: #FFFFFF;
+            color: #333333;
             padding: 20px;
-            padding-top: 60px;
-            border-radius: 0 0 30px 30px;
+            padding-top: 20px;
+            border-bottom: 1px solid #F0F0F0;
             margin-bottom: 20px;
         }
 
@@ -3359,44 +3378,49 @@
         }
 
         .sequence-card {
-            background: white;
-            border-radius: 20px;
+            background: #FFFFFF;
+            border-radius: 12px;
             margin: 0 20px 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #F0F0F0;
             overflow: hidden;
         }
 
         .sequence-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #FAFAFA;
+            color: #333333;
             padding: 20px;
             position: relative;
+            border-bottom: 1px solid #F0F0F0;
         }
 
         .sequence-header.active {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            background: #FFF5F5;
+            border-left: 4px solid #E2192D;
         }
 
         .sequence-header.completed {
-            background: linear-gradient(135deg, #a8a8a8 0%, #888888 100%);
+            background: #F5F5F5;
+            border-left: 4px solid #BDBDBD;
         }
 
         .sequence-status-badge {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: rgba(255,255,255,0.25);
-            backdrop-filter: blur(10px);
+            background: #FFFFFF;
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 11px;
             font-weight: 700;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid #E0E0E0;
+            color: #E2192D;
         }
 
         .sequence-lead-name {
             font-size: 11px;
-            opacity: 0.9;
+            color: #757575;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             margin-bottom: 4px;
         }
 
@@ -3404,11 +3428,12 @@
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 8px;
+            color: #1A1A1A;
         }
 
         .sequence-meta {
             font-size: 12px;
-            opacity: 0.9;
+            color: #757575;
         }
 
         .sequence-body {
@@ -3449,7 +3474,7 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            background: white;
+            background: #FFFFFF;
             border: 3px solid #e9ecef;
             display: flex;
             align-items: center;
@@ -3458,8 +3483,8 @@
         }
 
         .timeline-item.sent .timeline-icon {
-            background: #667eea;
-            border-color: #667eea;
+            background: #E2192D;
+            border-color: #E2192D;
             color: white;
         }
 
@@ -3470,8 +3495,8 @@
         }
 
         .timeline-item.clicked .timeline-icon {
-            background: #f093fb;
-            border-color: #f093fb;
+            background: #FF8BA0;
+            border-color: #FF8BA0;
             color: white;
         }
 
@@ -3484,7 +3509,7 @@
         .timeline-day {
             font-size: 11px;
             font-weight: 700;
-            color: #667eea;
+            color: #E2192D;
             margin-bottom: 4px;
         }
 
@@ -3515,23 +3540,23 @@
         }
 
         .timeline-status.sent {
-            background: #e7e9fc;
-            color: #667eea;
+            background: #FFF0F0;
+            color: #E2192D;
         }
 
         .timeline-status.opened {
-            background: #fff8e6;
-            color: #d4a017;
+            background: #FFF9E6;
+            color: #F57C00;
         }
 
         .timeline-status.clicked {
-            background: #fceafe;
-            color: #d946ef;
+            background: #F3E5F5;
+            color: #7B1FA2;
         }
 
         .timeline-status.responded {
-            background: #d4f4dd;
-            color: #22863a;
+            background: #E8F5E9;
+            color: #2E7D32;
         }
 
         .sequence-actions {
@@ -3553,14 +3578,14 @@
         }
 
         .sequence-btn.primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             color: white;
         }
 
         .sequence-btn.secondary {
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
+            background: #FFFFFF;
+            color: #E2192D;
+            border: 2px solid #E2192D;
         }
 
         .sequence-btn.success {
@@ -3605,7 +3630,7 @@
         }
 
         .create-sequence-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             border-radius: 20px;
             margin: 0 20px 20px;
             padding: 30px 20px;
@@ -3641,7 +3666,7 @@
         }
 
         .template-card {
-            background: white;
+            background: #FFFFFF;
             border: 2px solid #e9ecef;
             border-radius: 16px;
             padding: 15px;
@@ -3655,7 +3680,7 @@
         }
 
         .template-card.selected {
-            border-color: #667eea;
+            border-color: #E2192D;
             background: #f0f3ff;
         }
 
@@ -3690,13 +3715,13 @@
 
         .template-touches {
             font-size: 11px;
-            color: #667eea;
+            color: #E2192D;
             font-weight: 600;
         }
 
         /* Daily Briefing Styles */
         .daily-briefing {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #E2192D 0%, #C41230 100%);
             margin: 15px 20px 20px;
             padding: 18px;
             border-radius: 20px;
@@ -3754,7 +3779,7 @@
         }
 
         .briefing-section {
-            background: white;
+            background: #FFFFFF;
             border-radius: 12px;
             padding: 12px;
             margin-bottom: 12px;
@@ -3811,7 +3836,7 @@
 
         .priority-arrow {
             font-size: 18px;
-            color: #667eea;
+            color: #E2192D;
             font-weight: 700;
         }
 
@@ -3897,13 +3922,13 @@
         }
 
         .briefing-action-btn {
-            background: white;
+            background: #FFFFFF;
             border: 2px solid rgba(255,255,255,0.3);
             padding: 10px;
             border-radius: 10px;
             font-size: 12px;
             font-weight: 600;
-            color: #667eea;
+            color: #E2192D;
             cursor: pointer;
             transition: all 0.2s;
         }
@@ -3988,7 +4013,7 @@
 
                 <div style="display: flex; gap: 8px;">
                     <button onclick="cancelPeek()" style="flex: 1; padding: 14px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; font-weight: 600; cursor: pointer;">Cancel</button>
-                    <button onclick="confirmPeek()" style="flex: 1; padding: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">👁️ Peek Now</button>
+                    <button onclick="confirmPeek()" style="flex: 1; padding: 14px; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">👁️ Peek Now</button>
                 </div>
             </div>
         </div>
@@ -3997,7 +4022,7 @@
     <!-- Zone Detail Modal -->
     <div class="megatron-chat-overlay" id="zone-detail-overlay">
         <div class="megatron-chat-container" style="max-width: 360px; max-height: 600px;">
-            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; color: white; border-radius: 16px 16px 0 0;">
+            <div style="background: #FFF5F5; padding: 20px; color: #333333; border-left: 4px solid #E2192D; border-radius: 16px 16px 0 0;">
                 <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 20px; font-weight: 700; margin-bottom: 4px;" id="zone-name">Tampines</div>
@@ -4028,12 +4053,12 @@
                     <!-- Leads will be inserted here -->
                 </div>
 
-                <div style="background: white; padding: 14px; border-radius: 12px; margin-top: 15px;">
+                <div style="background: #FFFFFF; padding: 14px; border-radius: 12px; margin-top: 15px;">
                     <div style="font-weight: 600; font-size: 13px; margin-bottom: 10px;">📊 Zone Stats</div>
                     <div style="font-size: 12px; line-height: 1.8; color: #666;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                             <span>💎 Diamond Leads:</span>
-                            <span style="font-weight: 600; color: #667eea;">8 leads</span>
+                            <span style="font-weight: 600; color: #E2192D;">8 leads</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                             <span>🥇 Gold Leads:</span>
@@ -4047,7 +4072,7 @@
                 </div>
             </div>
 
-            <div style="padding: 15px; background: white; border-top: 2px solid #e9ecef; border-radius: 0 0 16px 16px;">
+            <div style="padding: 15px; background: #FFFFFF; border-top: 2px solid #e9ecef; border-radius: 0 0 16px 16px;">
                 <button onclick="grabAllInZone()" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; box-shadow: 0 4px 12px rgba(40,167,69,0.3);">
                     ⚡ GRAB ALL LEADS IN ZONE
                 </button>
@@ -4242,7 +4267,7 @@
 
         <!-- PEEK PREVIEW SCREEN -->
         <div class="screen" id="peek-preview-screen">
-            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; color: white;">
+            <div style="background: #FFF5F5; padding: 20px; color: #333333; border-left: 4px solid #E2192D;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                     <div style="font-size: 16px; font-weight: 700;">👁️ Lead Peek Preview</div>
                     <div style="background: rgba(255,255,255,0.2); padding: 8px 14px; border-radius: 20px; font-weight: 700; font-size: 14px;">
@@ -4254,13 +4279,13 @@
 
             <div style="padding: 15px; overflow-y: auto; height: calc(100% - 220px); background: #f8f9fa;">
                 <!-- Lead Header -->
-                <div style="background: white; padding: 16px; border-radius: 12px; margin-bottom: 15px;">
+                <div style="background: #FFFFFF; padding: 16px; border-radius: 12px; margin-bottom: 15px;">
                     <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
                         <div>
                             <div style="font-size: 20px; font-weight: 700; margin-bottom: 4px;" id="peek-lead-name">Chen Wei</div>
                             <div style="font-size: 13px; color: #666;">38 years • Investment Banking</div>
                         </div>
-                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600;">
+                        <div style="background: #FFF5F5; color: #333333; border-left: 4px solid #E2192D; padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600;">
                             💎 DIAMOND
                         </div>
                     </div>
@@ -4289,7 +4314,7 @@
                 </div>
 
                 <!-- Conversation Starters -->
-                <div style="background: white; padding: 14px; border-radius: 12px; margin-bottom: 15px;">
+                <div style="background: #FFFFFF; padding: 14px; border-radius: 12px; margin-bottom: 15px;">
                     <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">💬 Suggested Openers</div>
                     <div style="background: #e7f5ff; padding: 10px; border-radius: 8px; margin-bottom: 8px; font-size: 12px; line-height: 1.5;">
                         "Hi Chen Wei! With your banking background, you'll appreciate our WealthBuilder ILP's tax-deferred growth + life coverage combo..."
@@ -4300,7 +4325,7 @@
                 </div>
 
                 <!-- Predicted Objections -->
-                <div style="background: white; padding: 14px; border-radius: 12px; margin-bottom: 15px;">
+                <div style="background: #FFFFFF; padding: 14px; border-radius: 12px; margin-bottom: 15px;">
                     <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">⚠️ Predicted Objections</div>
                     <div style="font-size: 12px; margin-bottom: 8px;">
                         <div style="font-weight: 600; color: #dc3545; margin-bottom: 4px;">1. "I can invest myself"</div>
@@ -4313,7 +4338,7 @@
                 </div>
 
                 <!-- Time to Close -->
-                <div style="background: white; padding: 14px; border-radius: 12px; margin-bottom: 15px;">
+                <div style="background: #FFFFFF; padding: 14px; border-radius: 12px; margin-bottom: 15px;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div>
                             <div style="font-size: 11px; color: #666; margin-bottom: 4px;">Est. Time to Close</div>
@@ -4327,7 +4352,7 @@
                 </div>
 
                 <!-- Product Affinity -->
-                <div style="background: white; padding: 14px; border-radius: 12px;">
+                <div style="background: #FFFFFF; padding: 14px; border-radius: 12px;">
                     <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">📊 Product Affinity</div>
                     <div style="margin-bottom: 8px;">
                         <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
@@ -4344,14 +4369,14 @@
                             <span style="font-weight: 600;">78%</span>
                         </div>
                         <div style="background: #e9ecef; height: 8px; border-radius: 4px; overflow: hidden;">
-                            <div style="background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; width: 78%;"></div>
+                            <div style="background: linear-gradient(90deg, #E2192D, #C41230); height: 100%; width: 78%;"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Decision Buttons -->
-            <div style="position: absolute; bottom: 80px; left: 0; right: 0; background: white; padding: 15px; border-top: 2px solid #e9ecef; z-index: 100;">
+            <div style="position: absolute; bottom: 80px; left: 0; right: 0; background: #FFFFFF; padding: 15px; border-top: 2px solid #e9ecef; z-index: 100;">
                 <div style="display: flex; gap: 10px;">
                     <button onclick="passAfterPeek()" style="flex: 1; padding: 16px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 12px; font-weight: 600; font-size: 15px; cursor: pointer;">
                         ← Pass
@@ -4430,8 +4455,8 @@
                 </div>
                 
                 <!-- PRIMARY PRODUCT -->
-                <div class="product-card" style="border: 3px solid #b24bf3;">
-                    <div style="background: #b24bf3; color: white; padding: 8px 12px; border-radius: 8px; margin: -14px -14px 12px; font-weight: 600; font-size: 13px;">
+                <div class="product-card" style="border: 3px solid #E2192D;">
+                    <div style="background: #FFF5F5; color: #E2192D; border: 2px solid #E2192D; padding: 8px 12px; border-radius: 8px; margin: -14px -14px 12px; font-weight: 600; font-size: 13px;">
                         ⭐ PRIMARY RECOMMENDATION
                     </div>
                     
@@ -4609,25 +4634,25 @@
                 </div>
                 
                 <!-- PRODUCT SELECTOR -->
-                <div style="margin: 20px 0; padding: 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; color: white;">
+                <div style="margin: 20px 0; padding: 16px; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); border-radius: 12px; color: white;">
                     <div style="font-weight: 600; margin-bottom: 10px; font-size: 15px;">🤖 Try Different Products</div>
                     <div style="font-size: 13px; margin-bottom: 12px; opacity: 0.9;">
                         Want to explore alternatives? Select a product category:
                     </div>
-                    <button onclick="openProductSelector('chen')" style="width: 100%; padding: 12px; background: white; color: #667eea; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                    <button onclick="openProductSelector('chen')" style="width: 100%; padding: 12px; background: #FFFFFF; color: #E2192D; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
                         🔍 Browse Alternative Products
                     </button>
                 </div>
                 
                 <!-- ASK MEGATRON -->
-                <div style="margin: 20px 0; padding: 16px; background: white; border: 2px solid #667eea; border-radius: 12px;">
-                    <div style="font-weight: 600; margin-bottom: 10px; font-size: 15px; color: #667eea;">💬 Ask Megatron Anything</div>
+                <div style="margin: 20px 0; padding: 16px; background: #FFFFFF; border: 2px solid #E2192D; border-radius: 12px;">
+                    <div style="font-weight: 600; margin-bottom: 10px; font-size: 15px; color: #E2192D;">💬 Ask Megatron Anything</div>
                     <div style="font-size: 13px; margin-bottom: 12px; color: #666;">
                         Get instant answers about products, pricing, or sales strategies for this lead.
                     </div>
                     <div style="display: flex; gap: 8px;">
                         <input type="text" id="megatron-chen" placeholder="e.g., Compare with WealthMax ILP..." style="flex: 1; padding: 10px; border: 1px solid #dee2e6; border-radius: 8px; font-size: 13px;" onkeypress="if(event.key==='Enter') askMegatronChen()">
-                        <button onclick="askMegatronChen()" style="padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Ask</button>
+                        <button onclick="askMegatronChen()" style="padding: 10px 20px; background: #E2192D; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Ask</button>
                     </div>
                     <div style="margin-top: 10px; display: flex; flex-wrap: gap: 6px;">
                         <button onclick="quickAskChen('compare')" style="padding: 6px 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Compare alternatives</button>
@@ -4646,12 +4671,12 @@
 
             <!-- INTERACTIVE FEATURES -->
             <div class="section">
-                <div style="margin: 20px 0; padding: 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; color: white;">
+                <div style="margin: 20px 0; padding: 16px; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); border-radius: 12px; color: white;">
                     <div style="font-weight: 600; margin-bottom: 10px; font-size: 15px;">🎭 Practice Your Pitch</div>
                     <div style="font-size: 13px; margin-bottom: 12px; opacity: 0.9;">
                         Role-play the conversation with Chen Wei. Get real-time coaching.
                     </div>
-                    <button onclick="openConversationPractice('chen')" style="width: 100%; padding: 12px; background: white; color: #667eea; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                    <button onclick="openConversationPractice('chen')" style="width: 100%; padding: 12px; background: #FFFFFF; color: #E2192D; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
                         🎬 Start Conversation Practice
                     </button>
                 </div>
@@ -4701,31 +4726,31 @@
                 <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
                     <div style="font-weight: 600; color: #1a1a2e; margin-bottom: 12px; font-size: 14px;">📦 Bundle Includes:</div>
 
-                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: white; border-radius: 10px; margin-bottom: 8px;">
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: #FFFFFF; border-radius: 10px; margin-bottom: 8px;">
                         <div style="font-size: 24px;">🏆</div>
                         <div style="flex: 1;">
                             <div style="font-size: 13px; font-weight: 700; color: #1a1a2e;">Executive Term Life</div>
                             <div style="font-size: 11px; color: #6c757d;">$500k coverage, 30-year</div>
                         </div>
-                        <div style="font-size: 14px; font-weight: 700; color: #667eea;">$320/mo</div>
+                        <div style="font-size: 14px; font-weight: 700; color: #E2192D;">$320/mo</div>
                     </div>
 
-                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: white; border-radius: 10px; margin-bottom: 8px;">
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: #FFFFFF; border-radius: 10px; margin-bottom: 8px;">
                         <div style="font-size: 24px;">💼</div>
                         <div style="flex: 1;">
                             <div style="font-size: 13px; font-weight: 700; color: #1a1a2e;">Income Protection</div>
                             <div style="font-size: 11px; color: #6c757d;">80% salary replacement</div>
                         </div>
-                        <div style="font-size: 14px; font-weight: 700; color: #667eea;">$380/mo</div>
+                        <div style="font-size: 14px; font-weight: 700; color: #E2192D;">$380/mo</div>
                     </div>
 
-                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: white; border-radius: 10px;">
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: #FFFFFF; border-radius: 10px;">
                         <div style="font-size: 24px;">🏖️</div>
                         <div style="flex: 1;">
                             <div style="font-size: 13px; font-weight: 700; color: #1a1a2e;">Retirement Savings Plan</div>
                             <div style="font-size: 11px; color: #6c757d;">Tax-advantaged growth</div>
                         </div>
-                        <div style="font-size: 14px; font-weight: 700; color: #667eea;">$190/mo</div>
+                        <div style="font-size: 14px; font-weight: 700; color: #E2192D;">$190/mo</div>
                     </div>
                 </div>
 
@@ -4740,10 +4765,10 @@
                 </div>
 
                 <div style="display: flex; gap: 10px;">
-                    <button onclick="generateProposal('chen-wei', 'executive-protection')" style="flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                    <button onclick="generateProposal('chen-wei', 'executive-protection')" style="flex: 1; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
                         📄 Generate Proposal
                     </button>
-                    <button onclick="switchScreen('bundles')" style="flex: 1; background: white; color: #667eea; border: 2px solid #667eea; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                    <button onclick="switchScreen('bundles')" style="flex: 1; background: #FFFFFF; color: #E2192D; border: 2px solid #E2192D; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
                         🎁 View All Bundles
                     </button>
                 </div>
@@ -4848,8 +4873,8 @@
                 </div>
                 
                 <!-- PRIMARY PRODUCT -->
-                <div class="product-card" style="border: 3px solid #b24bf3;">
-                    <div style="background: #b24bf3; color: white; padding: 8px 12px; border-radius: 8px; margin: -14px -14px 12px; font-weight: 600; font-size: 13px;">
+                <div class="product-card" style="border: 3px solid #E2192D;">
+                    <div style="background: #FFF5F5; color: #E2192D; border: 2px solid #E2192D; padding: 8px 12px; border-radius: 8px; margin: -14px -14px 12px; font-weight: 600; font-size: 13px;">
                         ⭐ PRIMARY RECOMMENDATION
                     </div>
                     
@@ -5000,31 +5025,31 @@
                 </div>
                 
                 <!-- INTERACTIVE FEATURES -->
-                <div style="margin: 20px 0; padding: 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; color: white;">
+                <div style="margin: 20px 0; padding: 16px; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); border-radius: 12px; color: white;">
                     <div style="font-weight: 600; margin-bottom: 10px; font-size: 15px;">🎭 Practice Your Pitch</div>
                     <div style="font-size: 13px; margin-bottom: 12px; opacity: 0.9;">
                         Role-play the conversation with Sarah. Get real-time coaching.
                     </div>
-                    <button onclick="openConversationPractice('sarah')" style="width: 100%; padding: 12px; background: white; color: #667eea; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                    <button onclick="openConversationPractice('sarah')" style="width: 100%; padding: 12px; background: #FFFFFF; color: #E2192D; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
                         🎬 Start Conversation Practice
                     </button>
                 </div>
                 
-                <div style="margin: 20px 0; padding: 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; color: white;">
+                <div style="margin: 20px 0; padding: 16px; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); border-radius: 12px; color: white;">
                     <div style="font-weight: 600; margin-bottom: 10px; font-size: 15px;">🔍 Try Different Products</div>
                     <div style="font-size: 13px; margin-bottom: 12px; opacity: 0.9;">
                         Explore alternative product combinations for this family.
                     </div>
-                    <button onclick="openProductSelector('sarah')" style="width: 100%; padding: 12px; background: white; color: #667eea; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                    <button onclick="openProductSelector('sarah')" style="width: 100%; padding: 12px; background: #FFFFFF; color: #E2192D; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
                         📦 Browse Product Catalog
                     </button>
                 </div>
                 
-                <div style="margin: 20px 0; padding: 16px; background: white; border: 2px solid #667eea; border-radius: 12px;">
-                    <div style="font-weight: 600; margin-bottom: 10px; font-size: 15px; color: #667eea;">💬 Ask Megatron Anything</div>
+                <div style="margin: 20px 0; padding: 16px; background: #FFFFFF; border: 2px solid #E2192D; border-radius: 12px;">
+                    <div style="font-weight: 600; margin-bottom: 10px; font-size: 15px; color: #E2192D;">💬 Ask Megatron Anything</div>
                     <div style="display: flex; gap: 8px; margin-bottom: 10px;">
                         <input type="text" id="megatron-sarah" placeholder="e.g., What if they can only afford $400/mo?" style="flex: 1; padding: 10px; border: 1px solid #dee2e6; border-radius: 8px; font-size: 13px;" onkeypress="if(event.key==='Enter') askMegatronSarah()">
-                        <button onclick="askMegatronSarah()" style="padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Ask</button>
+                        <button onclick="askMegatronSarah()" style="padding: 10px 20px; background: #E2192D; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Ask</button>
                     </div>
                     <div style="display: flex; flex-wrap: gap: 6px;">
                         <button onclick="quickAskSarah('budget')" style="padding: 6px 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Reduce to fit budget</button>
@@ -5068,7 +5093,7 @@
                     <span class="ai-badge">AI OPTIMIZED</span>
                 </div>
 
-                <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 16px; padding: 20px; color: white; margin-bottom: 15px;">
+                <div style="background: #FFF0F5; border-radius: 16px; padding: 20px; color: white; margin-bottom: 15px;">
                     <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
                         <div>
                             <div style="font-size: 11px; opacity: 0.9; margin-bottom: 4px;">PERSONALIZED FOR SARAH TAN</div>
@@ -5087,31 +5112,31 @@
                 <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
                     <div style="font-weight: 600; color: #1a1a2e; margin-bottom: 12px; font-size: 14px;">📦 Bundle Includes:</div>
 
-                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: white; border-radius: 10px; margin-bottom: 8px;">
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: #FFFFFF; border-radius: 10px; margin-bottom: 8px;">
                         <div style="font-size: 24px;">❤️</div>
                         <div style="flex: 1;">
                             <div style="font-size: 13px; font-weight: 700; color: #1a1a2e;">Critical Illness Plus</div>
                             <div style="font-size: 11px; color: #6c757d;">$150k coverage</div>
                         </div>
-                        <div style="font-size: 14px; font-weight: 700; color: #667eea;">$180/mo</div>
+                        <div style="font-size: 14px; font-weight: 700; color: #E2192D;">$180/mo</div>
                     </div>
 
-                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: white; border-radius: 10px; margin-bottom: 8px;">
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: #FFFFFF; border-radius: 10px; margin-bottom: 8px;">
                         <div style="font-size: 24px;">🏥</div>
                         <div style="flex: 1;">
                             <div style="font-size: 13px; font-weight: 700; color: #1a1a2e;">Family Health Shield</div>
                             <div style="font-size: 11px; color: #6c757d;">Full family coverage</div>
                         </div>
-                        <div style="font-size: 14px; font-weight: 700; color: #667eea;">$280/mo</div>
+                        <div style="font-size: 14px; font-weight: 700; color: #E2192D;">$280/mo</div>
                     </div>
 
-                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: white; border-radius: 10px;">
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: #FFFFFF; border-radius: 10px;">
                         <div style="font-size: 24px;">🎓</div>
                         <div style="flex: 1;">
                             <div style="font-size: 13px; font-weight: 700; color: #1a1a2e;">Education Plan</div>
                             <div style="font-size: 11px; color: #6c757d;">2 children, 15-year term</div>
                         </div>
-                        <div style="font-size: 14px; font-weight: 700; color: #667eea;">$160/mo</div>
+                        <div style="font-size: 14px; font-weight: 700; color: #E2192D;">$160/mo</div>
                     </div>
                 </div>
 
@@ -5126,10 +5151,10 @@
                 </div>
 
                 <div style="display: flex; gap: 10px;">
-                    <button onclick="generateProposal('sarah-tan', 'family-protection')" style="flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                    <button onclick="generateProposal('sarah-tan', 'family-protection')" style="flex: 1; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
                         📄 Generate Proposal
                     </button>
-                    <button onclick="switchScreen('bundles')" style="flex: 1; background: white; color: #667eea; border: 2px solid #667eea; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                    <button onclick="switchScreen('bundles')" style="flex: 1; background: #FFFFFF; color: #E2192D; border: 2px solid #E2192D; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
                         🎁 View All Bundles
                     </button>
                 </div>
@@ -5269,7 +5294,7 @@
                     <div style="font-size: 13px; color: #666; margin-bottom: 12px;">
                         Not sure which product fits best? Ask Megatron for recommendations.
                     </div>
-                    <button onclick="askMegatronRecommendation()" style="width: 100%; padding: 10px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                    <button onclick="askMegatronRecommendation()" style="width: 100%; padding: 10px; background: #E2192D; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
                         Get AI Recommendation
                     </button>
                 </div>
@@ -5303,7 +5328,7 @@
 
             <div style="padding: 20px; overflow-y: auto; height: calc(100% - 140px);">
                 <!-- AI Analysis Header -->
-                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 16px; border-radius: 12px; margin-bottom: 20px;">
+                <div style="background: #FFF5F5; color: #333333; border-left: 4px solid #E2192D; padding: 16px; border-radius: 12px; margin-bottom: 20px;">
                     <div style="font-weight: 600; font-size: 16px; margin-bottom: 8px;">🧠 Megatron's Analysis</div>
                     <div style="font-size: 13px; line-height: 1.6; opacity: 0.95;" id="ai-analysis-text">
                         Based on the lead's profile, financial situation, and stated needs, I've identified the optimal product strategy.
@@ -5311,7 +5336,7 @@
                 </div>
 
                 <!-- Priority Level Indicator -->
-                <div style="background: white; padding: 16px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <div style="background: #FFFFFF; padding: 16px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                     <div style="font-weight: 600; margin-bottom: 12px; color: #1a1a2e;">📊 Recommendation Priority</div>
                     <div id="recommendation-priorities">
                         <!-- Will be filled dynamically -->
@@ -5333,10 +5358,10 @@
 
                 <!-- Action Buttons -->
                 <div style="margin-top: 20px;">
-                    <button onclick="viewRecommendedCategory()" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; margin-bottom: 10px; font-size: 15px;">
+                    <button onclick="viewRecommendedCategory()" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); color: white; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; margin-bottom: 10px; font-size: 15px;">
                         📦 View Product Details
                     </button>
-                    <button onclick="returnToDossierFromProducts()" style="width: 100%; padding: 14px; background: white; color: #667eea; border: 2px solid #667eea; border-radius: 12px; font-weight: 600; cursor: pointer; font-size: 15px;">
+                    <button onclick="returnToDossierFromProducts()" style="width: 100%; padding: 14px; background: #FFFFFF; color: #E2192D; border: 2px solid #E2192D; border-radius: 12px; font-weight: 600; cursor: pointer; font-size: 15px;">
                         ← Back to Dossier
                     </button>
                 </div>
@@ -5366,31 +5391,31 @@
                 <div class="challenge-card" onclick="startScenario('opening')" style="cursor: pointer;">
                     <div class="challenge-title">📞 Opening Call</div>
                     <div class="challenge-progress">Practice your introduction and value proposition</div>
-                    <div style="margin-top: 8px; font-size: 12px; color: #667eea; font-weight: 600;">Click to start →</div>
+                    <div style="margin-top: 8px; font-size: 12px; color: #E2192D; font-weight: 600;">Click to start →</div>
                 </div>
                 
                 <div class="challenge-card" onclick="startScenario('objection-price')" style="cursor: pointer; border-left-color: #ffc107;">
                     <div class="challenge-title">💰 "It's Too Expensive"</div>
                     <div class="challenge-progress">Handle budget objections with confidence</div>
-                    <div style="margin-top: 8px; font-size: 12px; color: #667eea; font-weight: 600;">Click to start →</div>
+                    <div style="margin-top: 8px; font-size: 12px; color: #E2192D; font-weight: 600;">Click to start →</div>
                 </div>
                 
                 <div class="challenge-card" onclick="startScenario('objection-think')" style="cursor: pointer; border-left-color: #28a745;">
                     <div class="challenge-title">🤔 "I Need To Think About It"</div>
                     <div class="challenge-progress">Create urgency without pressure</div>
-                    <div style="margin-top: 8px; font-size: 12px; color: #667eea; font-weight: 600;">Click to start →</div>
+                    <div style="margin-top: 8px; font-size: 12px; color: #E2192D; font-weight: 600;">Click to start →</div>
                 </div>
                 
-                <div class="challenge-card" onclick="startScenario('objection-spouse')" style="cursor: pointer; border-left-color: #667eea;">
+                <div class="challenge-card" onclick="startScenario('objection-spouse')" style="cursor: pointer; border-left-color: #E2192D;">
                     <div class="challenge-title">👫 "I Need To Discuss With Spouse"</div>
                     <div class="challenge-progress">Navigate multi-decision-maker situations</div>
-                    <div style="margin-top: 8px; font-size: 12px; color: #667eea; font-weight: 600;">Click to start →</div>
+                    <div style="margin-top: 8px; font-size: 12px; color: #E2192D; font-weight: 600;">Click to start →</div>
                 </div>
                 
                 <div class="challenge-card" onclick="startScenario('closing')" style="cursor: pointer; border-left-color: #17a2b8;">
                     <div class="challenge-title">✅ Closing The Deal</div>
                     <div class="challenge-progress">Ask for commitment and next steps</div>
-                    <div style="margin-top: 8px; font-size: 12px; color: #667eea; font-weight: 600;">Click to start →</div>
+                    <div style="margin-top: 8px; font-size: 12px; color: #E2192D; font-weight: 600;">Click to start →</div>
                 </div>
                 
                 <div style="margin-top: 20px; padding: 16px; background: #f8f9fa; border-radius: 12px;">
@@ -5404,7 +5429,7 @@
         
         <!-- LIVE CALL COACHING SCREEN -->
         <div class="screen" id="live-call-screen">
-            <div class="header-with-back" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+            <div class="header-with-back" style="background: #FFFFFF; border-bottom: 1px solid #F0F0F0;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <button onclick="endCall()" style="background: #dc3545; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 14px;">End Call</button>
                     <div style="display: flex; align-items: center; gap: 10px;">
@@ -5420,7 +5445,7 @@
             
             <div style="padding: 15px; height: calc(100% - 120px); overflow-y: auto;">
                 <!-- Real-time Transcription -->
-                <div style="background: white; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                     <div style="font-weight: 600; margin-bottom: 12px; color: #1a1a2e; display: flex; align-items: center; gap: 8px;">
                         🎤 Live Transcription
                         <span style="background: #28a745; color: white; padding: 2px 8px; border-radius: 8px; font-size: 10px;">LISTENING</span>
@@ -5428,7 +5453,7 @@
                     
                     <div id="transcription-log" style="max-height: 200px; overflow-y: auto; font-size: 13px; line-height: 1.6;">
                         <div style="margin-bottom: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px;">
-                            <strong style="color: #667eea;">You:</strong> Hi Chen Wei, this is [Your Name] from AIA. Thanks for taking my call. How are you today?
+                            <strong style="color: #E2192D;">You:</strong> Hi Chen Wei, this is [Your Name] from AIA. Thanks for taking my call. How are you today?
                         </div>
                         <div style="margin-bottom: 10px; padding: 10px; background: #e7f3ff; border-radius: 8px;">
                             <strong style="color: #0066cc;">Chen Wei:</strong> Hi, I'm good thanks. So you wanted to talk about investment plans?
@@ -5437,7 +5462,7 @@
                 </div>
                 
                 <!-- AI Next Best Action -->
-                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; padding: 16px; margin-bottom: 15px; color: white; animation: pulse 2s infinite;">
+                <div style="background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); border-radius: 12px; padding: 16px; margin-bottom: 15px; color: white; animation: pulse 2s infinite;">
                     <div style="font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
                         🤖 Next Best Action
                     </div>
@@ -5453,7 +5478,7 @@
                 </div>
                 
                 <!-- Talking Points -->
-                <div style="background: white; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                     <div style="font-weight: 600; margin-bottom: 12px; color: #1a1a2e;">💡 Key Talking Points</div>
                     
                     <div id="talking-points-list">
@@ -5470,7 +5495,7 @@
                 </div>
                 
                 <!-- Sentiment Analysis -->
-                <div style="background: white; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                     <div style="font-weight: 600; margin-bottom: 12px; color: #1a1a2e;">😊 Customer Sentiment</div>
                     
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
@@ -5499,7 +5524,7 @@
                 </div>
                 
                 <!-- Quick Actions -->
-                <div style="background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                     <div style="font-weight: 600; margin-bottom: 12px; color: #1a1a2e;">⚡ Quick Actions</div>
                     
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
@@ -5514,7 +5539,7 @@
         
         <!-- LIVE CHAT QUEUE SCREEN -->
         <div class="screen" id="live-chat-queue-screen">
-            <div class="header-with-back" style="background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);">
+            <div class="header-with-back" style="background: #FFFFFF; border-bottom: 1px solid #F0F0F0;">
                 <button class="back-button" onclick="backToHome()">← Back</button>
                 <div style="margin-top: 10px;">
                     <div class="greeting">Live Chat Queue</div>
@@ -5641,7 +5666,7 @@
         
         <!-- ACTIVE LIVE CHAT SCREEN -->
         <div class="screen" id="active-live-chat-screen">
-            <div class="header-with-back" style="background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);">
+            <div class="header-with-back" style="background: #FFFFFF; border-bottom: 1px solid #F0F0F0;">
                 <button class="back-button" onclick="backToChatQueue()">← Back to Queue</button>
                 <div style="margin-top: 10px;">
                     <div class="greeting" id="chat-customer-name">Chat with Melissa Wong</div>
@@ -5662,7 +5687,7 @@
                 
                 <div style="margin-bottom: 12px;">
                     <div style="font-size: 11px; color: #666; margin-bottom: 4px;">Melissa Wong</div>
-                    <div style="background: white; padding: 12px; border-radius: 12px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); max-width: 80%;">
+                    <div style="background: #FFFFFF; padding: 12px; border-radius: 12px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); max-width: 80%;">
                         Hi, I need family coverage. How much would it cost for 4 people?
                     </div>
                 </div>
@@ -5670,7 +5695,7 @@
                 <div style="margin-bottom: 12px; display: flex; justify-content: flex-end;">
                     <div style="max-width: 80%;">
                         <div style="font-size: 11px; color: #666; margin-bottom: 4px; text-align: right;">You</div>
-                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px; border-radius: 12px; font-size: 14px;">
+                        <div style="background: #FFF5F5; color: #333333; border-left: 4px solid #E2192D; padding: 12px; border-radius: 12px; font-size: 14px;">
                             Hi Melissa! I'd be happy to help. For a family of 4, our HealthShield Gold Plus starts at $450/month. Can you tell me the ages of your family members?
                         </div>
                     </div>
@@ -5678,7 +5703,7 @@
                 
                 <div style="margin-bottom: 12px;">
                     <div style="font-size: 11px; color: #666; margin-bottom: 4px;">Melissa Wong</div>
-                    <div style="background: white; padding: 12px; border-radius: 12px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); max-width: 80%;">
+                    <div style="background: #FFFFFF; padding: 12px; border-radius: 12px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); max-width: 80%;">
                         Me (34), husband (36), and two kids (7 and 4)
                     </div>
                 </div>
@@ -5693,13 +5718,13 @@
             </div>
             
             <!-- Chat Input -->
-            <div style="position: absolute; bottom: 80px; left: 0; right: 0; background: white; padding: 12px; border-top: 1px solid #e9ecef; z-index: 100;">
+            <div style="position: absolute; bottom: 80px; left: 0; right: 0; background: #FFFFFF; padding: 12px; border-top: 1px solid #e9ecef; z-index: 100;">
                 <div style="display: flex; gap: 8px; margin-bottom: 8px;">
                     <input type="text" id="live-chat-input" placeholder="Type your message..." style="flex: 1; padding: 12px; border: 1px solid #dee2e6; border-radius: 8px; font-size: 14px;">
                     <button onclick="sendChatMessage()" style="padding: 12px 20px; background: #17a2b8; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Send</button>
                 </div>
                 <div style="display: flex; gap: 6px;">
-                    <button onclick="askMegatronFromChat()" style="padding: 6px 10px; background: #667eea; color: white; border: none; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">🤖 Ask Megatron</button>
+                    <button onclick="askMegatronFromChat()" style="padding: 6px 10px; background: #E2192D; color: white; border: none; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">🤖 Ask Megatron</button>
                     <button onclick="useChatTemplate('intro')" style="padding: 6px 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Quick intro</button>
                     <button onclick="useChatTemplate('quote')" style="padding: 6px 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Send quote</button>
                     <button onclick="convertToLead()" style="padding: 6px 10px; background: #28a745; color: white; border: none; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">Convert to Lead</button>
@@ -5709,7 +5734,7 @@
         
         <!-- CALL SUMMARY SCREEN -->
         <div class="screen" id="call-summary-screen">
-            <div class="header-with-back" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="header-with-back" style="background: #FFFFFF; border-bottom: 1px solid #F0F0F0;">
                 <button class="back-button" onclick="backToDossierFromSummary()">← Back to Dossier</button>
                 <div style="margin-top: 10px;">
                     <div class="greeting">Call Summary & Analysis</div>
@@ -5719,14 +5744,14 @@
             
             <div style="padding: 20px; overflow-y: auto; height: calc(100% - 140px);">
                 <!-- Performance Score -->
-                <div style="background: white; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
                     <div style="font-weight: 600; margin-bottom: 10px; color: #1a1a2e;">Overall Performance</div>
                     <div style="font-size: 48px; font-weight: 700; color: #28a745; margin-bottom: 5px;">8.5/10</div>
                     <div style="font-size: 13px; color: #666;">Strong performance with room for improvement</div>
                 </div>
                 
                 <!-- What Went Well -->
-                <div style="background: white; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                     <div style="font-weight: 600; margin-bottom: 12px; color: #28a745; display: flex; align-items: center; gap: 8px;">
                         ✅ What Went Well
                     </div>
@@ -5739,7 +5764,7 @@
                 </div>
                 
                 <!-- Areas for Improvement -->
-                <div style="background: white; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                     <div style="font-weight: 600; margin-bottom: 12px; color: #ffc107; display: flex; align-items: center; gap: 8px;">
                         ⚠️ Areas for Improvement
                     </div>
@@ -5751,8 +5776,8 @@
                 </div>
                 
                 <!-- Key Insights About Lead -->
-                <div style="background: linear-gradient(135deg, #e7f3ff 0%, #fff 100%); border: 2px solid #667eea; border-radius: 12px; padding: 16px; margin-bottom: 15px;">
-                    <div style="font-weight: 600; margin-bottom: 12px; color: #667eea; display: flex; align-items: center; gap: 8px;">
+                <div style="background: linear-gradient(135deg, #e7f3ff 0%, #fff 100%); border: 2px solid #E2192D; border-radius: 12px; padding: 16px; margin-bottom: 15px;">
+                    <div style="font-weight: 600; margin-bottom: 12px; color: #E2192D; display: flex; align-items: center; gap: 8px;">
                         💡 New Insights About Lead
                     </div>
                     <div style="font-size: 13px; line-height: 1.8; color: #495057;">
@@ -5765,7 +5790,7 @@
                 </div>
                 
                 <!-- Conversation Summary -->
-                <div style="background: white; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                     <div style="font-weight: 600; margin-bottom: 12px; color: #1a1a2e;">Conversation Summary</div>
                     <div style="font-size: 13px; line-height: 1.6; color: #495057;">
                         Customer expressed strong interest in wealth accumulation with insurance protection. Main discussion points: ILP structure, fund options, tax benefits, and premium holiday feature. Key objections: monthly cost and job security concerns. Successfully reframed both objections. Customer requested time to review materials and consult financial advisor. Follow-up scheduled for next Tuesday.
@@ -5773,7 +5798,7 @@
                 </div>
                 
                 <!-- Recommended Next Steps -->
-                <div style="background: white; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                     <div style="font-weight: 600; margin-bottom: 12px; color: #1a1a2e;">🎯 Recommended Next Steps</div>
                     <div style="font-size: 13px; line-height: 1.8; color: #495057;">
                         <div style="margin-bottom: 8px;">1. Send comparison chart: WealthBuilder Plus vs Prudential PruInvest</div>
@@ -5792,7 +5817,7 @@
                 </div>
             </div>
             
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: white; padding: 15px; border-top: 1px solid #e9ecef;">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: #FFFFFF; padding: 15px; border-top: 1px solid #e9ecef;">
                 <button onclick="saveCallInsights()" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; font-size: 15px;">
                     Save Insights & Return to Dossier
                 </button>
@@ -5820,15 +5845,15 @@
                 </div>
             </div>
             
-            <div style="position: absolute; bottom: 80px; left: 0; right: 0; background: white; padding: 15px; border-top: 1px solid #e9ecef; z-index: 100;">
+            <div style="position: absolute; bottom: 80px; left: 0; right: 0; background: #FFFFFF; padding: 15px; border-top: 1px solid #e9ecef; z-index: 100;">
                 <div style="display: flex; gap: 8px; margin-bottom: 10px;">
                     <input type="text" id="agent-response" placeholder="Type your response..." style="flex: 1; padding: 12px; border: 1px solid #dee2e6; border-radius: 8px; font-size: 13px;">
-                    <button onclick="sendResponse()" style="padding: 12px 20px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Send</button>
+                    <button onclick="sendResponse()" style="padding: 12px 20px; background: #E2192D; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Send</button>
                 </div>
                 <div style="display: flex; gap: 6px; flex-wrap: wrap;">
                     <button onclick="useSuggestedResponse(1)" style="padding: 6px 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Use script #1</button>
                     <button onclick="useSuggestedResponse(2)" style="padding: 6px 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; font-size: 11px; cursor: pointer;">Use script #2</button>
-                    <button onclick="getMegatronHelp()" style="padding: 6px 12px; background: #667eea; color: white; border: none; border-radius: 6px; font-size: 11px; cursor: pointer;">🤖 Get hint</button>
+                    <button onclick="getMegatronHelp()" style="padding: 6px 12px; background: #E2192D; color: white; border: none; border-radius: 6px; font-size: 11px; cursor: pointer;">🤖 Get hint</button>
                 </div>
             </div>
         </div>
@@ -5979,9 +6004,9 @@
         <!-- HEAT MAP SCREEN -->
         <div class="screen" id="heatmap-screen">
             <!-- Filter Controls -->
-            <div style="background: white; padding: 12px 15px; border-bottom: 2px solid #e9ecef;">
+            <div style="background: #FFFFFF; padding: 12px 15px; border-bottom: 2px solid #e9ecef;">
                 <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
-                    <button onclick="toggleHeatmapFilter('all')" id="filter-all" class="heatmap-filter-btn active" style="flex: 1; padding: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
+                    <button onclick="toggleHeatmapFilter('all')" id="filter-all" class="heatmap-filter-btn active" style="flex: 1; padding: 8px; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); color: white; border: none; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
                         All Zones
                     </button>
                     <button onclick="toggleHeatmapFilter('surge')" id="filter-surge" class="heatmap-filter-btn" style="flex: 1; padding: 8px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
@@ -6002,9 +6027,9 @@
             </div>
 
             <!-- Route Planning Panel -->
-            <div id="route-panel" style="display: none; background: white; padding: 12px 15px; border-bottom: 2px solid #e9ecef;">
+            <div id="route-panel" style="display: none; background: #FFFFFF; padding: 12px 15px; border-bottom: 2px solid #e9ecef;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                    <div style="font-weight: 600; font-size: 13px; color: #667eea;">📍 Building Your Route</div>
+                    <div style="font-weight: 600; font-size: 13px; color: #E2192D;">📍 Building Your Route</div>
                     <button onclick="clearRoute()" style="padding: 4px 10px; background: #dc3545; color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer;">
                         Clear
                     </button>
@@ -6027,7 +6052,7 @@
                         <span style="font-weight: 600; color: #28a745;" id="route-leads">0 leads</span>
                     </div>
                 </div>
-                <button id="optimize-route-btn" onclick="optimizeRoute()" style="display: none; width: 100%; padding: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;">
+                <button id="optimize-route-btn" onclick="optimizeRoute()" style="display: none; width: 100%; padding: 10px; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); color: white; border: none; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;">
                     ⚡ Optimize & Start Route
                 </button>
             </div>
@@ -6041,7 +6066,7 @@
                 </svg>
 
                 <!-- Proximity Radius Circle -->
-                <div id="proximity-circle" style="position: absolute; left: 50%; top: 46%; width: 120px; height: 120px; border: 2px dashed #667eea; border-radius: 50%; transform: translate(-50%, -50%); opacity: 0.3; pointer-events: none; z-index: 2;"></div>
+                <div id="proximity-circle" style="position: absolute; left: 50%; top: 46%; width: 120px; height: 120px; border: 2px dashed #E2192D; border-radius: 50%; transform: translate(-50%, -50%); opacity: 0.3; pointer-events: none; z-index: 2;"></div>
 
                 <!-- Clickable Zone Markers -->
                 <div class="location-marker zone-marker" data-zone="tampines" data-x="35" data-y="45" onclick="handleZoneClick('tampines')" title="Tampines - 18 leads, 2.1km away" style="left: 35%; top: 45%; cursor: pointer; z-index: 10;">
@@ -6090,7 +6115,7 @@
                 </div>
 
                 <div class="my-location" style="left: 52%; top: 48%;">
-                    <div style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: #667eea; color: white; padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600; white-space: nowrap;">You are here</div>
+                    <div style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: #E2192D; color: white; padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600; white-space: nowrap;">You are here</div>
                 </div>
 
                 <div class="legend">
@@ -6107,7 +6132,7 @@
                         <span>Normal</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-dot" style="background: #667eea;"></div>
+                        <div class="legend-dot" style="background: #E2192D;"></div>
                         <span>Your Location</span>
                     </div>
                 </div>
@@ -6381,11 +6406,11 @@
                     <div class="challenge-reward">Progress: 7 / 10 • Reward: Badge + 1000 pts</div>
                 </div>
                 
-                <div class="challenge-card" style="border-left-color: #667eea;">
+                <div class="challenge-card" style="border-left-color: #E2192D;">
                     <div class="challenge-title">⭐ Perfect Week</div>
                     <div class="challenge-progress">Maintain 90%+ conversion rate this week</div>
                     <div class="challenge-bar">
-                        <div class="challenge-fill" style="width: 92%; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);"></div>
+                        <div class="challenge-fill" style="width: 92%; background: linear-gradient(90deg, #E2192D 0%, #C41230 100%);"></div>
                     </div>
                     <div class="challenge-reward">Current: 92% • Reward: +1000 pts + Badge</div>
                 </div>
@@ -7479,7 +7504,7 @@
                     </div>
 
                     <div style="text-align: center; margin-bottom: 20px;">
-                        <button onclick="showProductPicker()" style="padding: 8px 16px; background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 8px; font-size: 12px; font-weight: 600; color: #667eea; cursor: pointer;">
+                        <button onclick="showProductPicker()" style="padding: 8px 16px; background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 8px; font-size: 12px; font-weight: 600; color: #E2192D; cursor: pointer;">
                             📋 Change Products
                         </button>
                     </div>
@@ -7522,7 +7547,7 @@
                 </div>
 
                 <div class="dossier-option" onclick="selectDossierAndProceed('demo-profile')">
-                    <div class="dossier-avatar" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">DP</div>
+                    <div class="dossier-avatar" style="background: #FFFFFF; border-bottom: 1px solid #F0F0F0;">DP</div>
                     <div class="dossier-info">
                         <div class="dossier-name">Demo Profile</div>
                         <div class="dossier-meta">Sample lead for testing & practice</div>
@@ -7570,7 +7595,7 @@
         
         <!-- FLOATING ACTION BUTTON -->
         <div class="floating-menu">
-            <div class="fab" onclick="switchScreen('profile')">👤</div>
+            <div class="fab" onclick="switchScreen('profile')">💼</div>
         </div>
     </div>
     
@@ -7716,7 +7741,7 @@
                 
                 transcriptionLog.innerHTML += `
                     <div style="margin-bottom: 10px; padding: 10px; background: ${isCustomer ? '#e7f3ff' : '#f8f9fa'}; border-radius: 8px;">
-                        <strong style="color: ${isCustomer ? '#0066cc' : '#667eea'};">${conv.speaker}:</strong> ${conv.text}
+                        <strong style="color: ${isCustomer ? '#0066cc' : '#E2192D'};">${conv.speaker}:</strong> ${conv.text}
                     </div>
                 `;
                 
@@ -8035,8 +8060,8 @@
             const randomHint = hints[Math.floor(Math.random() * hints.length)];
             
             conversationLog.innerHTML += `
-                <div class="proximity-alert" style="margin-top: 10px; border-left-color: #667eea; background: linear-gradient(135deg, #e7f3ff 0%, #fff 100%);">
-                    <div class="alert-title" style="color: #667eea;">💡 Megatron Hint</div>
+                <div class="proximity-alert" style="margin-top: 10px; border-left-color: #E2192D; background: linear-gradient(135deg, #e7f3ff 0%, #fff 100%);">
+                    <div class="alert-title" style="color: #E2192D;">💡 Megatron Hint</div>
                     <div class="alert-text" style="color: #495057;">${randomHint}</div>
                 </div>
             `;
@@ -8154,7 +8179,7 @@
                     <div style="margin-bottom: 12px; display: flex; justify-content: flex-end;">
                         <div style="max-width: 80%;">
                             <div style="font-size: 11px; color: #666; margin-bottom: 4px; text-align: right;">You</div>
-                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px; border-radius: 12px; font-size: 14px;">
+                            <div style="background: #FFF5F5; color: #333333; border-left: 4px solid #E2192D; padding: 12px; border-radius: 12px; font-size: 14px;">
                                 ${message}
                             </div>
                         </div>
@@ -8188,7 +8213,7 @@
             chatLog.innerHTML += `
                 <div style="margin-bottom: 12px;">
                     <div style="font-size: 11px; color: #666; margin-bottom: 4px;">Customer</div>
-                    <div style="background: white; padding: 12px; border-radius: 12px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); max-width: 80%;">
+                    <div style="background: #FFFFFF; padding: 12px; border-radius: 12px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); max-width: 80%;">
                         ${response}
                     </div>
                 </div>
@@ -8429,8 +8454,8 @@
 
             categoryData.products.forEach(product => {
                 const productCard = `
-                    <div class="product-card" style="margin-bottom: 15px; ${product.recommended ? 'border: 3px solid #667eea;' : ''}">
-                        ${product.recommended ? '<div style="background: #667eea; color: white; padding: 8px 12px; border-radius: 8px; margin: -14px -14px 12px; font-weight: 600; font-size: 13px;">⭐ RECOMMENDED FOR THIS LEAD</div>' : ''}
+                    <div class="product-card" style="margin-bottom: 15px; ${product.recommended ? 'border: 3px solid #E2192D;' : ''}">
+                        ${product.recommended ? '<div style="background: #FFF5F5; color: #E2192D; border: 2px solid #E2192D; padding: 8px 12px; border-radius: 8px; margin: -14px -14px 12px; font-weight: 600; font-size: 13px;">⭐ RECOMMENDED FOR THIS LEAD</div>' : ''}
 
                         <div class="product-header">
                             <div class="product-name">${product.name}</div>
@@ -8441,9 +8466,9 @@
                             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
                                 <div style="font-weight: 600; color: #1a1a2e;">Match Score:</div>
                                 <div style="flex: 1; height: 8px; background: #e9ecef; border-radius: 4px; overflow: hidden;">
-                                    <div style="height: 100%; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); width: ${product.match}%;"></div>
+                                    <div style="height: 100%; background: linear-gradient(90deg, #E2192D 0%, #C41230 100%); width: ${product.match}%;"></div>
                                 </div>
-                                <div style="font-weight: 700; color: #667eea;">${product.match}%</div>
+                                <div style="font-weight: 700; color: #E2192D;">${product.match}%</div>
                             </div>
                         </div>
 
@@ -8452,7 +8477,7 @@
                             ${product.highlights.map(h => `<div style="font-size: 13px; color: #495057; margin-bottom: 4px; padding-left: 8px;">• ${h}</div>`).join('')}
                         </div>
 
-                        <button onclick="selectProduct('${product.name}')" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 10px;">
+                        <button onclick="selectProduct('${product.name}')" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 10px;">
                             Select This Product
                         </button>
                     </div>
@@ -8687,7 +8712,7 @@
             profile.recommendations.forEach(rec => {
                 productsContainer.innerHTML += `
                     <div class="product-card" style="margin-bottom: 15px; ${rec.rank === 1 ? 'border: 3px solid #28a745;' : ''}">
-                        ${rec.rank === 1 ? '<div style="background: #28a745; color: white; padding: 8px 12px; border-radius: 8px; margin: -14px -14px 12px; font-weight: 600; font-size: 13px;">🏆 #1 PRIORITY RECOMMENDATION</div>' : `<div style="background: #667eea; color: white; padding: 6px 10px; border-radius: 8px; margin: -14px -14px 12px; font-weight: 600; font-size: 12px;">Recommendation #${rec.rank}</div>`}
+                        ${rec.rank === 1 ? '<div style="background: #28a745; color: white; padding: 8px 12px; border-radius: 8px; margin: -14px -14px 12px; font-weight: 600; font-size: 13px;">🏆 #1 PRIORITY RECOMMENDATION</div>' : `<div style="background: #FFF5F5; color: #E2192D; border: 2px solid #E2192D; padding: 6px 10px; border-radius: 8px; margin: -14px -14px 12px; font-weight: 600; font-size: 12px;">Recommendation #${rec.rank}</div>`}
 
                         <div class="product-header">
                             <div class="product-name">${rec.name}</div>
@@ -8710,7 +8735,7 @@
                             </div>
                         </div>
 
-                        <button onclick="showProductCategory('${rec.category}')" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 12px;">
+                        <button onclick="showProductCategory('${rec.category}')" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 12px;">
                             View Similar Products
                         </button>
                     </div>
@@ -8720,10 +8745,10 @@
             // Set alternatives
             document.getElementById('alternative-considerations').innerHTML = `
                 <p style="margin-bottom: 10px;">${profile.alternatives}</p>
-                <div style="margin-top: 12px; padding: 12px; background: white; border-radius: 8px;">
+                <div style="margin-top: 12px; padding: 12px; background: #FFFFFF; border-radius: 8px;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
                         <span style="font-weight: 600;">Total Monthly Premium:</span>
-                        <span style="font-weight: 700; color: #667eea;">${profile.totalMonthly}</span>
+                        <span style="font-weight: 700; color: #E2192D;">${profile.totalMonthly}</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
                         <span style="font-weight: 600;">Annual Premium:</span>
@@ -9382,7 +9407,7 @@ What do you need help with?`;
 
             zone.leads_list.forEach(lead => {
                 const tierColors = {
-                    'diamond': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    'diamond': 'linear-gradient(135deg, #E2192D 0%, #C41230 100%)',
                     'gold': 'linear-gradient(135deg, #ffc107 0%, #ff9800 100%)',
                     'silver': 'linear-gradient(135deg, #6c757d 0%, #495057 100%)'
                 };
@@ -9394,7 +9419,7 @@ What do you need help with?`;
                 };
 
                 const leadCard = `
-                    <div style="background: white; padding: 12px; border-radius: 12px; margin-bottom: 10px; cursor: pointer;" onclick="showToast('Lead grabbed: ${lead.name}')">
+                    <div style="background: #FFFFFF; padding: 12px; border-radius: 12px; margin-bottom: 10px; cursor: pointer;" onclick="showToast('Lead grabbed: ${lead.name}')">
                         <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
                             <div>
                                 <div style="font-weight: 600; font-size: 14px; margin-bottom: 2px;">${lead.name}</div>
@@ -9437,7 +9462,7 @@ What do you need help with?`;
             });
 
             const activeBtn = document.getElementById('filter-' + filter);
-            activeBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            activeBtn.style.background = '#E2192D';
             activeBtn.style.border = 'none';
             activeBtn.style.color = 'white';
 
@@ -9512,7 +9537,7 @@ What do you need help with?`;
                 // Select
                 selectedZones.push(zoneId);
                 zoneElement.style.transform = 'scale(1.2)';
-                zoneElement.style.filter = 'drop-shadow(0 0 10px #667eea)';
+                zoneElement.style.filter = 'drop-shadow(0 0 10px #E2192D)';
             }
 
             updateRoutePanel();
@@ -9525,7 +9550,7 @@ What do you need help with?`;
             selectedZones.forEach((zoneId, index) => {
                 const zone = zoneData[zoneId];
                 const chip = `
-                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 6px 12px; border-radius: 16px; font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+                    <div style="background: #FFF5F5; color: #333333; border-left: 4px solid #E2192D; padding: 6px 12px; border-radius: 16px; font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 6px;">
                         <span>${index + 1}. ${zone.name}</span>
                         <span onclick="toggleZoneSelection('${zoneId}')" style="cursor: pointer; opacity: 0.8;">×</span>
                     </div>
@@ -9603,7 +9628,7 @@ What do you need help with?`;
                 line.setAttribute('y1', prevY);
                 line.setAttribute('x2', x);
                 line.setAttribute('y2', y);
-                line.setAttribute('stroke', '#667eea');
+                line.setAttribute('stroke', '#E2192D');
                 line.setAttribute('stroke-width', '3');
                 line.setAttribute('stroke-dasharray', '8,4');
                 line.setAttribute('opacity', '0.7');
@@ -9615,7 +9640,7 @@ What do you need help with?`;
                 circle.setAttribute('cx', x);
                 circle.setAttribute('cy', y);
                 circle.setAttribute('r', '12');
-                circle.setAttribute('fill', '#667eea');
+                circle.setAttribute('fill', '#E2192D');
                 circle.setAttribute('stroke', 'white');
                 circle.setAttribute('stroke-width', '2');
 
@@ -10560,9 +10585,9 @@ What do you need help with?`;
             const leadContext = getLeadSpecificNewsContext(leadId, selectedNewsItems);
 
             const contextHtml = `
-                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px; border-radius: 8px; margin-bottom: 15px;">
-                    <div style="font-weight: 700; margin-bottom: 8px; font-size: 14px;">🤖 AI-Generated Impact Analysis</div>
-                    <div style="font-size: 13px; line-height: 1.6;">${leadContext}</div>
+                <div style="background: #FFF5F5; color: #333333; padding: 16px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #E2192D;">
+                    <div style="font-weight: 700; margin-bottom: 8px; font-size: 14px; color: #E2192D;">🤖 AI-Generated Impact Analysis</div>
+                    <div style="font-size: 13px; line-height: 1.6; color: #333333;">${leadContext}</div>
                 </div>
                 ${selectedNewsItems.map(news => `
                     <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #bee5eb;">
@@ -11462,8 +11487,8 @@ What do you need help with?`;
                 pickerHTML += `<option value="${id}">${product.name} (${product.company})</option>`;
             });
             pickerHTML += '</select>';
-            pickerHTML += '<div style="display: flex; gap: 10px; margin-top: 10px;"><button onclick="updateProduct(1)" style="flex: 1; padding: 10px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Set as Product 1</button>';
-            pickerHTML += '<button onclick="updateProduct(2)" style="flex: 1; padding: 10px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Set as Product 2</button></div>';
+            pickerHTML += '<div style="display: flex; gap: 10px; margin-top: 10px;"><button onclick="updateProduct(1)" style="flex: 1; padding: 10px; background: #E2192D; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Set as Product 1</button>';
+            pickerHTML += '<button onclick="updateProduct(2)" style="flex: 1; padding: 10px; background: #E2192D; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Set as Product 2</button></div>';
 
             document.getElementById('comparison-result').innerHTML = pickerHTML;
         }
@@ -11562,7 +11587,7 @@ What do you need help with?`;
         function generateProposal(leadId, bundleType) {
             const proposalModal = `
                 <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="proposal-modal">
-                    <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                    <div style="background: #FFFFFF; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
                         <div style="font-size: 60px; margin-bottom: 15px;">✅</div>
                         <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Proposal Generated!</div>
                         <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
@@ -11579,10 +11604,10 @@ What do you need help with?`;
                             </div>
                         </div>
                         <div style="display: flex; gap: 10px;">
-                            <button onclick="shareProposal('${leadId}')" style="flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                            <button onclick="shareProposal('${leadId}')" style="flex: 1; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
                                 📤 Send to Lead
                             </button>
-                            <button onclick="closeProposalModal()" style="flex: 1; background: white; color: #667eea; border: 2px solid #667eea; padding: 12px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                            <button onclick="closeProposalModal()" style="flex: 1; background: #FFFFFF; color: #E2192D; border: 2px solid #E2192D; padding: 12px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
                                 ✕ Close
                             </button>
                         </div>
@@ -11609,7 +11634,7 @@ What do you need help with?`;
             setTimeout(() => {
                 const successModal = `
                     <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="success-modal">
-                        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                        <div style="background: #FFFFFF; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
                             <div style="font-size: 60px; margin-bottom: 15px;">🎉</div>
                             <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Proposal Sent!</div>
                             <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
@@ -11637,7 +11662,7 @@ What do you need help with?`;
 
             const customizerModal = `
                 <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="customizer-modal">
-                    <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                    <div style="background: #FFFFFF; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
                         <div style="font-size: 50px; margin-bottom: 15px;">⚙️</div>
                         <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Bundle Customizer</div>
                         <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
@@ -11651,7 +11676,7 @@ What do you need help with?`;
                                 Full customization tools in development
                             </div>
                         </div>
-                        <button onclick="closeCustomizerModal()" style="width: 100%; background: #667eea; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                        <button onclick="closeCustomizerModal()" style="width: 100%; background: #E2192D; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
                             Close
                         </button>
                     </div>
@@ -11673,7 +11698,7 @@ What do you need help with?`;
 
             const builderModal = `
                 <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="builder-modal">
-                    <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                    <div style="background: #FFFFFF; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
                         <div style="font-size: 50px; margin-bottom: 15px;">🎨</div>
                         <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Custom Bundle Builder</div>
                         <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
@@ -11697,7 +11722,7 @@ What do you need help with?`;
                                 Advanced builder coming in next update
                             </div>
                         </div>
-                        <button onclick="closeBuilderModal()" style="width: 100%; background: #667eea; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                        <button onclick="closeBuilderModal()" style="width: 100%; background: #E2192D; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
                             Close
                         </button>
                     </div>
@@ -11813,7 +11838,7 @@ What do you need help with?`;
             };
 
             recognition.onend = function() {
-                voiceBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                voiceBtn.style.background = 'linear-gradient(135deg, #E2192D 0%, #C41230 100%)';
                 voiceBtn.textContent = '🎤';
             };
 
@@ -11849,7 +11874,7 @@ What do you need help with?`;
             // Show practice modal
             const practiceModal = `
                 <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="practice-modal">
-                    <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                    <div style="background: #FFFFFF; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
                         <div style="font-size: 50px; margin-bottom: 15px;">🎯</div>
                         <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Practice Mode</div>
                         <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
@@ -11875,7 +11900,7 @@ What do you need help with?`;
                             </div>
                         </div>
 
-                        <button onclick="closePracticeModal()" style="width: 100%; background: #667eea; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                        <button onclick="closePracticeModal()" style="width: 100%; background: #E2192D; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
                             Got it!
                         </button>
                     </div>
@@ -11897,7 +11922,7 @@ What do you need help with?`;
 
             const practiceModal = `
                 <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="practice-mode-modal">
-                    <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                    <div style="background: #FFFFFF; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
                         <div style="font-size: 60px; margin-bottom: 15px;">🎯</div>
                         <div style="font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Interactive Practice Mode</div>
                         <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
@@ -11947,8 +11972,8 @@ What do you need help with?`;
 
             const modal = `
                 <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: flex-end;" id="sequence-creator-modal">
-                    <div style="background: white; border-radius: 20px 20px 0 0; width: 100%; max-height: 85%; overflow-y: auto; padding-bottom: 30px;">
-                        <div style="position: sticky; top: 0; background: white; padding: 20px; border-bottom: 2px solid #f0f0f0; z-index: 1;">
+                    <div style="background: #FFFFFF; border-radius: 20px 20px 0 0; width: 100%; max-height: 85%; overflow-y: auto; padding-bottom: 30px;">
+                        <div style="position: sticky; top: 0; background: #FFFFFF; padding: 20px; border-bottom: 2px solid #f0f0f0; z-index: 1;">
                             <div style="font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px;">🔥 Create Warm-Up Sequence</div>
                             <div style="font-size: 13px; color: #6c757d;">Choose a lead and template to auto-generate a personalized nurture plan</div>
                         </div>
@@ -11957,7 +11982,7 @@ What do you need help with?`;
                             <div style="font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 12px;">SELECT LEAD</div>
                             <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px;">
                                 <div onclick="selectSequenceLead('chen-wei')" style="background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 12px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 12px;">
-                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">CW</div>
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #E2192D 0%, #C41230 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">CW</div>
                                     <div style="flex: 1;">
                                         <div style="font-size: 14px; font-weight: 700; color: #1a1a2e;">Chen Wei</div>
                                         <div style="font-size: 11px; color: #6c757d;">42 years • Banking • 94% propensity</div>
@@ -11965,7 +11990,7 @@ What do you need help with?`;
                                     <div style="font-size: 20px;">→</div>
                                 </div>
                                 <div onclick="selectSequenceLead('sarah-tan')" style="background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 12px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 12px;">
-                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">ST</div>
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #FF8BA0 0%, #E2192D 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">ST</div>
                                     <div style="flex: 1;">
                                         <div style="font-size: 14px; font-weight: 700; color: #1a1a2e;">Sarah Tan</div>
                                         <div style="font-size: 11px; color: #6c757d;">34 years • Mother of 2 • 82% propensity</div>
@@ -12057,7 +12082,7 @@ What do you need help with?`;
             setTimeout(() => {
                 const successModal = `
                     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="sequence-success-modal">
-                        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                        <div style="background: #FFFFFF; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
                             <div style="font-size: 60px; margin-bottom: 15px;">🎉</div>
                             <div style="font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Sequence Created!</div>
                             <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
@@ -12107,7 +12132,7 @@ What do you need help with?`;
             setTimeout(() => {
                 const callModal = `
                     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="call-modal">
-                        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                        <div style="background: #FFFFFF; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
                             <div style="font-size: 60px; margin-bottom: 15px;">📞</div>
                             <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Calling Chen Wei...</div>
                             <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
@@ -12124,7 +12149,7 @@ What do you need help with?`;
                                 </div>
                             </div>
 
-                            <button onclick="closeCallModal()" style="width: 100%; background: #667eea; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                            <button onclick="closeCallModal()" style="width: 100%; background: #E2192D; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
                                 Close
                             </button>
                         </div>
@@ -12149,19 +12174,19 @@ What do you need help with?`;
 
             const analyticsModal = `
                 <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: flex-end;" id="analytics-modal">
-                    <div style="background: white; border-radius: 20px 20px 0 0; width: 100%; max-height: 80%; overflow-y: auto; padding: 20px 20px 40px;">
+                    <div style="background: #FFFFFF; border-radius: 20px 20px 0 0; width: 100%; max-height: 80%; overflow-y: auto; padding: 20px 20px 40px;">
                         <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 20px;">📊 ${leadName} - Sequence Analytics</div>
 
                         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px;">
                             <div style="background: #e7e9fc; padding: 15px; border-radius: 12px; text-align: center;">
-                                <div style="font-size: 24px; font-weight: 700; color: #667eea;">100%</div>
-                                <div style="font-size: 11px; color: #667eea; font-weight: 600;">OPEN RATE</div>
+                                <div style="font-size: 24px; font-weight: 700; color: #E2192D;">100%</div>
+                                <div style="font-size: 11px; color: #E2192D; font-weight: 600;">OPEN RATE</div>
                             </div>
                             <div style="background: #fceafe; padding: 15px; border-radius: 12px; text-align: center;">
-                                <div style="font-size: 24px; font-weight: 700; color: #d946ef;">67%</div>
-                                <div style="font-size: 11px; color: #d946ef; font-weight: 600;">CLICK RATE</div>
+                                <div style="font-size: 24px; font-weight: 700; color: #FF8BA0;">67%</div>
+                                <div style="font-size: 11px; color: #FF8BA0; font-weight: 600;">CLICK RATE</div>
                             </div>
-                            <div style="background: #d4f4dd; padding: 15px; border-radius: 12px; text-align: center;">
+                            <div style="background: #E8F5E9; padding: 15px; border-radius: 12px; text-align: center;">
                                 <div style="font-size: 24px; font-weight: 700; color: #22863a;">33%</div>
                                 <div style="font-size: 11px; color: #22863a; font-weight: 600;">REPLY RATE</div>
                             </div>
@@ -12192,7 +12217,7 @@ What do you need help with?`;
                             </div>
                         </div>
 
-                        <button onclick="closeAnalyticsModal()" style="width: 100%; background: #667eea; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                        <button onclick="closeAnalyticsModal()" style="width: 100%; background: #E2192D; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
                             Close
                         </button>
                     </div>
