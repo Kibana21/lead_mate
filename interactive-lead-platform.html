@@ -2551,6 +2551,465 @@
             background: #5a6268;
         }
 
+        /* Tools Screen Styles */
+        .tools-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            padding-top: 60px;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .tools-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .tools-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .tool-card:active {
+            transform: translateY(-2px);
+        }
+
+        .tool-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .tool-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+
+        .tool-desc {
+            font-size: 11px;
+            color: #6c757d;
+            line-height: 1.4;
+        }
+
+        .tool-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .tool-badge.new {
+            background: #28a745;
+        }
+
+        .tool-badge.premium {
+            background: #ffc107;
+            color: #1a1a2e;
+        }
+
+        .tools-section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 20px 20px 10px;
+            grid-column: 1 / -1;
+        }
+
+        /* Dossier Selector Modal */
+        .dossier-selector-modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 6000;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .dossier-selector-content {
+            background: white;
+            border-radius: 20px 20px 0 0;
+            width: 100%;
+            padding: 20px;
+            padding-bottom: 30px;
+            max-height: 70%;
+            overflow-y: auto;
+        }
+
+        .dossier-selector-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+
+        .dossier-selector-subtitle {
+            font-size: 13px;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+
+        .dossier-option {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .dossier-option:hover {
+            border-color: #667eea;
+            background: #f0f3ff;
+            transform: translateX(4px);
+        }
+
+        .dossier-option:active {
+            transform: translateX(2px);
+        }
+
+        .dossier-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .dossier-info {
+            flex: 1;
+        }
+
+        .dossier-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 3px;
+        }
+
+        .dossier-meta {
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .dossier-badge {
+            background: #667eea;
+            color: white;
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .dossier-badge.demo {
+            background: #28a745;
+        }
+
+        .selector-cancel-btn {
+            width: 100%;
+            padding: 12px;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .selector-cancel-btn:hover {
+            background: #5a6268;
+        }
+
+        /* Smart Bundles Screen Styles */
+        .bundles-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            padding-top: 60px;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 20px;
+        }
+
+        .bundles-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .bundles-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .bundle-card {
+            background: white;
+            border-radius: 20px;
+            margin: 0 20px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .bundle-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        .bundle-header.persona-parent {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .bundle-header.persona-business {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .bundle-header.persona-young {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .bundle-header.persona-executive {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .bundle-ai-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .bundle-for {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+
+        .bundle-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .bundle-price {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .bundle-price-period {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .bundle-savings {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 8px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .bundle-body {
+            padding: 20px;
+        }
+
+        .bundle-products {
+            margin-bottom: 20px;
+        }
+
+        .bundle-product-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .bundle-product-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .bundle-product-info {
+            flex: 1;
+        }
+
+        .bundle-product-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 2px;
+        }
+
+        .bundle-product-coverage {
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .bundle-product-price {
+            font-size: 15px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .bundle-features {
+            background: #f0f3ff;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .bundle-features-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .bundle-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #495057;
+        }
+
+        .bundle-feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .bundle-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .bundle-btn-primary {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .bundle-btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        .bundle-btn-secondary {
+            flex: 1;
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .bundle-btn-secondary:active {
+            transform: scale(0.98);
+        }
+
+        .custom-bundle-cta {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 0 20px 100px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .custom-bundle-cta:active {
+            transform: scale(0.98);
+        }
+
+        .custom-bundle-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .custom-bundle-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .custom-bundle-subtitle {
+            font-size: 13px;
+            opacity: 0.95;
+        }
+
         /* Daily Briefing Styles */
         .daily-briefing {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -3532,6 +3991,80 @@
                 </div>
             </div>
 
+            <!-- Smart Bundle Section -->
+            <div class="section">
+                <div class="section-title">
+                    🎁 Recommended Bundle Package
+                    <span class="ai-badge">AI OPTIMIZED</span>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 16px; padding: 20px; color: white; margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                        <div>
+                            <div style="font-size: 11px; opacity: 0.9; margin-bottom: 4px;">PERSONALIZED FOR CHEN WEI</div>
+                            <div style="font-size: 20px; font-weight: 700;">Executive Protection Bundle</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.25); backdrop-filter: blur(10px); padding: 6px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; border: 1px solid rgba(255,255,255,0.3);">
+                            🤖 AI PICK
+                        </div>
+                    </div>
+                    <div style="font-size: 28px; font-weight: 700; margin-bottom: 6px;">$890<span style="font-size: 14px; font-weight: 400; opacity: 0.9;">/month</span></div>
+                    <div style="background: rgba(255,255,255,0.25); backdrop-filter: blur(10px); padding: 6px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; display: inline-block; border: 1px solid rgba(255,255,255,0.3);">
+                        💰 Save $120/month vs individual products
+                    </div>
+                </div>
+
+                <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
+                    <div style="font-weight: 600; color: #1a1a2e; margin-bottom: 12px; font-size: 14px;">📦 Bundle Includes:</div>
+
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: white; border-radius: 10px; margin-bottom: 8px;">
+                        <div style="font-size: 24px;">🏆</div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 13px; font-weight: 700; color: #1a1a2e;">Executive Term Life</div>
+                            <div style="font-size: 11px; color: #6c757d;">$500k coverage, 30-year</div>
+                        </div>
+                        <div style="font-size: 14px; font-weight: 700; color: #667eea;">$320/mo</div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: white; border-radius: 10px; margin-bottom: 8px;">
+                        <div style="font-size: 24px;">💼</div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 13px; font-weight: 700; color: #1a1a2e;">Income Protection</div>
+                            <div style="font-size: 11px; color: #6c757d;">80% salary replacement</div>
+                        </div>
+                        <div style="font-size: 14px; font-weight: 700; color: #667eea;">$380/mo</div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: white; border-radius: 10px;">
+                        <div style="font-size: 24px;">🏖️</div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 13px; font-weight: 700; color: #1a1a2e;">Retirement Savings Plan</div>
+                            <div style="font-size: 11px; color: #6c757d;">Tax-advantaged growth</div>
+                        </div>
+                        <div style="font-size: 14px; font-weight: 700; color: #667eea;">$190/mo</div>
+                    </div>
+                </div>
+
+                <div style="background: #f0f3ff; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
+                    <div style="font-weight: 600; color: #1a1a2e; margin-bottom: 10px; font-size: 13px;">✨ Why this bundle?</div>
+                    <div style="font-size: 12px; color: #495057; line-height: 1.6;">
+                        ✓ Banking professional - high income protection need<br>
+                        ✓ Age 42 - retirement planning window closing<br>
+                        ✓ Career stability allows premium term coverage<br>
+                        ✓ Comprehensive executive-level protection
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="generateProposal('chen-wei', 'executive-protection')" style="flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                        📄 Generate Proposal
+                    </button>
+                    <button onclick="switchScreen('bundles')" style="flex: 1; background: white; color: #667eea; border: 2px solid #667eea; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                        🎁 View All Bundles
+                    </button>
+                </div>
+            </div>
+
             <!-- Notes & Call History Section -->
             <div class="section">
                 <div class="section-title">
@@ -3841,6 +4374,80 @@
                     <div class="objection-response">
                         <strong>Response:</strong> "That's great you have company coverage! But here are 3 gaps: 1) It typically only covers you, not your family. 2) You lose it if you change jobs or get retrenched. 3) It's usually basic ward only. This plan fills those gaps and follows you for life."
                     </div>
+                </div>
+            </div>
+
+            <!-- Smart Bundle Section -->
+            <div class="section">
+                <div class="section-title">
+                    🎁 Recommended Bundle Package
+                    <span class="ai-badge">AI OPTIMIZED</span>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 16px; padding: 20px; color: white; margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                        <div>
+                            <div style="font-size: 11px; opacity: 0.9; margin-bottom: 4px;">PERSONALIZED FOR SARAH TAN</div>
+                            <div style="font-size: 20px; font-weight: 700;">Family Protection Bundle</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.25); backdrop-filter: blur(10px); padding: 6px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; border: 1px solid rgba(255,255,255,0.3);">
+                            🤖 AI PICK
+                        </div>
+                    </div>
+                    <div style="font-size: 28px; font-weight: 700; margin-bottom: 6px;">$620<span style="font-size: 14px; font-weight: 400; opacity: 0.9;">/month</span></div>
+                    <div style="background: rgba(255,255,255,0.25); backdrop-filter: blur(10px); padding: 6px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; display: inline-block; border: 1px solid rgba(255,255,255,0.3);">
+                        💰 Save $85/month vs individual products
+                    </div>
+                </div>
+
+                <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
+                    <div style="font-weight: 600; color: #1a1a2e; margin-bottom: 12px; font-size: 14px;">📦 Bundle Includes:</div>
+
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: white; border-radius: 10px; margin-bottom: 8px;">
+                        <div style="font-size: 24px;">❤️</div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 13px; font-weight: 700; color: #1a1a2e;">Critical Illness Plus</div>
+                            <div style="font-size: 11px; color: #6c757d;">$150k coverage</div>
+                        </div>
+                        <div style="font-size: 14px; font-weight: 700; color: #667eea;">$180/mo</div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: white; border-radius: 10px; margin-bottom: 8px;">
+                        <div style="font-size: 24px;">🏥</div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 13px; font-weight: 700; color: #1a1a2e;">Family Health Shield</div>
+                            <div style="font-size: 11px; color: #6c757d;">Full family coverage</div>
+                        </div>
+                        <div style="font-size: 14px; font-weight: 700; color: #667eea;">$280/mo</div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: white; border-radius: 10px;">
+                        <div style="font-size: 24px;">🎓</div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 13px; font-weight: 700; color: #1a1a2e;">Education Plan</div>
+                            <div style="font-size: 11px; color: #6c757d;">2 children, 15-year term</div>
+                        </div>
+                        <div style="font-size: 14px; font-weight: 700; color: #667eea;">$160/mo</div>
+                    </div>
+                </div>
+
+                <div style="background: #f0f3ff; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
+                    <div style="font-weight: 600; color: #1a1a2e; margin-bottom: 10px; font-size: 13px;">✨ Why this bundle?</div>
+                    <div style="font-size: 12px; color: #495057; line-height: 1.6;">
+                        ✓ Mother of 2 - education planning is critical<br>
+                        ✓ Family health coverage gaps identified in profile<br>
+                        ✓ Age 34 - optimal time for critical illness coverage<br>
+                        ✓ Budget-friendly with maximum protection
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="generateProposal('sarah-tan', 'family-protection')" style="flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                        📄 Generate Proposal
+                    </button>
+                    <button onclick="switchScreen('bundles')" style="flex: 1; background: white; color: #667eea; border: 2px solid #667eea; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                        🎁 View All Bundles
+                    </button>
                 </div>
             </div>
 
@@ -5108,6 +5715,421 @@
             </div>
         </div>
 
+        <!-- TOOLS SCREEN -->
+        <div class="screen" id="tools-screen">
+            <div class="tools-header">
+                <div class="tools-title">🛠️ Agent Toolbox</div>
+                <div class="tools-subtitle">All your productivity tools in one place</div>
+            </div>
+
+            <div class="tools-grid">
+                <!-- AI & Intelligence Tools -->
+                <div class="tools-section-title">🤖 AI-Powered Tools</div>
+
+                <div class="tool-card" onclick="openMegatronChat()">
+                    <div class="tool-icon">🤖</div>
+                    <div class="tool-name">Ask Megatron</div>
+                    <div class="tool-desc">AI assistant for any insurance question</div>
+                    <div class="tool-badge">AI</div>
+                </div>
+
+                <div class="tool-card" onclick="openToolWithDossier('script')">
+                    <div class="tool-icon">🎭</div>
+                    <div class="tool-name">Call Script Generator</div>
+                    <div class="tool-desc">AI-generated personalized scripts</div>
+                    <div class="tool-badge">AI</div>
+                </div>
+
+                <div class="tool-card" onclick="openToolWithDossier('practice')">
+                    <div class="tool-icon">🎬</div>
+                    <div class="tool-name">Conversation Practice</div>
+                    <div class="tool-desc">Role-play with AI coaching</div>
+                    <div class="tool-badge new">NEW</div>
+                </div>
+
+                <div class="tool-card" onclick="switchScreen('news')">
+                    <div class="tool-icon">📰</div>
+                    <div class="tool-name">News Intelligence Hub</div>
+                    <div class="tool-desc">Market insights & competitor news</div>
+                    <div class="tool-badge">REAL-TIME</div>
+                </div>
+
+                <!-- Lead Management Tools -->
+                <div class="tools-section-title">⚡ Lead Management</div>
+
+                <div class="tool-card" onclick="switchScreen('leads')">
+                    <div class="tool-icon">⚡</div>
+                    <div class="tool-name">Live Lead Marketplace</div>
+                    <div class="tool-desc">Browse & claim hot leads</div>
+                    <div class="tool-badge">LIVE</div>
+                </div>
+
+                <div class="tool-card" onclick="switchScreen('heatmap')">
+                    <div class="tool-icon">🗺️</div>
+                    <div class="tool-name">Proximity Heatmap</div>
+                    <div class="tool-desc">Find leads near you</div>
+                    <div class="tool-badge">GPS</div>
+                </div>
+
+                <div class="tool-card" onclick="openToolWithDossier('notes')">
+                    <div class="tool-icon">📝</div>
+                    <div class="tool-name">Call Notes & History</div>
+                    <div class="tool-desc">Track conversations & follow-ups</div>
+                </div>
+
+                <div class="tool-card" onclick="openToolWithDossier('dossier')">
+                    <div class="tool-icon">📋</div>
+                    <div class="tool-name">AI Lead Dossier</div>
+                    <div class="tool-desc">Complete lead intelligence profiles</div>
+                    <div class="tool-badge">AI</div>
+                </div>
+
+                <!-- Product & Comparison Tools -->
+                <div class="tools-section-title">💼 Product Tools</div>
+
+                <div class="tool-card" onclick="switchScreen('bundles')">
+                    <div class="tool-icon">🎁</div>
+                    <div class="tool-name">Smart Bundles</div>
+                    <div class="tool-desc">AI product packages & proposals</div>
+                    <div class="tool-badge">AI</div>
+                </div>
+
+                <div class="tool-card" onclick="openCompare()">
+                    <div class="tool-icon">⚖️</div>
+                    <div class="tool-name">Product Compare</div>
+                    <div class="tool-desc">Side-by-side product comparison</div>
+                    <div class="tool-badge new">NEW</div>
+                </div>
+
+                <div class="tool-card" onclick="alert('Product selector - coming soon!')">
+                    <div class="tool-icon">🎯</div>
+                    <div class="tool-name">Smart Product Match</div>
+                    <div class="tool-desc">AI recommends best products for lead</div>
+                    <div class="tool-badge">AI</div>
+                </div>
+
+                <div class="tool-card" onclick="alert('Premium calculator - coming soon!')">
+                    <div class="tool-icon">🧮</div>
+                    <div class="tool-name">Premium Calculator</div>
+                    <div class="tool-desc">Instant quote generation</div>
+                </div>
+
+                <div class="tool-card" onclick="alert('Objection handler - coming soon!')">
+                    <div class="tool-icon">🛡️</div>
+                    <div class="tool-name">Objection Handler</div>
+                    <div class="tool-desc">Quick responses to common objections</div>
+                </div>
+
+                <!-- Team & Performance Tools -->
+                <div class="tools-section-title">👥 Team & Performance</div>
+
+                <div class="tool-card" onclick="switchScreen('squad')">
+                    <div class="tool-icon">👥</div>
+                    <div class="tool-name">Squad Hub</div>
+                    <div class="tool-desc">Team chat, news & collaboration</div>
+                </div>
+
+                <div class="tool-card" onclick="switchScreen('rankings')">
+                    <div class="tool-icon">🏆</div>
+                    <div class="tool-name">Leaderboards</div>
+                    <div class="tool-desc">Rankings & performance metrics</div>
+                </div>
+
+                <div class="tool-card" onclick="switchScreen('challenges')">
+                    <div class="tool-icon">🎯</div>
+                    <div class="tool-name">Challenges</div>
+                    <div class="tool-desc">Daily & weekly gamification goals</div>
+                </div>
+
+                <div class="tool-card" onclick="switchScreen('achievements')">
+                    <div class="tool-icon">🏅</div>
+                    <div class="tool-name">Achievements</div>
+                    <div class="tool-desc">Badges & milestones earned</div>
+                </div>
+            </div>
+
+            <div style="height: 100px;"></div>
+        </div>
+
+        <!-- SMART BUNDLES SCREEN -->
+        <div class="screen" id="bundles-screen">
+            <div class="bundles-header">
+                <div class="bundles-title">🎁 Smart Bundles</div>
+                <div class="bundles-subtitle">AI-powered product packages tailored to your leads</div>
+            </div>
+
+            <!-- Sarah Tan Bundle -->
+            <div class="bundle-card">
+                <div class="bundle-header persona-parent">
+                    <div class="bundle-ai-badge">🤖 AI RECOMMENDED</div>
+                    <div class="bundle-for">Recommended for</div>
+                    <div class="bundle-name">Sarah Tan</div>
+                    <div class="bundle-price">$620<span class="bundle-price-period">/month</span></div>
+                    <div class="bundle-savings">💰 Save $85/month vs individual</div>
+                </div>
+                <div class="bundle-body">
+                    <div class="bundle-products">
+                        <div class="bundle-product-item">
+                            <div class="bundle-product-icon">❤️</div>
+                            <div class="bundle-product-info">
+                                <div class="bundle-product-name">Critical Illness Plus</div>
+                                <div class="bundle-product-coverage">$150k coverage</div>
+                            </div>
+                            <div class="bundle-product-price">$180/mo</div>
+                        </div>
+                        <div class="bundle-product-item">
+                            <div class="bundle-product-icon">🏥</div>
+                            <div class="bundle-product-info">
+                                <div class="bundle-product-name">Family Health Shield</div>
+                                <div class="bundle-product-coverage">Full family coverage</div>
+                            </div>
+                            <div class="bundle-product-price">$280/mo</div>
+                        </div>
+                        <div class="bundle-product-item">
+                            <div class="bundle-product-icon">🎓</div>
+                            <div class="bundle-product-info">
+                                <div class="bundle-product-name">Education Plan</div>
+                                <div class="bundle-product-coverage">2 children, 15-year term</div>
+                            </div>
+                            <div class="bundle-product-price">$160/mo</div>
+                        </div>
+                    </div>
+
+                    <div class="bundle-features">
+                        <div class="bundle-features-title">✨ Why this bundle?</div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>Mother of 2 - education planning is critical</span>
+                        </div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>Family health coverage gaps identified in profile</span>
+                        </div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>Age 34 - optimal time for critical illness coverage</span>
+                        </div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>Budget-friendly with maximum protection</span>
+                        </div>
+                    </div>
+
+                    <div class="bundle-actions">
+                        <button class="bundle-btn-primary" onclick="generateProposal('sarah-tan', 'family-protection')">
+                            📄 Generate Proposal
+                        </button>
+                        <button class="bundle-btn-secondary" onclick="customizeBundle('sarah-tan')">
+                            ⚙️ Customize
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chen Wei Bundle -->
+            <div class="bundle-card">
+                <div class="bundle-header persona-business">
+                    <div class="bundle-ai-badge">🤖 AI RECOMMENDED</div>
+                    <div class="bundle-for">Recommended for</div>
+                    <div class="bundle-name">Chen Wei</div>
+                    <div class="bundle-price">$890<span class="bundle-price-period">/month</span></div>
+                    <div class="bundle-savings">💰 Save $120/month vs individual</div>
+                </div>
+                <div class="bundle-body">
+                    <div class="bundle-products">
+                        <div class="bundle-product-item">
+                            <div class="bundle-product-icon">🏆</div>
+                            <div class="bundle-product-info">
+                                <div class="bundle-product-name">Executive Term Life</div>
+                                <div class="bundle-product-coverage">$500k coverage, 30-year</div>
+                            </div>
+                            <div class="bundle-product-price">$320/mo</div>
+                        </div>
+                        <div class="bundle-product-item">
+                            <div class="bundle-product-icon">💼</div>
+                            <div class="bundle-product-info">
+                                <div class="bundle-product-name">Income Protection</div>
+                                <div class="bundle-product-coverage">80% salary replacement</div>
+                            </div>
+                            <div class="bundle-product-price">$380/mo</div>
+                        </div>
+                        <div class="bundle-product-item">
+                            <div class="bundle-product-icon">🏖️</div>
+                            <div class="bundle-product-info">
+                                <div class="bundle-product-name">Retirement Savings Plan</div>
+                                <div class="bundle-product-coverage">Tax-advantaged growth</div>
+                            </div>
+                            <div class="bundle-product-price">$190/mo</div>
+                        </div>
+                    </div>
+
+                    <div class="bundle-features">
+                        <div class="bundle-features-title">✨ Why this bundle?</div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>Banking professional - high income protection need</span>
+                        </div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>Age 42 - retirement planning window closing</span>
+                        </div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>Career stability allows premium term coverage</span>
+                        </div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>Comprehensive executive-level protection</span>
+                        </div>
+                    </div>
+
+                    <div class="bundle-actions">
+                        <button class="bundle-btn-primary" onclick="generateProposal('chen-wei', 'executive-protection')">
+                            📄 Generate Proposal
+                        </button>
+                        <button class="bundle-btn-secondary" onclick="customizeBundle('chen-wei')">
+                            ⚙️ Customize
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pre-built Persona Packages -->
+            <div class="bundle-card">
+                <div class="bundle-header persona-young">
+                    <div class="bundle-ai-badge">📦 PRE-BUILT</div>
+                    <div class="bundle-for">Pre-built Package</div>
+                    <div class="bundle-name">Young Professional Starter</div>
+                    <div class="bundle-price">$280<span class="bundle-price-period">/month</span></div>
+                    <div class="bundle-savings">💰 Perfect for ages 25-35</div>
+                </div>
+                <div class="bundle-body">
+                    <div class="bundle-products">
+                        <div class="bundle-product-item">
+                            <div class="bundle-product-icon">🛡️</div>
+                            <div class="bundle-product-info">
+                                <div class="bundle-product-name">Basic Term Life</div>
+                                <div class="bundle-product-coverage">$200k coverage, 20-year</div>
+                            </div>
+                            <div class="bundle-product-price">$95/mo</div>
+                        </div>
+                        <div class="bundle-product-item">
+                            <div class="bundle-product-icon">❤️</div>
+                            <div class="bundle-product-info">
+                                <div class="bundle-product-name">Critical Illness Basic</div>
+                                <div class="bundle-product-coverage">$50k coverage</div>
+                            </div>
+                            <div class="bundle-product-price">$85/mo</div>
+                        </div>
+                        <div class="bundle-product-item">
+                            <div class="bundle-product-icon">💰</div>
+                            <div class="bundle-product-info">
+                                <div class="bundle-product-name">Savings Plan</div>
+                                <div class="bundle-product-coverage">5% guaranteed returns</div>
+                            </div>
+                            <div class="bundle-product-price">$100/mo</div>
+                        </div>
+                    </div>
+
+                    <div class="bundle-features">
+                        <div class="bundle-features-title">✨ Perfect for</div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>Recent graduates starting careers</span>
+                        </div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>Singles without dependents</span>
+                        </div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>Building financial foundation</span>
+                        </div>
+                    </div>
+
+                    <div class="bundle-actions">
+                        <button class="bundle-btn-primary" onclick="generateProposal('template', 'young-professional')">
+                            📄 Use This Package
+                        </button>
+                        <button class="bundle-btn-secondary" onclick="customizeBundle('template-young')">
+                            ⚙️ Customize
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Executive Package -->
+            <div class="bundle-card">
+                <div class="bundle-header persona-executive">
+                    <div class="bundle-ai-badge">📦 PRE-BUILT</div>
+                    <div class="bundle-for">Pre-built Package</div>
+                    <div class="bundle-name">Executive Elite Protection</div>
+                    <div class="bundle-price">$1,450<span class="bundle-price-period">/month</span></div>
+                    <div class="bundle-savings">💰 Premium coverage for high earners</div>
+                </div>
+                <div class="bundle-body">
+                    <div class="bundle-products">
+                        <div class="bundle-product-item">
+                            <div class="bundle-product-icon">👑</div>
+                            <div class="bundle-product-info">
+                                <div class="bundle-product-name">Premium Whole Life</div>
+                                <div class="bundle-product-coverage">$1M coverage, lifetime</div>
+                            </div>
+                            <div class="bundle-product-price">$650/mo</div>
+                        </div>
+                        <div class="bundle-product-item">
+                            <div class="bundle-product-icon">💎</div>
+                            <div class="bundle-product-info">
+                                <div class="bundle-product-name">Executive Health Plan</div>
+                                <div class="bundle-product-coverage">VIP hospital access</div>
+                            </div>
+                            <div class="bundle-product-price">$480/mo</div>
+                        </div>
+                        <div class="bundle-product-item">
+                            <div class="bundle-product-icon">🌟</div>
+                            <div class="bundle-product-info">
+                                <div class="bundle-product-name">Wealth Accumulation</div>
+                                <div class="bundle-product-coverage">Investment-linked</div>
+                            </div>
+                            <div class="bundle-product-price">$320/mo</div>
+                        </div>
+                    </div>
+
+                    <div class="bundle-features">
+                        <div class="bundle-features-title">✨ Perfect for</div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>C-suite executives and business owners</span>
+                        </div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>High net worth individuals</span>
+                        </div>
+                        <div class="bundle-feature-item">
+                            <span>✅</span>
+                            <span>Comprehensive wealth protection</span>
+                        </div>
+                    </div>
+
+                    <div class="bundle-actions">
+                        <button class="bundle-btn-primary" onclick="generateProposal('template', 'executive-elite')">
+                            📄 Use This Package
+                        </button>
+                        <button class="bundle-btn-secondary" onclick="customizeBundle('template-executive')">
+                            ⚙️ Customize
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Bundle CTA -->
+            <div class="custom-bundle-cta" onclick="createCustomBundle()">
+                <div class="custom-bundle-icon">🎨</div>
+                <div class="custom-bundle-title">Create Custom Bundle</div>
+                <div class="custom-bundle-subtitle">Build a personalized package from scratch</div>
+            </div>
+        </div>
+
         <!-- CALL SCRIPT GENERATOR MODAL -->
         <div class="screen" id="script-modal" style="display: none;">
             <div class="script-modal">
@@ -5208,6 +6230,45 @@
             </div>
         </div>
 
+        <!-- DOSSIER SELECTOR MODAL -->
+        <div id="dossier-selector-modal" class="dossier-selector-modal" style="display: none;">
+            <div class="dossier-selector-content">
+                <div class="dossier-selector-title">Select a Lead Profile</div>
+                <div class="dossier-selector-subtitle">Choose a lead to continue with this tool</div>
+
+                <div class="dossier-option" onclick="selectDossierAndProceed('chen-wei')">
+                    <div class="dossier-avatar">CW</div>
+                    <div class="dossier-info">
+                        <div class="dossier-name">Chen Wei</div>
+                        <div class="dossier-meta">42 years • Banking Professional • 94% propensity</div>
+                    </div>
+                    <div class="dossier-badge">REAL</div>
+                </div>
+
+                <div class="dossier-option" onclick="selectDossierAndProceed('sarah-tan')">
+                    <div class="dossier-avatar" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);">ST</div>
+                    <div class="dossier-info">
+                        <div class="dossier-name">Sarah Tan</div>
+                        <div class="dossier-meta">34 years • Mother of 2 • 82% propensity</div>
+                    </div>
+                    <div class="dossier-badge">REAL</div>
+                </div>
+
+                <div class="dossier-option" onclick="selectDossierAndProceed('demo-profile')">
+                    <div class="dossier-avatar" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">DP</div>
+                    <div class="dossier-info">
+                        <div class="dossier-name">Demo Profile</div>
+                        <div class="dossier-meta">Sample lead for testing & practice</div>
+                    </div>
+                    <div class="dossier-badge demo">DEMO</div>
+                </div>
+
+                <button class="selector-cancel-btn" onclick="closeDossierSelector()">
+                    ✕ Cancel
+                </button>
+            </div>
+        </div>
+
         <!-- BOTTOM NAVIGATION -->
         <div class="bottom-nav">
             <div class="nav-item active" onclick="switchScreen('home')">
@@ -5234,9 +6295,9 @@
                 <div class="nav-icon">🏆</div>
                 <div>Ranks</div>
             </div>
-            <div class="nav-item" onclick="openCompare()">
-                <div class="nav-icon">⚖️</div>
-                <div>Compare</div>
+            <div class="nav-item" onclick="switchScreen('tools')">
+                <div class="nav-icon">🛠️</div>
+                <div>Tools</div>
             </div>
         </div>
         
@@ -5268,13 +6329,15 @@
                 'squad': 'squad-screen',
                 'challenges': 'challenges-screen',
                 'profile': 'profile-screen',
-                'achievements': 'achievements-screen'
+                'achievements': 'achievements-screen',
+                'tools': 'tools-screen',
+                'bundles': 'bundles-screen'
             };
 
             document.getElementById(screenMap[screen]).classList.add('active');
 
             // Add active to nav item if it's a main nav screen
-            if (['home', 'leads', 'news', 'heatmap', 'rankings', 'squad'].includes(screen)) {
+            if (['home', 'leads', 'news', 'heatmap', 'rankings', 'squad', 'tools'].includes(screen)) {
                 const navItems = document.querySelectorAll('.nav-item');
                 const navMap = {
                     'home': 0,
@@ -5282,7 +6345,8 @@
                     'news': 2,
                     'heatmap': 3,
                     'squad': 4,
-                    'rankings': 5
+                    'rankings': 5,
+                    'tools': 6
                 };
                 navItems[navMap[screen]].classList.add('active');
             }
@@ -6424,15 +7488,24 @@
             chatBody.innerHTML = '';
 
             // Add welcome message
-            const leadNames = {
-                'chen': 'Chen Wei',
-                'chen-wei': 'Chen Wei',
-                'sarah': 'Sarah Tan',
-                'sarah-tan': 'Sarah Tan'
-            };
-            const leadName = leadNames[currentLead] || 'this lead';
+            let welcomeMessage;
 
-            addMegatronMessage(`Hi! I'm Megatron, your AI assistant. I have full context about ${leadName}'s profile, needs, and behavior. What would you like to know?`, true);
+            // Check if currentLead is defined
+            if (typeof currentLead !== 'undefined' && currentLead) {
+                const leadNames = {
+                    'chen': 'Chen Wei',
+                    'chen-wei': 'Chen Wei',
+                    'sarah': 'Sarah Tan',
+                    'sarah-tan': 'Sarah Tan'
+                };
+                const leadName = leadNames[currentLead] || 'this lead';
+                welcomeMessage = `Hi! I'm Megatron, your AI assistant. I have full context about ${leadName}'s profile, needs, and behavior. What would you like to know?`;
+            } else {
+                // Generic greeting when no lead context
+                welcomeMessage = `Hi! I'm Megatron, your AI assistant for all things insurance. I can help you with product knowledge, sales strategies, policy comparisons, and answering any questions about AIA products. What would you like to know?`;
+            }
+
+            addMegatronMessage(welcomeMessage, true);
 
             // Show overlay
             overlay.classList.add('active');
@@ -9130,6 +10203,245 @@ What do you need help with?`;
             const picker = document.getElementById('product-picker');
             if (picker) {
                 selectProduct(slot, picker.value);
+            }
+        }
+
+        // Dossier Selector System
+        let pendingToolAction = null;
+
+        function openToolWithDossier(toolType) {
+            pendingToolAction = toolType;
+            document.getElementById('dossier-selector-modal').style.display = 'flex';
+        }
+
+        function closeDossierSelector() {
+            document.getElementById('dossier-selector-modal').style.display = 'none';
+            pendingToolAction = null;
+        }
+
+        function selectDossierAndProceed(dossierId) {
+            console.log('Selected dossier:', dossierId, 'Tool:', pendingToolAction);
+
+            // Store the action before closing (because close sets it to null)
+            const toolAction = pendingToolAction;
+            closeDossierSelector();
+
+            if (dossierId === 'demo-profile') {
+                // For demo profile, show a toast and simulate the action
+                showToast('🎯 Demo Profile Selected! Feature will use sample data.');
+
+                // Proceed with demo data based on tool type
+                if (toolAction === 'script') {
+                    showToast('💡 Tip: Use Chen Wei or Sarah Tan for full script generation');
+                    setTimeout(() => {
+                        alert('Demo: This would generate a sample call script with generic insurance talking points.');
+                    }, 500);
+                } else if (toolAction === 'practice') {
+                    showToast('💡 Tip: Select a real lead for personalized practice');
+                    setTimeout(() => {
+                        alert('Demo: This would start a practice conversation with generic scenarios.');
+                    }, 500);
+                } else if (toolAction === 'notes') {
+                    showToast('💡 Demo profile has sample call history');
+                    setTimeout(() => {
+                        alert('Demo: Would show sample notes:\n\n📞 Oct 1 - Initial call, interested in health coverage\n📝 Oct 2 - Follow-up needed\n✉️ Oct 3 - Sent product comparison');
+                    }, 500);
+                } else if (toolAction === 'dossier') {
+                    showToast('💡 Demo dossier with sample lead profile');
+                    setTimeout(() => {
+                        alert('Demo: Would show:\n\nJohn Demo\n35 years • Tech Professional\n85% propensity\n\nAI Intent: Seeking family protection\nBudget: $300-500/month');
+                    }, 500);
+                }
+                return;
+            }
+
+            // Navigate based on tool type and selected dossier
+            if (toolAction === 'script') {
+                // Generate script directly
+                generateCallScript(dossierId);
+                showToast('🎭 Generating call script...');
+            } else if (toolAction === 'practice') {
+                // Check if function exists, otherwise go to dossier
+                if (typeof openConversationPractice === 'function') {
+                    const leadName = dossierId === 'chen-wei' ? 'chen' : 'sarah';
+                    openConversationPractice(leadName);
+                    showToast('🎬 Starting conversation practice...');
+                } else {
+                    // Function doesn't exist, just go to dossier
+                    viewDossier(dossierId);
+                    showToast('💡 Conversation practice feature - coming soon! Opening dossier instead.');
+                }
+            } else if (toolAction === 'notes') {
+                // Go directly to dossier (notes are visible there)
+                viewDossier(dossierId);
+                setTimeout(() => {
+                    // Scroll to notes section
+                    const notesSection = document.querySelector(`#notes-timeline-${dossierId}`);
+                    if (notesSection) {
+                        notesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    showToast('📝 Viewing call notes & history');
+                }, 500);
+            } else if (toolAction === 'dossier') {
+                // Go directly to dossier
+                viewDossier(dossierId);
+                showToast('📋 Opening AI dossier...');
+            }
+        }
+
+        // Smart Bundles Functions
+        function generateProposal(leadId, bundleType) {
+            const proposalModal = `
+                <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="proposal-modal">
+                    <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                        <div style="font-size: 60px; margin-bottom: 15px;">✅</div>
+                        <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Proposal Generated!</div>
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
+                            Your ${bundleType === 'family-protection' ? 'Family Protection' : bundleType === 'executive-protection' ? 'Executive Protection' : bundleType === 'young-professional' ? 'Young Professional' : 'Executive Elite'} proposal has been created and is ready to send.
+                        </div>
+                        <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 20px; text-align: left;">
+                            <div style="font-size: 12px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px;">📄 Proposal includes:</div>
+                            <div style="font-size: 12px; color: #495057; line-height: 1.6;">
+                                ✓ Personalized coverage breakdown<br>
+                                ✓ Monthly premium summary<br>
+                                ✓ Benefit illustrations<br>
+                                ✓ Terms & conditions<br>
+                                ✓ Next steps & contact info
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button onclick="shareProposal('${leadId}')" style="flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                                📤 Send to Lead
+                            </button>
+                            <button onclick="closeProposalModal()" style="flex: 1; background: white; color: #667eea; border: 2px solid #667eea; padding: 12px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                                ✕ Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.body.insertAdjacentHTML('beforeend', proposalModal);
+            showToast('📄 Generating proposal...');
+        }
+
+        function closeProposalModal() {
+            const modal = document.getElementById('proposal-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function shareProposal(leadId) {
+            closeProposalModal();
+            showToast('✅ Proposal sent to lead via email & WhatsApp');
+
+            // Show success modal
+            setTimeout(() => {
+                const successModal = `
+                    <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="success-modal">
+                        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                            <div style="font-size: 60px; margin-bottom: 15px;">🎉</div>
+                            <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Proposal Sent!</div>
+                            <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
+                                The lead will receive a professional proposal document with all details and next steps.
+                            </div>
+                            <button onclick="closeSuccessModal()" style="width: 100%; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                                Got it!
+                            </button>
+                        </div>
+                    </div>
+                `;
+                document.body.insertAdjacentHTML('beforeend', successModal);
+            }, 300);
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function customizeBundle(bundleId) {
+            showToast('⚙️ Opening bundle customizer...');
+
+            const customizerModal = `
+                <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="customizer-modal">
+                    <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                        <div style="font-size: 50px; margin-bottom: 15px;">⚙️</div>
+                        <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Bundle Customizer</div>
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
+                            Customize coverage amounts, add/remove products, adjust premiums, and tailor the bundle to specific needs.
+                        </div>
+                        <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 12px; padding: 15px; margin-bottom: 20px;">
+                            <div style="font-size: 13px; color: #856404; font-weight: 600;">
+                                🚧 Coming Soon
+                            </div>
+                            <div style="font-size: 12px; color: #856404; margin-top: 5px;">
+                                Full customization tools in development
+                            </div>
+                        </div>
+                        <button onclick="closeCustomizerModal()" style="width: 100%; background: #667eea; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.body.insertAdjacentHTML('beforeend', customizerModal);
+        }
+
+        function closeCustomizerModal() {
+            const modal = document.getElementById('customizer-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function createCustomBundle() {
+            showToast('🎨 Opening custom bundle builder...');
+
+            const builderModal = `
+                <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="builder-modal">
+                    <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                        <div style="font-size: 50px; margin-bottom: 15px;">🎨</div>
+                        <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Custom Bundle Builder</div>
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
+                            Build a completely custom bundle from scratch by selecting individual products, coverage levels, and terms.
+                        </div>
+                        <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 20px; text-align: left;">
+                            <div style="font-size: 12px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px;">🛠️ Builder features:</div>
+                            <div style="font-size: 12px; color: #495057; line-height: 1.6;">
+                                ✓ Drag & drop product selection<br>
+                                ✓ Real-time premium calculation<br>
+                                ✓ Coverage gap analysis<br>
+                                ✓ Savings calculator<br>
+                                ✓ Auto-optimization suggestions
+                            </div>
+                        </div>
+                        <div style="background: #d1ecf1; border: 2px solid #17a2b8; border-radius: 12px; padding: 15px; margin-bottom: 20px;">
+                            <div style="font-size: 13px; color: #0c5460; font-weight: 600;">
+                                🚧 In Development
+                            </div>
+                            <div style="font-size: 12px; color: #0c5460; margin-top: 5px;">
+                                Advanced builder coming in next update
+                            </div>
+                        </div>
+                        <button onclick="closeBuilderModal()" style="width: 100%; background: #667eea; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.body.insertAdjacentHTML('beforeend', builderModal);
+        }
+
+        function closeBuilderModal() {
+            const modal = document.getElementById('builder-modal');
+            if (modal) {
+                modal.remove();
             }
         }
     </script>
