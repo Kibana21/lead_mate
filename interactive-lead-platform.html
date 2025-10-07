@@ -2366,6 +2366,191 @@
             background: #5a6268;
         }
 
+        /* Quick Compare Tool Styles */
+        .compare-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .compare-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .compare-btn:active {
+            transform: translateY(0);
+        }
+
+        .compare-modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 5000;
+            overflow-y: auto;
+        }
+
+        .compare-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            padding: 20px;
+            padding-top: 50px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .compare-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .compare-subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .compare-content {
+            padding: 20px;
+        }
+
+        .product-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product-select-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-select-card.selected {
+            border-color: #ff6b6b;
+            background: #fff5f5;
+        }
+
+        .product-select-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #6c757d;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .product-select-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+
+        .product-select-company {
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .comparison-grid {
+            margin-top: 20px;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .comparison-label {
+            grid-column: 1 / -1;
+            font-size: 12px;
+            font-weight: 600;
+            color: #6c757d;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .comparison-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 12px;
+            border: 2px solid transparent;
+        }
+
+        .comparison-card.winner {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+
+        .comparison-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+
+        .comparison-detail {
+            font-size: 11px;
+            color: #6c757d;
+            line-height: 1.4;
+        }
+
+        .winner-badge {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-left: 4px;
+        }
+
+        .compare-actions {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            padding: 15px 20px;
+            padding-bottom: 30px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .compare-close-btn {
+            width: 100%;
+            padding: 12px;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .compare-close-btn:hover {
+            background: #5a6268;
+        }
+
         /* Daily Briefing Styles */
         .daily-briefing {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -4981,6 +5166,48 @@
             </div>
         </div>
 
+        <!-- QUICK COMPARE MODAL -->
+        <div id="compare-modal" class="screen" style="display: none;">
+            <div class="compare-modal">
+                <div class="compare-header">
+                    <button class="back-button" onclick="closeCompare()">← Back</button>
+                    <div class="compare-title">⚖️ Quick Compare</div>
+                    <div class="compare-subtitle">Compare products side-by-side</div>
+                </div>
+
+                <div class="compare-content">
+                    <div class="product-selector">
+                        <div class="product-select-card selected" onclick="selectProduct(1, 'aia-wealthbuilder')">
+                            <div class="product-select-label">Product 1</div>
+                            <div class="product-select-name" id="product-1-name">AIA WealthBuilder ILP</div>
+                            <div class="product-select-company" id="product-1-company">AIA Singapore</div>
+                        </div>
+                        <div class="product-select-card selected" onclick="selectProduct(2, 'ntuc-life360')">
+                            <div class="product-select-label">Product 2</div>
+                            <div class="product-select-name" id="product-2-name">NTUC Life360</div>
+                            <div class="product-select-company" id="product-2-company">NTUC Income</div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <button onclick="showProductPicker()" style="padding: 8px 16px; background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 8px; font-size: 12px; font-weight: 600; color: #667eea; cursor: pointer;">
+                            📋 Change Products
+                        </button>
+                    </div>
+
+                    <div id="comparison-result">
+                        <!-- Comparison will be rendered here -->
+                    </div>
+                </div>
+
+                <div class="compare-actions">
+                    <button class="compare-close-btn" onclick="closeCompare()">
+                        ✕ Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- BOTTOM NAVIGATION -->
         <div class="bottom-nav">
             <div class="nav-item active" onclick="switchScreen('home')">
@@ -5006,6 +5233,10 @@
             <div class="nav-item" onclick="switchScreen('rankings')">
                 <div class="nav-icon">🏆</div>
                 <div>Ranks</div>
+            </div>
+            <div class="nav-item" onclick="openCompare()">
+                <div class="nav-icon">⚖️</div>
+                <div>Compare</div>
             </div>
         </div>
         
@@ -8631,7 +8862,276 @@ What do you need help with?`;
             renderNotesTimeline('sarah-tan');
             renderFollowUpReminder('chen-wei');
             renderFollowUpReminder('sarah-tan');
+            renderComparison(); // Initialize comparison
         });
+
+        // Quick Compare Tool
+        let currentCompareProducts = ['aia-wealthbuilder', 'ntuc-life360'];
+
+        const productDatabase = {
+            'aia-wealthbuilder': {
+                name: 'AIA WealthBuilder ILP',
+                company: 'AIA Singapore',
+                type: 'Investment-Linked Policy',
+                fundOptions: 100,
+                managementFee: '1.2%',
+                insuranceCharges: 'Decreasing (from 2.5% to 0.8% over 10 years)',
+                minPremium: '$300/month',
+                coverage: '$500,000',
+                taxRelief: 'Yes (up to $5,000/year)',
+                flexibility: 'Premium holiday after year 5 (up to 6 months)',
+                surrenderValue: 'From year 3 onwards',
+                topUp: 'Anytime after year 1',
+                cashWithdrawal: 'Partial withdrawal allowed after year 5',
+                guaranteedReturns: 'No (market-linked)',
+                projectedReturns20yr: '$485,000 @ 4% | $625,000 @ 6%',
+                riders: 'CI, TPD, Premium Waiver, Accidental Death'
+            },
+            'ntuc-life360': {
+                name: 'NTUC Life360',
+                company: 'NTUC Income',
+                type: 'Investment-Linked Policy',
+                fundOptions: 45,
+                managementFee: '1.8%',
+                insuranceCharges: 'Fixed (2.2% annually)',
+                minPremium: '$250/month',
+                coverage: '$300,000',
+                taxRelief: 'Yes (up to $5,000/year)',
+                flexibility: 'Premium holiday after year 3 (up to 3 months)',
+                surrenderValue: 'From year 2 onwards',
+                topUp: 'Anytime after year 2',
+                cashWithdrawal: 'Partial withdrawal allowed after year 3',
+                guaranteedReturns: 'No (market-linked)',
+                projectedReturns20yr: '$380,000 @ 4% | $485,000 @ 6%',
+                riders: 'CI, TPD, Hospital Income'
+            },
+            'prudential-pruwealth': {
+                name: 'Prudential PRUWealth Plus',
+                company: 'Prudential Singapore',
+                type: 'Investment-Linked Policy',
+                fundOptions: 60,
+                managementFee: '1.5%',
+                insuranceCharges: 'Decreasing (from 2.3% to 1.0% over 10 years)',
+                minPremium: '$400/month',
+                coverage: '$400,000',
+                taxRelief: 'Yes (up to $5,000/year)',
+                flexibility: 'Premium holiday after year 5 (up to 4 months)',
+                surrenderValue: 'From year 3 onwards',
+                topUp: 'Anytime after year 1',
+                cashWithdrawal: 'Partial withdrawal allowed after year 5',
+                guaranteedReturns: 'No (market-linked)',
+                projectedReturns20yr: '$420,000 @ 4% | $545,000 @ 6%',
+                riders: 'CI, TPD, Premium Waiver, Long-term Care'
+            },
+            'aia-healthshield-gold': {
+                name: 'AIA HealthShield Gold Max',
+                company: 'AIA Singapore',
+                type: 'Integrated Shield Plan',
+                hospitalCoverage: 'Class A Private Hospital',
+                annualLimit: 'Unlimited',
+                lifetimeLimit: 'Unlimited',
+                outpatient: 'Pre & post hospitalization (180 days)',
+                coPayment: '0% (with rider)',
+                deductible: '$3,500 (waived with rider)',
+                premium35yr: '$120/month',
+                claimProcess: 'Cashless (panel hospitals)',
+                coverage: 'Worldwide',
+                riders: 'Zero co-payment, outpatient coverage'
+            },
+            'prudential-pruhealth': {
+                name: 'PRUShield Premier',
+                company: 'Prudential Singapore',
+                type: 'Integrated Shield Plan',
+                hospitalCoverage: 'Private Hospital',
+                annualLimit: 'Unlimited',
+                lifetimeLimit: 'Unlimited',
+                outpatient: 'Pre & post hospitalization (120 days)',
+                coPayment: '5% (min $3,000 per claim)',
+                deductible: '$3,500',
+                premium35yr: '$105/month',
+                claimProcess: 'Cashless (panel hospitals)',
+                coverage: 'Worldwide',
+                riders: 'CI booster, maternity coverage'
+            }
+        };
+
+        function renderComparison() {
+            const product1 = productDatabase[currentCompareProducts[0]];
+            const product2 = productDatabase[currentCompareProducts[1]];
+
+            if (!product1 || !product2) return;
+
+            // Update product cards
+            document.getElementById('product-1-name').textContent = product1.name;
+            document.getElementById('product-1-company').textContent = product1.company;
+            document.getElementById('product-2-name').textContent = product2.name;
+            document.getElementById('product-2-company').textContent = product2.company;
+
+            // Build comparison based on product type
+            let comparisonHTML = '';
+
+            if (product1.type === 'Investment-Linked Policy' && product2.type === 'Investment-Linked Policy') {
+                comparisonHTML = `
+                    <div class="comparison-row">
+                        <div class="comparison-label">💰 Management Fees (Lower is Better)</div>
+                        <div class="comparison-card ${parseFloat(product1.managementFee) < parseFloat(product2.managementFee) ? 'winner' : ''}">
+                            <div class="comparison-value">${product1.managementFee}</div>
+                            <div class="comparison-detail">AIA ${parseFloat(product1.managementFee) < parseFloat(product2.managementFee) ? '<span class="winner-badge">WINNER</span>' : ''}</div>
+                        </div>
+                        <div class="comparison-card ${parseFloat(product2.managementFee) < parseFloat(product1.managementFee) ? 'winner' : ''}">
+                            <div class="comparison-value">${product2.managementFee}</div>
+                            <div class="comparison-detail">${product2.company.split(' ')[0]} ${parseFloat(product2.managementFee) < parseFloat(product1.managementFee) ? '<span class="winner-badge">WINNER</span>' : ''}</div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="comparison-label">📊 Fund Options (More is Better)</div>
+                        <div class="comparison-card ${product1.fundOptions > product2.fundOptions ? 'winner' : ''}">
+                            <div class="comparison-value">${product1.fundOptions}</div>
+                            <div class="comparison-detail">Funds available ${product1.fundOptions > product2.fundOptions ? '<span class="winner-badge">WINNER</span>' : ''}</div>
+                        </div>
+                        <div class="comparison-card ${product2.fundOptions > product1.fundOptions ? 'winner' : ''}">
+                            <div class="comparison-value">${product2.fundOptions}</div>
+                            <div class="comparison-detail">Funds available ${product2.fundOptions > product1.fundOptions ? '<span class="winner-badge">WINNER</span>' : ''}</div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="comparison-label">💵 Minimum Monthly Premium (Lower is Better)</div>
+                        <div class="comparison-card ${parseFloat(product1.minPremium) < parseFloat(product2.minPremium) ? 'winner' : ''}">
+                            <div class="comparison-value">${product1.minPremium}</div>
+                            <div class="comparison-detail">Entry barrier ${parseFloat(product1.minPremium) < parseFloat(product2.minPremium) ? '<span class="winner-badge">WINNER</span>' : ''}</div>
+                        </div>
+                        <div class="comparison-card ${parseFloat(product2.minPremium) < parseFloat(product1.minPremium) ? 'winner' : ''}">
+                            <div class="comparison-value">${product2.minPremium}</div>
+                            <div class="comparison-detail">Entry barrier ${parseFloat(product2.minPremium) < parseFloat(product1.minPremium) ? '<span class="winner-badge">WINNER</span>' : ''}</div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="comparison-label">🛡️ Life Coverage Amount</div>
+                        <div class="comparison-card ${parseFloat(product1.coverage) > parseFloat(product2.coverage) ? 'winner' : ''}">
+                            <div class="comparison-value">${product1.coverage}</div>
+                            <div class="comparison-detail">Death benefit ${parseFloat(product1.coverage) > parseFloat(product2.coverage) ? '<span class="winner-badge">WINNER</span>' : ''}</div>
+                        </div>
+                        <div class="comparison-card ${parseFloat(product2.coverage) > parseFloat(product1.coverage) ? 'winner' : ''}">
+                            <div class="comparison-value">${product2.coverage}</div>
+                            <div class="comparison-detail">Death benefit ${parseFloat(product2.coverage) > parseFloat(product1.coverage) ? '<span class="winner-badge">WINNER</span>' : ''}</div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="comparison-label">📈 Projected Returns (20 years @ 4%/6%)</div>
+                        <div class="comparison-card">
+                            <div class="comparison-value" style="font-size: 13px;">${product1.projectedReturns20yr}</div>
+                            <div class="comparison-detail">Based on historical performance</div>
+                        </div>
+                        <div class="comparison-card">
+                            <div class="comparison-value" style="font-size: 13px;">${product2.projectedReturns20yr}</div>
+                            <div class="comparison-detail">Based on historical performance</div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="comparison-label">⚙️ Flexibility Features</div>
+                        <div class="comparison-card">
+                            <div class="comparison-detail">${product1.flexibility}<br><br>Top-up: ${product1.topUp}<br>Withdrawal: ${product1.cashWithdrawal}</div>
+                        </div>
+                        <div class="comparison-card">
+                            <div class="comparison-detail">${product2.flexibility}<br><br>Top-up: ${product2.topUp}<br>Withdrawal: ${product2.cashWithdrawal}</div>
+                        </div>
+                    </div>
+
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 12px; margin-top: 20px; border-left: 4px solid #ffc107;">
+                        <div style="font-weight: 600; color: #856404; margin-bottom: 8px;">💡 Key Takeaway</div>
+                        <div style="font-size: 13px; color: #856404; line-height: 1.6;">
+                            <strong>AIA WealthBuilder</strong> wins on fund options (100 vs ${product2.fundOptions}) and lower fees (1.2% vs ${product2.managementFee}). Over 20 years, this compounds to <strong>~$85,000 more</strong> in your pocket. NTUC has lower entry barrier but fewer investment choices.
+                        </div>
+                    </div>
+                `;
+            } else if (product1.type === 'Integrated Shield Plan' && product2.type === 'Integrated Shield Plan') {
+                comparisonHTML = `
+                    <div class="comparison-row">
+                        <div class="comparison-label">🏥 Hospital Coverage Level</div>
+                        <div class="comparison-card">
+                            <div class="comparison-value" style="font-size: 14px;">${product1.hospitalCoverage}</div>
+                        </div>
+                        <div class="comparison-card">
+                            <div class="comparison-value" style="font-size: 14px;">${product2.hospitalCoverage}</div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="comparison-label">💳 Co-Payment (Lower is Better)</div>
+                        <div class="comparison-card ${product1.coPayment === '0%' ? 'winner' : ''}">
+                            <div class="comparison-value">${product1.coPayment}</div>
+                            <div class="comparison-detail">${product1.coPayment === '0%' ? '<span class="winner-badge">WINNER</span> No out-of-pocket' : 'You pay this %'}</div>
+                        </div>
+                        <div class="comparison-card ${product2.coPayment === '0%' ? 'winner' : ''}">
+                            <div class="comparison-value">${product2.coPayment}</div>
+                            <div class="comparison-detail">${product2.coPayment === '0%' ? '<span class="winner-badge">WINNER</span> No out-of-pocket' : 'You pay this %'}</div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="comparison-label">💰 Monthly Premium (Age 35)</div>
+                        <div class="comparison-card ${parseFloat(product1.premium35yr) < parseFloat(product2.premium35yr) ? 'winner' : ''}">
+                            <div class="comparison-value">${product1.premium35yr}</div>
+                            <div class="comparison-detail">${parseFloat(product1.premium35yr) < parseFloat(product2.premium35yr) ? '<span class="winner-badge">BETTER PRICE</span>' : ''}</div>
+                        </div>
+                        <div class="comparison-card ${parseFloat(product2.premium35yr) < parseFloat(product1.premium35yr) ? 'winner' : ''}">
+                            <div class="comparison-value">${product2.premium35yr}</div>
+                            <div class="comparison-detail">${parseFloat(product2.premium35yr) < parseFloat(product1.premium35yr) ? '<span class="winner-badge">BETTER PRICE</span>' : ''}</div>
+                        </div>
+                    </div>
+
+                    <div style="background: #d1ecf1; padding: 15px; border-radius: 12px; margin-top: 20px; border-left: 4px solid #17a2b8;">
+                        <div style="font-weight: 600; color: #0c5460; margin-bottom: 8px;">💡 Key Takeaway</div>
+                        <div style="font-size: 13px; color: #0c5460; line-height: 1.6;">
+                            Both cover private hospitals with unlimited limits. <strong>${product1.name}</strong> has ${product1.coPayment} co-payment vs ${product2.name}'s ${product2.coPayment}. Zero co-payment means no surprise bills—you walk out without paying anything.
+                        </div>
+                    </div>
+                `;
+            }
+
+            document.getElementById('comparison-result').innerHTML = comparisonHTML;
+        }
+
+        function openCompare() {
+            document.getElementById('compare-modal').style.display = 'block';
+            renderComparison();
+        }
+
+        function closeCompare() {
+            document.getElementById('compare-modal').style.display = 'none';
+        }
+
+        function selectProduct(slot, productId) {
+            currentCompareProducts[slot - 1] = productId;
+            renderComparison();
+            showToast(`✅ Product ${slot} updated!`);
+        }
+
+        function showProductPicker() {
+            const products = Object.keys(productDatabase);
+            let pickerHTML = '<select id="product-picker" style="width: 100%; padding: 10px; font-size: 14px; border-radius: 8px; border: 2px solid #e9ecef; margin: 10px 0;">';
+            products.forEach(id => {
+                const product = productDatabase[id];
+                pickerHTML += `<option value="${id}">${product.name} (${product.company})</option>`;
+            });
+            pickerHTML += '</select>';
+            pickerHTML += '<div style="display: flex; gap: 10px; margin-top: 10px;"><button onclick="updateProduct(1)" style="flex: 1; padding: 10px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Set as Product 1</button>';
+            pickerHTML += '<button onclick="updateProduct(2)" style="flex: 1; padding: 10px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Set as Product 2</button></div>';
+
+            document.getElementById('comparison-result').innerHTML = pickerHTML;
+        }
+
+        function updateProduct(slot) {
+            const picker = document.getElementById('product-picker');
+            if (picker) {
+                selectProduct(slot, picker.value);
+            }
+        }
     </script>
 </body>
 </html>
