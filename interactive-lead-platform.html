@@ -3337,6 +3337,363 @@
             color: #adb5bd;
         }
 
+        /* Lead Warm-Up Sequence Styles */
+        .warmup-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            padding: 20px;
+            padding-top: 60px;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 20px;
+        }
+
+        .warmup-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .warmup-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .sequence-card {
+            background: white;
+            border-radius: 20px;
+            margin: 0 20px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .sequence-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        .sequence-header.active {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .sequence-header.completed {
+            background: linear-gradient(135deg, #a8a8a8 0%, #888888 100%);
+        }
+
+        .sequence-status-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .sequence-lead-name {
+            font-size: 11px;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+
+        .sequence-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .sequence-meta {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .sequence-body {
+            padding: 20px;
+        }
+
+        .sequence-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: -28px;
+            top: 12px;
+            bottom: -12px;
+            width: 2px;
+            background: #e9ecef;
+        }
+
+        .timeline-item:last-child .timeline-line {
+            display: none;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: -40px;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+
+        .timeline-item.sent .timeline-icon {
+            background: #667eea;
+            border-color: #667eea;
+            color: white;
+        }
+
+        .timeline-item.opened .timeline-icon {
+            background: #feca57;
+            border-color: #feca57;
+            color: white;
+        }
+
+        .timeline-item.clicked .timeline-icon {
+            background: #f093fb;
+            border-color: #f093fb;
+            color: white;
+        }
+
+        .timeline-item.responded .timeline-icon {
+            background: #43e97b;
+            border-color: #43e97b;
+            color: white;
+        }
+
+        .timeline-day {
+            font-size: 11px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+
+        .timeline-channel {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content {
+            font-size: 12px;
+            color: #6c757d;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .timeline-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            color: #6c757d;
+        }
+
+        .timeline-status.sent {
+            background: #e7e9fc;
+            color: #667eea;
+        }
+
+        .timeline-status.opened {
+            background: #fff8e6;
+            color: #d4a017;
+        }
+
+        .timeline-status.clicked {
+            background: #fceafe;
+            color: #d946ef;
+        }
+
+        .timeline-status.responded {
+            background: #d4f4dd;
+            color: #22863a;
+        }
+
+        .sequence-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .sequence-btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-align: center;
+        }
+
+        .sequence-btn.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .sequence-btn.secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .sequence-btn.success {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+
+        .sequence-btn:active {
+            transform: scale(0.98);
+        }
+
+        .sequence-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .sequence-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .sequence-stat {
+            text-align: center;
+        }
+
+        .sequence-stat-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 2px;
+        }
+
+        .sequence-stat-label {
+            font-size: 10px;
+            color: #6c757d;
+            font-weight: 600;
+        }
+
+        .create-sequence-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            margin: 0 20px 20px;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .create-sequence-card:active {
+            transform: scale(0.98);
+        }
+
+        .create-sequence-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .create-sequence-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .create-sequence-subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .template-selector {
+            padding: 0 20px 20px;
+        }
+
+        .template-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .template-card:active {
+            transform: scale(0.98);
+        }
+
+        .template-card.selected {
+            border-color: #667eea;
+            background: #f0f3ff;
+        }
+
+        .template-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .template-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .template-badge {
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-weight: 700;
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .template-desc {
+            font-size: 12px;
+            color: #6c757d;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .template-touches {
+            font-size: 11px;
+            color: #667eea;
+            font-weight: 600;
+        }
+
         /* Daily Briefing Styles */
         .daily-briefing {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -6074,6 +6431,13 @@
                     <div class="tool-badge new">NEW</div>
                 </div>
 
+                <div class="tool-card" onclick="switchScreen('warmup')">
+                    <div class="tool-icon">🔥</div>
+                    <div class="tool-name">Lead Warmer</div>
+                    <div class="tool-desc">Auto-generated 3-touch nurture sequences</div>
+                    <div class="tool-badge new">NEW</div>
+                </div>
+
                 <div class="tool-card" onclick="switchScreen('news')">
                     <div class="tool-icon">📰</div>
                     <div class="tool-name">News Intelligence Hub</div>
@@ -6456,6 +6820,171 @@
                 <div class="custom-bundle-title">Create Custom Bundle</div>
                 <div class="custom-bundle-subtitle">Build a personalized package from scratch</div>
             </div>
+        </div>
+
+        <!-- LEAD WARM-UP SEQUENCE SCREEN -->
+        <div class="screen" id="warmup-screen">
+            <div class="warmup-header">
+                <div class="warmup-title">🔥 Lead Warmer</div>
+                <div class="warmup-subtitle">Auto-generated nurture sequences that convert cold leads to hot prospects</div>
+            </div>
+
+            <!-- Create New Sequence CTA -->
+            <div class="create-sequence-card" onclick="createNewSequence()">
+                <div class="create-sequence-icon">➕</div>
+                <div class="create-sequence-title">Create New Sequence</div>
+                <div class="create-sequence-subtitle">AI will build a personalized 3-5 touch nurture plan</div>
+            </div>
+
+            <!-- Active Sequence - Chen Wei -->
+            <div class="sequence-card">
+                <div class="sequence-header active">
+                    <div class="sequence-status-badge">🔥 ACTIVE</div>
+                    <div class="sequence-lead-name">WARMING UP</div>
+                    <div class="sequence-name">Chen Wei - Executive Nurture</div>
+                    <div class="sequence-meta">Started 2 days ago • Touch 2 of 3</div>
+                </div>
+
+                <div class="sequence-body">
+                    <div class="sequence-stats">
+                        <div class="sequence-stat">
+                            <div class="sequence-stat-number">3</div>
+                            <div class="sequence-stat-label">SENT</div>
+                        </div>
+                        <div class="sequence-stat">
+                            <div class="sequence-stat-number">2</div>
+                            <div class="sequence-stat-label">OPENED</div>
+                        </div>
+                        <div class="sequence-stat">
+                            <div class="sequence-stat-number">1</div>
+                            <div class="sequence-stat-label">CLICKED</div>
+                        </div>
+                        <div class="sequence-stat">
+                            <div class="sequence-stat-number">67%</div>
+                            <div class="sequence-stat-label">ENGAGE</div>
+                        </div>
+                    </div>
+
+                    <div class="sequence-timeline">
+                        <div class="timeline-item responded">
+                            <div class="timeline-icon">✓</div>
+                            <div class="timeline-line"></div>
+                            <div class="timeline-day">DAY 1 - MONDAY</div>
+                            <div class="timeline-channel">📱 WhatsApp Message</div>
+                            <div class="timeline-content">
+                                "Hi Chen Wei! Saw this article about wealth management trends for banking professionals. Thought you'd find it interesting 👉 [link]"
+                            </div>
+                            <span class="timeline-status responded">✓ CLICKED LINK</span>
+                        </div>
+
+                        <div class="timeline-item opened">
+                            <div class="timeline-icon">✓</div>
+                            <div class="timeline-line"></div>
+                            <div class="timeline-day">DAY 3 - WEDNESDAY</div>
+                            <div class="timeline-channel">📧 Email with Video</div>
+                            <div class="timeline-content">
+                                "Quick 2-min video: How investment-linked policies help banking executives maximize tax relief while building wealth"
+                            </div>
+                            <span class="timeline-status opened">👁️ OPENED (Today 9:24 AM)</span>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-icon">📞</div>
+                            <div class="timeline-day">DAY 5 - FRIDAY</div>
+                            <div class="timeline-channel">📞 Personal Call</div>
+                            <div class="timeline-content">
+                                "Follow-up call with personalized ILP proposal. Bundle: $890/mo Executive Protection Package with $120/mo savings"
+                            </div>
+                            <span class="timeline-status">⏰ SCHEDULED FOR FRI 2PM</span>
+                        </div>
+                    </div>
+
+                    <div class="sequence-actions">
+                        <button class="sequence-btn success" onclick="executeNextTouch('chen-wei')">
+                            📞 Call Now (Skip to Day 5)
+                        </button>
+                        <button class="sequence-btn secondary" onclick="viewSequenceDetails('chen-wei')">
+                            📊 View Analytics
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completed Sequence - Sarah Tan -->
+            <div class="sequence-card">
+                <div class="sequence-header completed">
+                    <div class="sequence-status-badge">✓ COMPLETED</div>
+                    <div class="sequence-lead-name">CONVERTED</div>
+                    <div class="sequence-name">Sarah Tan - Family Protection</div>
+                    <div class="sequence-meta">Completed 1 week ago • 100% engagement</div>
+                </div>
+
+                <div class="sequence-body">
+                    <div class="sequence-stats">
+                        <div class="sequence-stat">
+                            <div class="sequence-stat-number">3</div>
+                            <div class="sequence-stat-label">SENT</div>
+                        </div>
+                        <div class="sequence-stat">
+                            <div class="sequence-stat-number">3</div>
+                            <div class="sequence-stat-label">OPENED</div>
+                        </div>
+                        <div class="sequence-stat">
+                            <div class="sequence-stat-number">2</div>
+                            <div class="sequence-stat-label">CLICKED</div>
+                        </div>
+                        <div class="sequence-stat">
+                            <div class="sequence-stat-number">100%</div>
+                            <div class="sequence-stat-label">ENGAGE</div>
+                        </div>
+                    </div>
+
+                    <div class="sequence-timeline">
+                        <div class="timeline-item responded">
+                            <div class="timeline-icon">✓</div>
+                            <div class="timeline-line"></div>
+                            <div class="timeline-day">DAY 1</div>
+                            <div class="timeline-channel">📱 WhatsApp</div>
+                            <div class="timeline-content">
+                                Article: "Why every mother needs critical illness coverage - real stories from Singapore families"
+                            </div>
+                            <span class="timeline-status responded">✓ REPLIED "This is so true!"</span>
+                        </div>
+
+                        <div class="timeline-item responded">
+                            <div class="timeline-icon">✓</div>
+                            <div class="timeline-line"></div>
+                            <div class="timeline-day">DAY 3</div>
+                            <div class="timeline-channel">📧 Email</div>
+                            <div class="timeline-content">
+                                Education plan calculator: "See how much your kids' university will cost in 15 years"
+                            </div>
+                            <span class="timeline-status responded">✓ USED CALCULATOR</span>
+                        </div>
+
+                        <div class="timeline-item responded">
+                            <div class="timeline-icon">✓</div>
+                            <div class="timeline-day">DAY 5</div>
+                            <div class="timeline-channel">📞 Call</div>
+                            <div class="timeline-content">
+                                Called with Family Protection Bundle. She signed up for $620/mo package!
+                            </div>
+                            <span class="timeline-status responded">🎉 CLOSED - $620/mo</span>
+                        </div>
+                    </div>
+
+                    <div class="sequence-actions">
+                        <button class="sequence-btn secondary" onclick="viewSequenceDetails('sarah-tan')">
+                            📊 View Full Analytics
+                        </button>
+                        <button class="sequence-btn secondary" onclick="cloneSequence('sarah-tan')">
+                            📋 Clone for Similar Lead
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 100px;"></div>
         </div>
 
         <!-- OBJECTION HANDLER SCREEN -->
@@ -7070,7 +7599,8 @@
                 'achievements': 'achievements-screen',
                 'tools': 'tools-screen',
                 'bundles': 'bundles-screen',
-                'objection-handler': 'objection-handler-screen'
+                'objection-handler': 'objection-handler-screen',
+                'warmup': 'warmup-screen'
             };
 
             document.getElementById(screenMap[screen]).classList.add('active');
@@ -11409,6 +11939,282 @@ What do you need help with?`;
             if (modal) {
                 modal.remove();
             }
+        }
+
+        // Lead Warm-Up Sequence Functions
+        function createNewSequence() {
+            showToast('🔥 Creating new warm-up sequence...');
+
+            const modal = `
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: flex-end;" id="sequence-creator-modal">
+                    <div style="background: white; border-radius: 20px 20px 0 0; width: 100%; max-height: 85%; overflow-y: auto; padding-bottom: 30px;">
+                        <div style="position: sticky; top: 0; background: white; padding: 20px; border-bottom: 2px solid #f0f0f0; z-index: 1;">
+                            <div style="font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px;">🔥 Create Warm-Up Sequence</div>
+                            <div style="font-size: 13px; color: #6c757d;">Choose a lead and template to auto-generate a personalized nurture plan</div>
+                        </div>
+
+                        <div style="padding: 20px;">
+                            <div style="font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 12px;">SELECT LEAD</div>
+                            <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px;">
+                                <div onclick="selectSequenceLead('chen-wei')" style="background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 12px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 12px;">
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">CW</div>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 14px; font-weight: 700; color: #1a1a2e;">Chen Wei</div>
+                                        <div style="font-size: 11px; color: #6c757d;">42 years • Banking • 94% propensity</div>
+                                    </div>
+                                    <div style="font-size: 20px;">→</div>
+                                </div>
+                                <div onclick="selectSequenceLead('sarah-tan')" style="background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 12px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 12px;">
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">ST</div>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 14px; font-weight: 700; color: #1a1a2e;">Sarah Tan</div>
+                                        <div style="font-size: 11px; color: #6c757d;">34 years • Mother of 2 • 82% propensity</div>
+                                    </div>
+                                    <div style="font-size: 20px;">→</div>
+                                </div>
+                            </div>
+
+                            <div style="font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 12px;">CHOOSE TEMPLATE</div>
+
+                            <div class="template-card" onclick="selectTemplate('executive')">
+                                <div class="template-header-row">
+                                    <div class="template-name">Executive 3-Touch</div>
+                                    <div class="template-badge">⭐ 87% CONVERT</div>
+                                </div>
+                                <div class="template-desc">Perfect for high-income professionals. Focus on wealth accumulation and tax optimization.</div>
+                                <div class="template-touches">📱 WhatsApp → 📧 Video → 📞 Call</div>
+                            </div>
+
+                            <div class="template-card" onclick="selectTemplate('family')">
+                                <div class="template-header-row">
+                                    <div class="template-name">Family Protection 3-Touch</div>
+                                    <div class="template-badge">⭐ 92% CONVERT</div>
+                                </div>
+                                <div class="template-desc">For parents with young kids. Emphasize family security and education planning.</div>
+                                <div class="template-touches">📱 Article → 🧮 Calculator → 📞 Call</div>
+                            </div>
+
+                            <div class="template-card" onclick="selectTemplate('young')">
+                                <div class="template-header-row">
+                                    <div class="template-name">Young Professional 4-Touch</div>
+                                    <div class="template-badge">⭐ 78% CONVERT</div>
+                                </div>
+                                <div class="template-desc">Budget-friendly approach for millennials. Social proof and value-focused.</div>
+                                <div class="template-touches">📱 Infographic → 📧 Testimonials → 💬 SMS → 📞 Call</div>
+                            </div>
+
+                            <div class="template-card" onclick="selectTemplate('custom')">
+                                <div class="template-header-row">
+                                    <div class="template-name">Custom Sequence</div>
+                                    <div class="template-badge" style="background: #d1ecf1; color: #0c5460;">BUILD YOUR OWN</div>
+                                </div>
+                                <div class="template-desc">Create your own touch sequence from scratch with our sequence builder.</div>
+                                <div class="template-touches">🎨 Fully customizable</div>
+                            </div>
+                        </div>
+
+                        <div style="padding: 0 20px;">
+                            <button onclick="closeSequenceCreator()" style="width: 100%; padding: 14px; background: #6c757d; color: white; border: none; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.querySelector('.phone-frame').insertAdjacentHTML('beforeend', modal);
+        }
+
+        function closeSequenceCreator() {
+            const modal = document.getElementById('sequence-creator-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function selectSequenceLead(leadId) {
+            window.selectedSequenceLead = leadId;
+            showToast(`✓ Selected ${leadId === 'chen-wei' ? 'Chen Wei' : 'Sarah Tan'}`);
+        }
+
+        function selectTemplate(template) {
+            if (!window.selectedSequenceLead) {
+                showToast('⚠️ Please select a lead first');
+                return;
+            }
+
+            closeSequenceCreator();
+
+            const templateNames = {
+                'executive': 'Executive 3-Touch',
+                'family': 'Family Protection 3-Touch',
+                'young': 'Young Professional 4-Touch',
+                'custom': 'Custom Sequence'
+            };
+
+            showToast(`🔥 Creating ${templateNames[template]} sequence...`);
+
+            setTimeout(() => {
+                const successModal = `
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="sequence-success-modal">
+                        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                            <div style="font-size: 60px; margin-bottom: 15px;">🎉</div>
+                            <div style="font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Sequence Created!</div>
+                            <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
+                                Your warm-up sequence is ready and will start automatically on the scheduled days.
+                            </div>
+
+                            <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 20px; text-align: left;">
+                                <div style="font-size: 12px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">📅 Timeline:</div>
+                                <div style="font-size: 12px; color: #495057; line-height: 1.8;">
+                                    <strong>Day 1 (Tomorrow):</strong> WhatsApp message sent<br>
+                                    <strong>Day 3:</strong> Email with content<br>
+                                    <strong>Day 5:</strong> Call reminder (you'll get notified)
+                                </div>
+                            </div>
+
+                            <div style="background: #d1ecf1; border-radius: 12px; padding: 15px; margin-bottom: 20px;">
+                                <div style="font-size: 13px; color: #0c5460; font-weight: 600;">
+                                    💡 Pro Tip
+                                </div>
+                                <div style="font-size: 12px; color: #0c5460; margin-top: 5px;">
+                                    We'll track opens, clicks, and replies automatically. Check back daily to see engagement!
+                                </div>
+                            </div>
+
+                            <button onclick="closeSequenceSuccess()" style="width: 100%; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                                Got it!
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                document.querySelector('.phone-frame').insertAdjacentHTML('beforeend', successModal);
+            }, 800);
+        }
+
+        function closeSequenceSuccess() {
+            const modal = document.getElementById('sequence-success-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function executeNextTouch(leadId) {
+            showToast('📞 Initiating call now...');
+
+            // Simulate call initiation
+            setTimeout(() => {
+                const callModal = `
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="call-modal">
+                        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                            <div style="font-size: 60px; margin-bottom: 15px;">📞</div>
+                            <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Calling Chen Wei...</div>
+                            <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
+                                Perfect timing! He opened your email 2 hours ago.
+                            </div>
+
+                            <div style="background: #fff3cd; border-radius: 12px; padding: 15px; margin-bottom: 20px; text-align: left;">
+                                <div style="font-size: 12px; font-weight: 700; color: #856404; margin-bottom: 8px;">💡 Quick Reminders:</div>
+                                <div style="font-size: 12px; color: #856404; line-height: 1.6;">
+                                    ✓ He clicked the wealth management article<br>
+                                    ✓ Opened the ILP video this morning<br>
+                                    ✓ Perfect candidate for $890/mo package<br>
+                                    ✓ Use "tax relief" angle - he's earning $15k/mo
+                                </div>
+                            </div>
+
+                            <button onclick="closeCallModal()" style="width: 100%; background: #667eea; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                document.querySelector('.phone-frame').insertAdjacentHTML('beforeend', callModal);
+            }, 500);
+        }
+
+        function closeCallModal() {
+            const modal = document.getElementById('call-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function viewSequenceDetails(leadId) {
+            showToast('📊 Loading analytics...');
+
+            const leadName = leadId === 'chen-wei' ? 'Chen Wei' : 'Sarah Tan';
+
+            const analyticsModal = `
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: flex-end;" id="analytics-modal">
+                    <div style="background: white; border-radius: 20px 20px 0 0; width: 100%; max-height: 80%; overflow-y: auto; padding: 20px 20px 40px;">
+                        <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 20px;">📊 ${leadName} - Sequence Analytics</div>
+
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px;">
+                            <div style="background: #e7e9fc; padding: 15px; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 24px; font-weight: 700; color: #667eea;">100%</div>
+                                <div style="font-size: 11px; color: #667eea; font-weight: 600;">OPEN RATE</div>
+                            </div>
+                            <div style="background: #fceafe; padding: 15px; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 24px; font-weight: 700; color: #d946ef;">67%</div>
+                                <div style="font-size: 11px; color: #d946ef; font-weight: 600;">CLICK RATE</div>
+                            </div>
+                            <div style="background: #d4f4dd; padding: 15px; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 24px; font-weight: 700; color: #22863a;">33%</div>
+                                <div style="font-size: 11px; color: #22863a; font-weight: 600;">REPLY RATE</div>
+                            </div>
+                            <div style="background: #fff8e6; padding: 15px; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 24px; font-weight: 700; color: #d4a017;">2.3 hrs</div>
+                                <div style="font-size: 11px; color: #d4a017; font-weight: 600;">AVG RESPONSE</div>
+                            </div>
+                        </div>
+
+                        <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 20px;">
+                            <div style="font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 12px;">📈 Engagement Timeline</div>
+                            <div style="font-size: 12px; color: #495057; line-height: 1.8;">
+                                <strong>Monday 9:00 AM:</strong> WhatsApp sent<br>
+                                <strong>Monday 9:42 AM:</strong> ✓ Opened message<br>
+                                <strong>Monday 10:15 AM:</strong> ✓ Clicked article link<br>
+                                <strong>Wednesday 8:30 AM:</strong> Email sent<br>
+                                <strong>Wednesday 9:24 AM:</strong> ✓ Opened email<br>
+                                <strong>Friday 2:00 PM:</strong> Call scheduled
+                            </div>
+                        </div>
+
+                        <div style="background: #d1ecf1; border-radius: 12px; padding: 15px; margin-bottom: 20px;">
+                            <div style="font-size: 13px; color: #0c5460; font-weight: 600; margin-bottom: 6px;">
+                                🎯 AI Recommendation
+                            </div>
+                            <div style="font-size: 12px; color: #0c5460; line-height: 1.6;">
+                                This lead is HOT! Opened both messages within 1 hour. Call ASAP with the Executive Protection Bundle at $890/mo. Emphasize tax relief benefits.
+                            </div>
+                        </div>
+
+                        <button onclick="closeAnalyticsModal()" style="width: 100%; background: #667eea; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.querySelector('.phone-frame').insertAdjacentHTML('beforeend', analyticsModal);
+        }
+
+        function closeAnalyticsModal() {
+            const modal = document.getElementById('analytics-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function cloneSequence(leadId) {
+            showToast('📋 Cloning sequence template...');
+
+            setTimeout(() => {
+                showToast('✓ Template saved! You can now use it for similar leads.');
+            }, 1000);
         }
     </script>
 </body>
