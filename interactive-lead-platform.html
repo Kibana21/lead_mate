@@ -3010,6 +3010,333 @@
             opacity: 0.95;
         }
 
+        /* Objection Handler Styles */
+        .objection-handler-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 20px;
+            padding-top: 60px;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 20px;
+        }
+
+        .objection-handler-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .objection-handler-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .objection-search-box {
+            position: relative;
+            margin: 0 20px 20px;
+        }
+
+        .objection-search-input {
+            width: 100%;
+            padding: 16px 50px 16px 45px;
+            border: 2px solid #e9ecef;
+            border-radius: 16px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .objection-search-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+
+        .objection-search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #6c757d;
+        }
+
+        .objection-voice-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .objection-categories {
+            display: flex;
+            gap: 8px;
+            padding: 0 20px 20px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .objection-categories::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-pill {
+            background: #f8f9fa;
+            color: #495057;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .category-pill.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+        }
+
+        .category-pill:active {
+            transform: scale(0.95);
+        }
+
+        .objection-list {
+            padding: 0 20px;
+        }
+
+        .objection-item {
+            background: white;
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .objection-item:active {
+            transform: scale(0.98);
+        }
+
+        .objection-item.expanded {
+            border-color: #667eea;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+        }
+
+        .objection-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 10px;
+            margin-bottom: 0;
+        }
+
+        .objection-item.expanded .objection-question {
+            margin-bottom: 15px;
+        }
+
+        .objection-text {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a2e;
+            flex: 1;
+        }
+
+        .objection-badges {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .objection-badge {
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .objection-badge.battle-tested {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .objection-badge.favorite {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .objection-category-tag {
+            display: inline-block;
+            font-size: 11px;
+            color: #6c757d;
+            margin-top: 6px;
+            font-weight: 600;
+        }
+
+        .objection-response-content {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .objection-item.expanded .objection-response-content {
+            display: block;
+        }
+
+        .response-framework {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .framework-step {
+            margin-bottom: 15px;
+        }
+
+        .framework-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .framework-label {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .framework-label.step2 {
+            background: #f093fb;
+        }
+
+        .framework-label.step3 {
+            background: #43e97b;
+        }
+
+        .framework-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1a1a2e;
+        }
+
+        .response-tips {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tips-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #856404;
+            margin-bottom: 6px;
+        }
+
+        .tips-text {
+            font-size: 12px;
+            color: #856404;
+            line-height: 1.5;
+        }
+
+        .objection-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .objection-action-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .objection-action-btn.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .objection-action-btn.secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .objection-action-btn:active {
+            transform: scale(0.98);
+        }
+
+        .practice-mode-fab {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(67, 233, 123, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .practice-mode-fab:active {
+            transform: scale(0.95);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .empty-state-icon {
+            font-size: 64px;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+
+        .empty-state-text {
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 8px;
+        }
+
+        .empty-state-subtext {
+            font-size: 13px;
+            color: #adb5bd;
+        }
+
         /* Daily Briefing Styles */
         .daily-briefing {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -5814,10 +6141,11 @@
                     <div class="tool-desc">Instant quote generation</div>
                 </div>
 
-                <div class="tool-card" onclick="alert('Objection handler - coming soon!')">
+                <div class="tool-card" onclick="switchScreen('objection-handler')">
                     <div class="tool-icon">🛡️</div>
                     <div class="tool-name">Objection Handler</div>
-                    <div class="tool-desc">Quick responses to common objections</div>
+                    <div class="tool-desc">Battle-tested responses with 3-step framework</div>
+                    <div class="tool-badge new">NEW</div>
                 </div>
 
                 <!-- Team & Performance Tools -->
@@ -6130,6 +6458,416 @@
             </div>
         </div>
 
+        <!-- OBJECTION HANDLER SCREEN -->
+        <div class="screen" id="objection-handler-screen">
+            <div class="objection-handler-header">
+                <div class="objection-handler-title">🛡️ Objection Handler</div>
+                <div class="objection-handler-subtitle">Battle-tested responses to overcome any objection</div>
+            </div>
+
+            <!-- Search Box -->
+            <div class="objection-search-box">
+                <span class="objection-search-icon">🔍</span>
+                <input
+                    type="text"
+                    class="objection-search-input"
+                    id="objection-search"
+                    placeholder="Type or speak any objection..."
+                    oninput="searchObjections(this.value)"
+                />
+                <button class="objection-voice-btn" onclick="startVoiceSearch()">🎤</button>
+            </div>
+
+            <!-- Category Pills -->
+            <div class="objection-categories">
+                <div class="category-pill active" onclick="filterByCategory('all')">🎯 All</div>
+                <div class="category-pill" onclick="filterByCategory('price')">💰 Price</div>
+                <div class="category-pill" onclick="filterByCategory('timing')">⏰ Timing</div>
+                <div class="category-pill" onclick="filterByCategory('trust')">🤝 Trust</div>
+                <div class="category-pill" onclick="filterByCategory('competitor')">⚔️ Competitor</div>
+                <div class="category-pill" onclick="filterByCategory('need')">❓ Need</div>
+                <div class="category-pill" onclick="filterByCategory('decision')">👥 Decision</div>
+            </div>
+
+            <!-- Objections List -->
+            <div class="objection-list" id="objection-list">
+                <!-- Price Objections -->
+                <div class="objection-item" data-category="price" onclick="toggleObjection(this)">
+                    <div class="objection-question">
+                        <div class="objection-text">"It's too expensive"</div>
+                        <div class="objection-badges">
+                            <span class="objection-badge battle-tested">⭐ 94%</span>
+                        </div>
+                    </div>
+                    <div class="objection-category-tag">💰 PRICE</div>
+
+                    <div class="objection-response-content">
+                        <div class="response-framework">
+                            <div class="framework-step">
+                                <div class="framework-label">STEP 1: ACKNOWLEDGE</div>
+                                <div class="framework-text">"I completely understand - this is an important financial decision and you want to make sure you're getting value for your money."</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step2">STEP 2: REFRAME</div>
+                                <div class="framework-text">"Rather than thinking about the cost, let's look at what you're actually getting. This is $4.50 a day - less than your morning coffee - but it protects your family's entire financial future. If something happens tomorrow, your family gets $500,000. Can you really put a price on that peace of mind?"</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step3">STEP 3: CLOSE</div>
+                                <div class="framework-text">"What's more expensive - $4.50 a day now, or your family struggling financially if something unexpected happens? The question isn't whether you can afford it, it's whether you can afford not to have it."</div>
+                            </div>
+                        </div>
+
+                        <div class="response-tips">
+                            <div class="tips-title">💡 Pro Tips:</div>
+                            <div class="tips-text">
+                                • Break down to daily cost ($135/mo = $4.50/day)<br>
+                                • Compare to everyday expenses (coffee, Netflix, dining out)<br>
+                                • Emphasize consequence cost (medical bills, lost income)<br>
+                                • Use silence after the close - let them process
+                            </div>
+                        </div>
+
+                        <div class="objection-actions">
+                            <button class="objection-action-btn primary" onclick="practiceObjection(this); event.stopPropagation();">
+                                🎬 Practice This
+                            </button>
+                            <button class="objection-action-btn secondary" onclick="copyResponse(this); event.stopPropagation();">
+                                📋 Copy Response
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-item" data-category="timing" onclick="toggleObjection(this)">
+                    <div class="objection-question">
+                        <div class="objection-text">"I need to think about it"</div>
+                        <div class="objection-badges">
+                            <span class="objection-badge battle-tested">⭐ 89%</span>
+                        </div>
+                    </div>
+                    <div class="objection-category-tag">⏰ TIMING</div>
+
+                    <div class="objection-response-content">
+                        <div class="response-framework">
+                            <div class="framework-step">
+                                <div class="framework-label">STEP 1: ACKNOWLEDGE</div>
+                                <div class="framework-text">"Of course! This is a big decision and you should take the time you need. Can I ask - what specifically would you like to think about?"</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step2">STEP 2: REFRAME</div>
+                                <div class="framework-text">"Here's what I've learned in this industry: the best time to get insurance was 10 years ago. The second best time is today. Every day you wait, you're one day older, and premiums only go up. Plus, if something happens to your health tomorrow, you might not qualify at all."</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step3">STEP 3: CLOSE</div>
+                                <div class="framework-text">"Let me ask you this - if we started the application today and got you locked in at today's rate, you'd still have a 14-day free-look period to change your mind. But if you wait and something happens, there's no going back. What makes more sense?"</div>
+                            </div>
+                        </div>
+
+                        <div class="response-tips">
+                            <div class="tips-title">💡 Pro Tips:</div>
+                            <div class="tips-text">
+                                • Uncover the real objection with "what specifically?"<br>
+                                • Create urgency with age/health angle<br>
+                                • Use free-look period as safety net<br>
+                                • Ask assumptive closing question
+                            </div>
+                        </div>
+
+                        <div class="objection-actions">
+                            <button class="objection-action-btn primary" onclick="practiceObjection(this); event.stopPropagation();">
+                                🎬 Practice This
+                            </button>
+                            <button class="objection-action-btn secondary" onclick="copyResponse(this); event.stopPropagation();">
+                                📋 Copy Response
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-item" data-category="trust" onclick="toggleObjection(this)">
+                    <div class="objection-question">
+                        <div class="objection-text">"I've heard insurance companies don't pay out"</div>
+                        <div class="objection-badges">
+                            <span class="objection-badge battle-tested">⭐ 92%</span>
+                        </div>
+                    </div>
+                    <div class="objection-category-tag">🤝 TRUST</div>
+
+                    <div class="objection-response-content">
+                        <div class="response-framework">
+                            <div class="framework-step">
+                                <div class="framework-label">STEP 1: ACKNOWLEDGE</div>
+                                <div class="framework-text">"I'm glad you brought that up - it's a common concern and you deserve the truth."</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step2">STEP 2: REFRAME</div>
+                                <div class="framework-text">"AIA has been in Singapore for over 50 years and paid out $3.2 billion in claims last year alone. That's 98.6% of all claims approved. The 1.4% rejected? Those were fraud cases or pre-existing conditions that weren't disclosed. When you're honest in your application, we pay. Period."</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step3">STEP 3: CLOSE</div>
+                                <div class="framework-text">"I'll personally help you with your application to make sure everything is accurate and complete. That way, if you ever need to claim, there won't be any surprises. Fair enough?"</div>
+                            </div>
+                        </div>
+
+                        <div class="response-tips">
+                            <div class="tips-title">💡 Pro Tips:</div>
+                            <div class="tips-text">
+                                • Use specific numbers (98.6% approval, $3.2B payouts)<br>
+                                • Explain why claims get rejected (honesty pays)<br>
+                                • Offer personal assistance with application<br>
+                                • Build trust with transparency
+                            </div>
+                        </div>
+
+                        <div class="objection-actions">
+                            <button class="objection-action-btn primary" onclick="practiceObjection(this); event.stopPropagation();">
+                                🎬 Practice This
+                            </button>
+                            <button class="objection-action-btn secondary" onclick="copyResponse(this); event.stopPropagation();">
+                                📋 Copy Response
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-item" data-category="need" onclick="toggleObjection(this)">
+                    <div class="objection-question">
+                        <div class="objection-text">"I'm young and healthy, I don't need it yet"</div>
+                        <div class="objection-badges">
+                            <span class="objection-badge battle-tested">⭐ 91%</span>
+                        </div>
+                    </div>
+                    <div class="objection-category-tag">❓ NEED</div>
+
+                    <div class="objection-response-content">
+                        <div class="response-framework">
+                            <div class="framework-step">
+                                <div class="framework-label">STEP 1: ACKNOWLEDGE</div>
+                                <div class="framework-text">"That's actually exactly WHY you need it now! You're making the smartest decision at the perfect time."</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step2">STEP 2: REFRAME</div>
+                                <div class="framework-text">"Think about it - when you're young and healthy, premiums are lowest and you're guaranteed to qualify. Every year you age, prices go up 3-5%. And if you develop any health condition later - diabetes, high blood pressure, anything - you either pay 2-3x more or get rejected entirely. Insurance isn't for when you need it; it's for when you can GET it."</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step3">STEP 3: CLOSE</div>
+                                <div class="framework-text">"My job is to insure healthy people - because that's who insurance companies WANT. Once you're sick, it's too late. Lock in your health and your rate today, while you still can."</div>
+                            </div>
+                        </div>
+
+                        <div class="response-tips">
+                            <div class="tips-title">💡 Pro Tips:</div>
+                            <div class="tips-text">
+                                • Flip the script - young = perfect timing<br>
+                                • Explain compound cost of waiting<br>
+                                • Use health change scenarios (everyone gets older)<br>
+                                • Create urgency with "while you can" framing
+                            </div>
+                        </div>
+
+                        <div class="objection-actions">
+                            <button class="objection-action-btn primary" onclick="practiceObjection(this); event.stopPropagation();">
+                                🎬 Practice This
+                            </button>
+                            <button class="objection-action-btn secondary" onclick="copyResponse(this); event.stopPropagation();">
+                                📋 Copy Response
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-item" data-category="competitor" onclick="toggleObjection(this)">
+                    <div class="objection-question">
+                        <div class="objection-text">"I found a cheaper plan online"</div>
+                        <div class="objection-badges">
+                            <span class="objection-badge battle-tested">⭐ 87%</span>
+                        </div>
+                    </div>
+                    <div class="objection-category-tag">⚔️ COMPETITOR</div>
+
+                    <div class="objection-response-content">
+                        <div class="response-framework">
+                            <div class="framework-step">
+                                <div class="framework-label">STEP 1: ACKNOWLEDGE</div>
+                                <div class="framework-text">"Great! I love that you're comparing options - that's exactly what you should do. Can I see what you found? Let's make sure we're comparing apples to apples."</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step2">STEP 2: REFRAME</div>
+                                <div class="framework-text">"Here's what most people miss: cheaper premiums usually mean lower coverage, shorter terms, or exclusions in the fine print. AIA includes critical illness riders, hospital cash, and worldwide coverage as standard. Most 'cheaper' plans charge extra for those, and suddenly we're actually more affordable. Plus, we've paid out claims for 50+ years - can that online company say the same?"</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step3">STEP 3: CLOSE</div>
+                                <div class="framework-text">"Insurance isn't about who's cheapest - it's about who pays when you need them. Would you rather save $20 a month now, or have $200,000 MORE coverage when it matters? What's your family's financial security worth?"</div>
+                            </div>
+                        </div>
+
+                        <div class="response-tips">
+                            <div class="tips-title">💡 Pro Tips:</div>
+                            <div class="tips-text">
+                                • Ask to see competitor quote (often incomplete)<br>
+                                • Compare coverage details, not just price<br>
+                                • Emphasize company stability & track record<br>
+                                • Reframe value vs. cost
+                            </div>
+                        </div>
+
+                        <div class="objection-actions">
+                            <button class="objection-action-btn primary" onclick="practiceObjection(this); event.stopPropagation();">
+                                🎬 Practice This
+                            </button>
+                            <button class="objection-action-btn secondary" onclick="copyResponse(this); event.stopPropagation();">
+                                📋 Copy Response
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-item" data-category="decision" onclick="toggleObjection(this)">
+                    <div class="objection-question">
+                        <div class="objection-text">"I need to discuss with my spouse first"</div>
+                        <div class="objection-badges">
+                            <span class="objection-badge battle-tested">⭐ 90%</span>
+                        </div>
+                    </div>
+                    <div class="objection-category-tag">👥 DECISION</div>
+
+                    <div class="objection-response-content">
+                        <div class="response-framework">
+                            <div class="framework-step">
+                                <div class="framework-label">STEP 1: ACKNOWLEDGE</div>
+                                <div class="framework-text">"Absolutely! This affects your whole family, so it's important you're both on the same page. That's a sign of a smart partnership."</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step2">STEP 2: REFRAME</div>
+                                <div class="framework-text">"Can I ask - what do you think they'll want to know? Usually it's coverage amount, cost, and how it protects the family. I can explain it to both of you together, or I can give you this simple one-pager that breaks everything down. Which would work better?"</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step3">STEP 3: CLOSE</div>
+                                <div class="framework-text">"Here's my suggestion: let's pencil in a 15-minute call with both of you tomorrow. I'll answer all their questions directly, and you can both decide together. Does morning or evening work better for your spouse?"</div>
+                            </div>
+                        </div>
+
+                        <div class="response-tips">
+                            <div class="tips-title">💡 Pro Tips:</div>
+                            <div class="tips-text">
+                                • Validate need for spousal buy-in<br>
+                                • Offer joint meeting (higher close rate)<br>
+                                • Provide takeaway materials<br>
+                                • Schedule specific next step (don't leave open-ended)
+                            </div>
+                        </div>
+
+                        <div class="objection-actions">
+                            <button class="objection-action-btn primary" onclick="practiceObjection(this); event.stopPropagation();">
+                                🎬 Practice This
+                            </button>
+                            <button class="objection-action-btn secondary" onclick="copyResponse(this); event.stopPropagation();">
+                                📋 Copy Response
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-item" data-category="price" onclick="toggleObjection(this)">
+                    <div class="objection-question">
+                        <div class="objection-text">"I can't afford it right now"</div>
+                    </div>
+                    <div class="objection-category-tag">💰 PRICE</div>
+
+                    <div class="objection-response-content">
+                        <div class="response-framework">
+                            <div class="framework-step">
+                                <div class="framework-label">STEP 1: ACKNOWLEDGE</div>
+                                <div class="framework-text">"I hear you - budgets are tight for everyone right now. Let me ask you something though..."</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step2">STEP 2: REFRAME</div>
+                                <div class="framework-text">"If you can't afford $135 a month now, how would you afford a $150,000 medical bill or 20 years of lost income if something happens? The truth is, you can't afford NOT to have this. We can start with basic coverage now and upgrade later - but you need SOMETHING protecting your family."</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step3">STEP 3: CLOSE</div>
+                                <div class="framework-text">"Let me show you our entry-level plan - same protection, smaller coverage amount, under $100/month. Where can you cut $3 a day? One less grab food order? That's all it takes to protect your family."</div>
+                            </div>
+                        </div>
+
+                        <div class="response-tips">
+                            <div class="tips-title">💡 Pro Tips:</div>
+                            <div class="tips-text">
+                                • Reframe affordability question (cost of NOT having)<br>
+                                • Offer scaled-down options<br>
+                                • Find budget cuts together ($3/day angle)<br>
+                                • Start small, upgrade path later
+                            </div>
+                        </div>
+
+                        <div class="objection-actions">
+                            <button class="objection-action-btn primary" onclick="practiceObjection(this); event.stopPropagation();">
+                                🎬 Practice This
+                            </button>
+                            <button class="objection-action-btn secondary" onclick="copyResponse(this); event.stopPropagation();">
+                                📋 Copy Response
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-item" data-category="need" onclick="toggleObjection(this)">
+                    <div class="objection-question">
+                        <div class="objection-text">"My company already provides insurance"</div>
+                    </div>
+                    <div class="objection-category-tag">❓ NEED</div>
+
+                    <div class="objection-response-content">
+                        <div class="response-framework">
+                            <div class="framework-step">
+                                <div class="framework-label">STEP 1: ACKNOWLEDGE</div>
+                                <div class="framework-text">"That's great your company provides coverage - shows they value you! But let me share three critical gaps most people don't realize..."</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step2">STEP 2: REFRAME</div>
+                                <div class="framework-text">"Gap #1: Company coverage is usually 1-2X your salary - is that enough to replace 20 years of income? Gap #2: It only covers YOU, not your spouse or kids. Gap #3: If you leave the job, get retrenched, or retire, you lose everything. This policy is yours for life, regardless of your employment."</div>
+                            </div>
+                            <div class="framework-step">
+                                <div class="framework-label step3">STEP 3: CLOSE</div>
+                                <div class="framework-text">"Think of company insurance as your foundation and this as your walls and roof. Together, they give you complete protection. Plus, you own this one - nobody can take it away. Makes sense?"</div>
+                            </div>
+                        </div>
+
+                        <div class="response-tips">
+                            <div class="tips-title">💡 Pro Tips:</div>
+                            <div class="tips-text">
+                                • Never attack company insurance (they value it)<br>
+                                • Educate on 3 gaps (amount, dependents, portability)<br>
+                                • Use metaphor (foundation + walls = complete home)<br>
+                                • Emphasize ownership and permanence
+                            </div>
+                        </div>
+
+                        <div class="objection-actions">
+                            <button class="objection-action-btn primary" onclick="practiceObjection(this); event.stopPropagation();">
+                                🎬 Practice This
+                            </button>
+                            <button class="objection-action-btn secondary" onclick="copyResponse(this); event.stopPropagation();">
+                                📋 Copy Response
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State (shown when no results) -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <div class="empty-state-icon">🔍</div>
+                <div class="empty-state-text">No matching objections found</div>
+                <div class="empty-state-subtext">Try different keywords or browse categories</div>
+            </div>
+
+            <!-- Practice Mode FAB -->
+            <button class="practice-mode-fab" onclick="startPracticeMode()">🎯</button>
+
+            <div style="height: 120px;"></div>
+        </div>
+
         <!-- CALL SCRIPT GENERATOR MODAL -->
         <div class="screen" id="script-modal" style="display: none;">
             <div class="script-modal">
@@ -6331,7 +7069,8 @@
                 'profile': 'profile-screen',
                 'achievements': 'achievements-screen',
                 'tools': 'tools-screen',
-                'bundles': 'bundles-screen'
+                'bundles': 'bundles-screen',
+                'objection-handler': 'objection-handler-screen'
             };
 
             document.getElementById(screenMap[screen]).classList.add('active');
@@ -10440,6 +11179,233 @@ What do you need help with?`;
 
         function closeBuilderModal() {
             const modal = document.getElementById('builder-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        // Objection Handler Functions
+        function toggleObjection(element) {
+            // Close all other expanded items
+            document.querySelectorAll('.objection-item').forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('expanded');
+                }
+            });
+
+            // Toggle current item
+            element.classList.toggle('expanded');
+        }
+
+        function filterByCategory(category) {
+            // Update active pill
+            document.querySelectorAll('.category-pill').forEach(pill => {
+                pill.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Filter objections
+            const objections = document.querySelectorAll('.objection-item');
+            let visibleCount = 0;
+
+            objections.forEach(objection => {
+                if (category === 'all' || objection.dataset.category === category) {
+                    objection.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    objection.style.display = 'none';
+                }
+            });
+
+            // Show empty state if no results
+            document.getElementById('empty-state').style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        function searchObjections(query) {
+            query = query.toLowerCase().trim();
+
+            const objections = document.querySelectorAll('.objection-item');
+            let visibleCount = 0;
+
+            if (!query) {
+                // Show all objections if search is empty
+                objections.forEach(obj => {
+                    obj.style.display = 'block';
+                    visibleCount++;
+                });
+            } else {
+                objections.forEach(objection => {
+                    const text = objection.querySelector('.objection-text').textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        objection.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        objection.style.display = 'none';
+                    }
+                });
+            }
+
+            // Show empty state if no results
+            document.getElementById('empty-state').style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        function startVoiceSearch() {
+            // Check if browser supports Web Speech API
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                showToast('⚠️ Voice search not supported in this browser');
+                return;
+            }
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SpeechRecognition();
+
+            recognition.lang = 'en-US';
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+
+            const searchInput = document.getElementById('objection-search');
+            const voiceBtn = event.target;
+
+            // Visual feedback
+            voiceBtn.style.background = 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)';
+            voiceBtn.textContent = '🎙️';
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                searchInput.value = transcript;
+                searchObjections(transcript);
+                showToast('🎤 Listening: "' + transcript + '"');
+            };
+
+            recognition.onerror = function(event) {
+                console.error('Speech recognition error', event.error);
+                showToast('❌ Could not recognize speech');
+            };
+
+            recognition.onend = function() {
+                voiceBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                voiceBtn.textContent = '🎤';
+            };
+
+            recognition.start();
+            showToast('🎤 Listening... Speak the objection');
+        }
+
+        function copyResponse(button) {
+            const objectionItem = button.closest('.objection-item');
+            const frameworkSteps = objectionItem.querySelectorAll('.framework-text');
+
+            let responseText = '';
+            frameworkSteps.forEach((step, index) => {
+                const labels = ['ACKNOWLEDGE', 'REFRAME', 'CLOSE'];
+                responseText += `${labels[index]}: ${step.textContent}\n\n`;
+            });
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(responseText).then(() => {
+                showToast('📋 Response copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy', err);
+                showToast('❌ Failed to copy response');
+            });
+        }
+
+        function practiceObjection(button) {
+            const objectionItem = button.closest('.objection-item');
+            const objectionText = objectionItem.querySelector('.objection-text').textContent;
+
+            showToast('🎬 Starting practice mode...');
+
+            // Show practice modal
+            const practiceModal = `
+                <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="practice-modal">
+                    <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                        <div style="font-size: 50px; margin-bottom: 15px;">🎯</div>
+                        <div style="font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Practice Mode</div>
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
+                            Get ready to handle:<br><strong>"${objectionText}"</strong>
+                        </div>
+
+                        <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 20px; text-align: left;">
+                            <div style="font-size: 12px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px;">🎬 How it works:</div>
+                            <div style="font-size: 12px; color: #495057; line-height: 1.6;">
+                                1. Read the objection carefully<br>
+                                2. Practice your 3-step response out loud<br>
+                                3. Record yourself (optional)<br>
+                                4. Compare with the proven framework
+                            </div>
+                        </div>
+
+                        <div style="background: #d1ecf1; border: 2px solid #17a2b8; border-radius: 12px; padding: 15px; margin-bottom: 20px;">
+                            <div style="font-size: 13px; color: #0c5460; font-weight: 600;">
+                                🚧 Full Practice Mode Coming Soon
+                            </div>
+                            <div style="font-size: 12px; color: #0c5460; margin-top: 5px;">
+                                Interactive role-play with AI feedback in development
+                            </div>
+                        </div>
+
+                        <button onclick="closePracticeModal()" style="width: 100%; background: #667eea; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                            Got it!
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.body.insertAdjacentHTML('beforeend', practiceModal);
+        }
+
+        function closePracticeModal() {
+            const modal = document.getElementById('practice-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function startPracticeMode() {
+            showToast('🎯 Starting interactive practice mode...');
+
+            const practiceModal = `
+                <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 7000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="practice-mode-modal">
+                    <div style="background: white; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center;">
+                        <div style="font-size: 60px; margin-bottom: 15px;">🎯</div>
+                        <div style="font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;">Interactive Practice Mode</div>
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 25px;">
+                            Practice handling objections with AI-powered role-play and real-time feedback
+                        </div>
+
+                        <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 20px; text-align: left;">
+                            <div style="font-size: 12px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px;">🎬 Features:</div>
+                            <div style="font-size: 12px; color: #495057; line-height: 1.6;">
+                                ✓ AI plays the role of skeptical prospect<br>
+                                ✓ Random objections to keep you sharp<br>
+                                ✓ Real-time feedback on your responses<br>
+                                ✓ Score your performance (1-100)<br>
+                                ✓ Track improvement over time
+                            </div>
+                        </div>
+
+                        <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 12px; padding: 15px; margin-bottom: 20px;">
+                            <div style="font-size: 13px; color: #856404; font-weight: 600;">
+                                🚧 Coming Soon
+                            </div>
+                            <div style="font-size: 12px; color: #856404; margin-top: 5px;">
+                                Advanced practice mode in development
+                            </div>
+                        </div>
+
+                        <button onclick="closePracticeModeModal()" style="width: 100%; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.body.insertAdjacentHTML('beforeend', practiceModal);
+        }
+
+        function closePracticeModeModal() {
+            const modal = document.getElementById('practice-mode-modal');
             if (modal) {
                 modal.remove();
             }
