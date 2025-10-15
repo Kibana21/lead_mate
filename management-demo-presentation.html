@@ -1,0 +1,2202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Orchestrated Lead Engagement Platform - Management Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+        }
+
+        .nav-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Slides */
+        .slide {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            animation: fadeIn 0.6s ease-in;
+            min-height: 600px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Title Slide */
+        .title-slide {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .title-slide h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .title-slide .subtitle {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .title-slide .meta {
+            font-size: 16px;
+            opacity: 0.85;
+            margin-top: 40px;
+        }
+
+        /* Section Headers */
+        .section-title {
+            font-size: 42px;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Problem Statement */
+        .problem-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(255,107,107,0.3);
+        }
+
+        .problem-box h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .problem-box p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102,126,234,0.3);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 35px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Benefits List */
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .benefit-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            display: flex;
+            align-items: start;
+            gap: 15px;
+        }
+
+        .benefit-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Screenshot Mockup */
+        .screenshot-container {
+            margin: 40px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 20px;
+        }
+
+        .screenshot-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .phone-mockup {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border-radius: 40px;
+            padding: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .phone-screen {
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .agent-header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .agent-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .agent-tier {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .streak-info {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .streak-item {
+            text-align: center;
+        }
+
+        .streak-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: #667eea;
+        }
+
+        .streak-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .lead-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+        }
+
+        .lead-tier-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .lead-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .lead-details {
+            font-size: 14px;
+            opacity: 0.9;
+            margin: 5px 0;
+        }
+
+        .lead-actions {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .btn-peek {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 14px;
+        }
+
+        .btn-grab {
+            background: white;
+            color: #667eea;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border: 4px solid white;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 3px 10px rgba(102,126,234,0.5);
+        }
+
+        .phase-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .phase-duration {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .phase-description {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Impact Metrics */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .impact-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .impact-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .impact-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .impact-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .cta-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-description {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 18px 40px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Dashboard Preview */
+        .dashboard-preview {
+            background: #1a1a2e;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            color: white;
+        }
+
+        .dashboard-header {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #667eea;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .dashboard-card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .dashboard-metric {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .dashboard-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .dashboard-trend {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: rgba(76,175,80,0.2);
+            color: #4caf50;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+            }
+
+            .title-slide h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 60px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav {
+                display: none;
+            }
+
+            .slide {
+                page-break-after: always;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-title">AI Lead Engagement Platform</div>
+            <div class="nav-links">
+                <a href="#intro" class="nav-link">Overview</a>
+                <a href="#problem" class="nav-link">Problem</a>
+                <a href="#solution" class="nav-link">Solution</a>
+                <a href="#demo" class="nav-link">Demo</a>
+                <a href="#impact" class="nav-link">Impact</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
+            </div>
+        </nav>
+
+        <!-- Slide 1: Title -->
+        <div class="slide title-slide" id="intro">
+            <h1>AI-Orchestrated Lead Engagement Platform</h1>
+            <p class="subtitle">Transforming 6,000+ Agents into Conversion Experts</p>
+            <div style="font-size: 64px; margin: 40px 0;">🚀</div>
+            <p class="meta">
+                <strong>Presented to:</strong> AIA Singapore Innovation Council<br>
+                <strong>Prepared by:</strong> Digital Transformation & AI Strategy Office<br>
+                <strong>Date:</strong> October 2025
+            </p>
+        </div>
+
+        <!-- Slide 2: Executive Summary -->
+        <div class="slide">
+            <h2 class="section-title">Executive Summary</h2>
+            <p class="section-subtitle">
+                Despite high lead volume and a field force exceeding 6,000 agents, our conversion rates remain suboptimal.
+                The challenge is not lead quantity—it's the breakdown in the lead-to-conversion journey.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">6,000+</div>
+                    <div class="stat-label">Active Agents</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12%</div>
+                    <div class="stat-label">Current Conversion Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2.5 hrs</div>
+                    <div class="stat-label">Avg. Lead Response Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">45%</div>
+                    <div class="stat-label">Lead Quality Satisfaction</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; padding: 30px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 15px;">
+                <h3 style="font-size: 26px; color: #667eea; margin-bottom: 20px; text-align: center;">Our Vision</h3>
+                <p style="font-size: 20px; text-align: center; color: #555; line-height: 1.8; font-style: italic;">
+                    "Transform every agent into a conversion expert by delivering the right lead, at the right time,
+                    with the right context and guidance."
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 3: The Problem -->
+        <div class="slide" id="problem">
+            <h2 class="section-title">The Critical Challenges</h2>
+            <p class="section-subtitle">Four systemic issues preventing optimal conversion performance</p>
+
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">⏰</div>
+                    <div>
+                        <strong style="color: #667eea; font-size: 18px; display: block; margin-bottom: 8px;">
+                            Lead Distribution Latency
+                        </strong>
+                        <div class="benefit-text">
+                            2-4 hour average response time due to manual assignment processes. Leads go cold before agents even make contact.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div>
+                        <strong style="color: #667eea; font-size: 18px; display: block; margin-bottom: 8px;">
+                            Agent-Lead Mismatch
+                        </strong>
+                        <div class="benefit-text">
+                            Leads not matched with right agents based on expertise, location, workload, or customer persona fit.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">💬</div>
+                    <div>
+                        <strong style="color: #667eea; font-size: 18px; display: block; margin-bottom: 8px;">
+                            Agent Enablement Gap
+                        </strong>
+                        <div class="benefit-text">
+                            No contextual guidance on lead background, intent, or engagement strategy. Generic follow-ups that fail to resonate.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔁</div>
+                    <div>
+                        <strong style="color: #667eea; font-size: 18px; display: block; margin-bottom: 8px;">
+                            Feedback & Learning Void
+                        </strong>
+                        <div class="benefit-text">
+                            No systematic feedback loop to learn from patterns. Repeated mistakes in lead handling with no improvement.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem-box">
+                <h3>The Impact on Our Business</h3>
+                <p>
+                    These challenges cost us millions in lost revenue annually. With conversion rates stagnating at 12%,
+                    we're missing 88% of opportunities. If we could improve to just 17%, that's a 40% increase in revenue
+                    from the same lead volume—with no additional marketing spend.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 4: The Solution Overview -->
+        <div class="slide" id="solution">
+            <h2 class="section-title">The Solution: AI-Orchestrated Intelligence</h2>
+            <p class="section-subtitle">
+                A comprehensive platform that combines AI, gamification, and intelligent orchestration
+                to revolutionize the lead-to-conversion journey
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Intelligent Lead Routing</h3>
+                    <p class="feature-description">
+                        Real-time AI-powered matching that assigns leads to optimal agents based on propensity scoring,
+                        expertise, location, and historical performance—within 30 seconds.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗂️</div>
+                    <h3 class="feature-title">AI-Generated Dossiers</h3>
+                    <p class="feature-description">
+                        Comprehensive lead profiles powered by Megatron with intent analysis, product recommendations,
+                        objection predictions, and compliance-aware guidance.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">Real-Time Coaching</h3>
+                    <p class="feature-description">
+                        In-conversation AI guidance with next-best-action recommendations, competitive intelligence,
+                        and instant compliance callouts during customer interactions.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3 class="feature-title">Lead Marketplace</h3>
+                    <p class="feature-description">
+                        Gamified "Grab That Lead" experience with tiered leads (Diamond/Gold/Silver/Bronze),
+                        streak bonuses, and agent ownership driving engagement and urgency.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3 class="feature-title">Territory Gaming & Heat Maps</h3>
+                    <p class="feature-description">
+                        Live geographic visualization with proximity bonuses, surge zones, and regional competitions
+                        optimizing coverage across Singapore.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔁</div>
+                    <h3 class="feature-title">Continuous Learning</h3>
+                    <p class="feature-description">
+                        ML pipeline that learns from every interaction with two-way ratings, performance analytics,
+                        and automated optimization of routing and recommendations.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Key Innovation - Marketplace + Gamification -->
+        <div class="slide">
+            <h2 class="section-title">Innovation Highlight: Gamified Marketplace</h2>
+            <p class="section-subtitle">
+                Transforming lead distribution from push-based assignment to an agent-driven, engaging experience
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;">
+                <div>
+                    <h3 style="font-size: 24px; color: #667eea; margin-bottom: 20px;">Traditional Approach</h3>
+                    <div style="background: #fee; padding: 30px; border-radius: 15px; border-left: 5px solid #ff6b6b;">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin: 15px 0; font-size: 16px; color: #555;">❌ Passive lead assignment</li>
+                            <li style="margin: 15px 0; font-size: 16px; color: #555;">❌ Low agent engagement</li>
+                            <li style="margin: 15px 0; font-size: 16px; color: #555;">❌ "Bad lead" complaints</li>
+                            <li style="margin: 15px 0; font-size: 16px; color: #555;">❌ Delayed response times</li>
+                            <li style="margin: 15px 0; font-size: 16px; color: #555;">❌ No ownership mindset</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 24px; color: #667eea; margin-bottom: 20px;">Our Marketplace Model</h3>
+                    <div style="background: #efe; padding: 30px; border-radius: 15px; border-left: 5px solid #4caf50;">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin: 15px 0; font-size: 16px; color: #555;">✅ Agent-driven selection</li>
+                            <li style="margin: 15px 0; font-size: 16px; color: #555;">✅ High engagement & urgency</li>
+                            <li style="margin: 15px 0; font-size: 16px; color: #555;">✅ Self-selected quality</li>
+                            <li style="margin: 15px 0; font-size: 16px; color: #555;">✅ <60 second response</li>
+                            <li style="margin: 15px 0; font-size: 16px; color: #555;">✅ Strong ownership</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">💎</div>
+                    <div class="impact-value">4-Tier</div>
+                    <div class="impact-label">Lead Classification</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">🔥</div>
+                    <div class="impact-value">3×</div>
+                    <div class="impact-label">Diamond Lead Multiplier</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">⚡</div>
+                    <div class="impact-value">30s</div>
+                    <div class="impact-label">Grab Window</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">🏆</div>
+                    <div class="impact-value">100+</div>
+                    <div class="impact-label">Achievement Badges</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">👥</div>
+                    <div class="impact-value">5-10</div>
+                    <div class="impact-label">Squad Team Size</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Demo - Agent Mobile App -->
+        <div class="slide" id="demo">
+            <h2 class="section-title">Live Demo: Agent Mobile Experience</h2>
+            <p class="section-subtitle">Multiple screenshots showcasing the complete agent journey</p>
+
+            <!-- Screenshot 1: Home Screen with Marketplace -->
+            <div class="screenshot-container">
+                <div class="screenshot-title">📱 Screenshot 1: Agent Home Screen - Live Lead Marketplace</div>
+
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="agent-header">
+                            <div class="agent-name">🌟 Good Morning, Sarah!</div>
+                            <div class="agent-tier">⭐ Expert Tier</div>
+                        </div>
+
+                        <div class="streak-info">
+                            <div class="streak-item">
+                                <div class="streak-value">🔥 12</div>
+                                <div class="streak-label">Day Streak</div>
+                            </div>
+                            <div class="streak-item">
+                                <div class="streak-value">⭐ 4.8</div>
+                                <div class="streak-label">Rating</div>
+                            </div>
+                            <div class="streak-item">
+                                <div class="streak-value">$680</div>
+                                <div class="streak-label">Today</div>
+                            </div>
+                        </div>
+
+                        <div style="margin: 20px 0; padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; text-align: center;">
+                            <div style="font-size: 14px; margin-bottom: 5px;">Progress to Master</div>
+                            <div style="background: rgba(255,255,255,0.3); height: 10px; border-radius: 5px; overflow: hidden;">
+                                <div style="background: white; height: 100%; width: 78%; border-radius: 5px;"></div>
+                            </div>
+                            <div style="font-size: 12px; margin-top: 5px;">78% Complete</div>
+                        </div>
+
+                        <div style="border-top: 2px solid #eee; padding-top: 20px;">
+                            <div style="font-size: 18px; font-weight: 700; margin-bottom: 15px; color: #667eea;">
+                                ⚡ LIVE LEAD MARKETPLACE
+                            </div>
+
+                            <div class="lead-card">
+                                <div class="lead-tier-badge">💎 DIAMOND - 3× POINTS</div>
+                                <div class="lead-name">👤 Chen Wei, 38</div>
+                                <div class="lead-details">📋 Health Insurance + Investment</div>
+                                <div class="lead-details">📍 2.1km • Tampines</div>
+                                <div class="lead-details">🔥 HOT: 94% Propensity</div>
+                                <div class="lead-details">⏱️ 28 seconds remaining</div>
+                                <div class="lead-actions">
+                                    <button class="btn btn-peek">👁️ PEEK<br>50pts</button>
+                                    <button class="btn btn-grab">⚡ GRAB NOW!</button>
+                                </div>
+                            </div>
+
+                            <div class="lead-card" style="opacity: 0.85;">
+                                <div class="lead-tier-badge">🥇 GOLD - 2× POINTS</div>
+                                <div class="lead-name">👤 Priya Kumar, 29</div>
+                                <div class="lead-details">📋 Life Insurance</div>
+                                <div class="lead-details">📍 8.3km • Jurong West</div>
+                                <div class="lead-details">🔥 WARM: 71% Propensity</div>
+                                <div class="lead-details">⏱️ 18 seconds remaining</div>
+                                <div class="lead-actions">
+                                    <button class="btn btn-peek">👁️ PEEK<br>50pts</button>
+                                    <button class="btn btn-grab">⚡ GRAB NOW!</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 2px solid #eee;">
+                            <div style="text-align: center; padding: 10px; background: #f8f9fa; border-radius: 8px;">
+                                <div style="font-size: 20px;">📍</div>
+                                <div style="font-size: 11px; margin-top: 5px; color: #666;">Heat Map</div>
+                            </div>
+                            <div style="text-align: center; padding: 10px; background: #f8f9fa; border-radius: 8px;">
+                                <div style="font-size: 20px;">🏆</div>
+                                <div style="font-size: 11px; margin-top: 5px; color: #666;">Leaderboard</div>
+                            </div>
+                            <div style="text-align: center; padding: 10px; background: #f8f9fa; border-radius: 8px;">
+                                <div style="font-size: 20px;">👥</div>
+                                <div style="font-size: 11px; margin-top: 5px; color: #666;">My Squad</div>
+                            </div>
+                            <div style="text-align: center; padding: 10px; background: #f8f9fa; border-radius: 8px;">
+                                <div style="font-size: 20px;">🎯</div>
+                                <div style="font-size: 11px; margin-top: 5px; color: #666;">Challenges</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshot 2 & 3: Heat Map and Leaderboard Side by Side -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
+                <!-- Heat Map Screenshot -->
+                <div class="screenshot-container" style="padding: 25px;">
+                    <div class="screenshot-title">📍 Screenshot 2: Territory Heat Map</div>
+                    <div class="phone-mockup" style="max-width: 100%;">
+                        <div class="phone-screen">
+                            <div style="padding: 15px; background: #1a1a2e; color: white; border-radius: 12px; margin-bottom: 15px; text-align: center;">
+                                <div style="font-size: 18px; font-weight: 700;">🗺️ Singapore Heat Map</div>
+                            </div>
+
+                            <!-- Simplified Map Visualization -->
+                            <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 20px; border-radius: 12px; position: relative; height: 300px;">
+                                <!-- Hot Zones -->
+                                <div style="position: absolute; top: 30px; left: 40px; width: 80px; height: 80px; background: radial-gradient(circle, rgba(255,0,0,0.6), transparent); border-radius: 50%;"></div>
+                                <div style="position: absolute; top: 80px; right: 50px; width: 60px; height: 60px; background: radial-gradient(circle, rgba(255,100,0,0.5), transparent); border-radius: 50%;"></div>
+                                <div style="position: absolute; bottom: 50px; left: 60px; width: 70px; height: 70px; background: radial-gradient(circle, rgba(255,150,0,0.4), transparent); border-radius: 50%;"></div>
+
+                                <!-- Location Markers -->
+                                <div style="position: absolute; top: 50px; left: 60px; background: #ff0000; color: white; padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
+                                    Central<br>💎 12 leads
+                                </div>
+                                <div style="position: absolute; top: 100px; right: 70px; background: #ff6600; color: white; padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
+                                    East<br>🥇 8 leads
+                                </div>
+                                <div style="position: absolute; bottom: 70px; left: 80px; background: #ff9900; color: white; padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
+                                    West<br>🥈 5 leads
+                                </div>
+                            </div>
+
+                            <!-- Proximity Alert -->
+                            <div style="margin-top: 15px; padding: 15px; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); color: white; border-radius: 12px; animation: pulse 2s infinite;">
+                                <div style="font-size: 14px; font-weight: 700; margin-bottom: 5px;">⚠️ SURGE ZONE ALERT</div>
+                                <div style="font-size: 12px;">5 Diamond leads in Orchard (2.3km away)</div>
+                                <div style="font-size: 12px; margin-top: 5px;">🔥 2× Bonus Points - 15 min remaining</div>
+                            </div>
+
+                            <!-- Your Location -->
+                            <div style="margin-top: 15px; padding: 12px; background: #f8f9fa; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                                <div style="font-size: 13px; color: #555;">
+                                    <strong>📍 Your Location:</strong> Tampines
+                                </div>
+                                <div style="background: #667eea; color: white; padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 600;">
+                                    +50 Proximity Bonus
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leaderboard Screenshot -->
+                <div class="screenshot-container" style="padding: 25px;">
+                    <div class="screenshot-title">🏆 Screenshot 3: Live Leaderboard</div>
+                    <div class="phone-mockup" style="max-width: 100%;">
+                        <div class="phone-screen">
+                            <div style="padding: 15px; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); color: #333; border-radius: 12px; margin-bottom: 15px; text-align: center;">
+                                <div style="font-size: 18px; font-weight: 700;">🏆 Top Agents This Week</div>
+                            </div>
+
+                            <!-- Leaderboard Entries -->
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 12px; margin-bottom: 10px; display: flex; align-items: center; gap: 15px; box-shadow: 0 5px 15px rgba(102,126,234,0.4);">
+                                <div style="font-size: 32px; font-weight: 800; width: 40px;">🥇</div>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 16px; font-weight: 700;">Sarah Tan</div>
+                                    <div style="font-size: 12px; opacity: 0.9;">Expert Tier • East Eagles</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 20px; font-weight: 800;">3,847</div>
+                                    <div style="font-size: 11px;">points</div>
+                                </div>
+                            </div>
+
+                            <div style="background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 10px; display: flex; align-items: center; gap: 15px;">
+                                <div style="font-size: 28px; font-weight: 800; width: 40px;">🥈</div>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 15px; font-weight: 700; color: #333;">Michael Chen</div>
+                                    <div style="font-size: 12px; color: #666;">Master • CBD Lions</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 18px; font-weight: 800; color: #333;">3,621</div>
+                                    <div style="font-size: 11px; color: #666;">points</div>
+                                </div>
+                            </div>
+
+                            <div style="background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 10px; display: flex; align-items: center; gap: 15px;">
+                                <div style="font-size: 28px; font-weight: 800; width: 40px;">🥉</div>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 15px; font-weight: 700; color: #333;">Priya Kumar</div>
+                                    <div style="font-size: 12px; color: #666;">Expert • West Tigers</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 18px; font-weight: 800; color: #333;">3,405</div>
+                                    <div style="font-size: 11px; color: #666;">points</div>
+                                </div>
+                            </div>
+
+                            <div style="background: #fffbea; padding: 15px; border-radius: 12px; margin-bottom: 10px; display: flex; align-items: center; gap: 15px; border: 2px solid #ffc107;">
+                                <div style="font-size: 24px; font-weight: 800; width: 40px; color: #666;">12</div>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 15px; font-weight: 700; color: #333;">You (Sarah)</div>
+                                    <div style="font-size: 12px; color: #666;">Expert • East Eagles</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 18px; font-weight: 800; color: #333;">2,847</div>
+                                    <div style="font-size: 11px; color: #666;">points</div>
+                                </div>
+                            </div>
+
+                            <!-- Progress to Next Rank -->
+                            <div style="margin-top: 20px; padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px;">
+                                <div style="font-size: 13px; margin-bottom: 8px;">Next Rank: 🥉 Top 10</div>
+                                <div style="background: rgba(255,255,255,0.3); height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: white; height: 100%; width: 65%; border-radius: 4px;"></div>
+                                </div>
+                                <div style="font-size: 11px; margin-top: 5px; opacity: 0.9;">558 points to go • Keep it up! 🔥</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: More App Screenshots - Squad, Achievements, Coaching -->
+        <div class="slide">
+            <h2 class="section-title">More Agent Features</h2>
+            <p class="section-subtitle">Squad collaboration, achievements tracking, and real-time coaching</p>
+
+            <!-- Screenshot 4 & 5: Squad and Achievements -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px;">
+                <!-- Squad Team Screenshot -->
+                <div class="screenshot-container" style="padding: 25px;">
+                    <div class="screenshot-title">👥 Screenshot 4: My Squad - East Eagles</div>
+                    <div class="phone-mockup" style="max-width: 100%;">
+                        <div class="phone-screen">
+                            <div style="padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; margin-bottom: 15px; text-align: center;">
+                                <div style="font-size: 24px; font-weight: 700; margin-bottom: 5px;">🦅 East Eagles</div>
+                                <div style="font-size: 13px; opacity: 0.9;">8 Members • Rank #2 This Week</div>
+                            </div>
+
+                            <!-- Squad Stats -->
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px;">
+                                <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; text-align: center;">
+                                    <div style="font-size: 20px; font-weight: 800; color: #667eea;">247</div>
+                                    <div style="font-size: 11px; color: #666;">Conversions</div>
+                                </div>
+                                <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; text-align: center;">
+                                    <div style="font-size: 20px; font-weight: 800; color: #667eea;">18.5%</div>
+                                    <div style="font-size: 11px; color: #666;">Squad Rate</div>
+                                </div>
+                                <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; text-align: center;">
+                                    <div style="font-size: 20px; font-weight: 800; color: #667eea;">12.4K</div>
+                                    <div style="font-size: 11px; color: #666;">Points</div>
+                                </div>
+                            </div>
+
+                            <!-- Squad Members -->
+                            <div style="background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+                                <div style="font-size: 14px; font-weight: 700; color: #333; margin-bottom: 12px;">Squad Members</div>
+
+                                <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: white; border-radius: 8px; margin-bottom: 8px;">
+                                    <div style="width: 35px; height: 35px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px;">ST</div>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 13px; font-weight: 700; color: #333;">Sarah Tan (You)</div>
+                                        <div style="font-size: 11px; color: #666;">Expert • 2,847 pts</div>
+                                    </div>
+                                    <div style="font-size: 16px;">⭐</div>
+                                </div>
+
+                                <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: white; border-radius: 8px; margin-bottom: 8px;">
+                                    <div style="width: 35px; height: 35px; background: linear-gradient(135deg, #4caf50, #45a049); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px;">JL</div>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 13px; font-weight: 700; color: #333;">James Lee</div>
+                                        <div style="font-size: 11px; color: #666;">Master • 3,204 pts</div>
+                                    </div>
+                                    <div style="font-size: 16px;">🏆</div>
+                                </div>
+
+                                <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: white; border-radius: 8px;">
+                                    <div style="width: 35px; height: 35px; background: linear-gradient(135deg, #ff9800, #f57c00); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px;">AL</div>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 13px; font-weight: 700; color: #333;">Amy Lim</div>
+                                        <div style="font-size: 11px; color: #666;">Expert • 2,631 pts</div>
+                                    </div>
+                                    <div style="font-size: 16px;">🔥</div>
+                                </div>
+                            </div>
+
+                            <!-- Squad Chat Preview -->
+                            <div style="background: #f8f9fa; padding: 12px; border-radius: 10px;">
+                                <div style="font-size: 12px; font-weight: 700; color: #333; margin-bottom: 8px;">💬 Recent Squad Chat</div>
+                                <div style="font-size: 11px; color: #666; line-height: 1.5;">
+                                    <strong>James:</strong> "Great health insurance script in playbook!"<br>
+                                    <strong>Amy:</strong> "Just closed a Diamond lead! 🎉"
+                                </div>
+                            </div>
+
+                            <!-- Squad Challenge -->
+                            <div style="margin-top: 12px; padding: 12px; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); color: white; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 12px; font-weight: 700; margin-bottom: 5px;">⚡ SQUAD CHALLENGE</div>
+                                <div style="font-size: 11px; opacity: 0.95;">First to 300 conversions wins $5K!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements Screenshot -->
+                <div class="screenshot-container" style="padding: 25px;">
+                    <div class="screenshot-title">🏆 Screenshot 5: Achievements & Badges</div>
+                    <div class="phone-mockup" style="max-width: 100%;">
+                        <div class="phone-screen">
+                            <div style="padding: 15px; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); color: #333; border-radius: 12px; margin-bottom: 15px; text-align: center;">
+                                <div style="font-size: 18px; font-weight: 700;">🏆 Your Achievements</div>
+                                <div style="font-size: 13px; margin-top: 5px;">18 / 100+ Badges Unlocked</div>
+                            </div>
+
+                            <!-- Active Streaks -->
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 12px; margin-bottom: 15px;">
+                                <div style="font-size: 14px; font-weight: 700; margin-bottom: 12px;">🔥 Active Streaks</div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                    <div>
+                                        <div style="font-size: 11px; opacity: 0.9;">Daily Login</div>
+                                        <div style="font-size: 18px; font-weight: 800;">12 Days</div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div style="font-size: 11px; opacity: 0.9;">Conversion Streak</div>
+                                        <div style="font-size: 18px; font-weight: 800;">5 Days</div>
+                                    </div>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; font-size: 11px; text-align: center;">
+                                    +500 pts reward at Day 14! Keep going! 💪
+                                </div>
+                            </div>
+
+                            <!-- Badges Grid -->
+                            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 15px;">
+                                <div style="background: linear-gradient(135deg, #4caf50, #45a049); padding: 15px; border-radius: 10px; text-align: center; color: white; box-shadow: 0 3px 10px rgba(76,175,80,0.3);">
+                                    <div style="font-size: 28px; margin-bottom: 5px;">💎</div>
+                                    <div style="font-size: 10px; font-weight: 700;">Diamond<br>Hunter</div>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #2196f3, #1976d2); padding: 15px; border-radius: 10px; text-align: center; color: white; box-shadow: 0 3px 10px rgba(33,150,243,0.3);">
+                                    <div style="font-size: 28px; margin-bottom: 5px;">⚡</div>
+                                    <div style="font-size: 10px; font-weight: 700;">Speed<br>Demon</div>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #ff9800, #f57c00); padding: 15px; border-radius: 10px; text-align: center; color: white; box-shadow: 0 3px 10px rgba(255,152,0,0.3);">
+                                    <div style="font-size: 28px; margin-bottom: 5px;">🌅</div>
+                                    <div style="font-size: 10px; font-weight: 700;">Morning<br>Rush</div>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #9c27b0, #7b1fa2); padding: 15px; border-radius: 10px; text-align: center; color: white; box-shadow: 0 3px 10px rgba(156,39,176,0.3);">
+                                    <div style="font-size: 28px; margin-bottom: 5px;">🎯</div>
+                                    <div style="font-size: 10px; font-weight: 700;">Perfect<br>Week</div>
+                                </div>
+                                <div style="background: #e0e0e0; padding: 15px; border-radius: 10px; text-align: center; opacity: 0.5;">
+                                    <div style="font-size: 28px; margin-bottom: 5px;">🔒</div>
+                                    <div style="font-size: 10px; font-weight: 700; color: #666;">Locked</div>
+                                </div>
+                                <div style="background: #e0e0e0; padding: 15px; border-radius: 10px; text-align: center; opacity: 0.5;">
+                                    <div style="font-size: 28px; margin-bottom: 5px;">🔒</div>
+                                    <div style="font-size: 10px; font-weight: 700; color: #666;">Locked</div>
+                                </div>
+                                <div style="background: #e0e0e0; padding: 15px; border-radius: 10px; text-align: center; opacity: 0.5;">
+                                    <div style="font-size: 28px; margin-bottom: 5px;">🔒</div>
+                                    <div style="font-size: 10px; font-weight: 700; color: #666;">Locked</div>
+                                </div>
+                                <div style="background: #e0e0e0; padding: 15px; border-radius: 10px; text-align: center; opacity: 0.5;">
+                                    <div style="font-size: 28px; margin-bottom: 5px;">🔒</div>
+                                    <div style="font-size: 10px; font-weight: 700; color: #666;">Locked</div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Achievement -->
+                            <div style="background: linear-gradient(135deg, #4caf50 0%, #45a049 100%); color: white; padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                                <div style="font-size: 40px;">🎉</div>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 13px; font-weight: 700;">New Achievement Unlocked!</div>
+                                    <div style="font-size: 11px; opacity: 0.95; margin-top: 3px;">"Diamond Hunter" - Close 10 Diamond leads</div>
+                                    <div style="font-size: 11px; margin-top: 5px;">+1000 bonus points earned! 💰</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshot 6: Real-Time Coaching -->
+            <div class="screenshot-container">
+                <div class="screenshot-title">💬 Screenshot 6: Real-Time AI Coaching During Call</div>
+
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <!-- Call Header -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; margin-bottom: 20px;">
+                            <div>
+                                <div style="font-size: 20px; font-weight: 700;">📞 Active Call: Chen Wei</div>
+                                <div style="font-size: 14px; opacity: 0.9; margin-top: 5px;">Duration: 4:32 • Health Insurance</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 28px; font-weight: 800;">94%</div>
+                                <div style="font-size: 12px;">Propensity</div>
+                            </div>
+                        </div>
+
+                        <!-- Conversation Flow -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                            <!-- Left: Conversation -->
+                            <div>
+                                <div style="font-size: 16px; font-weight: 700; color: #333; margin-bottom: 15px;">💬 Conversation</div>
+
+                                <div style="background: #e3f2fd; padding: 12px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid #2196f3;">
+                                    <div style="font-size: 12px; color: #666; margin-bottom: 3px;">You</div>
+                                    <div style="font-size: 13px; color: #333;">"I understand your family needs comprehensive coverage..."</div>
+                                </div>
+
+                                <div style="background: #f5f5f5; padding: 12px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid #999;">
+                                    <div style="font-size: 12px; color: #666; margin-bottom: 3px;">Chen Wei</div>
+                                    <div style="font-size: 13px; color: #333;">"This sounds expensive. I'm not sure if I can afford $450/month..."</div>
+                                </div>
+
+                                <!-- AI Sentiment Analysis -->
+                                <div style="margin-top: 15px; padding: 12px; background: #fff3e0; border-radius: 10px; border-left: 4px solid #ff9800;">
+                                    <div style="font-size: 12px; font-weight: 700; color: #f57c00; margin-bottom: 5px;">🤖 AI Sentiment: Price Concern Detected</div>
+                                    <div style="font-size: 11px; color: #666;">Customer showing budget hesitation. See recommended responses →</div>
+                                </div>
+                            </div>
+
+                            <!-- Right: AI Coaching -->
+                            <div>
+                                <div style="font-size: 16px; font-weight: 700; color: #333; margin-bottom: 15px;">🎯 AI Coaching - Next Best Actions</div>
+
+                                <!-- Recommended Response -->
+                                <div style="background: linear-gradient(135deg, #4caf50 0%, #45a049 100%); color: white; padding: 15px; border-radius: 10px; margin-bottom: 12px;">
+                                    <div style="font-size: 13px; font-weight: 700; margin-bottom: 8px;">✅ RECOMMENDED: Break Down Cost</div>
+                                    <div style="font-size: 12px; line-height: 1.5; opacity: 0.95; font-style: italic;">
+                                        "I understand. Let's break it down - that's only $15 per day for your entire family's health protection. Less than a meal at a hawker center, but peace of mind for your kids' medical needs."
+                                    </div>
+                                    <div style="margin-top: 10px; padding: 8px; background: rgba(255,255,255,0.2); border-radius: 6px; font-size: 11px;">
+                                        💡 This approach converts 78% of price objections
+                                    </div>
+                                </div>
+
+                                <!-- Alternative Option -->
+                                <div style="background: #e3f2fd; padding: 12px; border-radius: 10px; margin-bottom: 12px; border-left: 4px solid #2196f3;">
+                                    <div style="font-size: 12px; font-weight: 700; color: #1976d2; margin-bottom: 5px;">Alternative: Flexible Payment</div>
+                                    <div style="font-size: 11px; color: #555; line-height: 1.4;">
+                                        "We offer quarterly payments to help with cash flow. You could also remove optional riders to bring it to $330/month."
+                                    </div>
+                                </div>
+
+                                <!-- Competitive Intelligence -->
+                                <div style="background: #f3e5f5; padding: 12px; border-radius: 10px; border-left: 4px solid #9c27b0;">
+                                    <div style="font-size: 12px; font-weight: 700; color: #7b1fa2; margin-bottom: 5px;">📊 Competitive Edge</div>
+                                    <div style="font-size: 11px; color: #555; line-height: 1.4;">
+                                        Our plan includes pediatric dental (NTUC doesn't). Claims processed in 5 days vs competitor 7-10 days.
+                                    </div>
+                                </div>
+
+                                <!-- Compliance Alert -->
+                                <div style="margin-top: 12px; padding: 10px; background: #fff3e0; border-radius: 8px; border-left: 3px solid #ff9800;">
+                                    <div style="font-size: 11px; color: #f57c00; font-weight: 700;">⚖️ Compliance Reminder</div>
+                                    <div style="font-size: 10px; color: #666; margin-top: 3px;">Disclose 12-month pre-existing waiting period before closing</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions Bar -->
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 2px solid #eee;">
+                            <button style="padding: 12px; background: #667eea; color: white; border: none; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;">📋 Send Proposal</button>
+                            <button style="padding: 12px; background: #4caf50; color: white; border: none; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;">📅 Schedule F2F</button>
+                            <button style="padding: 12px; background: #ff9800; color: white; border: none; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;">🤖 Ask Megatron</button>
+                            <button style="padding: 12px; background: #2196f3; color: white; border: none; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;">📝 Add Notes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Demo - AI Dossier -->
+        <div class="slide">
+            <h2 class="section-title">Demo: AI-Powered Lead Dossier</h2>
+            <p class="section-subtitle">Megatron-powered intelligence giving agents everything they need to succeed</p>
+
+            <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 40px; border-radius: 20px;">
+                <div style="background: white; border-radius: 15px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #eee;">
+                        <div>
+                            <h3 style="font-size: 28px; color: #333; margin-bottom: 5px;">Chen Wei</h3>
+                            <p style="color: #666; font-size: 16px;">Male, 38 years old • Software Engineer</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; border-radius: 10px; font-weight: 700;">
+                            💎 94% Match
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 30px;">
+                        <div>
+                            <h4 style="color: #667eea; font-size: 18px; margin-bottom: 15px;">📊 Profile Summary</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin: 10px 0; color: #555;"><strong>Income:</strong> $8,500/month</li>
+                                <li style="margin: 10px 0; color: #555;"><strong>Family:</strong> Married, 2 children (5, 8)</li>
+                                <li style="margin: 10px 0; color: #555;"><strong>Location:</strong> Tampines (HDB 5-room)</li>
+                                <li style="margin: 10px 0; color: #555;"><strong>Language:</strong> English, Mandarin</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 style="color: #667eea; font-size: 18px; margin-bottom: 15px;">🎯 Intent Analysis</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin: 10px 0; color: #555;">✅ Actively researching health insurance</li>
+                                <li style="margin: 10px 0; color: #555;">✅ Visited pricing page 3x this week</li>
+                                <li style="margin: 10px 0; color: #555;">✅ Downloaded policy comparison guide</li>
+                                <li style="margin: 10px 0; color: #555;">✅ High urgency (child illness recent)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; margin-bottom: 25px;">
+                        <h4 style="color: #667eea; font-size: 18px; margin-bottom: 15px;">🏥 Recommended Product Stack (Megatron)</h4>
+                        <div style="margin: 15px 0; padding: 15px; background: white; border-radius: 8px; border-left: 4px solid #667eea;">
+                            <strong style="color: #333; font-size: 16px;">1. HealthShield Gold Plus + Rider A/B/C</strong>
+                            <p style="color: #666; margin: 10px 0; font-size: 14px;"><strong>Why:</strong> Comprehensive family coverage with pediatric benefits. Pre-existing conditions covered after 12 months.</p>
+                            <p style="color: #667eea; font-weight: 600; font-size: 14px;">Premium: $450/month (family plan)</p>
+                        </div>
+                        <div style="margin: 15px 0; padding: 15px; background: white; border-radius: 8px; border-left: 4px solid #667eea;">
+                            <strong style="color: #333; font-size: 16px;">2. Term Life Insurance (20Y, $500K)</strong>
+                            <p style="color: #666; margin: 10px 0; font-size: 14px;"><strong>Why:</strong> Family protection aligned with mortgage and children's education timeline.</p>
+                            <p style="color: #667eea; font-weight: 600; font-size: 14px;">Premium: $85/month</p>
+                        </div>
+                        <div style="margin: 15px 0; padding: 15px; background: white; border-radius: 8px; border-left: 4px solid #ffc107;">
+                            <strong style="color: #333; font-size: 16px;">3. OPTIONAL: Critical Illness Rider</strong>
+                            <p style="color: #666; margin: 10px 0; font-size: 14px;"><strong>Why:</strong> Enhanced protection for serious conditions. Can be positioned as peace of mind.</p>
+                            <p style="color: #f57c00; font-weight: 600; font-size: 14px;">Premium: +$120/month</p>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;">
+                        <div>
+                            <h4 style="color: #667eea; font-size: 18px; margin-bottom: 15px;">💬 Opening Line</h4>
+                            <p style="color: #555; font-style: italic; line-height: 1.6; padding: 15px; background: #fffbea; border-radius: 8px; border-left: 4px solid #ffc107;">
+                                "Hi Chen, I understand you've been researching health coverage for your family.
+                                With your children's needs in mind, I'd love to show you how our HealthShield plan
+                                provides comprehensive pediatric coverage that many parents in Tampines find valuable."
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 style="color: #667eea; font-size: 18px; margin-bottom: 15px;">⚠️ Predicted Objections</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin: 12px 0; padding: 12px; background: #fff3e0; border-radius: 6px; font-size: 14px; color: #555;">
+                                    <strong style="color: #f57c00;">Price concern:</strong> Break down to $15/day
+                                </li>
+                                <li style="margin: 12px 0; padding: 12px; background: #fff3e0; border-radius: 6px; font-size: 14px; color: #555;">
+                                    <strong style="color: #f57c00;">Competitor comparison:</strong> Highlight 5-day claims vs 7-day
+                                </li>
+                                <li style="margin: 12px 0; padding: 12px; background: #fff3e0; border-radius: 6px; font-size: 14px; color: #555;">
+                                    <strong style="color: #f57c00;">Need time to think:</strong> Offer trial period & free consultation
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px; padding: 20px; background: #e3f2fd; border-radius: 10px; border-left: 4px solid #2196f3;">
+                        <h4 style="color: #1976d2; font-size: 16px; margin-bottom: 10px;">⚖️ Compliance Notes</h4>
+                        <p style="color: #555; font-size: 14px; line-height: 1.6;">
+                            ✓ Disclose 12-month pre-existing waiting period<br>
+                            ✓ Financial Needs Analysis (FNA) required<br>
+                            ✓ 14-day free-look cooling-off period applicable
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Screenshot - News & Market Intelligence Hub -->
+        <div class="slide">
+            <h2 class="section-title">Screenshot 7: Market Intelligence Hub</h2>
+            <p class="section-subtitle">Real-time news awareness keeping agents market-ready</p>
+
+            <div class="screenshot-container">
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <div style="background: white; border-radius: 15px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <!-- Header -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; margin-bottom: 25px;">
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700;">📰 Market Intelligence Hub</div>
+                                <div style="font-size: 14px; opacity: 0.9; margin-top: 5px;">Latest insurance news with AI impact analysis</div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600;">
+                                Updated 5 min ago
+                            </div>
+                        </div>
+
+                        <!-- News Feed -->
+                        <div style="display: grid; gap: 20px;">
+                            <!-- News Item 1 -->
+                            <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 5px solid #ff6b6b;">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                                    <div style="font-size: 16px; font-weight: 700; color: #333;">🔥 Trending: MAS Issues New Healthcare Coverage Guidelines</div>
+                                    <div style="background: #ff6b6b; color: white; padding: 4px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">HOT</div>
+                                </div>
+                                <div style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 12px;">
+                                    MAS released new circular on outpatient coverage reforms requiring enhanced disclosures for pre-existing conditions. Effective Dec 2024.
+                                </div>
+                                <div style="background: #fffbea; padding: 12px; border-radius: 8px; border-left: 3px solid #ffc107; margin-bottom: 12px;">
+                                    <div style="font-size: 12px; font-weight: 700; color: #f57c00; margin-bottom: 5px;">💡 What This Means for Agents:</div>
+                                    <div style="font-size: 12px; color: #555; line-height: 1.5;">
+                                        Emphasize that AIA HealthShield provides comprehensive coverage beyond CPF-approved limits. Highlight our 12-month pre-existing waiting period (industry standard) and strong compliance record.
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 10px;">
+                                    <div style="font-size: 11px; color: #999;">📅 Today, 9:30 AM</div>
+                                    <div style="font-size: 11px; color: #999;">📍 MAS Official</div>
+                                    <button style="background: #667eea; color: white; border: none; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer;">Use in Script</button>
+                                </div>
+                            </div>
+
+                            <!-- News Item 2 -->
+                            <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 5px solid #2196f3;">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                                    <div style="font-size: 16px; font-weight: 700; color: #333;">🧩 Competitor Watch: NTUC Launches "Life360" Product</div>
+                                    <div style="background: #2196f3; color: white; padding: 4px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">COMPETITOR</div>
+                                </div>
+                                <div style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 12px;">
+                                    NTUC Income unveiled Life360, a bundled life + health product targeting families. Price: $420/month. Campaign launch: Oct 15.
+                                </div>
+                                <div style="background: #e3f2fd; padding: 12px; border-radius: 8px; border-left: 3px solid #2196f3; margin-bottom: 12px;">
+                                    <div style="font-size: 12px; font-weight: 700; color: #1976d2; margin-bottom: 5px;">💡 What This Means for Agents:</div>
+                                    <div style="font-size: 12px; color: #555; line-height: 1.5;">
+                                        Counter with AIA Smart Protect advantages: Faster claims processing (5 days vs 7-10 days), flexible riders, and superior pediatric coverage. Position premium difference as value-for-money.
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 10px;">
+                                    <div style="font-size: 11px; color: #999;">📅 Yesterday</div>
+                                    <div style="font-size: 11px; color: #999;">📍 Business Times</div>
+                                    <button style="background: #667eea; color: white; border: none; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer;">Compare in Dossier</button>
+                                </div>
+                            </div>
+
+                            <!-- News Item 3 -->
+                            <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 5px solid #4caf50;">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                                    <div style="font-size: 16px; font-weight: 700; color: #333;">💰 Market Trend: Rising Interest in Critical Illness Coverage</div>
+                                    <div style="background: #4caf50; color: white; padding: 4px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">OPPORTUNITY</div>
+                                </div>
+                                <div style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 12px;">
+                                    LIA survey shows 68% uptick in critical illness queries among 30-45 age group. Driven by pandemic awareness and aging population.
+                                </div>
+                                <div style="background: #e8f5e9; padding: 12px; border-radius: 8px; border-left: 3px solid #4caf50; margin-bottom: 12px;">
+                                    <div style="font-size: 12px; font-weight: 700; color: #2e7d32; margin-bottom: 5px;">💡 What This Means for Agents:</div>
+                                    <div style="font-size: 12px; color: #555; line-height: 1.5;">
+                                        Perfect timing to upsell Critical Illness Riders to existing health insurance customers. Lead conversations with peace-of-mind positioning and early detection coverage benefits.
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 10px;">
+                                    <div style="font-size: 11px; color: #999;">📅 Oct 10</div>
+                                    <div style="font-size: 11px; color: #999;">📍 LIA Singapore</div>
+                                    <button style="background: #667eea; color: white; border: none; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer;">View Full Article</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Manager Dashboard -->
+        <div class="slide">
+            <h2 class="section-title">Manager Command Center</h2>
+            <p class="section-subtitle">Real-time visibility and actionable insights for sales leaders</p>
+
+            <div class="dashboard-preview">
+                <div class="dashboard-header">📊 Performance Dashboard - Live View</div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="dashboard-metric">17.2%</div>
+                        <div class="dashboard-label">Conversion Rate</div>
+                        <div class="dashboard-trend">↑ +5.2% vs last month</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-metric">4.2 min</div>
+                        <div class="dashboard-label">Avg Response Time</div>
+                        <div class="dashboard-trend">↓ -68% improvement</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-metric">16.8</div>
+                        <div class="dashboard-label">Leads/Agent/Day</div>
+                        <div class="dashboard-trend">↑ +110% productivity</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-metric">89%</div>
+                        <div class="dashboard-label">Lead Grab Rate</div>
+                        <div class="dashboard-trend">↑ +19% engagement</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-metric">82%</div>
+                        <div class="dashboard-label">Agent Satisfaction</div>
+                        <div class="dashboard-trend">↑ +37 points</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-metric">4.6 ⭐</div>
+                        <div class="dashboard-label">Customer Rating</div>
+                        <div class="dashboard-trend">↑ +0.8 improvement</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 25px; background: rgba(255,255,255,0.1); border-radius: 12px;">
+                    <h4 style="font-size: 20px; margin-bottom: 20px; color: #ffc107;">🎯 Key Insights (AI-Generated)</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 15px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; border-left: 3px solid #4caf50;">
+                            <strong>Diamond leads converting at 78%</strong> - Consider increasing allocation
+                        </li>
+                        <li style="margin: 15px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; border-left: 3px solid #2196f3;">
+                            <strong>East Region team up 25%</strong> - Squad "East Eagles" leading with collaboration strategies
+                        </li>
+                        <li style="margin: 15px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; border-left: 3px solid #ff9800;">
+                            <strong>Weekend surge pricing working</strong> - 40% increase in weekend coverage
+                        </li>
+                        <li style="margin: 15px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; border-left: 3px solid #9c27b0;">
+                            <strong>Agent "Sarah T" maintaining 12-day streak</strong> - Consider recognition/case study
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Expected Impact -->
+        <div class="slide" id="impact">
+            <h2 class="section-title">Projected Business Impact</h2>
+            <p class="section-subtitle">Measurable outcomes across key performance indicators</p>
+
+            <div style="margin: 40px 0;">
+                <h3 style="font-size: 26px; color: #667eea; margin-bottom: 30px; text-align: center;">
+                    Primary Business Metrics (12 Months)
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                    <div style="background: linear-gradient(135deg, #4caf50 0%, #45a049 100%); color: white; padding: 35px; border-radius: 15px; text-align: center;">
+                        <div style="font-size: 20px; margin-bottom: 10px; opacity: 0.9;">Conversion Rate</div>
+                        <div style="font-size: 56px; font-weight: 800; margin: 15px 0;">+67%</div>
+                        <div style="font-size: 18px; opacity: 0.9;">From 12% to 20%</div>
+                        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3); font-size: 16px;">
+                            Millions in additional revenue
+                        </div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%); color: white; padding: 35px; border-radius: 15px; text-align: center;">
+                        <div style="font-size: 20px; margin-bottom: 10px; opacity: 0.9;">Lead Response Time</div>
+                        <div style="font-size: 56px; font-weight: 800; margin: 15px 0;">-99%</div>
+                        <div style="font-size: 18px; opacity: 0.9;">From 2.5 hrs to <2 min</div>
+                        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3); font-size: 16px;">
+                            Strike while leads are hot
+                        </div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%); color: white; padding: 35px; border-radius: 15px; text-align: center;">
+                        <div style="font-size: 20px; margin-bottom: 10px; opacity: 0.9;">Agent Productivity</div>
+                        <div style="font-size: 56px; font-weight: 800; margin: 15px 0;">+125%</div>
+                        <div style="font-size: 18px; opacity: 0.9;">From 8 to 18 leads/day</div>
+                        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3); font-size: 16px;">
+                            More efficient operations
+                        </div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%); color: white; padding: 35px; border-radius: 15px; text-align: center;">
+                        <div style="font-size: 20px; margin-bottom: 10px; opacity: 0.9;">Cost per Conversion</div>
+                        <div style="font-size: 56px; font-weight: 800; margin: 15px 0;">-44%</div>
+                        <div style="font-size: 18px; opacity: 0.9;">From $850 to $480</div>
+                        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3); font-size: 16px;">
+                            Significant cost savings
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin: 50px 0;">
+                <h3 style="font-size: 26px; color: #667eea; margin-bottom: 30px; text-align: center;">
+                    Agent Experience Transformation
+                </h3>
+
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-icon">😊</div>
+                        <div class="impact-value">80%</div>
+                        <div class="impact-label">Lead Quality Satisfaction<br>(from 45%)</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">💪</div>
+                        <div class="impact-value">4.5/5</div>
+                        <div class="impact-label">Agent Confidence Score<br>(from 3.2)</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">📱</div>
+                        <div class="impact-value">90%</div>
+                        <div class="impact-label">Platform Adoption Rate</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">🎯</div>
+                        <div class="impact-value">85%</div>
+                        <div class="impact-label">Routing Accuracy</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">⚡</div>
+                        <div class="impact-value">60%</div>
+                        <div class="impact-label">Active 7-Day Streaks</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 40px; border-radius: 20px; margin-top: 50px;">
+                <h3 style="font-size: 24px; color: #333; margin-bottom: 25px; text-align: center;">💰 ROI Projection</h3>
+                <div style="text-align: center; font-size: 48px; font-weight: 800; color: #667eea; margin: 30px 0;">
+                    3.5× Return in Year 1
+                </div>
+                <p style="text-align: center; font-size: 18px; color: #555; line-height: 1.8;">
+                    Estimated additional revenue from improved conversions significantly outweighs platform investment,
+                    with ROI accelerating in subsequent years as the AI learns and optimizes.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Implementation Roadmap -->
+        <div class="slide" id="roadmap">
+            <h2 class="section-title">Implementation Roadmap</h2>
+            <p class="section-subtitle">Phased approach with pilot validation before full deployment</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="phase-title">Phase 1: Core Routing Engine</div>
+                        <div class="phase-duration">8 weeks | Dec 2024</div>
+                        <div class="phase-description">
+                            Build intelligent lead routing with propensity scoring, agent matching, and basic mobile app.
+                            Foundation for all subsequent features.
+                            <div style="margin-top: 15px; padding: 12px; background: rgba(102,126,234,0.1); border-radius: 8px; font-size: 14px;">
+                                <strong>Deliverables:</strong> API integration, ML models, mobile app v1, admin dashboard
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="phase-title">Phase 2: AI-Powered Dossiers</div>
+                        <div class="phase-duration">6 weeks | Feb 2025</div>
+                        <div class="phase-description">
+                            Integrate Megatron for comprehensive lead intelligence with product recommendations,
+                            intent analysis, and compliance awareness.
+                            <div style="margin-top: 15px; padding: 12px; background: rgba(102,126,234,0.1); border-radius: 8px; font-size: 14px;">
+                                <strong>Deliverables:</strong> LLM integration, dossier generation, enhanced UI, feedback mechanism
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="phase-title">Phase 3: Pilot Deployment</div>
+                        <div class="phase-duration">8 weeks | Apr 2025</div>
+                        <div class="phase-description">
+                            Deploy to 200-300 agents in Central Singapore. Measure impact, gather feedback,
+                            and validate business case before scaling.
+                            <div style="margin-top: 15px; padding: 12px; background: rgba(76,175,80,0.1); border-radius: 8px; font-size: 14px;">
+                                <strong>Success Target:</strong> 20% conversion improvement, <10 min response, 75% adoption
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="phase-title">Phase 4: Gamification & Marketplace</div>
+                        <div class="phase-duration">6 weeks | Jun 2025</div>
+                        <div class="phase-description">
+                            Launch full gamification features: marketplace, tiering, streaks, badges, squads,
+                            heat maps, and achievement system.
+                            <div style="margin-top: 15px; padding: 12px; background: rgba(102,126,234,0.1); border-radius: 8px; font-size: 14px;">
+                                <strong>Deliverables:</strong> Marketplace UI, point system, leaderboards, squad features, geo-gaming
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="phase-title">Phase 5: Full Rollout</div>
+                        <div class="phase-duration">12 weeks | Q3 2025</div>
+                        <div class="phase-description">
+                            Deploy to all 6,000+ agents across Singapore with regional phased approach.
+                            Comprehensive training, 24/7 support, and continuous optimization.
+                            <div style="margin-top: 15px; padding: 12px; background: rgba(255,193,7,0.1); border-radius: 8px; font-size: 14px;">
+                                <strong>Strategy:</strong> East → West → North rollout with dedicated change management
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; padding: 35px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px; text-align: center;">
+                <h3 style="font-size: 28px; margin-bottom: 15px;">🎯 Target Launch: Q2 2025</h3>
+                <p style="font-size: 18px; opacity: 0.95;">
+                    Aggressive but achievable timeline with pilot validation built in
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 11: Technical Architecture Highlight -->
+        <div class="slide">
+            <h2 class="section-title">Technical Foundation</h2>
+            <p class="section-subtitle">Enterprise-grade, scalable architecture built for 10K+ concurrent agents</p>
+
+            <div style="margin: 40px 0;">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px;">
+                        <div style="font-size: 40px; text-align: center; margin-bottom: 15px;">🧠</div>
+                        <h3 style="font-size: 22px; text-align: center; margin-bottom: 15px;">AI/ML Core</h3>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; opacity: 0.95;">
+                            <li style="margin: 10px 0;">✓ Propensity scoring models</li>
+                            <li style="margin: 10px 0;">✓ GPT-4 / Claude integration</li>
+                            <li style="margin: 10px 0;">✓ Intent classification</li>
+                            <li style="margin: 10px 0;">✓ Real-time recommendations</li>
+                            <li style="margin: 10px 0;">✓ Continuous learning pipeline</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px;">
+                        <div style="font-size: 40px; text-align: center; margin-bottom: 15px;">💾</div>
+                        <h3 style="font-size: 22px; text-align: center; margin-bottom: 15px;">Data Layer</h3>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; opacity: 0.95;">
+                            <li style="margin: 10px 0;">✓ PostgreSQL (operational)</li>
+                            <li style="margin: 10px 0;">✓ Redis (real-time cache)</li>
+                            <li style="margin: 10px 0;">✓ Kafka (event streaming)</li>
+                            <li style="margin: 10px 0;">✓ Databricks (analytics)</li>
+                            <li style="margin: 10px 0;">✓ Pinecone (vector search)</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px;">
+                        <div style="font-size: 40px; text-align: center; margin-bottom: 15px;">🔐</div>
+                        <h3 style="font-size: 22px; text-align: center; margin-bottom: 15px;">Security</h3>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; opacity: 0.95;">
+                            <li style="margin: 10px 0;">✓ PDPA/GDPR compliant</li>
+                            <li style="margin: 10px 0;">✓ End-to-end encryption</li>
+                            <li style="margin: 10px 0;">✓ Role-based access control</li>
+                            <li style="margin: 10px 0;">✓ Complete audit logging</li>
+                            <li style="margin: 10px 0;">✓ Azure AD integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin: 50px 0;">
+                <h3 style="font-size: 26px; color: #667eea; margin-bottom: 30px; text-align: center;">
+                    Performance Targets
+                </h3>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">&lt;30s</div>
+                        <div class="stat-label">Lead Assignment Time</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">&lt;2s</div>
+                        <div class="stat-label">Dossier Generation</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">&lt;200ms</div>
+                        <div class="stat-label">API Response (p95)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">System Uptime</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 35px; border-radius: 15px;">
+                <h3 style="font-size: 22px; color: #333; margin-bottom: 20px; text-align: center;">📊 Scalability</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; text-align: center;">
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: #667eea;">10K+</div>
+                        <div style="font-size: 14px; color: #666; margin-top: 5px;">Concurrent Agents</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: #667eea;">100K+</div>
+                        <div style="font-size: 14px; color: #666; margin-top: 5px;">Leads per Day</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: #667eea;">Elastic</div>
+                        <div style="font-size: 14px; color: #666; margin-top: 5px;">Auto-scaling</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Competitive Advantage -->
+        <div class="slide">
+            <h2 class="section-title">Our Competitive Edge</h2>
+            <p class="section-subtitle">Why this platform positions AIA as the market leader in agent enablement</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">AI-First Architecture</h3>
+                    <p class="feature-description">
+                        Not a bolt-on solution. AI embedded at every layer—from routing to coaching to learning.
+                        Megatron knowledge corpus ensures product-aware, compliance-conscious recommendations.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3 class="feature-title">Gamification Innovation</h3>
+                    <p class="feature-description">
+                        First insurance platform to apply marketplace dynamics and gaming mechanics at scale.
+                        Proven engagement patterns from ride-sharing and gig economy adapted for sales.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Real-Time Operations</h3>
+                    <p class="feature-description">
+                        Sub-minute lead assignment and instant dossier generation. Competitors still operate
+                        on batch processes with hours of latency.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔁</div>
+                    <h3 class="feature-title">Continuous Learning</h3>
+                    <p class="feature-description">
+                        Closed-loop system that gets smarter every day. Two-way ratings, outcome tracking,
+                        and automated model retraining create compounding advantages.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Human-Centered Design</h3>
+                    <p class="feature-description">
+                        Built with agents, not for agents. Mobile-first experience with intuitive UX that
+                        field teams actually want to use. 90% adoption target achievable.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3 class="feature-title">Enterprise Security</h3>
+                    <p class="feature-description">
+                        Bank-grade security and full regulatory compliance from day one. PDPA/GDPR ready
+                        with complete audit trails and explainable AI.
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; padding: 40px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 15px;">
+                <h3 style="font-size: 26px; color: #333; margin-bottom: 25px; text-align: center;">
+                    🏆 Market Differentiation
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                    <div style="background: white; padding: 30px; border-radius: 12px; border-left: 5px solid #ff6b6b;">
+                        <h4 style="color: #ff6b6b; font-size: 20px; margin-bottom: 15px;">❌ Competitors</h4>
+                        <ul style="list-style: none; padding: 0; color: #555;">
+                            <li style="margin: 12px 0;">→ Static CRM integrations</li>
+                            <li style="margin: 12px 0;">→ Manual lead assignment</li>
+                            <li style="margin: 12px 0;">→ No AI guidance</li>
+                            <li style="margin: 12px 0;">→ Generic training materials</li>
+                            <li style="margin: 12px 0;">→ Batch processing delays</li>
+                            <li style="margin: 12px 0;">→ Low agent engagement</li>
+                        </ul>
+                    </div>
+                    <div style="background: white; padding: 30px; border-radius: 12px; border-left: 5px solid #4caf50;">
+                        <h4 style="color: #4caf50; font-size: 20px; margin-bottom: 15px;">✅ AIA Platform</h4>
+                        <ul style="list-style: none; padding: 0; color: #555;">
+                            <li style="margin: 12px 0;">→ AI-orchestrated intelligence</li>
+                            <li style="margin: 12px 0;">→ Instant, optimal matching</li>
+                            <li style="margin: 12px 0;">→ Real-time coaching</li>
+                            <li style="margin: 12px 0;">→ Personalized dossiers</li>
+                            <li style="margin: 12px 0;">→ Sub-minute operations</li>
+                            <li style="margin: 12px 0;">→ 90% adoption target</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Key Features Recap -->
+        <div class="slide">
+            <h2 class="section-title">12 Breakthrough Features</h2>
+            <p class="section-subtitle">Comprehensive platform addressing every aspect of the lead journey</p>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin: 40px 0;">
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 5px solid #667eea;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">⚡</div>
+                    <strong style="font-size: 16px; color: #333;">Intelligent Lead Routing</strong>
+                    <p style="font-size: 13px; color: #666; margin-top: 8px;">AI propensity scoring & instant agent matching</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 5px solid #667eea;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🗂️</div>
+                    <strong style="font-size: 16px; color: #333;">AI-Generated Dossiers</strong>
+                    <p style="font-size: 13px; color: #666; margin-top: 8px;">Contextual briefings with intent analysis</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 5px solid #667eea;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🤖</div>
+                    <strong style="font-size: 16px; color: #333;">Megatron Integration</strong>
+                    <p style="font-size: 13px; color: #666; margin-top: 8px;">Product-aware, compliance-ready recommendations</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 5px solid #667eea;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">💬</div>
+                    <strong style="font-size: 16px; color: #333;">Real-Time Coaching</strong>
+                    <p style="font-size: 13px; color: #666; margin-top: 8px;">In-conversation guidance & objection handling</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 5px solid #667eea;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🎯</div>
+                    <strong style="font-size: 16px; color: #333;">Lead Marketplace</strong>
+                    <p style="font-size: 13px; color: #666; margin-top: 8px;">"Grab That Lead" gamified experience</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 5px solid #667eea;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">💎</div>
+                    <strong style="font-size: 16px; color: #333;">Dynamic Lead Tiering</strong>
+                    <p style="font-size: 13px; color: #666; margin-top: 8px;">Diamond/Gold/Silver/Bronze with multipliers</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 5px solid #667eea;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🗺️</div>
+                    <strong style="font-size: 16px; color: #333;">Territory Heat Maps</strong>
+                    <p style="font-size: 13px; color: #666; margin-top: 8px;">Geographic gaming with proximity bonuses</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 5px solid #667eea;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🔥</div>
+                    <strong style="font-size: 16px; color: #333;">Streak Bonuses & Achievements</strong>
+                    <p style="font-size: 13px; color: #666; margin-top: 8px;">100+ badges, daily challenges, power hours</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 5px solid #667eea;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">👁️</div>
+                    <strong style="font-size: 16px; color: #333;">Lead Peek Intelligence</strong>
+                    <p style="font-size: 13px; color: #666; margin-top: 8px;">Premium preview with strategic insights</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 5px solid #667eea;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">👥</div>
+                    <strong style="font-size: 16px; color: #333;">Squad Teams & Competition</strong>
+                    <p style="font-size: 13px; color: #666; margin-top: 8px;">Collaborative gaming with team bonuses</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 5px solid #667eea;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">⭐</div>
+                    <strong style="font-size: 16px; color: #333;">Two-Way Rating System</strong>
+                    <p style="font-size: 13px; color: #666; margin-top: 8px;">Mutual accountability & quality feedback</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 5px solid #667eea;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">📰</div>
+                    <strong style="font-size: 16px; color: #333;">Market Intelligence Hub</strong>
+                    <p style="font-size: 13px; color: #666; margin-top: 8px;">Real-time news with impact analysis</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Call to Action -->
+        <div class="slide">
+            <div class="cta-section">
+                <div class="cta-title">Ready to Transform Our Sales Force</div>
+                <div class="cta-description">
+                    From 12% to 20% conversion. From 2.5 hours to 2 minutes response time.
+                    From frustrated agents to empowered experts.
+                </div>
+
+                <div style="margin: 50px 0;">
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 900px; margin: 0 auto;">
+                        <div style="background: rgba(255,255,255,0.2); padding: 25px; border-radius: 12px; backdrop-filter: blur(10px);">
+                            <div style="font-size: 42px; font-weight: 800; margin-bottom: 5px;">Phase 1</div>
+                            <div style="font-size: 16px; opacity: 0.95;">Start Dec 2024</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.2); padding: 25px; border-radius: 12px; backdrop-filter: blur(10px);">
+                            <div style="font-size: 42px; font-weight: 800; margin-bottom: 5px;">Pilot</div>
+                            <div style="font-size: 16px; opacity: 0.95;">Apr 2025</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.2); padding: 25px; border-radius: 12px; backdrop-filter: blur(10px);">
+                            <div style="font-size: 42px; font-weight: 800; margin-bottom: 5px;">Launch</div>
+                            <div style="font-size: 16px; opacity: 0.95;">Q3 2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="cta-button">Approve for Development →</a>
+
+                <div style="margin-top: 50px; font-size: 16px; opacity: 0.9;">
+                    Questions? Let's discuss implementation details, budget, and next steps
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Thank You -->
+        <div class="slide title-slide">
+            <h1 style="font-size: 48px;">Thank You</h1>
+            <div style="font-size: 64px; margin: 40px 0;">🙏</div>
+            <p style="font-size: 24px; margin-bottom: 30px;">
+                AI-Orchestrated Lead Engagement Platform
+            </p>
+            <p style="font-size: 18px; opacity: 0.9;">
+                Transforming every AIA agent into a conversion expert<br>
+                through intelligent orchestration and gamified engagement
+            </p>
+            <div style="margin-top: 60px; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px); max-width: 600px; margin-left: auto; margin-right: auto;">
+                <p style="font-size: 16px; margin-bottom: 15px;">Prepared by:</p>
+                <p style="font-size: 20px; font-weight: 700;">Digital Transformation & AI Strategy Office</p>
+                <p style="font-size: 16px; margin-top: 15px;">AIA Singapore Innovation Council</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add active state to nav links on scroll
+        window.addEventListener('scroll', () => {
+            const slides = document.querySelectorAll('.slide');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+            slides.forEach(slide => {
+                const slideTop = slide.offsetTop;
+                if (window.pageYOffset >= slideTop - 100) {
+                    current = slide.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#667eea';
+                    link.style.color = 'white';
+                }
+            });
+        });
+
+        // Print functionality
+        function printPresentation() {
+            window.print();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+                e.preventDefault();
+                window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                e.preventDefault();
+                window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>

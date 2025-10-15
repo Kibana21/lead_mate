@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(open /Users/kartik/Documents/Work/Projects/lead_mate/interactive-lead-platform.html)"
+      "Bash(open /Users/kartik/Documents/Work/Projects/lead_mate/interactive-lead-platform.html)",
+      "Bash(open:*)"
     ],
     "deny": [],
     "ask": []
